@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://b8j4o0xptxrfy"]
+
+[ext_resource type="Texture2D" uid="uid://c3nu00hwoh3ye" path="res://assets/protag_walk_sprite_sheet.png" id="1_o08dy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyrcp"]
+atlas = ExtResource("1_o08dy")
+region = Rect2(0, 0, 397, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75s7a"]
+atlas = ExtResource("1_o08dy")
+region = Rect2(397, 0, 397, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v55og"]
+atlas = ExtResource("1_o08dy")
+region = Rect2(794, 0, 397, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvhtu"]
+atlas = ExtResource("1_o08dy")
+region = Rect2(1191, 0, 397, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a84rs"]
+atlas = ExtResource("1_o08dy")
+region = Rect2(1588, 0, 397, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfr3u"]
+atlas = ExtResource("1_o08dy")
+region = Rect2(0, 712, 397, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2ode"]
+atlas = ExtResource("1_o08dy")
+region = Rect2(397, 712, 397, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqo0r"]
+atlas = ExtResource("1_o08dy")
+region = Rect2(794, 712, 397, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ykei"]
+atlas = ExtResource("1_o08dy")
+region = Rect2(1191, 712, 397, 712)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgfp1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyrcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75s7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v55og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvhtu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a84rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfr3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2ode")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqo0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ykei")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tf2j"]
+size = Vector2(115, 581)
+
+[node name="Protag_Dr_Evelyn_Morgan" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -303)
+sprite_frames = SubResource("SpriteFrames_hgfp1")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -298.5)
+shape = SubResource("RectangleShape2D_4tf2j")
