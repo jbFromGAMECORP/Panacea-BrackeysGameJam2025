@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://csjakl35674r5"]
+[gd_scene load_steps=2 format=3 uid="uid://csjakl35674r5"]
+
+[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/dr_evelyn_morgan.tscn" id="1_gj8rv"]
 
 [node name="PanaceaGame" type="Node2D"]
+
+[node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("1_gj8rv")]
+position = Vector2(-2, 7)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-6, -319)
