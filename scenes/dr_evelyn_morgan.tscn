@@ -71,6 +71,7 @@ animations = [{
 size = Vector2(115, 581)
 
 [node name="Protag_Dr_Evelyn_Morgan" type="CharacterBody2D"]
+z_index = 5
 position = Vector2(-1, 0)
 script = ExtResource("1_7lbhw")
 
