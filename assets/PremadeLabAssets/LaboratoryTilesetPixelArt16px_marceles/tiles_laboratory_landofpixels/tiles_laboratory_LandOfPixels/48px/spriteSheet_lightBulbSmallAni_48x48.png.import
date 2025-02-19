@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1y8gu3a57vvb"
-path="res://.godot/imported/spriteSheet_lightBulbSmallAnimation_48x48.png-ecd247c2045f2671e1f1a6f70a161c02.ctex"
+path="res://.godot/imported/spriteSheet_lightBulbSmallAni_48x48.png-9c4ebfead9fa0a8fd7346d0d3decd078.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PremadeLabAssets/LaboratoryTilesetPixelArt16px_marceles/tiles_laboratory_landofpixels/tiles_laboratory_LandOfPixels/48px/spriteSheet_lightBulbSmallAnimation_48x48.png"
-dest_files=["res://.godot/imported/spriteSheet_lightBulbSmallAnimation_48x48.png-ecd247c2045f2671e1f1a6f70a161c02.ctex"]
+source_file="res://assets/PremadeLabAssets/LaboratoryTilesetPixelArt16px_marceles/tiles_laboratory_landofpixels/tiles_laboratory_LandOfPixels/48px/spriteSheet_lightBulbSmallAni_48x48.png"
+dest_files=["res://.godot/imported/spriteSheet_lightBulbSmallAni_48x48.png-9c4ebfead9fa0a8fd7346d0d3decd078.ctex"]
 
 [params]
 
