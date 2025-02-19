@@ -474,6 +474,24 @@ physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_ctsnb")
 sources/4 = SubResource("TileSetAtlasSource_kmpje")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0kftg"]
+distance = -2.65956
+
+[sub_resource type="Animation" id="Animation_hiw0w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1007, 51)]
+}
+
 [sub_resource type="Animation" id="Animation_vh7dt"]
 resource_name = "move"
 length = 2.0
@@ -491,29 +509,11 @@ tracks/0/keys = {
 "values": [Vector2(1007, 51), Vector2(1615, 51)]
 }
 
-[sub_resource type="Animation" id="Animation_hiw0w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1007, 51)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iltck"]
 _data = {
 "RESET": SubResource("Animation_hiw0w"),
 "move": SubResource("Animation_vh7dt")
 }
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0kftg"]
-distance = -2.65956
 
 [node name="PanaceaGame" type="Node2D"]
 
@@ -533,27 +533,6 @@ limit_bottom = 230
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="Platform" parent="." instance=ExtResource("4_e41tm")]
-position = Vector2(118, -676)
-
-[node name="Moving_Platform" parent="." instance=ExtResource("4_e41tm")]
-position = Vector2(1007, 51)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Moving_Platform"]
-libraries = {
-"": SubResource("AnimationLibrary_iltck")
-}
-autoplay = "move"
-
-[node name="Coin" parent="." instance=ExtResource("5_k4okr")]
-position = Vector2(565, -40)
-
-[node name="Coin2" parent="." instance=ExtResource("5_k4okr")]
-position = Vector2(724, -38)
-
-[node name="Coin3" parent="." instance=ExtResource("5_k4okr")]
-position = Vector2(826, -39)
-
 [node name="Killzone" parent="." instance=ExtResource("6_8p30a")]
 position = Vector2(-1396, 938)
 scale = Vector2(8.64, 7.52)
@@ -561,3 +540,28 @@ scale = Vector2(8.64, 7.52)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(312.269, -66.0904)
 shape = SubResource("WorldBoundaryShape2D_0kftg")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("5_k4okr")]
+position = Vector2(565, -40)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("5_k4okr")]
+position = Vector2(724, -38)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("5_k4okr")]
+position = Vector2(826, -39)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("4_e41tm")]
+position = Vector2(118, -676)
+
+[node name="Moving_Platform" parent="Platforms" instance=ExtResource("4_e41tm")]
+position = Vector2(1007, 51)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Moving_Platform"]
+libraries = {
+"": SubResource("AnimationLibrary_iltck")
+}
+autoplay = "move"
