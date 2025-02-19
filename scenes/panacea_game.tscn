@@ -525,6 +525,8 @@ position = Vector2(-20, -8)
 [node name="Camera2D" type="Camera2D" parent="Protag_Dr_Evelyn_Morgan"]
 position = Vector2(41, -277)
 scale = Vector2(218.9, -0.294475)
+limit_bottom = 230
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Platform" parent="." instance=ExtResource("4_e41tm")]
