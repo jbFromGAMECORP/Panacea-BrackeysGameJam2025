@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://csjakl35674r5"]
+[gd_scene load_steps=8 format=3 uid="uid://csjakl35674r5"]
 
 [ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/dr_evelyn_morgan.tscn" id="1_gj8rv"]
 [ext_resource type="Texture2D" uid="uid://d2cvuqvbjwdt6" path="res://assets/PremadeLabAssets/lab_decors_tileset/lab_decors_tileset/lab_tileset.svg" id="2_6vc8v"]
 [ext_resource type="Texture2D" uid="uid://nf40epi2mvtf" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_nhvrw"]
+[ext_resource type="PackedScene" uid="uid://eeq7kv4gkkxh" path="res://scenes/platform.tscn" id="4_e41tm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ctsnb"]
 texture = ExtResource("2_nhvrw")
@@ -487,3 +488,6 @@ position = Vector2(-20, -8)
 position = Vector2(41, -277)
 scale = Vector2(218.9, -0.294475)
 position_smoothing_enabled = true
+
+[node name="Platform" parent="." instance=ExtResource("4_e41tm")]
+position = Vector2(1034, 52)
