@@ -5,7 +5,7 @@
 [node name="PanaceaGame" type="Node2D"]
 
 [node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("1_gj8rv")]
-position = Vector2(-2, 7)
+position = Vector2(0, 4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-6, -319)

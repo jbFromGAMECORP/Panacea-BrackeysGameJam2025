@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8j4o0xptxrfy"]
+[gd_scene load_steps=13 format=3 uid="uid://b8j4o0xptxrfy"]
 
+[ext_resource type="Script" path="res://scripts/dr_evelyn_morgan.gd" id="1_7lbhw"]
 [ext_resource type="Texture2D" uid="uid://d0jx6ge0nxh41" path="res://assets/protag_walk_sprite_sheet_fixed.png" id="1_sla8t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjco4"]
@@ -70,6 +71,8 @@ animations = [{
 size = Vector2(115, 581)
 
 [node name="Protag_Dr_Evelyn_Morgan" type="CharacterBody2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_7lbhw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -303)
