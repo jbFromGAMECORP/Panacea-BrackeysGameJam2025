@@ -537,3 +537,4 @@ position = Vector2(1007, 51)
 libraries = {
 "": SubResource("AnimationLibrary_iltck")
 }
+autoplay = "move"
