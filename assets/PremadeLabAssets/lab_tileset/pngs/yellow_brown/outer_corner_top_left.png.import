@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0jx6ge0nxh41"
-path="res://.godot/imported/protag_walk_sprite_sheet_fixed.png-14519e9a5829cfe11ae22799ab957adc.ctex"
+uid="uid://ca281w8i2380b"
+path="res://.godot/imported/outer_corner_top_left.png-d57175a07ec3422235b77ff813617148.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/protag_walk_sprite_sheet_fixed.png"
-dest_files=["res://.godot/imported/protag_walk_sprite_sheet_fixed.png-14519e9a5829cfe11ae22799ab957adc.ctex"]
+source_file="res://assets/PremadeLabAssets/lab_tileset/pngs/yellow_brown/outer_corner_top_left.png"
+dest_files=["res://.godot/imported/outer_corner_top_left.png-d57175a07ec3422235b77ff813617148.ctex"]
 
 [params]
 
