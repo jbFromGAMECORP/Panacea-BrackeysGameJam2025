@@ -490,4 +490,4 @@ scale = Vector2(218.9, -0.294475)
 position_smoothing_enabled = true
 
 [node name="Platform" parent="." instance=ExtResource("4_e41tm")]
-position = Vector2(122, -133)
+position = Vector2(118, -676)
