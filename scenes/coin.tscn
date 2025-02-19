@@ -95,16 +95,16 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vknd7"]
-radius = 6.08276
+radius = 23.0
 
 [node name="Coin" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.38419e-07, 2.38419e-07)
-scale = Vector2(1.4375, 1.4375)
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(4.92188, 4.92188)
 sprite_frames = SubResource("SpriteFrames_7s142")
 autoplay = "default"
-frame_progress = 0.810338
+frame_progress = 0.476742
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vknd7")
