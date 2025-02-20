@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://csjakl35674r5"]
+[gd_scene load_steps=15 format=3 uid="uid://csjakl35674r5"]
 
 [ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/dr_evelyn_morgan.tscn" id="1_gj8rv"]
 [ext_resource type="Texture2D" uid="uid://d2cvuqvbjwdt6" path="res://assets/PremadeLabAssets/lab_decors_tileset/lab_decors_tileset/lab_tileset.svg" id="2_6vc8v"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://eeq7kv4gkkxh" path="res://scenes/platform.tscn" id="4_e41tm"]
 [ext_resource type="PackedScene" uid="uid://d2t73jdq7xi1u" path="res://scenes/coin.tscn" id="5_k4okr"]
 [ext_resource type="PackedScene" uid="uid://b1vh3dbgkg85w" path="res://scenes/killzone.tscn" id="6_8p30a"]
+[ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/rando_scientist_npc.tscn" id="7_b0h7n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ctsnb"]
 texture = ExtResource("2_nhvrw")
@@ -565,3 +566,6 @@ libraries = {
 "": SubResource("AnimationLibrary_iltck")
 }
 autoplay = "move"
+
+[node name="RandoScientist_NPC" parent="." instance=ExtResource("7_b0h7n")]
+position = Vector2(-666, -396)

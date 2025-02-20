@@ -1,0 +1,4 @@
+join randomScientist left
+randomScientist: Hello! This is a test!
+randomScientist: I hope you like it!!!
+[signal arg="exit-rando"]
