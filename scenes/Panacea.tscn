@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwasxbvyq01hk"]
+
+[ext_resource type="PackedScene" uid="uid://e85at8il0t53" path="res://scenes/Main Character.tscn" id="1_l2anb"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qcekn"]
+distance = -650.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_l2anb")]
+script = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_qcekn")
