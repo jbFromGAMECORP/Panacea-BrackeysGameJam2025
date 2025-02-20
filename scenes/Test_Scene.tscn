@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://mgrp6pnmna6u"]
+[gd_scene load_steps=15 format=3 uid="uid://mgrp6pnmna6u"]
 
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/patient area-cropped/wall type 3.png" id="1_ogbe4"]
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/patient area-cropped/floor.png" id="2_jotrk"]
@@ -12,8 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/patient area-cropped/cabnet double door.png" id="10_87owy"]
 [ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/patient area-cropped/cabnet single.png" id="11_2x1p7"]
 [ext_resource type="Texture2D" uid="uid://dw13cnkacroi" path="res://assets/patient area-cropped/chess.png" id="12_veyek"]
+[ext_resource type="PackedScene" uid="uid://e85at8il0t53" path="res://scenes/Main Character.tscn" id="13_663vs"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hsuc3"]
+distance = -650.0
 
 [node name="TestScene" type="Node2D"]
+scale = Vector2(0.473492, 0.612326)
 
 [node name="WallType3" type="Sprite2D" parent="."]
 modulate = Color(0.93, 1, 0.987167, 1)
@@ -79,3 +84,14 @@ texture = ExtResource("11_2x1p7")
 [node name="Chess" type="Sprite2D" parent="."]
 position = Vector2(1408, 683)
 texture = ExtResource("12_veyek")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("13_663vs")]
+position = Vector2(52.7992, -246.601)
+scale = Vector2(2.25159, 1.98669)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-261.884, 336.422)
+scale = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_hsuc3")
