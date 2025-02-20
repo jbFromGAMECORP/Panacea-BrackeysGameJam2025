@@ -22,16 +22,8 @@ func _ready():
 	Dialogic.signal_event.connect(DialogicSignal)
 
 func _process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 		
 	if player_in_area:
-		print("I'm in the area!")
 		if Input.is_action_just_pressed("e"):
 			run_dialogue("testDialogue")
 		
@@ -58,7 +50,7 @@ func _process(delta):
 	#else:
 	#	velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	#move_and_slide()
+	move_and_slide()
 
 func run_dialogue(dialogue_string):
 	is_chatting = true
@@ -89,7 +81,6 @@ func _on_timer_timeout():
 	current_state = choose([IDLE, NEW_DIR, MOVE])
 
 func _on_chat_detection_body_entered(body):
-	print(body)
 	if body.has_method("player"):
 		player_in_area = true
 
