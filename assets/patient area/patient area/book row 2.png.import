@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhm2tenxkyn3g"
-path="res://.godot/imported/idle_sprite_sheet_colored.png-4c36c818f7a732712729681c282031e8.ctex"
+uid="uid://b881wjfjeu6nr"
+path="res://.godot/imported/book row 2.png-c146a3d788677a5aefae6489c08b4611.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Protagonist/Idle/idle_sprite_sheet_colored.png"
-dest_files=["res://.godot/imported/idle_sprite_sheet_colored.png-4c36c818f7a732712729681c282031e8.ctex"]
+source_file="res://assets/patient area/patient area/book row 2.png"
+dest_files=["res://.godot/imported/book row 2.png-c146a3d788677a5aefae6489c08b4611.ctex"]
 
 [params]
 
