@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b24suryypbsnr" path="res://assets/patient area/patient area/book row 3.png" id="6_1j6yy"]
 [ext_resource type="PackedScene" uid="uid://b1vh3dbgkg85w" path="res://scenes/killzone.tscn" id="6_8p30a"]
 [ext_resource type="Texture2D" uid="uid://b881wjfjeu6nr" path="res://assets/patient area/patient area/book row 2.png" id="7_2r2ey"]
-[ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/rando_scientist_npc.tscn" id="7_b0h7n"]
+[ext_resource type="PackedScene" path="res://scenes/rando_scientist_npc.tscn" id="7_b0h7n"]
 [ext_resource type="Texture2D" uid="uid://b7y3s3tnxp1wp" path="res://assets/patient area/patient area/book row 1.png" id="8_x03nx"]
 [ext_resource type="Texture2D" uid="uid://ydl8vg7q4nj8" path="res://assets/patient area/patient area/table.png" id="9_8owao"]
 [ext_resource type="Texture2D" uid="uid://beqrwxtc80tc4" path="res://assets/patient area/patient area/floor.png" id="9_geu2h"]
