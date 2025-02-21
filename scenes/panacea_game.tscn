@@ -490,14 +490,13 @@ sources/4 = SubResource("TileSetAtlasSource_kmpje")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-72.0005, -5)
-scale = Vector2(1, 1)
 tile_set = SubResource("TileSet_qtj1y")
 format = 2
 layer_0/tile_data = PackedInt32Array(262076, 4, 0, 786364, 4, 0, 262084, 4, 0, 786372, 4, 0, 262092, 4, 0, 786380, 4, 0, 262099, 4, 0, 262100, 4, 0, 786388, 4, 0, 262107, 4, 0, 786396, 4, 0, 262115, 4, 0, 786404, 4, 0, 262123, 4, 0, 786412, 4, 0, 262131, 4, 0, 786420, 4, 0, 262139, 4, 0, 786428, 4, 0, 196611, 4, 0, 720900, 4, 0, 196619, 4, 0, 720908, 4, 0, 196627, 4, 0, 720916, 4, 0, 196635, 4, 0, 720924, 4, 0, 196643, 4, 0, 720932, 4, 0, 196651, 4, 0, 720940, 4, 0, 196659, 4, 0, 720948, 4, 0, 196667, 4, 0, 720956, 4, 0, 196675, 4, 0, 720964, 4, 0, 196683, 4, 0, 720972, 4, 0, 196691, 4, 0, 720980, 4, 0, 196699, 4, 0, 720988, 4, 0, 196707, 4, 0, 720996, 4, 0, 196715, 4, 0, 721004, 4, 0, 196721, 4, 0, 721009, 4, 0)
 
 [node name="WallType3" type="Sprite2D" parent="."]
-position = Vector2(297.25, -547)
-scale = Vector2(1.24825, 1)
+position = Vector2(297.25, -585)
+scale = Vector2(1.24825, 1.07037)
 texture = ExtResource("3_cgps8")
 
 [node name="Dresser" type="Sprite2D" parent="WallType3"]
@@ -585,14 +584,14 @@ position = Vector2(-20, -8)
 [node name="Camera2D" type="Camera2D" parent="Protag_Dr_Evelyn_Morgan"]
 position = Vector2(41, -277)
 scale = Vector2(218.9, -0.294475)
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(0.78, 0.78)
 limit_bottom = 230
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="Inventory" parent="Protag_Dr_Evelyn_Morgan" instance=ExtResource("18_dvew6")]
-position = Vector2(-584, -24)
-scale = Vector2(1.3, 1.3)
+[node name="Inventory" parent="Protag_Dr_Evelyn_Morgan/Camera2D" instance=ExtResource("18_dvew6")]
+position = Vector2(-4.03837, -818.406)
+scale = Vector2(0.00593879, -4.41464)
 
 [node name="Coins" type="Node" parent="."]
 

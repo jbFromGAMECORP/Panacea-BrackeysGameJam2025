@@ -207,6 +207,7 @@ script = ExtResource("9_kf8ab")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(134, 193)
+enabled = false
 zoom = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="InventoryContainer/LeftArrowButton" to="InventoryContainer" method="_on_left_arrow_button_pressed"]
