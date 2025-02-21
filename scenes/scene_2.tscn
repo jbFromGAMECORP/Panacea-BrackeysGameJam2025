@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpoebjfje4inm"]
+[gd_scene load_steps=16 format=3 uid="uid://dpoebjfje4inm"]
 
-[ext_resource type="Script" path="res://scene_2.gd" id="1_pnye7"]
+[ext_resource type="Script" path="res://scripts/scene_2.gd" id="1_pnye7"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/patient area-cropped/wall type 3.png" id="1_s66bq"]
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/patient area-cropped/floor.png" id="2_q88ac"]
 [ext_resource type="Texture2D" uid="uid://dey2aejsy4e8d" path="res://assets/patient area-cropped/table.png" id="3_auk7y"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/patient area-cropped/cabnet double door.png" id="10_2aw13"]
 [ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/patient area-cropped/cabnet single.png" id="11_fvmcf"]
 [ext_resource type="Texture2D" uid="uid://dw13cnkacroi" path="res://assets/patient area-cropped/chess.png" id="12_rcv7x"]
+[ext_resource type="Script" path="res://scenes/Scene2walls.gd" id="14_tctr2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7ntq"]
 
 [node name="Scene 2" type="Node2D"]
 scale = Vector2(0.999617, 0.999617)
@@ -78,3 +81,16 @@ texture = ExtResource("11_fvmcf")
 [node name="Chess" type="Sprite2D" parent="."]
 position = Vector2(1402.35, 687.542)
 texture = ExtResource("12_rcv7x")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("14_tctr2")
+
+[node name="NextlevelL" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-26.5211, 569.339)
+scale = Vector2(1, 76.8988)
+shape = SubResource("RectangleShape2D_m7ntq")
+
+[node name="NextlevelR" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2456.36, 569.339)
+scale = Vector2(1, 76.8988)
+shape = SubResource("RectangleShape2D_m7ntq")
