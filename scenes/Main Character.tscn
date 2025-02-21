@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://w14ln6d56w0e"]
+[gd_scene load_steps=15 format=3 uid="uid://e85at8il0t53"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_vpwh2"]
 [ext_resource type="Texture2D" uid="uid://d4nwpo2upxlnk" path="res://assets/Protagonist/Idle/idle_sprite_sheet_colored.png" id="2_e10cq"]
@@ -41,6 +41,7 @@ atlas = ExtResource("3_eyuan")
 region = Rect2(1260, 703, 420, 703)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_huifv"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -81,18 +82,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwnpk"]
-size = Vector2(92, 365)
+size = Vector2(94, 578.5)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_vpwh2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(119, 425)
-scale = Vector2(0.733333, 0.640426)
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(131, 535)
 sprite_frames = SubResource("SpriteFrames_huifv")
 animation = &"Walk"
-frame_progress = 0.000239438
+frame_progress = 0.305263
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(116, 434)
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(115, 540.75)
+scale = Vector2(0.159999, 1.52)
 shape = SubResource("RectangleShape2D_lwnpk")

@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Inventory="*res://addons/inventory_slot_plugin/script/slot/inventory.gd"
 
 [dialogic]
 
@@ -30,6 +29,11 @@ directories/dtl_directory={
 }
 layout/style_list=["res://Dialogic_Items/Styles/testCustomStyle.tres"]
 layout/default_style="res://Dialogic_Items/Styles/testCustomStyle.tres"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 
