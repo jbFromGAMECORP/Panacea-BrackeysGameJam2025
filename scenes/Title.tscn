@@ -175,7 +175,7 @@ grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("1_n38um")
 theme_override_font_sizes/normal_font_size = 200
 bbcode_enabled = true
-text = "[shake rate=20.0 level=5 connected=1]PANACEA[/shake]"
+text = "[shake rate=20.0 level=15 connected=1]PANACEA[/shake]"
 fit_content = true
 autowrap_mode = 0
 custom_effects = [null]
@@ -184,6 +184,9 @@ script = ExtResource("2_7pn5t")
 
 [node name="Letter Stamp SFX" type="AudioStreamPlayer" parent="UIManager/RichTextLabel"]
 stream = ExtResource("3_waexn")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.99, 0.99, 0.99, 1)
 
 [connection signal="pressed" from="UIManager/Button Container/Start" to="UIManager" method="start_pressed"]
 [connection signal="pressed" from="UIManager/Button Container/Options" to="UIManager" method="options_pressed"]
