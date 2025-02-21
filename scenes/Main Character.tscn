@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://e85at8il0t53"]
+[gd_scene load_steps=15 format=3 uid="uid://w14ln6d56w0e"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_vpwh2"]
 [ext_resource type="Texture2D" uid="uid://d4nwpo2upxlnk" path="res://assets/Protagonist/Idle/idle_sprite_sheet_colored.png" id="2_e10cq"]
