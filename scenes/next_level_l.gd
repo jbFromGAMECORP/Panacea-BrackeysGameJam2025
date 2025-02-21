@@ -8,4 +8,4 @@ func _ready():
 func _on_body_entered(body):
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/scene_2.tscn")
 func _on_body_exited(body):
-	print("Collision ended with: ", body.name)
+	pass

@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Inventory="*res://addons/inventory_slot_plugin/script/slot/inventory.gd"
 
 [dialogic]
 
