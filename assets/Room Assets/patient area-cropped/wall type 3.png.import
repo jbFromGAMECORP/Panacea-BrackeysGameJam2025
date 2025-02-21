@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuoplsoroy6aj"
-path="res://.godot/imported/wall type 3.png-ae874bd1f925d4ae1155bb8e6490fbb4.ctex"
+path="res://.godot/imported/wall type 3.png-11ef3377092c01573fc84685043248c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/patient area-cropped/wall type 3.png"
-dest_files=["res://.godot/imported/wall type 3.png-ae874bd1f925d4ae1155bb8e6490fbb4.ctex"]
+source_file="res://assets/Room Assets/patient area-cropped/wall type 3.png"
+dest_files=["res://.godot/imported/wall type 3.png-11ef3377092c01573fc84685043248c6.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ydl8vg7q4nj8"
-path="res://.godot/imported/table.png-6d6467a1d0faea7f7fcdfe9351435e93.ctex"
+path="res://.godot/imported/table.png-9cc800e058c2ee064adb7a58e03281a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/patient area/patient area/table.png"
-dest_files=["res://.godot/imported/table.png-6d6467a1d0faea7f7fcdfe9351435e93.ctex"]
+source_file="res://assets/Room Assets/patient area/patient area/table.png"
+dest_files=["res://.godot/imported/table.png-9cc800e058c2ee064adb7a58e03281a7.ctex"]
 
 [params]
 

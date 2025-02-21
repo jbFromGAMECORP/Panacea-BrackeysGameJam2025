@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bl487m6leyyk7"
-path="res://.godot/imported/bathroom floor.png-c1aeb65c8755954713aee2b415ea34d9.ctex"
+path="res://.godot/imported/bathroom floor.png-ab9ed8879124382aa1ebc227ac155248.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bathroom/bathroom floor.png"
-dest_files=["res://.godot/imported/bathroom floor.png-c1aeb65c8755954713aee2b415ea34d9.ctex"]
+source_file="res://assets/Room Assets/bathroom/bathroom floor.png"
+dest_files=["res://.godot/imported/bathroom floor.png-ab9ed8879124382aa1ebc227ac155248.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv14hs748gt1t"
-path="res://.godot/imported/cabnet double door.png-6127f031087b1570a63433d66cf59432.ctex"
+path="res://.godot/imported/cabnet double door.png-185ddee20a2e94f6bbfc41abeab013e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/patient area-cropped/cabnet double door.png"
-dest_files=["res://.godot/imported/cabnet double door.png-6127f031087b1570a63433d66cf59432.ctex"]
+source_file="res://assets/Room Assets/patient area-cropped/cabnet double door.png"
+dest_files=["res://.godot/imported/cabnet double door.png-185ddee20a2e94f6bbfc41abeab013e1.ctex"]
 
 [params]
 

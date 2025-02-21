@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7y3s3tnxp1wp"
-path="res://.godot/imported/book row 1.png-f43f2fe7e1faa7594eaf4212358fbce3.ctex"
+path="res://.godot/imported/book row 1.png-25528c5cdd8f132b5070dbd7f85a0320.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/patient area/patient area/book row 1.png"
-dest_files=["res://.godot/imported/book row 1.png-f43f2fe7e1faa7594eaf4212358fbce3.ctex"]
+source_file="res://assets/Room Assets/patient area/patient area/book row 1.png"
+dest_files=["res://.godot/imported/book row 1.png-25528c5cdd8f132b5070dbd7f85a0320.ctex"]
 
 [params]
 

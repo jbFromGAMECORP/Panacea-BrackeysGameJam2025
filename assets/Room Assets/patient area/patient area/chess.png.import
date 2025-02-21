@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjsrgvg6t7kny"
-path="res://.godot/imported/chess.png-f1521ebd8ac1affd799a733f119cd66f.ctex"
+path="res://.godot/imported/chess.png-2a3c93944380cd10fe7a6fd515eafb80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/patient area/patient area/chess.png"
-dest_files=["res://.godot/imported/chess.png-f1521ebd8ac1affd799a733f119cd66f.ctex"]
+source_file="res://assets/Room Assets/patient area/patient area/chess.png"
+dest_files=["res://.godot/imported/chess.png-2a3c93944380cd10fe7a6fd515eafb80.ctex"]
 
 [params]
 

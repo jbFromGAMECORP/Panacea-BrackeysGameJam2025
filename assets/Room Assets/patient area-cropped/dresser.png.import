@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tyjhg5sl8fsn"
-path="res://.godot/imported/dresser.png-a00521331939a859676f6034514e11fc.ctex"
+path="res://.godot/imported/dresser.png-0797602e3ffa366e9dcc11bfdda0e45d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/patient area-cropped/dresser.png"
-dest_files=["res://.godot/imported/dresser.png-a00521331939a859676f6034514e11fc.ctex"]
+source_file="res://assets/Room Assets/patient area-cropped/dresser.png"
+dest_files=["res://.godot/imported/dresser.png-0797602e3ffa366e9dcc11bfdda0e45d.ctex"]
 
 [params]
 

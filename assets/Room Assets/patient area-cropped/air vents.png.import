@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blbhjgqls0ug4"
-path="res://.godot/imported/air vents.png-05e86c93f953c203d77c2b2dd147d88e.ctex"
+path="res://.godot/imported/air vents.png-04bbf4f05dcae9da8ce1cc0f3e6cf3ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/patient area-cropped/air vents.png"
-dest_files=["res://.godot/imported/air vents.png-05e86c93f953c203d77c2b2dd147d88e.ctex"]
+source_file="res://assets/Room Assets/patient area-cropped/air vents.png"
+dest_files=["res://.godot/imported/air vents.png-04bbf4f05dcae9da8ce1cc0f3e6cf3ff.ctex"]
 
 [params]
 

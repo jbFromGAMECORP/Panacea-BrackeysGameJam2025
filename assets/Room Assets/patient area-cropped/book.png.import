@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jye5olgtn4gu"
-path="res://.godot/imported/book.png-0f9a3d3de81bb1c2680a9cfbda8cbad5.ctex"
+path="res://.godot/imported/book.png-4dbc643eca331283b44deac7cb52b8b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/patient area-cropped/book.png"
-dest_files=["res://.godot/imported/book.png-0f9a3d3de81bb1c2680a9cfbda8cbad5.ctex"]
+source_file="res://assets/Room Assets/patient area-cropped/book.png"
+dest_files=["res://.godot/imported/book.png-4dbc643eca331283b44deac7cb52b8b2.ctex"]
 
 [params]
 
