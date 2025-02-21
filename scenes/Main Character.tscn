@@ -90,6 +90,7 @@ position = Vector2(119, 425)
 scale = Vector2(0.733333, 0.640426)
 sprite_frames = SubResource("SpriteFrames_huifv")
 animation = &"Left"
+frame_progress = 0.594817
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(116, 434)

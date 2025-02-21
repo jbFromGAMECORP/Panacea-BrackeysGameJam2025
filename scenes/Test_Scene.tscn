@@ -42,7 +42,7 @@ position = Vector2(411, 598)
 texture = ExtResource("4_oe1me")
 
 [node name="Dresser" type="Sprite2D" parent="."]
-position = Vector2(2090, 733)
+position = Vector2(2116.19, 734.903)
 texture = ExtResource("5_y66xn")
 
 [node name="BookRow1" type="Sprite2D" parent="Dresser"]
@@ -50,7 +50,7 @@ position = Vector2(-12, -118)
 texture = ExtResource("6_smht1")
 
 [node name="BookRow4" type="Sprite2D" parent="Dresser"]
-position = Vector2(51, 4)
+position = Vector2(50.6873, 3.26622)
 scale = Vector2(0.655, 0.885417)
 texture = ExtResource("6_smht1")
 flip_h = true
@@ -82,7 +82,7 @@ position = Vector2(399, 298)
 texture = ExtResource("11_2x1p7")
 
 [node name="Chess" type="Sprite2D" parent="."]
-position = Vector2(1408, 683)
+position = Vector2(1402.35, 687.542)
 texture = ExtResource("12_veyek")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("13_663vs")]
@@ -91,7 +91,7 @@ scale = Vector2(2.25159, 1.98669)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-261.884, 336.422)
 scale = Vector2(1, 1)
 shape = SubResource("WorldBoundaryShape2D_hsuc3")
