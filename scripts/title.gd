@@ -4,7 +4,6 @@ extends Control
 @onready var button_container: MarginContainer = $"UIManager/Button Container"
 
 func _ready():
-	
 	initialize_child_transparency()
 	await get_tree().create_timer(.45).timeout
 	fade_elements_in()
@@ -18,12 +17,9 @@ func initialize_child_transparency():
 	panacea_logo.modulate = Color.TRANSPARENT
 	button_container.modulate = Color.TRANSPARENT
 	
+	# Todo
 func start_logo_tween():
-	var tween = create_tween()
-	tween.tween_property(panacea_logo,"modulate",Color.WHITE,1.2).set_ease(Tween.EASE_OUT)
-	return tween.finished
+	create_tween().tween_property(panacea_logo,"modulate",Color.WHITE,1.2).set_ease(Tween.EASE_OUT)
 	
 func start_button_tween():
-	var tween = create_tween()
-	tween.tween_property(button_container,"modulate",Color.WHITE,1.2).set_ease(Tween.EASE_OUT)
-	return tween.finished
+	create_tween().tween_property(button_container,"modulate",Color.WHITE,1.2).set_ease(Tween.EASE_OUT)
