@@ -27,6 +27,8 @@ directories/dch_directory={
 directories/dtl_directory={
 "testDialogue": "res://Dialogic_Items/Timelines/testDialogue.dtl"
 }
+layout/style_list=["res://Dialogic_Items/Styles/testCustomStyle.tres"]
+layout/default_style="res://Dialogic_Items/Styles/testCustomStyle.tres"
 
 [editor_plugins]
 
