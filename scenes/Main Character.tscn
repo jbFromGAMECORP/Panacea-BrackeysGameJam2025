@@ -76,7 +76,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Left",
-"speed": 12.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwnpk"]
