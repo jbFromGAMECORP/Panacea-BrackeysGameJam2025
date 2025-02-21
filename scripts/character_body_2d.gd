@@ -4,28 +4,47 @@ extends CharacterBody2D
 @export var SPEED = 500.0
 @export var ACCELERATION = 10
 @export var DECELERATION = 200
+const speed = 200.0
+const JUMP_VELOCITY = -100.0
 
-func _physics_process(delta: float) -> void:
+var player_state
+var player_facing
+
+func _physics_process(delta):
 	# Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("Left", "Right")
-	if direction:
-		velocity.x = clamp (direction * ACCELERATION + velocity.x, -SPEED, SPEED)
-	else:
-		velocity.x = move_toward(velocity.x, 0, DECELERATION)
+	var direction = Input.get_vector("Left", "Right", "Up", "Down")
+	
+	if direction.x == 0 and direction.y == 0:
+		player_state = "Idle"
+	elif direction.x != 0 or direction.y != 0:
+		player_state = "Walk"
+	
+	velocity = direction * speed
 	move_and_slide()
+	
+	play_anim(direction)
 
-	if direction < 0.0:
-		$AnimatedSprite2D.play("Left")
-		animated_sprite_2d.flip_h = false
-	if direction > 0.0:
-		animated_sprite_2d.flip_h = true
-		$AnimatedSprite2D.play("Left")
-	if direction == 0.0: 
-		$AnimatedSprite2D.play("Idle")
-	$AnimatedSprite2D.speed_scale = abs (velocity.x)/SPEED
+func play_anim(dir):
+	
+	if player_state == "Idle":
+		if player_facing == "Right":
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("Idle")
+		elif player_facing == "Left":
+			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("Idle")
+	if player_state == "Walk":
+		if dir.x == 1:
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("Walk")
+			player_facing = "Right"
+		if dir.x == -1:
+			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("Walk")
+			player_facing = "Left"
+			
+func player():
+	pass

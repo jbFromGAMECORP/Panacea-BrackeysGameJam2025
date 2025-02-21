@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.gd" id="14_1d41k"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.gd" id="16_kwtip"]
 [ext_resource type="PackedScene" uid="uid://cuoywrmvda1yg" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/example_history_item.tscn" id="17_ygbdt"]
-[ext_resource type="PackedScene" path="res://Dialogic_Items/Styles/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="19_ub2ra"]
+[ext_resource type="PackedScene" uid="uid://cwg2r84qfqm0w" path="res://Dialogic_Items/Styles/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="19_ub2ra"]
 
 [sub_resource type="GDScript" id="GDScript_huags"]
 script/source = "@tool

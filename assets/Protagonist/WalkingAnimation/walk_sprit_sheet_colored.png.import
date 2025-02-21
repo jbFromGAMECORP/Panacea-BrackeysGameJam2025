@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4nwpo2upxlnk"
-path="res://.godot/imported/idle_sprite_sheet_colored.png-4c36c818f7a732712729681c282031e8.ctex"
+uid="uid://dvtb1mg1gowck"
+path="res://.godot/imported/walk_sprit_sheet_colored.png-0086c2daa6b99c3e796158c063b3a4b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Protagonist/Idle/idle_sprite_sheet_colored.png"
-dest_files=["res://.godot/imported/idle_sprite_sheet_colored.png-4c36c818f7a732712729681c282031e8.ctex"]
+source_file="res://assets/Protagonist/WalkingAnimation/walk_sprit_sheet_colored.png"
+dest_files=["res://.godot/imported/walk_sprit_sheet_colored.png-0086c2daa6b99c3e796158c063b3a4b2.ctex"]
 
 [params]
 

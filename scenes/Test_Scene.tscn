@@ -93,5 +93,4 @@ scale = Vector2(2.25159, 1.98669)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-261.884, 336.422)
-scale = Vector2(1, 1)
 shape = SubResource("WorldBoundaryShape2D_hsuc3")
