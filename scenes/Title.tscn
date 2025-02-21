@@ -1,56 +1,35 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnt0qlky4bve"]
+[gd_scene load_steps=8 format=3 uid="uid://dy2lp76tk73gk"]
 
-[ext_resource type="Script" path="res://scripts/title.gd" id="1_8ufl1"]
 [ext_resource type="FontFile" uid="uid://bt3rcvvmfnq7" path="res://assets/Fonts/another_danger/Another Danger - Demo.otf" id="1_n38um"]
-[ext_resource type="Texture2D" uid="uid://cplh6tp5n0cu0" path="res://assets/logo only.png" id="1_ylost"]
-[ext_resource type="Script" path="res://scripts/rich_text_label.gd" id="2_7pn5t"]
-[ext_resource type="Script" path="res://scripts/control.gd" id="2_hweom"]
 [ext_resource type="FontFile" uid="uid://djqlvado86g0t" path="res://assets/Fonts/doctor_glitch/Doctor Glitch.otf" id="3_j6qgi"]
 [ext_resource type="AudioStream" uid="uid://d1vj8d05xk6q7" path="res://assets/brackeys_platformer_assets/sounds/tap.wav" id="3_waexn"]
-[ext_resource type="Script" path="res://scripts/Menu_Buttons.gd" id="5_dq7eg"]
+[ext_resource type="Texture2D" uid="uid://dnie1fq5pu85o" path="res://assets/PANACEA LOGO.png" id="6_3qd8y"]
 [ext_resource type="AudioStream" uid="uid://bs6m1rs3baeyj" path="res://assets/Industrial Dungeon 002.wav" id="6_snkkh"]
 
-[sub_resource type="FontVariation" id="FontVariation_awjx3"]
-base_font = ExtResource("3_j6qgi")
-spacing_glyph = -1
-spacing_top = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwet5"]
-content_margin_bottom = 0.0
-draw_center = false
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_left = 2.0
-expand_margin_right = 2.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qs2wu"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cy4dj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1cjf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
 
 [sub_resource type="Theme" id="Theme_kvw6m"]
-Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_pressed_color = Color(0.978975, 0.459856, 1, 1)
-Button/colors/font_pressed_color = Color(0.980392, 0.458824, 1, 1)
 Button/font_sizes/font_size = 25
-Button/fonts/font = SubResource("FontVariation_awjx3")
-Button/styles/hover = SubResource("StyleBoxFlat_uwet5")
-Button/styles/normal = SubResource("StyleBoxEmpty_qs2wu")
-Button/styles/pressed = SubResource("StyleBoxEmpty_cy4dj")
+Button/fonts/font = ExtResource("3_j6qgi")
+Button/styles/normal = SubResource("StyleBoxFlat_q1cjf")
 
-[node name="Title Screen" type="Control"]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8ufl1")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_snkkh")
-autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -62,40 +41,40 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="PanaceaLogo" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 1, 0.137255)
+self_modulate = Color(1, 1, 1, 0.0235294)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1108.0
-offset_top = -269.0
-offset_right = -688.0
-offset_bottom = 311.0
+offset_left = -1159.0
+offset_top = -288.0
+offset_right = -739.0
+offset_bottom = 292.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("1_ylost")
+texture = ExtResource("6_3qd8y")
 flip_h = true
 
 [node name="PanaceaLogo" type="TextureRect" parent="PanaceaLogo"]
-self_modulate = Color(1, 1, 1, 0.137255)
+self_modulate = Color(1, 1, 1, 0.0235294)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 228.0
-offset_top = -287.0
-offset_right = 551.0
-offset_bottom = 159.0
+offset_left = 299.0
+offset_top = -290.0
+offset_right = 622.0
+offset_bottom = 156.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.29762, 1.29762)
-texture = ExtResource("1_ylost")
+texture = ExtResource("6_3qd8y")
 
-[node name="UIManager" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -104,13 +83,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_hweom")
 
-[node name="Menu Hover Click" type="AudioStreamPlayer" parent="UIManager"]
-stream = ExtResource("3_waexn")
-volume_db = -18.0
-
-[node name="Button Container" type="MarginContainer" parent="UIManager"]
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -120,46 +94,34 @@ anchor_bottom = 1.0
 offset_left = -89.0
 offset_top = 66.0
 offset_right = 89.0
-offset_bottom = 196.0
+offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(89, 0)
 
-[node name="Start" type="Button" parent="UIManager/Button Container"]
-custom_minimum_size = Vector2(0, 30)
+[node name="Start" type="Button" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 0
-focus_mode = 0
 theme = SubResource("Theme_kvw6m")
-action_mode = 0
 text = "Start"
-script = ExtResource("5_dq7eg")
 
-[node name="Options" type="Button" parent="UIManager/Button Container"]
-custom_minimum_size = Vector2(0, 30)
+[node name="Options" type="Button" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_mode = 0
 theme = SubResource("Theme_kvw6m")
-action_mode = 0
 text = "Options"
-script = ExtResource("5_dq7eg")
 
-[node name="Quit" type="Button" parent="UIManager/Button Container"]
-custom_minimum_size = Vector2(0, 30)
+[node name="Quit" type="Button" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 8
-focus_mode = 0
 theme = SubResource("Theme_kvw6m")
-action_mode = 0
 text = "Exit
 "
-script = ExtResource("5_dq7eg")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UIManager"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 5
@@ -178,11 +140,10 @@ fit_content = true
 autowrap_mode = 0
 custom_effects = [null]
 visible_characters_behavior = 1
-script = ExtResource("2_7pn5t")
 
-[node name="Letter Stamp SFX" type="AudioStreamPlayer" parent="UIManager/RichTextLabel"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/RichTextLabel"]
 stream = ExtResource("3_waexn")
 
-[connection signal="pressed" from="UIManager/Button Container/Start" to="UIManager" method="start_pressed"]
-[connection signal="pressed" from="UIManager/Button Container/Options" to="UIManager" method="options_pressed"]
-[connection signal="pressed" from="UIManager/Button Container/Quit" to="UIManager" method="quit_pressed"]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_snkkh")
+autoplay = true

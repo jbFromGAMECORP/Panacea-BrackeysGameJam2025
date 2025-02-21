@@ -1,0 +1,207 @@
+[gd_scene load_steps=10 format=3 uid="uid://ep1uy3n0w0d1"]
+
+[ext_resource type="Texture2D" uid="uid://duojnn1y01u2x" path="res://addons/inventory_slot_plugin/assets/item_image/life.png" id="1_h3lic"]
+[ext_resource type="Script" path="res://addons/inventory_slot_plugin/script/dock/item_panel.gd" id="1_l311a"]
+[ext_resource type="Texture2D" uid="uid://cpov2vpvvqtgt" path="res://addons/inventory_slot_plugin/assets/icons/slot_hide_button.tres" id="2_1kig7"]
+[ext_resource type="Script" path="res://addons/inventory_slot_plugin/script/class/buttonvisible.gd" id="2_ifphx"]
+[ext_resource type="Texture2D" uid="uid://b3gjbet1fqlon" path="res://addons/inventory_slot_plugin/assets/icons/slot_more.tres" id="4_101el"]
+[ext_resource type="Texture2D" uid="uid://fpmoxkao1nxc" path="res://addons/inventory_slot_plugin/assets/icons/slot_remove_button.tres" id="4_xst28"]
+[ext_resource type="Texture2D" uid="uid://vcqdmhm3l70u" path="res://addons/inventory_slot_plugin/assets/icons/slot_rename.tres" id="6_pcyvm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wckgx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbsct"]
+
+[node name="ItemPanel" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.22309
+anchor_bottom = 0.554012
+script = ExtResource("1_l311a")
+metadata/_edit_use_anchors_ = true
+
+[node name="Vbox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TopBar" type="PanelContainer" parent="Vbox"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wckgx")
+
+[node name="Hbox" type="HBoxContainer" parent="Vbox/TopBar"]
+layout_mode = 2
+
+[node name="id_unique" type="Button" parent="Vbox/TopBar/Hbox" node_paths=PackedStringArray("NodeVisible")]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "0"
+icon = ExtResource("2_1kig7")
+script = ExtResource("2_ifphx")
+NodeVisible = NodePath("../../../Hbox")
+
+[node name="More" type="Button" parent="Vbox/TopBar/Hbox" node_paths=PackedStringArray("NodeVisible")]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("4_101el")
+icon_alignment = 1
+script = ExtResource("2_ifphx")
+NodeVisible = NodePath("vbox")
+icon_use = false
+no_focus_hide = true
+
+[node name="vbox" type="VBoxContainer" parent="Vbox/TopBar/Hbox/More"]
+visible = false
+layout_mode = 0
+offset_left = -75.0
+offset_top = -68.0
+offset_right = 25.0
+offset_bottom = -1.0
+
+[node name="Remove" type="Button" parent="Vbox/TopBar/Hbox/More/vbox"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Remove"
+icon = ExtResource("4_xst28")
+alignment = 2
+
+[node name="EditName" type="Button" parent="Vbox/TopBar/Hbox/More/vbox"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Rename"
+icon = ExtResource("6_pcyvm")
+alignment = 2
+
+[node name="Hbox" type="HBoxContainer" parent="Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="Vbox/Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wckgx")
+
+[node name="Vbox" type="VBoxContainer" parent="Vbox/Hbox/Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bar" type="PanelContainer" parent="Vbox/Hbox/Panel/Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gbsct")
+
+[node name="Vbox" type="VBoxContainer" parent="Vbox/Hbox/Panel/Vbox/Bar"]
+layout_mode = 2
+
+[node name="Icon" type="Button" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+icon = ExtResource("1_h3lic")
+expand_icon = true
+
+[node name="item_name" type="HBoxContainer" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox"]
+layout_mode = 2
+
+[node name="tittle" type="Label" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/item_name"]
+layout_mode = 2
+text = "Item name:"
+
+[node name="item_name" type="LineEdit" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/item_name"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "New_item"
+caret_blink = true
+caret_blink_interval = 0.35
+
+[node name="icon" type="HBoxContainer" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox"]
+visible = false
+layout_mode = 2
+
+[node name="tittle" type="Label" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/icon"]
+layout_mode = 2
+text = "Icon:"
+
+[node name="id" type="HBoxContainer" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox"]
+layout_mode = 2
+
+[node name="tittle" type="Label" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/id"]
+self_modulate = Color(0.482353, 0.482353, 0.482353, 1)
+layout_mode = 2
+text = "Unique id:"
+
+[node name="id" type="SpinBox" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/id"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 999.0
+value = 1.0
+editable = false
+
+[node name="amount" type="HBoxContainer" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox"]
+layout_mode = 2
+
+[node name="tittle" type="Label" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/amount"]
+layout_mode = 2
+text = "Max amount:"
+
+[node name="max_amount" type="SpinBox" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/amount"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+min_value = 1.0
+max_value = 999.0
+value = 1.0
+
+[node name="scene" type="HBoxContainer" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox"]
+layout_mode = 2
+
+[node name="tittle" type="Label" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/scene"]
+layout_mode = 2
+text = "Scene:"
+
+[node name="scene" type="Button" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/scene"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+text = "res://"
+alignment = 0
+text_overrun_behavior = 3
+text_direction = 1
+
+[node name="description" type="HBoxContainer" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox"]
+layout_mode = 2
+
+[node name="tittle" type="Label" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/description"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Description:"
+
+[node name="description" type="TextEdit" parent="Vbox/Hbox/Panel/Vbox/Bar/Vbox/description"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 10
+placeholder_text = "Item description"
+wrap_mode = 1
+
+[connection signal="gui_input" from="Vbox/TopBar/Hbox/id_unique" to="." method="_on_id_unique_gui_input"]
+[connection signal="pressed" from="Vbox/TopBar/Hbox/More/vbox/Remove" to="." method="_on_remove_pressed"]
+[connection signal="pressed" from="Vbox/TopBar/Hbox/More/vbox/EditName" to="." method="_on_edit_name_pressed"]
+[connection signal="pressed" from="Vbox/Hbox/Panel/Vbox/Bar/Vbox/Icon" to="." method="_on_icon_pressed"]
+[connection signal="text_submitted" from="Vbox/Hbox/Panel/Vbox/Bar/Vbox/item_name/item_name" to="." method="_on_item_name_text_submitted"]
+[connection signal="value_changed" from="Vbox/Hbox/Panel/Vbox/Bar/Vbox/amount/max_amount" to="." method="_on_max_amount_value_changed"]
+[connection signal="pressed" from="Vbox/Hbox/Panel/Vbox/Bar/Vbox/scene/scene" to="." method="_on_scene_pressed"]
+[connection signal="text_changed" from="Vbox/Hbox/Panel/Vbox/Bar/Vbox/description/description" to="." method="_on_description_text_changed"]

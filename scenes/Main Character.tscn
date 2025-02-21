@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://e85at8il0t53"]
+[gd_scene load_steps=14 format=3 uid="uid://w14ln6d56w0e"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_vpwh2"]
 [ext_resource type="Texture2D" uid="uid://37jcqhqha1t1" path="res://assets/Protagonist/WalkingAnimation/Walk_sprite_fixed3.png" id="1_ygnhj"]
