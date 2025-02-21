@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 
 const speed = 200.0
-const JUMP_VELOCITY = -100.0
 
 var player_state
 var player_facing
@@ -10,14 +9,6 @@ var player_facing
 
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		
 		
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
