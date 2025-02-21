@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://csjakl35674r5"]
+[gd_scene load_steps=23 format=3 uid="uid://csjakl35674r5"]
 
 [ext_resource type="Texture2D" uid="uid://kq7jwpsxpmvr" path="res://assets/patient area/patient area/wall type 3.png" id="1_dtm1k"]
 [ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/dr_evelyn_morgan.tscn" id="1_gj8rv"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://ydl8vg7q4nj8" path="res://assets/patient area/patient area/table.png" id="9_8owao"]
 [ext_resource type="Texture2D" uid="uid://beqrwxtc80tc4" path="res://assets/patient area/patient area/floor.png" id="9_geu2h"]
 [ext_resource type="Texture2D" uid="uid://bjsrgvg6t7kny" path="res://assets/patient area/patient area/chess.png" id="10_w1jpy"]
+[ext_resource type="Texture2D" uid="uid://d3jg26xoea06q" path="res://assets/patient area/patient area/lamp.png" id="15_a8hjo"]
+[ext_resource type="Texture2D" uid="uid://blbhjgqls0ug4" path="res://assets/patient area-cropped/air vents.png" id="16_173jq"]
+[ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/patient area-cropped/cabnet double door.png" id="17_bmsgp"]
+[ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/patient area-cropped/cabnet single.png" id="18_d4e7t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ctsnb"]
 texture = ExtResource("2_nhvrw")
@@ -487,47 +491,89 @@ distance = -2.65956
 
 [node name="PanaceaGame" type="Node2D"]
 
-[node name="BG Styling" type="Node" parent="."]
-
-[node name="WallType3" type="Sprite2D" parent="BG Styling"]
+[node name="WallType3" type="Sprite2D" parent="."]
 position = Vector2(300.5, -425)
 scale = Vector2(1.24887, 1)
 texture = ExtResource("1_dtm1k")
 
-[node name="TileMap" type="TileMap" parent="BG Styling"]
-position = Vector2(-72, -5)
+[node name="TileMap" type="TileMap" parent="WallType3"]
+position = Vector2(-298.27, 420)
+scale = Vector2(0.800726, 1)
 tile_set = SubResource("TileSet_qtj1y")
 format = 2
 layer_0/tile_data = PackedInt32Array(196611, 4, 0, 262139, 4, 0, 196619, 4, 0, 262131, 4, 0, 196627, 4, 0, 196635, 4, 0, 262123, 4, 0, 196643, 4, 0, 196651, 4, 0, 196659, 4, 0, 196667, 4, 0, 262115, 4, 0, 262107, 4, 0, 262099, 4, 0, 262100, 4, 0, 196721, 4, 0, 262092, 4, 0, 262084, 4, 0, 262076, 4, 0, 786364, 4, 0, 786372, 4, 0, 786380, 4, 0, 786388, 4, 0, 786396, 4, 0, 786404, 4, 0, 786412, 4, 0, 786420, 4, 0, 786428, 4, 0, 720900, 4, 0, 720908, 4, 0, 720916, 4, 0, 720924, 4, 0, 720932, 4, 0, 720940, 4, 0, 720948, 4, 0, 720956, 4, 0, 721009, 4, 0, 196675, 4, 0, 196683, 4, 0, 196691, 4, 0, 196699, 4, 0, 196707, 4, 0, 196715, 4, 0, 720964, 4, 0, 720972, 4, 0, 720980, 4, 0, 720988, 4, 0, 720996, 4, 0, 721004, 4, 0)
 
-[node name="Floor" type="Sprite2D" parent="BG Styling"]
-position = Vector2(301, -362)
-scale = Vector2(1.2499, 1.00185)
+[node name="Floor" type="Sprite2D" parent="WallType3"]
+position = Vector2(0.400391, 63)
+scale = Vector2(1.00082, 1.00185)
 texture = ExtResource("9_geu2h")
 
-[node name="Dresser" type="Sprite2D" parent="BG Styling"]
-position = Vector2(-91, -182)
+[node name="Dresser" type="Sprite2D" parent="WallType3"]
+position = Vector2(-313.484, 243)
+scale = Vector2(0.800726, 1)
 texture = ExtResource("5_g0oua")
 
-[node name="BookRow3" type="Sprite2D" parent="BG Styling/Dresser"]
+[node name="BookRow3" type="Sprite2D" parent="WallType3/Dresser"]
 position = Vector2(-132, 134)
 texture = ExtResource("6_1j6yy")
 
-[node name="BookRow2" type="Sprite2D" parent="BG Styling/Dresser"]
+[node name="BookRow2" type="Sprite2D" parent="WallType3/Dresser"]
 position = Vector2(-80, -65)
 texture = ExtResource("7_2r2ey")
 
-[node name="BookRow1" type="Sprite2D" parent="BG Styling/Dresser"]
+[node name="BookRow1" type="Sprite2D" parent="WallType3/Dresser"]
 position = Vector2(-51, -143)
 texture = ExtResource("8_x03nx")
 
-[node name="Table" type="Sprite2D" parent="BG Styling"]
-position = Vector2(494, -159)
+[node name="Table" type="Sprite2D" parent="WallType3"]
+position = Vector2(154.94, 266)
+scale = Vector2(0.800726, 1)
 texture = ExtResource("9_8owao")
 
-[node name="Chess" type="Sprite2D" parent="BG Styling/Table"]
+[node name="Chess" type="Sprite2D" parent="WallType3/Table"]
 position = Vector2(14, -103)
 texture = ExtResource("10_w1jpy")
+
+[node name="Table2" type="Sprite2D" parent="WallType3"]
+position = Vector2(-1017.32, 268)
+scale = Vector2(0.800726, 1)
+texture = ExtResource("9_8owao")
+
+[node name="Lamp" type="Sprite2D" parent="WallType3/Table2"]
+position = Vector2(152, -143)
+texture = ExtResource("15_a8hjo")
+
+[node name="AirVents" type="Sprite2D" parent="WallType3"]
+position = Vector2(576.923, 360)
+scale = Vector2(0.800726, 1)
+texture = ExtResource("16_173jq")
+
+[node name="AirVents2" type="Sprite2D" parent="WallType3"]
+position = Vector2(-1029.33, 354)
+scale = Vector2(0.800726, 1)
+texture = ExtResource("16_173jq")
+
+[node name="CabnetDoubleDoor" type="Sprite2D" parent="WallType3"]
+position = Vector2(-928.442, -255)
+scale = Vector2(0.800726, 1)
+texture = ExtResource("17_bmsgp")
+
+[node name="CabnetDoubleDoor2" type="Sprite2D" parent="WallType3/CabnetDoubleDoor"]
+position = Vector2(400, -1)
+texture = ExtResource("17_bmsgp")
+
+[node name="CabnetDoubleDoor3" type="Sprite2D" parent="WallType3/CabnetDoubleDoor"]
+position = Vector2(810, 2)
+texture = ExtResource("17_bmsgp")
+
+[node name="CabnetSingle" type="Sprite2D" parent="WallType3"]
+position = Vector2(241.419, -248)
+scale = Vector2(0.800726, 1)
+texture = ExtResource("18_d4e7t")
+
+[node name="CabnetSingle2" type="Sprite2D" parent="WallType3/CabnetSingle"]
+position = Vector2(202, -3)
+texture = ExtResource("18_d4e7t")
 
 [node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("1_gj8rv")]
 position = Vector2(-20, -8)
