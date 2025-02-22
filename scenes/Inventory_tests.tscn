@@ -84,6 +84,7 @@ expand_icon = true
 script = ExtResource("10_668tk")
 
 [node name="InventoryContainer" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 201.0
@@ -297,6 +298,8 @@ icon = ExtResource("8_phwqi")
 flat = true
 expand_icon = true
 
+[node name="ArrowHeldTimer" type="Timer" parent="InventoryContainer"]
+
 [node name="SuitcaseButton2" type="Button" parent="."]
 layout_mode = 0
 offset_left = 26.0
@@ -312,6 +315,7 @@ expand_icon = true
 script = ExtResource("10_668tk")
 
 [node name="InventoryContainer2" type="TextureRect" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 0
@@ -321,6 +325,8 @@ offset_right = 698.0
 offset_bottom = 357.0
 pivot_offset = Vector2(-97, 50)
 script = ExtResource("3_k80wg")
+
+[node name="ArrowHeldTimer" type="Timer" parent="InventoryContainer2"]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="InventoryContainer2"]
 layout_mode = 2
@@ -500,15 +506,16 @@ icon = ExtResource("8_phwqi")
 flat = true
 expand_icon = true
 
-[node name="ArrowHeldTimer" type="Timer" parent="."]
-
 [connection signal="pressed" from="SuitcaseButton" to="InventoryContainer" method="_on_suitcase_button_pressed"]
-[connection signal="pressed" from="InventoryContainer/LeftArrowButton" to="InventoryContainer/SpriteMask" method="_on_left_arrow_button_pressed"]
-[connection signal="pressed" from="InventoryContainer/RightArrowButton" to="InventoryContainer/SpriteMask" method="_on_right_arrow_button_pressed"]
+[connection signal="button_down" from="InventoryContainer/LeftArrowButton" to="InventoryContainer" method="_on_left_arrow_button_pressed"]
+[connection signal="button_up" from="InventoryContainer/LeftArrowButton" to="InventoryContainer" method="_on_left_arrow_button_released"]
+[connection signal="button_down" from="InventoryContainer/RightArrowButton" to="InventoryContainer" method="_on_right_arrow_button_pressed"]
+[connection signal="button_up" from="InventoryContainer/RightArrowButton" to="InventoryContainer" method="_on_right_arrow_button_released"]
+[connection signal="timeout" from="InventoryContainer/ArrowHeldTimer" to="InventoryContainer" method="_on_timer_timeout"]
 [connection signal="pressed" from="SuitcaseButton2" to="InventoryContainer2" method="_on_suitcase_button_pressed"]
+[connection signal="timeout" from="InventoryContainer2/ArrowHeldTimer" to="InventoryContainer2" method="_on_timer_timeout"]
 [connection signal="visibility_changed" from="InventoryContainer2/ScrollContainer" to="InventoryContainer2/ScrollContainer" method="_on_visibility_changed"]
-[connection signal="button_down" from="InventoryContainer2/LeftArrowButton2" to="InventoryContainer/SpriteMask" method="_on_left_arrow_button_pressed"]
-[connection signal="button_up" from="InventoryContainer2/LeftArrowButton2" to="InventoryContainer/SpriteMask" method="_on_left_arrow_button_up"]
-[connection signal="button_down" from="InventoryContainer2/RightArrowButton2" to="InventoryContainer/SpriteMask" method="_on_right_arrow_button_pressed"]
-[connection signal="button_up" from="InventoryContainer2/RightArrowButton2" to="InventoryContainer/SpriteMask" method="_on_right_arrow_button_up"]
-[connection signal="timeout" from="ArrowHeldTimer" to="InventoryContainer/SpriteMask" method="_on_timer_timeout"]
+[connection signal="button_down" from="InventoryContainer2/LeftArrowButton2" to="InventoryContainer2" method="_on_left_arrow_button_pressed"]
+[connection signal="button_up" from="InventoryContainer2/LeftArrowButton2" to="InventoryContainer2" method="_on_left_arrow_button_released"]
+[connection signal="button_down" from="InventoryContainer2/RightArrowButton2" to="InventoryContainer2" method="_on_right_arrow_button_pressed"]
+[connection signal="button_up" from="InventoryContainer2/RightArrowButton2" to="InventoryContainer2" method="_on_right_arrow_button_released"]

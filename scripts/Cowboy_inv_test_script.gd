@@ -8,7 +8,7 @@ extends TextureRect
 	if name == "InventoryContainer2" \
 	else  $"../SuitcaseButton"
 	
-@onready var timer: Timer = $"../ArrowHeldTimer"
+@onready var timer: Timer = $"ArrowHeldTimer"
 
 enum {PRESS, HOLD}
 const PRESS_INTERVAL = 0.35
@@ -63,9 +63,9 @@ func _on_left_arrow_button_pressed() -> void:
 	arrow_pressed(LEFT)
 func _on_right_arrow_button_pressed() -> void:
 	arrow_pressed(RIGHT)
-func _on_left_arrow_button_up() -> void:
+func _on_left_arrow_button_released() -> void:
 	arrow_released(LEFT)
-func _on_right_arrow_button_up() -> void:
+func _on_right_arrow_button_released() -> void:
 	arrow_released(RIGHT)
 
 
@@ -92,6 +92,7 @@ func _on_timer_timeout() -> void:
 		scroll_box(HOLD_VALUE*direction)
 
 func snap_box(value):
+	print(value)
 	scrollContainer.scroll_horizontal = snapped(scrollContainer.scroll_horizontal+value,value)
 	
 func scroll_box(value):
