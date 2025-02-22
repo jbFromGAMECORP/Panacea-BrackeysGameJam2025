@@ -1,26 +1,26 @@
 [gd_scene load_steps=22 format=3 uid="uid://csjakl35674r5"]
 
-[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/dr_evelyn_morgan.tscn" id="1_gj8rv"]
-[ext_resource type="Texture2D" uid="uid://d2cvuqvbjwdt6" path="res://assets/PremadeLabAssets/lab_decors_tileset/lab_decors_tileset/lab_tileset.svg" id="2_6vc8v"]
-[ext_resource type="Texture2D" uid="uid://nf40epi2mvtf" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_nhvrw"]
-[ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="3_cgps8"]
-[ext_resource type="Texture2D" uid="uid://tyjhg5sl8fsn" path="res://assets/Room Assets/patient area-cropped/dresser.png" id="4_j3poo"]
-[ext_resource type="PackedScene" uid="uid://d2t73jdq7xi1u" path="res://scenes/Items/coin.tscn" id="5_k4okr"]
-[ext_resource type="Texture2D" uid="uid://bu5amclpqnbum" path="res://assets/Room Assets/patient area-cropped/book row 2.png" id="5_tmjf2"]
-[ext_resource type="Texture2D" uid="uid://dtcg0d1s311uh" path="res://assets/Room Assets/patient area-cropped/book row 1.png" id="6_13ccn"]
-[ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/Characters/rando_scientist_npc.tscn" id="7_b0h7n"]
-[ext_resource type="Texture2D" uid="uid://dtfyomlbakvi6" path="res://assets/Room Assets/patient area-cropped/book row 3.png" id="7_qlsph"]
-[ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="8_p71o4"]
-[ext_resource type="Texture2D" uid="uid://blbhjgqls0ug4" path="res://assets/Room Assets/patient area-cropped/air vents.png" id="9_uoq0e"]
-[ext_resource type="Texture2D" uid="uid://dey2aejsy4e8d" path="res://assets/Room Assets/patient area-cropped/table.png" id="10_oeiyo"]
-[ext_resource type="Texture2D" uid="uid://b6gihroq8vyn1" path="res://assets/Room Assets/patient area-cropped/lamp.png" id="11_csw5x"]
-[ext_resource type="Texture2D" uid="uid://dw13cnkacroi" path="res://assets/Room Assets/patient area-cropped/chess.png" id="12_teggv"]
-[ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/Room Assets/patient area-cropped/cabnet double door.png" id="13_udok7"]
-[ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/Room Assets/patient area-cropped/cabnet single.png" id="14_w7wh8"]
-[ext_resource type="PackedScene" uid="uid://bqn6s3f73l21q" path="res://scenes/Inventory.tscn" id="18_dvew6"]
+[ext_resource type="PackedScene" uid="uid://bqn6s3f73l21q" path="res://scenes/Inventory.tscn" id="1_7nf27"]
+[ext_resource type="Texture2D" uid="uid://nf40epi2mvtf" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_wyq28"]
+[ext_resource type="Texture2D" uid="uid://d2cvuqvbjwdt6" path="res://assets/PremadeLabAssets/lab_decors_tileset/lab_decors_tileset/lab_tileset.svg" id="3_8r5ya"]
+[ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="4_ogm7m"]
+[ext_resource type="Texture2D" uid="uid://tyjhg5sl8fsn" path="res://assets/Room Assets/patient area-cropped/dresser.png" id="5_ykge4"]
+[ext_resource type="Texture2D" uid="uid://bu5amclpqnbum" path="res://assets/Room Assets/patient area-cropped/book row 2.png" id="6_lgo7e"]
+[ext_resource type="Texture2D" uid="uid://dtcg0d1s311uh" path="res://assets/Room Assets/patient area-cropped/book row 1.png" id="7_p5wxe"]
+[ext_resource type="Texture2D" uid="uid://dtfyomlbakvi6" path="res://assets/Room Assets/patient area-cropped/book row 3.png" id="8_ea5ap"]
+[ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="9_fvs75"]
+[ext_resource type="Texture2D" uid="uid://blbhjgqls0ug4" path="res://assets/Room Assets/patient area-cropped/air vents.png" id="10_myrkd"]
+[ext_resource type="Texture2D" uid="uid://dey2aejsy4e8d" path="res://assets/Room Assets/patient area-cropped/table.png" id="11_qditm"]
+[ext_resource type="Texture2D" uid="uid://b6gihroq8vyn1" path="res://assets/Room Assets/patient area-cropped/lamp.png" id="12_bmxe5"]
+[ext_resource type="Texture2D" uid="uid://dw13cnkacroi" path="res://assets/Room Assets/patient area-cropped/chess.png" id="13_28wvh"]
+[ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/Room Assets/patient area-cropped/cabnet double door.png" id="14_annar"]
+[ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/Room Assets/patient area-cropped/cabnet single.png" id="15_bym7q"]
+[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/dr_evelyn_morgan.tscn" id="16_m53t3"]
+[ext_resource type="PackedScene" uid="uid://d2t73jdq7xi1u" path="res://scenes/Items/coin.tscn" id="17_yq0lc"]
+[ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/Characters/rando_scientist_npc.tscn" id="18_nej61"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ctsnb"]
-texture = ExtResource("2_nhvrw")
+texture = ExtResource("2_wyq28")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -210,7 +210,7 @@ texture = ExtResource("2_nhvrw")
 2:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmpje"]
-texture = ExtResource("2_6vc8v")
+texture = ExtResource("3_8r5ya")
 32:1/0 = 0
 33:1/0 = 0
 38:1/0 = 0
@@ -488,6 +488,14 @@ sources/4 = SubResource("TileSetAtlasSource_kmpje")
 
 [node name="PanaceaGame" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(21, -285)
+scale = Vector2(218.9, -0.294475)
+zoom = Vector2(0.78, 0.78)
+limit_bottom = 230
+limit_smoothed = true
+position_smoothing_enabled = true
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-72.0005, -5)
 tile_set = SubResource("TileSet_qtj1y")
@@ -497,112 +505,104 @@ layer_0/tile_data = PackedInt32Array(262076, 4, 0, 786364, 4, 0, 262084, 4, 0, 7
 [node name="WallType3" type="Sprite2D" parent="."]
 position = Vector2(297.25, -585)
 scale = Vector2(1.24825, 1.07037)
-texture = ExtResource("3_cgps8")
+texture = ExtResource("4_ogm7m")
 
 [node name="Dresser" type="Sprite2D" parent="WallType3"]
 position = Vector2(579.812, 354)
 scale = Vector2(0.801122, 1)
-texture = ExtResource("4_j3poo")
+texture = ExtResource("5_ykge4")
 
 [node name="BookRow2" type="Sprite2D" parent="WallType3/Dresser"]
 position = Vector2(-4, 117)
-texture = ExtResource("5_tmjf2")
+texture = ExtResource("6_lgo7e")
 
 [node name="BookRow1" type="Sprite2D" parent="WallType3/Dresser"]
 position = Vector2(4.00006, -116)
-texture = ExtResource("6_13ccn")
+texture = ExtResource("7_p5wxe")
 
 [node name="BookRow3" type="Sprite2D" parent="WallType3/Dresser"]
 position = Vector2(4.00006, 1)
-texture = ExtResource("7_qlsph")
+texture = ExtResource("8_ea5ap")
 
 [node name="Floor" type="Sprite2D" parent="WallType3"]
 position = Vector2(0.400558, 193)
 scale = Vector2(0.99835, 1)
-texture = ExtResource("8_p71o4")
+texture = ExtResource("9_fvs75")
 
 [node name="AirVents" type="Sprite2D" parent="WallType3"]
 position = Vector2(-1006.41, 488)
-texture = ExtResource("9_uoq0e")
+texture = ExtResource("10_myrkd")
 
 [node name="AirVents3" type="Sprite2D" parent="WallType3/AirVents"]
 position = Vector2(2071.7, 0)
-texture = ExtResource("9_uoq0e")
+texture = ExtResource("10_myrkd")
 
 [node name="AirVents2" type="Sprite2D" parent="WallType3/AirVents"]
 position = Vector2(998.198, 0)
-texture = ExtResource("9_uoq0e")
+texture = ExtResource("10_myrkd")
 
 [node name="Table" type="Sprite2D" parent="WallType3"]
 position = Vector2(184.058, 426)
 scale = Vector2(0.801122, 1)
-texture = ExtResource("10_oeiyo")
+texture = ExtResource("11_qditm")
 
 [node name="Lamp" type="Sprite2D" parent="WallType3/Table"]
 position = Vector2(72, -229)
 scale = Vector2(1.24825, 1)
-texture = ExtResource("11_csw5x")
+texture = ExtResource("12_bmxe5")
 
 [node name="Table2" type="Sprite2D" parent="WallType3"]
 position = Vector2(-986.382, 432)
 scale = Vector2(0.801122, 1)
-texture = ExtResource("10_oeiyo")
+texture = ExtResource("11_qditm")
 
 [node name="Chess" type="Sprite2D" parent="WallType3/Table2"]
 position = Vector2(-1, -142)
-texture = ExtResource("12_teggv")
+texture = ExtResource("13_28wvh")
 
 [node name="CabnetDoubleDoor" type="Sprite2D" parent="WallType3"]
 position = Vector2(-887.844, -128)
 scale = Vector2(0.801122, 1)
-texture = ExtResource("13_udok7")
+texture = ExtResource("14_annar")
 
 [node name="CabnetDoubleDoor2" type="Sprite2D" parent="WallType3/CabnetDoubleDoor"]
 position = Vector2(407, 0)
-texture = ExtResource("13_udok7")
+texture = ExtResource("14_annar")
 
 [node name="CabnetDoubleDoor3" type="Sprite2D" parent="WallType3/CabnetDoubleDoor"]
 position = Vector2(819, 0)
-texture = ExtResource("13_udok7")
+texture = ExtResource("14_annar")
 
 [node name="CabnetSingle" type="Sprite2D" parent="WallType3"]
 position = Vector2(309.033, -129)
 scale = Vector2(0.801122, 1)
-texture = ExtResource("14_w7wh8")
+texture = ExtResource("15_bym7q")
 
 [node name="CabnetSingle2" type="Sprite2D" parent="WallType3/CabnetSingle"]
 position = Vector2(202, 0)
-texture = ExtResource("14_w7wh8")
+texture = ExtResource("15_bym7q")
 
 [node name="CabnetSingle3" type="Sprite2D" parent="WallType3/CabnetSingle"]
 position = Vector2(407, 0)
-texture = ExtResource("14_w7wh8")
+texture = ExtResource("15_bym7q")
 
-[node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("1_gj8rv")]
+[node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("16_m53t3")]
 position = Vector2(-20, -8)
 
-[node name="Camera2D" type="Camera2D" parent="Protag_Dr_Evelyn_Morgan"]
-position = Vector2(41, -277)
-scale = Vector2(218.9, -0.294475)
-zoom = Vector2(0.78, 0.78)
-limit_bottom = 230
-limit_smoothed = true
-position_smoothing_enabled = true
-
-[node name="Inventory" parent="Protag_Dr_Evelyn_Morgan/Camera2D" instance=ExtResource("18_dvew6")]
-position = Vector2(-4.03837, -818.406)
-scale = Vector2(0.00593879, -4.41464)
+[node name="Inventory" parent="." instance=ExtResource("1_7nf27")]
+position = Vector2(-859, -80)
+scale = Vector2(1.3, 1.3)
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource("5_k4okr")]
+[node name="Coin" parent="Coins" instance=ExtResource("17_yq0lc")]
 position = Vector2(565, -40)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("5_k4okr")]
+[node name="Coin2" parent="Coins" instance=ExtResource("17_yq0lc")]
 position = Vector2(724, -38)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("5_k4okr")]
+[node name="Coin3" parent="Coins" instance=ExtResource("17_yq0lc")]
 position = Vector2(826, -39)
 
-[node name="RandoScientist_NPC" parent="." instance=ExtResource("7_b0h7n")]
+[node name="RandoScientist_NPC" parent="." instance=ExtResource("18_nej61")]
 position = Vector2(-666, -396)
