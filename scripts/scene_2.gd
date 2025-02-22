@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var spawn_object = preload("res://scenes/Main Character.tscn")
-@export var scale_factor = Vector2(1, 1)
+#@export var scale_factor = Vector2(1, 1)
 
 
 func _ready() -> void:
@@ -10,6 +10,6 @@ func _ready() -> void:
 func spawn():
 	var obj = spawn_object.instantiate()
 	obj.position = Vector2(-10,-5)
-	obj.get_node("Animation").scale = scale_factor
+	#obj.get_node("Animation").scale = scale_factor
 	add_child(obj)
 	
