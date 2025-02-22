@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnt0qlky4bve"]
+[gd_scene load_steps=15 format=3 uid="uid://dy2lp76tk73gk"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_8ufl1"]
 [ext_resource type="FontFile" uid="uid://bt3rcvvmfnq7" path="res://assets/Fonts/another_danger/Another Danger - Demo.otf" id="1_n38um"]

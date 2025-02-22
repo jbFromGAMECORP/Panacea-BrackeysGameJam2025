@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1u84pnfjkho8"]
+[gd_scene load_steps=27 format=3 uid="uid://diltp38ph8r2c"]
 
 [ext_resource type="Texture2D" uid="uid://kq7jwpsxpmvr" path="res://assets/Room Assets/patient area/patient area/wall type 3.png" id="1_dsvme"]
 [ext_resource type="Texture2D" uid="uid://cwdlijeyv3xqr" path="res://assets/Inventory/inventoryBase_mask_test.png" id="2_io6xq"]
@@ -460,6 +460,7 @@ flat = true
 expand_icon = true
 
 [node name="SuitcaseButton2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 26.0
 offset_top = 199.0
 offset_right = 191.0
@@ -479,5 +480,5 @@ script = ExtResource("10_668tk")
 [connection signal="visibility_changed" from="InventoryContainer2/ScrollContainer" to="InventoryContainer2/ScrollContainer" method="_on_visibility_changed"]
 [connection signal="pressed" from="LeftArrowButton2" to="InventoryContainer" method="_on_left_arrow_button_pressed"]
 [connection signal="pressed" from="RightArrowButton2" to="InventoryContainer" method="_on_right_arrow_button_pressed"]
-[connection signal="pressed" from="SuitcaseButton2" to="SuitcaseButton2" method="_on_pressed"]
 [connection signal="pressed" from="SuitcaseButton2" to="InventoryContainer2" method="_on_suitcase_button_pressed"]
+[connection signal="pressed" from="SuitcaseButton2" to="SuitcaseButton2" method="_on_pressed"]

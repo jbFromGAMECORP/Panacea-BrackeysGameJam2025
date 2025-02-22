@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://nf40epi2mvtf" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_nhvrw"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="3_cgps8"]
 [ext_resource type="Texture2D" uid="uid://tyjhg5sl8fsn" path="res://assets/Room Assets/patient area-cropped/dresser.png" id="4_j3poo"]
-[ext_resource type="PackedScene" uid="uid://d2t73jdq7xi1u" path="res://scenes/coin.tscn" id="5_k4okr"]
+[ext_resource type="PackedScene" uid="uid://d2t73jdq7xi1u" path="res://scenes/Items/coin.tscn" id="5_k4okr"]
 [ext_resource type="Texture2D" uid="uid://bu5amclpqnbum" path="res://assets/Room Assets/patient area-cropped/book row 2.png" id="5_tmjf2"]
 [ext_resource type="Texture2D" uid="uid://dtcg0d1s311uh" path="res://assets/Room Assets/patient area-cropped/book row 1.png" id="6_13ccn"]
 [ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/rando_scientist_npc.tscn" id="7_b0h7n"]
