@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://eeq7kv4gkkxh"]
 
-[ext_resource type="Texture2D" uid="uid://d2cvuqvbjwdt6" path="res://assets/PremadeLabAssets/lab_decors_tileset/lab_decors_tileset/lab_tileset.svg" id="1_jsyqm"]
+[ext_resource type="Texture2D" uid="uid://d2cvuqvbjwdt6" path="res://assets/PremadeLabAssets/lab_decors_tileset/lab_decors_tileset/lab_tileset.svg" id="1_7hv3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c08l5"]
 size = Vector2(126, 125)
@@ -8,7 +8,7 @@ size = Vector2(126, 125)
 [node name="Platform" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_jsyqm")
+texture = ExtResource("1_7hv3h")
 region_enabled = true
 region_rect = Rect2(0, 1, 128, 127)
 

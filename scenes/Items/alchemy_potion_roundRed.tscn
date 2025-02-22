@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgb752srgygqd"]
 
-[ext_resource type="Texture2D" uid="uid://dymvxg37fbywr" path="res://assets/PremadeLabAssets/alchemy set/all png/Alchemy1_1.png" id="1_wrg36"]
+[ext_resource type="Texture2D" uid="uid://dymvxg37fbywr" path="res://assets/PremadeLabAssets/alchemy set/all png/Alchemy1_1.png" id="1_w6tkm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eajce"]
 radius = 29.4109
@@ -9,7 +9,7 @@ radius = 29.4109
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(3.375, 3.375)
-texture = ExtResource("1_wrg36")
+texture = ExtResource("1_w6tkm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_eajce")
