@@ -23,6 +23,7 @@ Inventory="*res://addons/inventory_slot_plugin/script/slot/inventory.gd"
 [dialogic]
 
 directories/dch_directory={
+"drQ_coldOpen": "res://Dialogic_Items/Characters/drQ_coldOpen.dch",
 "randomScientist": "res://Dialogic_Items/Characters/randomScientist.dch"
 }
 directories/dtl_directory={
