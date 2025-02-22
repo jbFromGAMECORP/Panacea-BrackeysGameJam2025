@@ -88,12 +88,12 @@ size = Vector2(94, 578.5)
 script = ExtResource("1_vpwh2")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
-position = Vector2(131, 535)
+position = Vector2(196, 730)
 sprite_frames = SubResource("SpriteFrames_huifv")
 animation = &"Walk"
 frame_progress = 0.305263
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(115, 540.75)
+position = Vector2(183, 712)
 scale = Vector2(0.159999, 1.52)
 shape = SubResource("RectangleShape2D_lwnpk")
