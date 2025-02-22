@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://mgrp6pnmna6u"]
+
+[ext_resource type="Script" path="res://scenes/Scene1.gd" id="1_dakyw"]
+[ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="2_0m7gj"]
+[ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="3_ndgym"]
+[ext_resource type="Texture2D" uid="uid://dey2aejsy4e8d" path="res://assets/Room Assets/patient area-cropped/table.png" id="4_km6l8"]
+[ext_resource type="Texture2D" uid="uid://b6gihroq8vyn1" path="res://assets/Room Assets/patient area-cropped/lamp.png" id="5_cns8l"]
+[ext_resource type="Texture2D" uid="uid://tyjhg5sl8fsn" path="res://assets/Room Assets/patient area-cropped/dresser.png" id="6_05dxm"]
+[ext_resource type="Texture2D" uid="uid://dtcg0d1s311uh" path="res://assets/Room Assets/patient area-cropped/book row 1.png" id="7_q6326"]
+[ext_resource type="Texture2D" uid="uid://bu5amclpqnbum" path="res://assets/Room Assets/patient area-cropped/book row 2.png" id="8_gjger"]
+[ext_resource type="Texture2D" uid="uid://dtfyomlbakvi6" path="res://assets/Room Assets/patient area-cropped/book row 3.png" id="9_i44ib"]
+[ext_resource type="Texture2D" uid="uid://blbhjgqls0ug4" path="res://assets/Room Assets/patient area-cropped/air vents.png" id="10_5snv4"]
+[ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/Room Assets/patient area-cropped/cabnet double door.png" id="11_yqbel"]
+[ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/Room Assets/patient area-cropped/cabnet single.png" id="12_7v13c"]
+[ext_resource type="Texture2D" uid="uid://dw13cnkacroi" path="res://assets/Room Assets/patient area-cropped/chess.png" id="13_3u7jd"]
+[ext_resource type="Script" path="res://scenes/next_level_l.gd" id="14_lmvjf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lh22f"]
+
+[node name="Scene 1" type="Node2D"]
+script = ExtResource("1_dakyw")
+
+[node name="WallType3" type="Sprite2D" parent="."]
+modulate = Color(0.93, 1, 0.987167, 1)
+texture = ExtResource("2_0m7gj")
+centered = false
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture = ExtResource("3_ndgym")
+centered = false
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(337, 830)
+texture = ExtResource("4_km6l8")
+
+[node name="Table2" type="Sprite2D" parent="."]
+position = Vector2(1409, 830)
+texture = ExtResource("4_km6l8")
+
+[node name="Lamp" type="Sprite2D" parent="."]
+position = Vector2(411, 598)
+texture = ExtResource("5_cns8l")
+
+[node name="Dresser" type="Sprite2D" parent="."]
+position = Vector2(2116.19, 734.903)
+texture = ExtResource("6_05dxm")
+
+[node name="BookRow1" type="Sprite2D" parent="Dresser"]
+position = Vector2(-12, -118)
+texture = ExtResource("7_q6326")
+
+[node name="BookRow4" type="Sprite2D" parent="Dresser"]
+position = Vector2(50.6873, 3.26622)
+scale = Vector2(0.655, 0.885417)
+texture = ExtResource("7_q6326")
+flip_h = true
+
+[node name="BookRow2" type="Sprite2D" parent="Dresser"]
+position = Vector2(-69.6708, 3)
+scale = Vector2(0.596757, 0.810811)
+texture = ExtResource("8_gjger")
+
+[node name="BookRow3" type="Sprite2D" parent="Dresser"]
+position = Vector2(-0.75, 116.75)
+scale = Vector2(0.982759, 0.943299)
+texture = ExtResource("9_i44ib")
+
+[node name="AirVents" type="Sprite2D" parent="."]
+position = Vector2(713, 817)
+texture = ExtResource("10_5snv4")
+
+[node name="CabnetDoubleDoor" type="Sprite2D" parent="."]
+position = Vector2(447, 298)
+texture = ExtResource("11_yqbel")
+
+[node name="CabnetDoubleDoor2" type="Sprite2D" parent="."]
+position = Vector2(1083, 301)
+texture = ExtResource("11_yqbel")
+
+[node name="CabnetSingle" type="Sprite2D" parent="."]
+position = Vector2(399, 298)
+texture = ExtResource("12_7v13c")
+
+[node name="Chess" type="Sprite2D" parent="."]
+position = Vector2(1402.35, 687.542)
+texture = ExtResource("13_3u7jd")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("14_lmvjf")
+
+[node name="NextlevelL" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-26.5211, 569.339)
+scale = Vector2(1, 76.8988)
+shape = SubResource("RectangleShape2D_lh22f")
+
+[node name="NextlevelR" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1945, 569)
+scale = Vector2(1, 76.8988)
+shape = SubResource("RectangleShape2D_lh22f")

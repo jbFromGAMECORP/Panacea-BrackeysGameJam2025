@@ -82,18 +82,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwnpk"]
-size = Vector2(94, 578.5)
+size = Vector2(94, 734.211)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_vpwh2")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
-position = Vector2(196, 730)
+position = Vector2(273.5, 637.507)
+scale = Vector2(1.36905, 1.32857)
 sprite_frames = SubResource("SpriteFrames_huifv")
 animation = &"Walk"
 frame_progress = 0.305263
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(183, 712)
+position = Vector2(258, 651)
 scale = Vector2(0.159999, 1.52)
 shape = SubResource("RectangleShape2D_lwnpk")
