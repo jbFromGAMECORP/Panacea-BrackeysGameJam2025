@@ -1,7 +1,7 @@
 extends Node2D
 
 const FADE_DURATION = 1.25
-const NEXT_SCENE = preload("res://scenes/ExplorationAreas/panacea_game.tscn")
+const NEXT_SCENE = preload("res://scenes/ExplorationAreas/patientArea1.tscn")
 @onready var default_position := global_position
 @onready var button_container: MarginContainer = $"Button Container"
 @onready var canvas_modulate: CanvasModulate = $"../CanvasModulate"

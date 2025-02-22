@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://mgrp6pnmna6u"]
+[gd_scene load_steps=16 format=3 uid="uid://6enro65772t8"]
 
 [ext_resource type="Script" path="res://scenes/Scene1.gd" id="1_dakyw"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="2_0m7gj"]
