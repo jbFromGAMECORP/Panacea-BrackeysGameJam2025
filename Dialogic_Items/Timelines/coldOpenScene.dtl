@@ -46,3 +46,4 @@ leave maria_coldOpen [animation="Instant Out"]
 [background arg="res://assets/ColdOpen/lastScenePlaceholder_coldOpen.png" fade="0.4"]
 drQ_coldOpen: ....Remarkable.
 leave drQ_coldOpen
+[signal arg="timeline_ended"]

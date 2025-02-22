@@ -1,7 +1,7 @@
 extends Control
 const FADE_DURATION = 1.25
 const MOUSE_OFFSET_RATIO = .015
-const NEXT_SCENE = preload("res://scenes/Test_Scene.tscn")
+const NEXT_SCENE = preload("res://scenes/VisualNovelStuff/ColdOpen.tscn")
 @onready var default_position := global_position
 @onready var menu_hover_click: AudioStreamPlayer = $"Menu Hover Click"
 @onready var button_container: MarginContainer = $"Button Container"
@@ -48,4 +48,5 @@ func quit_pressed():
 	if current_tween.is_running():
 		print("ALREADY TWEENING DAWG!")
 		return
+	print("Exit Pressed")
 	get_tree().quit()
