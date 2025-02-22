@@ -24,10 +24,11 @@ Inventory="*res://addons/inventory_slot_plugin/script/slot/inventory.gd"
 
 directories/dch_directory={
 "drQ_coldOpen": "res://Dialogic_Items/Characters/drQ_coldOpen.dch",
+"maria_coldOpen": "res://Dialogic_Items/Characters/maria_coldOpen.dch",
 "randomScientist": "res://Dialogic_Items/Characters/randomScientist.dch"
 }
 directories/dtl_directory={
-"coldOpenScene": "res://Dialogic_Items/Characters/coldOpenScene.dtl",
+"coldOpenScene": "res://Dialogic_Items/Timelines/coldOpenScene.dtl",
 "testDialogue": "res://Dialogic_Items/Timelines/testDialogue.dtl"
 }
 layout/style_list=["res://Dialogic_Items/Styles/testCustomStyle.tres"]
