@@ -1,0 +1,4 @@
+[background arg="res://assets/ColdOpen/firstScenePlaceholder_coldOpen.png" fade="0.4"]
+join drQ_coldOpen right
+[background arg="res://assets/ColdOpen/secondScenePlaceholder_coldOpen.png" fade="0.3"]
+join  center

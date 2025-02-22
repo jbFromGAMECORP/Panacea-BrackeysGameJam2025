@@ -27,6 +27,7 @@ directories/dch_directory={
 "randomScientist": "res://Dialogic_Items/Characters/randomScientist.dch"
 }
 directories/dtl_directory={
+"coldOpenScene": "res://Dialogic_Items/Characters/coldOpenScene.dtl",
 "testDialogue": "res://Dialogic_Items/Timelines/testDialogue.dtl"
 }
 layout/style_list=["res://Dialogic_Items/Styles/testCustomStyle.tres"]
