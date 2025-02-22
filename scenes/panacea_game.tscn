@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://csjakl35674r5"]
 
-[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/dr_evelyn_morgan.tscn" id="1_gj8rv"]
+[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/dr_evelyn_morgan.tscn" id="1_gj8rv"]
 [ext_resource type="Texture2D" uid="uid://d2cvuqvbjwdt6" path="res://assets/PremadeLabAssets/lab_decors_tileset/lab_decors_tileset/lab_tileset.svg" id="2_6vc8v"]
 [ext_resource type="Texture2D" uid="uid://nf40epi2mvtf" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_nhvrw"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="3_cgps8"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d2t73jdq7xi1u" path="res://scenes/Items/coin.tscn" id="5_k4okr"]
 [ext_resource type="Texture2D" uid="uid://bu5amclpqnbum" path="res://assets/Room Assets/patient area-cropped/book row 2.png" id="5_tmjf2"]
 [ext_resource type="Texture2D" uid="uid://dtcg0d1s311uh" path="res://assets/Room Assets/patient area-cropped/book row 1.png" id="6_13ccn"]
-[ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/rando_scientist_npc.tscn" id="7_b0h7n"]
+[ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/Characters/rando_scientist_npc.tscn" id="7_b0h7n"]
 [ext_resource type="Texture2D" uid="uid://dtfyomlbakvi6" path="res://assets/Room Assets/patient area-cropped/book row 3.png" id="7_qlsph"]
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="8_p71o4"]
 [ext_resource type="Texture2D" uid="uid://blbhjgqls0ug4" path="res://assets/Room Assets/patient area-cropped/air vents.png" id="9_uoq0e"]
