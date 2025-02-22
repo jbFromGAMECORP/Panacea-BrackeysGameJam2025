@@ -14,4 +14,3 @@ func _on_mouse_entered():
 func _on_button_click():
 	button_sfx.volume_db = CLICK_VOL
 	button_sfx.play()
-	get_tree().quit()
