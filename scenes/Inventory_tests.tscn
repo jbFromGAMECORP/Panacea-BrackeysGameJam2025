@@ -1,0 +1,483 @@
+[gd_scene load_steps=27 format=3 uid="uid://d1u84pnfjkho8"]
+
+[ext_resource type="Texture2D" uid="uid://kq7jwpsxpmvr" path="res://assets/Room Assets/patient area/patient area/wall type 3.png" id="1_dsvme"]
+[ext_resource type="Texture2D" uid="uid://cwdlijeyv3xqr" path="res://assets/Inventory/inventoryBase_mask_test.png" id="2_io6xq"]
+[ext_resource type="Texture2D" uid="uid://lc02cmfehhgf" path="res://assets/Inventory/inventoryBase_cropped.PNG" id="2_veyya"]
+[ext_resource type="Script" path="res://scripts/inventory_container.gd" id="3_3xroc"]
+[ext_resource type="Texture2D" uid="uid://4p35btd34t8x" path="res://assets/Inventory/inventorySlot_cropped.PNG" id="4_08kfj"]
+[ext_resource type="Texture2D" uid="uid://bdrhiskqsjmp2" path="res://assets/Inventory/Inventory_Items/tape.png" id="5_d67dt"]
+[ext_resource type="Texture2D" uid="uid://c0xofr5pg2ryw" path="res://assets/Testbars.png" id="6_upx3q"]
+[ext_resource type="Texture2D" uid="uid://cltsi5rnokabp" path="res://assets/Inventory/leftArrow_darker_cropped.PNG" id="7_cglt6"]
+[ext_resource type="Texture2D" uid="uid://4iomd7fx7juy" path="res://assets/Inventory/rightArrow_darker_cropped.PNG" id="8_phwqi"]
+[ext_resource type="Texture2D" uid="uid://blyedyv0x8q2q" path="res://assets/Inventory/sci-fiSuitcase_closed_cropped.PNG" id="9_jem52"]
+[ext_resource type="Script" path="res://scripts/suitcase_button.gd" id="10_668tk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfvyg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adwmy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vwn1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wcjxs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klfvu"]
+
+[sub_resource type="Theme" id="Theme_auw0a"]
+HScrollBar/styles/grabber = SubResource("StyleBoxEmpty_qfvyg")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_adwmy")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_4vwn1")
+HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_wcjxs")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_klfvu")
+
+[sub_resource type="Gradient" id="Gradient_yycu6"]
+offsets = PackedFloat32Array(0, 0.330435, 0.591304, 1)
+colors = PackedColorArray(0, 0.67451, 0.8, 1, 0.372549, 0.556863, 0.705882, 1, 0.374502, 0.555432, 0.706507, 1, 3.17663e-06, 0.673405, 0.801633, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5pa1s"]
+gradient = SubResource("Gradient_yycu6")
+width = 360
+height = 200
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gsm35"]
+texture = ExtResource("4_08kfj")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1arg3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eygth"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rscrj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_weo2v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wh784"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tuptq"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="WallType3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1215, 541)
+texture = ExtResource("1_dsvme")
+
+[node name="InventoryContainer" type="TextureRect" parent="."]
+visible = false
+clip_children = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 201.0
+offset_top = 34.0
+offset_right = 674.0
+offset_bottom = 191.0
+texture = ExtResource("2_io6xq")
+expand_mode = 2
+script = ExtResource("3_3xroc")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InventoryContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.5
+offset_top = -67.5
+offset_right = 224.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_auw0a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="Control" type="Control" parent="InventoryContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Background" type="TextureRect" parent="InventoryContainer/ScrollContainer/HBoxContainer/Control"]
+self_modulate = Color(1, 1, 1, 0.54902)
+show_behind_parent = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = 2000.0
+offset_bottom = 163.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_5pa1s")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="Slot" type="PanelContainer" parent="InventoryContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer/ScrollContainer/HBoxContainer/Slot"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_d67dt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot2" type="PanelContainer" parent="InventoryContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer/ScrollContainer/HBoxContainer/Slot2"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot3" type="PanelContainer" parent="InventoryContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer/ScrollContainer/HBoxContainer/Slot3"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot4" type="PanelContainer" parent="InventoryContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer/ScrollContainer/HBoxContainer/Slot4"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot5" type="PanelContainer" parent="InventoryContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer/ScrollContainer/HBoxContainer/Slot5"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot6" type="PanelContainer" parent="InventoryContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer/ScrollContainer/HBoxContainer/Slot6"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot7" type="PanelContainer" parent="InventoryContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer/ScrollContainer/HBoxContainer/Slot7"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot8" type="PanelContainer" parent="InventoryContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer/ScrollContainer/HBoxContainer/Slot8"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Control" type="Control" parent="InventoryContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="OverlayBars" type="TextureRect" parent="InventoryContainer"]
+visible = false
+layout_mode = 0
+offset_left = 54.0
+offset_top = 43.0
+offset_right = 501.0
+offset_bottom = 159.0
+mouse_filter = 2
+texture = ExtResource("6_upx3q")
+
+[node name="InventoryOverlay" type="TextureRect" parent="InventoryContainer"]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 474.0
+offset_bottom = 159.0
+mouse_filter = 2
+texture = ExtResource("2_veyya")
+expand_mode = 2
+
+[node name="LeftArrowButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 180.0
+offset_top = 87.0
+offset_right = 230.0
+offset_bottom = 137.0
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1arg3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_eygth")
+icon = ExtResource("7_cglt6")
+flat = true
+expand_icon = true
+
+[node name="RightArrowButton" type="Button" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 659.0
+offset_top = 89.0
+offset_right = 709.0
+offset_bottom = 139.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(33, 35)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rscrj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_weo2v")
+icon = ExtResource("8_phwqi")
+flat = true
+expand_icon = true
+
+[node name="SuitcaseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 17.0
+offset_right = 191.0
+offset_bottom = 215.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wh784")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tuptq")
+toggle_mode = true
+icon = ExtResource("9_jem52")
+flat = true
+expand_icon = true
+script = ExtResource("10_668tk")
+
+[node name="InventoryContainer2" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+layout_mode = 0
+offset_left = 218.0
+offset_top = 237.0
+offset_right = 659.0
+offset_bottom = 357.0
+pivot_offset = Vector2(236, 78)
+script = ExtResource("3_3xroc")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InventoryContainer2"]
+layout_mode = 2
+offset_right = 441.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_auw0a")
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/separation = -1
+
+[node name="Background Positioner" type="Control" parent="InventoryContainer2/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Background" type="TextureRect" parent="InventoryContainer2/ScrollContainer/HBoxContainer/Background Positioner"]
+self_modulate = Color(1, 1, 1, 0.54902)
+show_behind_parent = true
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 120.0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_5pa1s")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="Slot" type="PanelContainer" parent="InventoryContainer2/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer2/ScrollContainer/HBoxContainer/Slot"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_d67dt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot2" type="PanelContainer" parent="InventoryContainer2/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer2/ScrollContainer/HBoxContainer/Slot2"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot3" type="PanelContainer" parent="InventoryContainer2/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer2/ScrollContainer/HBoxContainer/Slot3"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot4" type="PanelContainer" parent="InventoryContainer2/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer2/ScrollContainer/HBoxContainer/Slot4"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot5" type="PanelContainer" parent="InventoryContainer2/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer2/ScrollContainer/HBoxContainer/Slot5"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot6" type="PanelContainer" parent="InventoryContainer2/ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer2/ScrollContainer/HBoxContainer/Slot6"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot7" type="PanelContainer" parent="InventoryContainer2/ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer2/ScrollContainer/HBoxContainer/Slot7"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot8" type="PanelContainer" parent="InventoryContainer2/ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_gsm35")
+
+[node name="Item" type="TextureRect" parent="InventoryContainer2/ScrollContainer/HBoxContainer/Slot8"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Control" type="Control" parent="InventoryContainer2/ScrollContainer"]
+layout_mode = 2
+
+[node name="OverlayBars" type="TextureRect" parent="InventoryContainer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_upx3q")
+expand_mode = 1
+
+[node name="LeftArrowButton2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 180.0
+offset_top = 269.0
+offset_right = 230.0
+offset_bottom = 319.0
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1arg3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_eygth")
+icon = ExtResource("7_cglt6")
+flat = true
+expand_icon = true
+
+[node name="RightArrowButton2" type="Button" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 659.0
+offset_top = 271.0
+offset_right = 709.0
+offset_bottom = 321.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(33, 35)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rscrj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_weo2v")
+icon = ExtResource("8_phwqi")
+flat = true
+expand_icon = true
+
+[node name="SuitcaseButton2" type="Button" parent="."]
+offset_left = 26.0
+offset_top = 199.0
+offset_right = 191.0
+offset_bottom = 397.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wh784")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tuptq")
+toggle_mode = true
+icon = ExtResource("9_jem52")
+flat = true
+expand_icon = true
+script = ExtResource("10_668tk")
+
+[connection signal="pressed" from="LeftArrowButton" to="InventoryContainer" method="_on_left_arrow_button_pressed"]
+[connection signal="pressed" from="RightArrowButton" to="InventoryContainer" method="_on_right_arrow_button_pressed"]
+[connection signal="pressed" from="SuitcaseButton" to="InventoryContainer" method="_on_suitcase_button_pressed"]
+[connection signal="pressed" from="SuitcaseButton" to="SuitcaseButton" method="_on_pressed"]
+[connection signal="visibility_changed" from="InventoryContainer2/ScrollContainer" to="InventoryContainer2/ScrollContainer" method="_on_visibility_changed"]
+[connection signal="pressed" from="LeftArrowButton2" to="InventoryContainer" method="_on_left_arrow_button_pressed"]
+[connection signal="pressed" from="RightArrowButton2" to="InventoryContainer" method="_on_right_arrow_button_pressed"]
+[connection signal="pressed" from="SuitcaseButton2" to="SuitcaseButton2" method="_on_pressed"]
+[connection signal="pressed" from="SuitcaseButton2" to="InventoryContainer2" method="_on_suitcase_button_pressed"]
