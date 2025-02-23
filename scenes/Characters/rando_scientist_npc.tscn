@@ -123,7 +123,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_stlui"]
-radius = 481.274
+radius = 253.024
 
 [node name="RandoScientist_NPC" type="CharacterBody2D"]
 collision_layer = 3
@@ -143,7 +143,7 @@ autoplay = "east-walk"
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chatDetection"]
-position = Vector2(1, -1)
+position = Vector2(109, 116)
 shape = SubResource("CircleShape2D_stlui")
 
 [connection signal="body_entered" from="chatDetection" to="." method="_on_chat_detection_body_entered"]
