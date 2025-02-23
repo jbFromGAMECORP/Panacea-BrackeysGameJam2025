@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var spawn_object = preload("res://scenes/Main Character.tscn")
+@export var spawn_object = load("res://scenes/Main Character.tscn")
 #@export var scale_factor = Vector2(1, 1)
 
 func _ready() -> void:
