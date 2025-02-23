@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://d4nwpo2upxlnk" path="res://assets/Protagonist/Idle/idle_sprite_sheet_colored.png" id="2_e10cq"]
 [ext_resource type="Texture2D" uid="uid://co5vw34wwqb78" path="res://assets/Protagonist/WalkingAnimation/walk_sprite_sheet_colored_withShadow.png" id="3_eyuan"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwnpk"]
+size = Vector2(94, 734.211)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mql4y"]
 atlas = ExtResource("2_e10cq")
 region = Rect2(420, 0, 420, 703)
@@ -81,11 +84,13 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwnpk"]
-size = Vector2(94, 734.211)
-
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Main_Character" type="CharacterBody2D"]
 script = ExtResource("1_vpwh2")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(258, 651)
+scale = Vector2(0.159999, 1.52)
+shape = SubResource("RectangleShape2D_lwnpk")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(273.5, 637.507)
@@ -93,8 +98,3 @@ scale = Vector2(1.36905, 1.32857)
 sprite_frames = SubResource("SpriteFrames_huifv")
 animation = &"Walk"
 frame_progress = 0.305263
-
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(258, 651)
-scale = Vector2(0.159999, 1.52)
-shape = SubResource("RectangleShape2D_lwnpk")
