@@ -13,7 +13,9 @@ config_version=5
 config/name="Panacea-BrackeysGameJam"
 run/main_scene="res://scenes/ExplorationAreas/patientArea1.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://assets/Logos/panacea_blackBg_underneathImage.png"
+config/icon="res://assets/Logos/panacea_blackBg_curvedAboveImage.png"
 
 [autoload]
 
@@ -29,9 +31,10 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "coldOpenScene": "res://Dialogic_Items/Timelines/coldOpenScene.dtl",
-"testDialogue": "res://Dialogic_Items/Timelines/testDialogue.dtl"
+"testDialogue": "res://Dialogic_Items/Timelines/testDialogue.dtl",
+"testGameTip": "res://Dialogic_Items/Timelines/testGameTip.dtl"
 }
-layout/style_list=["res://Dialogic_Items/Styles/testCustomStyle.tres"]
+layout/style_list=["res://Dialogic_Items/Styles/testCustomStyle.tres", "res://Dialogic_Items/Styles/textBubbleStyle.tres"]
 layout/default_style="res://Dialogic_Items/Styles/testCustomStyle.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.04
@@ -51,6 +54,21 @@ choices/reveal_delay=0
 choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
+text/autopauses={}
+audio/channel_defaults={
+"": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
+"music": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": true,
+"volume": 0.0
+}
+}
 
 [display]
 
