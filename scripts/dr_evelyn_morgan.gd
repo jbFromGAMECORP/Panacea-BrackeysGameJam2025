@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const speed = 200.0
+const speed = 300.0
 
 var player_state
 var player_facing
