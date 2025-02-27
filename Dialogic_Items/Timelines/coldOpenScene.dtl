@@ -1,3 +1,4 @@
+[style name="testCustomStyle"]
 [background arg="res://assets/ColdOpen/firstScenePlaceholder_coldOpen.png" fade="0.4"]
 join drQ_coldOpen (NeutralPortrait) right
 drQ_coldOpen: Hmm.. let's see. Madero was it, Maria Madero?
