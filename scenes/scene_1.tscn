@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/Room Assets/patient area-cropped/cabnet double door.png" id="11_yqbel"]
 [ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/Room Assets/patient area-cropped/cabnet single.png" id="12_7v13c"]
 [ext_resource type="Texture2D" uid="uid://dw13cnkacroi" path="res://assets/Room Assets/patient area-cropped/chess.png" id="13_3u7jd"]
-[ext_resource type="Script" path="res://scenes/Scene_Boundry.gd" id="14_kf6nn"]
+[ext_resource type="Script" path="res://scripts/Scene_Boundry.gd" id="14_kf6nn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lh22f"]
 

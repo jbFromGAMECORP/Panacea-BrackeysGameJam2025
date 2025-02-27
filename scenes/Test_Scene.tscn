@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/Room Assets/patient area-cropped/cabnet double door.png" id="10_87owy"]
 [ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/Room Assets/patient area-cropped/cabnet single.png" id="11_2x1p7"]
 [ext_resource type="Texture2D" uid="uid://dw13cnkacroi" path="res://assets/Room Assets/patient area-cropped/chess.png" id="12_veyek"]
-[ext_resource type="Script" path="res://scenes/next_level_l.gd" id="14_qg51g"]
+[ext_resource type="Script" path="res://scripts/next_level_l.gd" id="14_qg51g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lh22f"]
 

@@ -21,6 +21,8 @@ config/icon="res://assets/Logos/panacea_blackBg_curvedAboveImage.png"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Inventory="*res://addons/inventory_slot_plugin/script/slot/inventory.gd"
+GlobalSingleton="*res://scripts/Global_Singleton.gd"
+Saver="*res://scripts/saver_loader.gd"
 
 [dialogic]
 
