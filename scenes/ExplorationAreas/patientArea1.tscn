@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/Characters/rando_scientist_npc.tscn" id="18_nej61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr5qv"]
-size = Vector2(54, 1080)
+size = Vector2(45, 1080)
 
 [node name="PanaceaGame" type="Node2D"]
 position = Vector2(1213, 891)
@@ -118,7 +118,7 @@ shape = SubResource("RectangleShape2D_dr5qv")
 position = Vector2(-1221, -358)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
-position = Vector2(2362, 11)
+position = Vector2(1950, 11)
 shape = SubResource("RectangleShape2D_dr5qv")
 
 [node name="RandoScientist_NPC" parent="." instance=ExtResource("18_nej61")]
@@ -139,5 +139,5 @@ position = Vector2(2068, 868)
 position = Vector2(-162, 39)
 
 [node name="Inventory" parent="." instance=ExtResource("1_7nf27")]
-position = Vector2(-482, -105)
+position = Vector2(-472, -120)
 scale = Vector2(1.3, 1.3)
