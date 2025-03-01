@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://diltp38ph8r2c"]
+[gd_scene load_steps=55 format=3 uid="uid://diltp38ph8r2c"]
 
 [ext_resource type="Texture2D" uid="uid://kq7jwpsxpmvr" path="res://assets/Room Assets/patient area/patient area/wall type 3.png" id="1_dsvme"]
 [ext_resource type="Texture2D" uid="uid://cwdlijeyv3xqr" path="res://assets/Inventory/inventoryBase_mask_test.png" id="2_io6xq"]
@@ -18,6 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://bff65e82555qr" path="res://addons/dialogic/Editor/Images/Pieces/close-icon.svg" id="16_oemec"]
 [ext_resource type="Texture2D" uid="uid://dih1coellhwm8" path="res://addons/dialogic/Editor/Images/Pieces/variable.svg" id="17_ymjbv"]
 [ext_resource type="Texture2D" uid="uid://bt87p6qlso0ya" path="res://addons/dialogic/Editor/Images/dialogic-logo.svg" id="18_kj74b"]
+[ext_resource type="Texture2D" uid="uid://dwhpcl8id8inf" path="res://assets/Inventory/InventoryBase_DarkBlue.PNG" id="19_avxks"]
+[ext_resource type="Script" path="res://scripts/inventory_container_pages.gd" id="20_itjss"]
+[ext_resource type="Texture2D" uid="uid://dlysklq57y2qj" path="res://assets/Inventory/InventorySlot_DarkBlue.PNG" id="21_81vr8"]
+[ext_resource type="Texture2D" uid="uid://cjkeqow7vfu5x" path="res://assets/Inventory/InventoryArrowLeft_VibrantBlue.PNG" id="24_0xr7j"]
+[ext_resource type="Theme" uid="uid://begekcwlxvr52" path="res://assets/Inventory/Inventory_Theme.tres" id="24_cj0fm"]
+[ext_resource type="Texture2D" uid="uid://c6oe1g4w0xipl" path="res://assets/Inventory/InventoryArrowRight_VibrantBlue.PNG" id="25_wvd73"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wh784"]
 
@@ -59,6 +65,43 @@ texture = ExtResource("4_08kfj")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rscrj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_weo2v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qaoq3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6jwe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tyq2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81286"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kduu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ev18x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krlna"]
+
+[sub_resource type="Theme" id="Theme_i1h8l"]
+HScrollBar/styles/grabber = SubResource("StyleBoxEmpty_tyq2h")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_81286")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_1kduu")
+HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_ev18x")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_krlna")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1syjl"]
+texture = ExtResource("21_81vr8")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qg8o4"]
+font_size = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kiixm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwx31"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_th11s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_randn"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_kgbtr"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -506,6 +549,200 @@ icon = ExtResource("8_phwqi")
 flat = true
 expand_icon = true
 
+[node name="Pages" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 385.0
+offset_right = 40.0
+offset_bottom = 425.0
+
+[node name="SuitcaseButton" type="Button" parent="Pages"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 6.0
+offset_right = 271.0
+offset_bottom = 248.0
+scale = Vector2(0.719998, 0.719998)
+tooltip_text = "Inventory"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qaoq3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r6jwe")
+toggle_mode = true
+icon = ExtResource("9_jem52")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("10_668tk")
+metadata/_edit_use_anchors_ = true
+
+[node name="InventoryContainer_pages" type="TextureRect" parent="Pages"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = -20.0
+offset_right = 1192.0
+offset_bottom = 173.0
+scale = Vector2(1.03501, 1.05653)
+pivot_offset = Vector2(-52.1734, 88.024)
+size_flags_horizontal = 6
+texture = ExtResource("19_avxks")
+script = ExtResource("20_itjss")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Pages/InventoryContainer_pages"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.289
+anchor_right = 0.897
+anchor_bottom = 0.81
+offset_left = 105.0
+offset_top = -11.777
+offset_right = 29.824
+offset_bottom = 8.66998
+scale = Vector2(0.963629, 0.928016)
+theme = SubResource("Theme_i1h8l")
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pages/InventoryContainer_pages/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Slot" type="Panel" parent="Pages/InventoryContainer_pages/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1syjl")
+
+[node name="Item" type="TextureRect" parent="Pages/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot"]
+visible = false
+layout_mode = 0
+offset_left = 15.0
+offset_top = 17.0
+offset_right = 106.0
+offset_bottom = 102.0
+texture = ExtResource("5_d67dt")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Pages/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_qg8o4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftArrowButton" type="Button" parent="Pages/InventoryContainer_pages"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 55.0
+offset_right = 124.0
+offset_bottom = 147.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kiixm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iwx31")
+icon = ExtResource("24_0xr7j")
+flat = true
+expand_icon = true
+
+[node name="Testbars" type="TextureRect" parent="Pages/InventoryContainer_pages/LeftArrowButton"]
+visible = false
+layout_mode = 0
+offset_left = 55.759
+offset_top = -4.95016
+offset_right = 83.759
+offset_bottom = 80.0498
+scale = Vector2(1, 1.20878)
+texture = ExtResource("6_upx3q")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="RightArrowButton" type="Button" parent="Pages/InventoryContainer_pages"]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 55.0
+offset_right = 967.0
+offset_bottom = 147.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_th11s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_randn")
+icon = ExtResource("25_wvd73")
+flat = true
+expand_icon = true
+
+[node name="Testbars2" type="TextureRect" parent="Pages/InventoryContainer_pages/RightArrowButton"]
+visible = false
+layout_mode = 0
+offset_left = -9.49384
+offset_top = -8.73618
+offset_right = 18.5062
+offset_bottom = 76.2638
+scale = Vector2(1, 1.20878)
+texture = ExtResource("6_upx3q")
+expand_mode = 1
+stretch_mode = 1
+flip_h = true
+
+[node name="Dots" type="HBoxContainer" parent="Pages/InventoryContainer_pages"]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 23.6624
+offset_right = 671.0
+offset_bottom = 47.6624
+alignment = 1
+
+[node name="Dot1" type="CheckBox" parent="Pages/InventoryContainer_pages/Dots"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("24_cj0fm")
+button_pressed = true
+button_group = SubResource("ButtonGroup_kgbtr")
+
+[node name="Dot2" type="CheckBox" parent="Pages/InventoryContainer_pages/Dots"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("24_cj0fm")
+button_group = SubResource("ButtonGroup_kgbtr")
+
+[node name="Dot3" type="CheckBox" parent="Pages/InventoryContainer_pages/Dots"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("24_cj0fm")
+button_group = SubResource("ButtonGroup_kgbtr")
+
+[node name="Dot4" type="CheckBox" parent="Pages/InventoryContainer_pages/Dots"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("24_cj0fm")
+button_group = SubResource("ButtonGroup_kgbtr")
+
+[node name="Dot5" type="CheckBox" parent="Pages/InventoryContainer_pages/Dots"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("24_cj0fm")
+button_group = SubResource("ButtonGroup_kgbtr")
+
+[node name="Dot6" type="CheckBox" parent="Pages/InventoryContainer_pages/Dots"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("24_cj0fm")
+button_group = SubResource("ButtonGroup_kgbtr")
+
+[node name="sub" type="Button" parent="Pages/InventoryContainer_pages"]
+layout_mode = 0
+offset_left = 780.836
+offset_top = 184.544
+offset_right = 865.836
+offset_bottom = 224.544
+theme_override_font_sizes/font_size = 23
+text = "-1 item"
+
+[node name="add" type="Button" parent="Pages/InventoryContainer_pages"]
+layout_mode = 0
+offset_left = 870.691
+offset_top = 184.544
+offset_right = 961.691
+offset_bottom = 224.544
+theme_override_font_sizes/font_size = 23
+text = "+1 item"
+
 [connection signal="pressed" from="SuitcaseButton" to="InventoryContainer" method="_on_suitcase_button_pressed"]
 [connection signal="button_down" from="InventoryContainer/LeftArrowButton" to="InventoryContainer" method="_on_left_arrow_button_pressed"]
 [connection signal="button_up" from="InventoryContainer/LeftArrowButton" to="InventoryContainer" method="_on_left_arrow_button_released"]
@@ -519,3 +756,8 @@ expand_icon = true
 [connection signal="button_up" from="InventoryContainer2/LeftArrowButton2" to="InventoryContainer2" method="_on_left_arrow_button_released"]
 [connection signal="button_down" from="InventoryContainer2/RightArrowButton2" to="InventoryContainer2" method="_on_right_arrow_button_pressed"]
 [connection signal="button_up" from="InventoryContainer2/RightArrowButton2" to="InventoryContainer2" method="_on_right_arrow_button_released"]
+[connection signal="pressed" from="Pages/SuitcaseButton" to="Pages/InventoryContainer_pages" method="_on_suitcase_button_pressed"]
+[connection signal="pressed" from="Pages/InventoryContainer_pages/LeftArrowButton" to="Pages/InventoryContainer_pages" method="_on_left_arrow_button_pressed"]
+[connection signal="pressed" from="Pages/InventoryContainer_pages/RightArrowButton" to="Pages/InventoryContainer_pages" method="_on_right_arrow_button_pressed"]
+[connection signal="pressed" from="Pages/InventoryContainer_pages/sub" to="Pages/InventoryContainer_pages" method="_on_sub_pressed"]
+[connection signal="pressed" from="Pages/InventoryContainer_pages/add" to="Pages/InventoryContainer_pages" method="_on_add_pressed"]
