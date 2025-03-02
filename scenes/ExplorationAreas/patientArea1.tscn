@@ -22,14 +22,20 @@ size = Vector2(45, 1080)
 
 [node name="PanaceaGame" type="Node2D"]
 position = Vector2(1213, 891)
+metadata/_edit_horizontal_guides_ = [949.0]
 
 [node name="WallType3" type="Sprite2D" parent="."]
 position = Vector2(-34, -429.125)
 scale = Vector2(0.973441, 0.846065)
 texture = ExtResource("4_ogm7m")
 
+[node name="Floor" type="Sprite2D" parent="WallType3"]
+position = Vector2(0.400513, 193)
+scale = Vector2(0.99835, 1)
+texture = ExtResource("9_fvs75")
+
 [node name="Dresser" type="Sprite2D" parent="WallType3"]
-position = Vector2(579.812, 354)
+position = Vector2(607.125, 378.369)
 scale = Vector2(0.801122, 1)
 texture = ExtResource("5_ykge4")
 
@@ -45,17 +51,12 @@ texture = ExtResource("7_p5wxe")
 position = Vector2(4.00006, 1)
 texture = ExtResource("8_ea5ap")
 
-[node name="Floor" type="Sprite2D" parent="WallType3"]
-position = Vector2(0.400558, 193)
-scale = Vector2(0.99835, 1)
-texture = ExtResource("9_fvs75")
-
 [node name="AirVents" type="Sprite2D" parent="WallType3"]
 position = Vector2(-1006.41, 488)
 texture = ExtResource("10_myrkd")
 
 [node name="AirVents3" type="Sprite2D" parent="WallType3/AirVents"]
-position = Vector2(2071.7, 0)
+position = Vector2(2080.95, -954.719)
 texture = ExtResource("10_myrkd")
 
 [node name="AirVents2" type="Sprite2D" parent="WallType3/AirVents"]
@@ -63,7 +64,7 @@ position = Vector2(998.198, 0)
 texture = ExtResource("10_myrkd")
 
 [node name="Table" type="Sprite2D" parent="WallType3"]
-position = Vector2(184.058, 426)
+position = Vector2(213.675, 458.741)
 scale = Vector2(0.801122, 1)
 texture = ExtResource("11_qditm")
 
@@ -73,7 +74,7 @@ scale = Vector2(1.24825, 1)
 texture = ExtResource("12_bmxe5")
 
 [node name="Table2" type="Sprite2D" parent="WallType3"]
-position = Vector2(-986.382, 432)
+position = Vector2(-986.192, 455.196)
 scale = Vector2(0.801122, 1)
 texture = ExtResource("11_qditm")
 
@@ -122,7 +123,8 @@ position = Vector2(1950, 11)
 shape = SubResource("RectangleShape2D_dr5qv")
 
 [node name="RandoScientist_NPC" parent="." instance=ExtResource("18_nej61")]
-position = Vector2(-656, -323)
+position = Vector2(-695, -174)
+scale = Vector2(0.603638, 0.603638)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -136,8 +138,8 @@ position = Vector2(1927, 872)
 position = Vector2(2068, 868)
 
 [node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("16_m53t3")]
-position = Vector2(-162, 39)
+position = Vector2(-168, 112)
 
 [node name="Inventory" parent="." instance=ExtResource("1_7nf27")]
-position = Vector2(-472, -120)
+position = Vector2(-682, -891)
 scale = Vector2(1.3, 1.3)

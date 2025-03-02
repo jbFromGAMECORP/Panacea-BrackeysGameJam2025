@@ -18,6 +18,8 @@ enum {
 }
 
 func _ready():
+	Dialogic.preload_timeline(load("res://Dialogic_Items/Timelines/testGameTip.dtl"))
+	preload("res://Dialogic_Items/Styles/textBubbleStyle.tres").prepare()
 	randomize()
 	Dialogic.signal_event.connect(DialogicSignal)
 
