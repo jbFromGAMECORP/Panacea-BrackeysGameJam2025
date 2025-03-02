@@ -4,9 +4,7 @@ extends TextureRect
 	if name == "InventoryContainer2" \
 	else $SpriteMask/ScrollContainer
 
-@onready var suitcase: Button = $"../SuitcaseButton2"\
-	if name == "InventoryContainer2" \
-	else  $"../SuitcaseButton"
+@onready var suitcase: Button = $"../SuitcaseButton"
 	
 @onready var timer: Timer = $"ArrowHeldTimer"
 
