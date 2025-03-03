@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5ke61cys47b4"]
 
-[ext_resource type="Texture2D" uid="uid://cgqa3l32ei4pa" path="res://wall type 2.png" id="1_vdivb"]
-[ext_resource type="PackedScene" uid="uid://e85at8il0t53" path="res://Main Character.tscn" id="2_j80np"]
-[ext_resource type="Texture2D" uid="uid://cjlah6on6hocd" path="res://tile texture.png" id="2_r33hj"]
-[ext_resource type="Texture2D" uid="uid://dsaptkq682moy" path="res://bathroom floor.png" id="4_7ylx1"]
+[ext_resource type="Texture2D" uid="uid://n5gjmrq4y4h0" path="res://assets/Room Assets/bathroom/wall type 2.png" id="1_vdivb"]
+[ext_resource type="PackedScene" uid="uid://e85at8il0t53" path="res://scenes/Main Character.tscn" id="2_j80np"]
+[ext_resource type="Texture2D" uid="uid://cxv1rnwcfxs77" path="res://assets/Room Assets/bathroom/tile texture.png" id="2_r33hj"]
+[ext_resource type="Texture2D" uid="uid://bl487m6leyyk7" path="res://assets/Room Assets/bathroom/bathroom floor.png" id="4_7ylx1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ebqe5"]
 distance = -647.0
