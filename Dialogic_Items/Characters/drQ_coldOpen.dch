@@ -22,7 +22,7 @@
 "image": "\"res://assets/PremadeLabAssets/LaboratoryTilesetPixelArt16px_marceles/labnpcs_hazmatGuy_facingAway.PNG\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
+"offset": Vector2(0, -225),
 "scale": 1,
 "scene": ""
 },
@@ -31,7 +31,7 @@
 "image": "\"res://assets/PremadeLabAssets/LaboratoryTilesetPixelArt16px_marceles/labnpcs_hazmatGuy_facingForward.PNG\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
+"offset": Vector2(0, -225),
 "scale": 1.0,
 "scene": ""
 }
