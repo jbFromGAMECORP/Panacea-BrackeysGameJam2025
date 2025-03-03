@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_4634k"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="4_ma5mw"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="5_40a50"]
+[ext_resource type="StyleBox" uid="uid://cdh3fmtdkk1k8" path="res://Dialogic_Items/Styles/VisualNovelTextbox/customSci-FiScreenNamePanel.tres" id="6_6hqyb"]
 [ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="6_uch03"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="7_bi7sh"]
-[ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres" id="9_yg8ig"]
 
 [sub_resource type="GDScript" id="GDScript_43a0j"]
 script/source = "@tool
@@ -663,9 +663,9 @@ anchor_left = -0.443
 anchor_right = 1.499
 anchor_bottom = 1.0
 offset_left = 0.185028
-offset_top = -134.0
+offset_top = -120.0
 offset_right = 0.294922
-offset_bottom = 3.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -724,11 +724,17 @@ mouse_filter = 2
 unique_name_in_owner = true
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
-offset_top = -50.0
-offset_right = 9.0
-offset_bottom = -25.0
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = -0.232
+anchor_right = 0.012
+anchor_bottom = -0.232
+offset_left = 0.352
+offset_top = -129.616
+offset_right = 199.352
+offset_bottom = 0.384001
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("9_yg8ig")
+theme_override_styles/panel = ExtResource("6_6hqyb")
 metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 metadata/_edit_group_ = true
