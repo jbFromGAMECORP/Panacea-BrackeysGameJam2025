@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b7g6h0qvgcov1"]
 
-[ext_resource type="StyleBox" uid="uid://dn4jmt2aqo7gm" path="res://Dialogic_Items/Styles/VisualNovelTextbox/vn_textbox_default_panel.tres" id="1_xjwrq"]
+[ext_resource type="StyleBox" uid="uid://vteev2gqcv43" path="res://Dialogic_Items/Styles/VisualNovelTextbox/customSci-FiScreenPanel.tres" id="1_1oefa"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_4634k"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="4_ma5mw"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="5_40a50"]
@@ -597,6 +597,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -4.0
+offset_right = -8.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -654,13 +658,18 @@ mouse_filter = 2
 unique_name_in_owner = true
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = -0.443
+anchor_right = 1.499
 anchor_bottom = 1.0
+offset_left = 0.185028
+offset_top = -134.0
+offset_right = 0.294922
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("1_xjwrq")
+theme_override_styles/panel = ExtResource("1_1oefa")
 metadata/_edit_layout_mode = 1
 
 [node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" node_paths=PackedStringArray("textbox_root")]

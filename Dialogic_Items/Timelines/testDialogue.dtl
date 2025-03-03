@@ -1,4 +1,13 @@
 join randomScientist left
+[style name="testCustomStyle"]
 randomScientist: Hello! This is a test!
-randomScientist: I hope you like it!!!
+randomScientist: I hope you like it!!!\
+writing a randomly to test how it overflows\
+ksdflafjl;kdjfakls;jfas\
+fsklfjsadf;lkjasdfa\
+dfjaklajflksjfa;kf\
+aklfjaljf;laksjf\
+ajkaljfla;jflkajsfda\
+sflasjflkjdsklf'jasf\
+saljfsdjkfjdskjfkdsljflkdsjflkdsjfkldsjfkldjsklfjadsklfkldsjflkjslkfjalkjfkl;fnla;knklnvkldsnvkldsgfioahjgfioqnkdnvioahjgiongjikjdsnvioqewhjiodaiojdsfikadsjnfioewajfiowjefiojwfiojaedwijaedjfoijqewr
 [signal arg="exit-rando"]
