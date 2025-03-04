@@ -9,7 +9,7 @@ const ITEMS_PER_PAGE = 7 							# How many items fit on a single page
 const SIZE_OF_ITEM = 119 							# Amount of pixels to scroll to each item.
 const sizeofpage = SIZE_OF_ITEM*ITEMS_PER_PAGE 
 @onready var _default_scale := scale
-const MINIMIZED_SCALE := Vector2(0,.3)
+const MINIMIZED_SCALE := Vector2(0,.3)				# Target scale for disappearing into case
 const ANIMATION_SPEED = .18 						# Base speed for Tweens.
 
 var current_page = 0: 								# Current page being viewed
@@ -33,7 +33,6 @@ func _gui_input(event: InputEvent) -> void:
 func update_max_page(node:Node = null):
 	var slot_count = h_box_container.get_child_count()
 	max_page = ceilf(slot_count/7.0)
-	prints(slot_count,"/",7,"=",slot_count/7.0)
 	var idx = 0
 	for x in dots_container.get_children():
 		x.visible = idx < max_page

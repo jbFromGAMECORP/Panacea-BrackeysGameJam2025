@@ -1,0 +1,135 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkwh6sf6t6jbp"]
+
+[ext_resource type="Script" path="res://draggable.gd" id="1_y8ajd"]
+[ext_resource type="Script" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
+bg_color = Color(0.417969, 0.345212, 0.267761, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.214844, 0.136152, 0.0520325, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nj6p"]
+bg_color = Color(0.73, 0.73, 0.73, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.21, 0.21, 0.21, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1192.0
+offset_top = 154.0
+offset_right = 1726.0
+offset_bottom = 914.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oyyac")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 154.0
+offset_right = 816.0
+offset_bottom = 914.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8nj6p")
+
+[node name="Draggable Zone" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 308.0
+offset_top = 178.0
+offset_right = 785.0
+offset_bottom = 896.0
+
+[node name="Orange" type="Control" parent="Draggable Zone"]
+anchors_preset = 0
+offset_left = 97.0
+offset_top = 388.0
+offset_right = 215.0
+offset_bottom = 484.0
+script = ExtResource("1_y8ajd")
+return_on_release = 1
+
+[node name="Color_box" type="ColorRect" parent="Draggable Zone/Orange"]
+layout_mode = 0
+offset_right = 118.0
+offset_bottom = 97.0
+mouse_filter = 2
+color = Color(1, 0.492188, 0, 1)
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Orange"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 119.0
+offset_bottom = 96.0
+
+[node name="Red" type="Control" parent="Draggable Zone"]
+anchors_preset = 0
+offset_left = 65.0
+offset_top = 218.0
+offset_right = 183.0
+offset_bottom = 314.0
+script = ExtResource("1_y8ajd")
+
+[node name="Color_box" type="ColorRect" parent="Draggable Zone/Red"]
+layout_mode = 0
+offset_right = 118.0
+offset_bottom = 97.0
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Red"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 119.0
+offset_bottom = 96.0
+
+[node name="BLUE" type="Control" parent="Draggable Zone"]
+anchors_preset = 0
+offset_left = 52.0
+offset_top = 57.0
+offset_right = 170.0
+offset_bottom = 153.0
+script = ExtResource("2_le1fh")
+color = Color(0, 0.226563, 1, 1)
+return_on_release = 2
+
+[node name="Color_box" type="ColorRect" parent="Draggable Zone/BLUE"]
+layout_mode = 0
+offset_right = 118.0
+offset_bottom = 97.0
+mouse_filter = 2
+color = Color(0.195313, 1, 0, 1)
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/BLUE"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 116.0
+offset_bottom = 98.0
+
+[node name="DragZone2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1228.0
+offset_top = 178.0
+offset_right = 1702.0
+offset_bottom = 879.0

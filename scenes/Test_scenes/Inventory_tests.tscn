@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://diltp38ph8r2c"]
+[gd_scene load_steps=56 format=3 uid="uid://diltp38ph8r2c"]
 
 [ext_resource type="Texture2D" uid="uid://kq7jwpsxpmvr" path="res://assets/Room Assets/patient area/patient area/wall type 3.png" id="1_dsvme"]
 [ext_resource type="Texture2D" uid="uid://cwdlijeyv3xqr" path="res://assets/Inventory/inventoryBase_mask_test.png" id="2_io6xq"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dwhpcl8id8inf" path="res://assets/Inventory/InventoryBase_DarkBlue.PNG" id="19_avxks"]
 [ext_resource type="Script" path="res://scripts/inventory_container_pages.gd" id="20_itjss"]
 [ext_resource type="Texture2D" uid="uid://dlysklq57y2qj" path="res://assets/Inventory/InventorySlot_DarkBlue.PNG" id="21_81vr8"]
+[ext_resource type="Script" path="res://scenes/Test_scenes/test_squares.gd" id="22_y2l51"]
 [ext_resource type="Texture2D" uid="uid://cjkeqow7vfu5x" path="res://assets/Inventory/InventoryArrowLeft_VibrantBlue.PNG" id="24_0xr7j"]
 [ext_resource type="Theme" uid="uid://begekcwlxvr52" path="res://assets/Inventory/Inventory_Theme.tres" id="24_cj0fm"]
 [ext_resource type="Texture2D" uid="uid://c6oe1g4w0xipl" path="res://assets/Inventory/InventoryArrowRight_VibrantBlue.PNG" id="25_wvd73"]
@@ -640,6 +641,48 @@ text = "1"
 label_settings = SubResource("LabelSettings_qg8o4")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Slot2" type="Panel" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1syjl")
+
+[node name="Label" type="Label" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_qg8o4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BLUE" type="Control" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 21.8684
+offset_top = 27.0162
+offset_right = 139.868
+offset_bottom = 123.016
+scale = Vector2(0.666543, 0.680706)
+script = ExtResource("22_y2l51")
+color = Color(0, 0.226563, 1, 1)
+
+[node name="Color_box" type="ColorRect" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2/BLUE"]
+layout_mode = 0
+offset_right = 118.0
+offset_bottom = 97.0
+mouse_filter = 2
+color = Color(0.195313, 1, 0, 1)
+
+[node name="Button" type="TextureButton" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2/BLUE"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 116.0
+offset_bottom = 98.0
 
 [node name="LeftArrowButton" type="Button" parent="Page Inventory/InventoryContainer_pages"]
 layout_mode = 0
