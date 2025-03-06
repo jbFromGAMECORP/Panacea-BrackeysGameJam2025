@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drcwcykvxpqln"
-path="res://.godot/imported/sci-fi-nameBox-croppedOption2.PNG-248f9070e392c6d5e49c75def92fa71d.ctex"
+path="res://.godot/imported/sci-fi-nameBox-croppedOption2.PNG-efb8a2260607603c243a9650d52760c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Frames/sci-fi-nameBox-croppedOption2.PNG"
-dest_files=["res://.godot/imported/sci-fi-nameBox-croppedOption2.PNG-248f9070e392c6d5e49c75def92fa71d.ctex"]
+source_file="res://assets/Frames/Scientists/sci-fi-nameBox-croppedOption2.PNG"
+dest_files=["res://.godot/imported/sci-fi-nameBox-croppedOption2.PNG-efb8a2260607603c243a9650d52760c0.ctex"]
 
 [params]
 

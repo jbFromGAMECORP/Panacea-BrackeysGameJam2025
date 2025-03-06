@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cifk2sjgejbra"
-path="res://.godot/imported/TextBoxFrame_DarkBlue_BlackBG.PNG-fa482392afd06deef4b7f5158ae35962.ctex"
+uid="uid://br5d8gig0misu"
+path="res://.godot/imported/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG-316331b1e6fb79758181d1cd82243146.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Frames/Scientists/TextBoxFrame_DarkBlue_BlackBG.PNG"
-dest_files=["res://.godot/imported/TextBoxFrame_DarkBlue_BlackBG.PNG-fa482392afd06deef4b7f5158ae35962.ctex"]
+source_file="res://assets/Frames/GameNarration-Info/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG"
+dest_files=["res://.godot/imported/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG-316331b1e6fb79758181d1cd82243146.ctex"]
 
 [params]
 

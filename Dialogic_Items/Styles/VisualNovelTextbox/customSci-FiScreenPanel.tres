@@ -1,10 +1,10 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://vteev2gqcv43"]
 
-[ext_resource type="Texture2D" uid="uid://cifk2sjgejbra" path="res://assets/Frames/TextBoxFrame_DarkBlue_BlackBG.PNG" id="1_34m0p"]
+[ext_resource type="Texture2D" uid="uid://cifk2sjgejbra" path="res://assets/Frames/Scientists/TextBoxFrame_DarkBlue_BlackBG.PNG" id="1_0eve8"]
 
 [resource]
 content_margin_left = 120.0
-content_margin_top = 55.0
+content_margin_top = 45.0
 content_margin_right = 140.0
-content_margin_bottom = 70.0
-texture = ExtResource("1_34m0p")
+content_margin_bottom = 45.0
+texture = ExtResource("1_0eve8")
