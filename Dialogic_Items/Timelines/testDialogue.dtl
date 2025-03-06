@@ -1,8 +1,8 @@
 join randomScientist left
-[style name="testCustomStyle"]
-randomScientist: Hello! This is a test!
+[style name="customPatientStyle1"]
+randomScientist: [i]Hello! This is a test![/i]
 randomScientist: I hope you like it!!!\
-writing a randomly to test how it overflows\
+[b]writing random stuff to test how it overflows[/b]\
 ksdflafjl;kdjfakls;jfas\
 fsklfjsadf;lkjasdfa\
 dfjaklajflksjfa;kf\

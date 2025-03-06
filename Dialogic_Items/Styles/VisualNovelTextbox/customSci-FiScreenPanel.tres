@@ -1,10 +1,10 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://vteev2gqcv43"]
 
-[ext_resource type="Texture2D" uid="uid://cifk2sjgejbra" path="res://assets/Frames/Scientists/TextBoxFrame_DarkBlue_BlackBG.PNG" id="1_0eve8"]
+[ext_resource type="Texture2D" uid="uid://dnep5k77ac5t6" path="res://assets/Frames/Patients/patientPaper_crumpled_noLines_white_noRings.png" id="1_t6lbd"]
 
 [resource]
-content_margin_left = 120.0
-content_margin_top = 45.0
-content_margin_right = 140.0
-content_margin_bottom = 45.0
-texture = ExtResource("1_0eve8")
+content_margin_left = 60.0
+content_margin_top = 95.0
+content_margin_right = 80.0
+content_margin_bottom = 90.0
+texture = ExtResource("1_t6lbd")
