@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://6glouii2i7wf"]
 
-[ext_resource type="Script" path="res://rando_scientist_npc.gd" id="1_ba2li"]
+[ext_resource type="Script" path="res://scripts/rando_scientist_npc.gd" id="1_ba2li"]
 [ext_resource type="Texture2D" uid="uid://ch30p38u6slsc" path="res://assets/PremadeLabAssets/LaboratoryTilesetPixelArt16px_marceles/labnpcs.png" id="2_4mdwj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsb2r"]
