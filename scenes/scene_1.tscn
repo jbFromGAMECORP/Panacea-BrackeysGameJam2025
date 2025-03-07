@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://6enro65772t8"]
 
-[ext_resource type="Script" path="res://scenes/Scene1.gd" id="1_dakyw"]
+[ext_resource type="Script" uid="uid://bn7ulrd7nrnc6" path="res://scenes/Scene1.gd" id="1_dakyw"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="2_0m7gj"]
 [ext_resource type="PackedScene" uid="uid://e85at8il0t53" path="res://scenes/Main Character.tscn" id="2_bdf3r"]
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="3_ndgym"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/Room Assets/patient area-cropped/cabnet double door.png" id="11_yqbel"]
 [ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/Room Assets/patient area-cropped/cabnet single.png" id="12_7v13c"]
 [ext_resource type="Texture2D" uid="uid://dw13cnkacroi" path="res://assets/Room Assets/patient area-cropped/chess.png" id="13_3u7jd"]
-[ext_resource type="Script" path="res://scripts/Scene_Boundry.gd" id="14_kf6nn"]
+[ext_resource type="Script" uid="uid://k4wpll3lwrds" path="res://scripts/Scene_Boundry.gd" id="14_kf6nn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lh22f"]
 

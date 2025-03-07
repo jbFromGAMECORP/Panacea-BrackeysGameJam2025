@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://ckr5n1r16ef02"]
 
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="1_ogbe4"]
-[ext_resource type="Script" path="res://scenes/Scene1.gd" id="1_t2nh7"]
+[ext_resource type="Script" uid="uid://bn7ulrd7nrnc6" path="res://scenes/Scene1.gd" id="1_t2nh7"]
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="2_jotrk"]
 [ext_resource type="Texture2D" uid="uid://dey2aejsy4e8d" path="res://assets/Room Assets/patient area-cropped/table.png" id="3_pfdvl"]
 [ext_resource type="Texture2D" uid="uid://b6gihroq8vyn1" path="res://assets/Room Assets/patient area-cropped/lamp.png" id="4_oe1me"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/Room Assets/patient area-cropped/cabnet double door.png" id="10_87owy"]
 [ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/Room Assets/patient area-cropped/cabnet single.png" id="11_2x1p7"]
 [ext_resource type="Texture2D" uid="uid://dw13cnkacroi" path="res://assets/Room Assets/patient area-cropped/chess.png" id="12_veyek"]
-[ext_resource type="Script" path="res://scripts/next_level_l.gd" id="14_qg51g"]
+[ext_resource type="Script" uid="uid://bwcua7x7f07b7" path="res://scripts/next_level_l.gd" id="14_qg51g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lh22f"]
 

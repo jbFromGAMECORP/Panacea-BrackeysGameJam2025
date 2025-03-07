@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://mxnil05a20mc"]
 
-[ext_resource type="Script" path="res://addons/dialogic/Modules/Condition/ui_condition_end.gd" id="1_sh52m"]
+[ext_resource type="Script" uid="uid://g01eh82xrd0n" path="res://addons/dialogic/Modules/Condition/ui_condition_end.gd" id="1_sh52m"]
 
 [node name="Condition_End" type="HBoxContainer"]
 offset_right = 90.0

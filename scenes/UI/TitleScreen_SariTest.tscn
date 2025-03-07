@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://crt2swa7mm0su"]
 
-[ext_resource type="Script" path="res://scripts/title.gd" id="1_danek"]
+[ext_resource type="Script" uid="uid://cc5m3chr11wyv" path="res://scripts/title.gd" id="1_danek"]
 [ext_resource type="AudioStream" uid="uid://bs6m1rs3baeyj" path="res://assets/Industrial Dungeon 002.wav" id="2_u308c"]
 [ext_resource type="Texture2D" uid="uid://cplh6tp5n0cu0" path="res://assets/logo only.png" id="3_5vnj6"]
-[ext_resource type="Script" path="res://scripts/control.gd" id="4_i6gsf"]
+[ext_resource type="Script" uid="uid://bojpar1oo81sn" path="res://scripts/control.gd" id="4_i6gsf"]
 [ext_resource type="AudioStream" uid="uid://d1vj8d05xk6q7" path="res://assets/brackeys_platformer_assets/sounds/tap.wav" id="5_dibtq"]
 [ext_resource type="FontFile" uid="uid://djqlvado86g0t" path="res://assets/Fonts/doctor_glitch/Doctor Glitch.otf" id="6_ywgkd"]
-[ext_resource type="Script" path="res://scripts/Menu_Buttons.gd" id="7_q50bx"]
+[ext_resource type="Script" uid="uid://d3wpdmiwhaj33" path="res://scripts/Menu_Buttons.gd" id="7_q50bx"]
 [ext_resource type="FontFile" uid="uid://bt3rcvvmfnq7" path="res://assets/Fonts/another_danger/Another Danger - Demo.otf" id="8_6phx4"]
-[ext_resource type="Script" path="res://scripts/rich_text_label.gd" id="9_r5tse"]
+[ext_resource type="Script" uid="uid://s28l01qawqwp" path="res://scripts/rich_text_label.gd" id="9_r5tse"]
 
 [sub_resource type="FontVariation" id="FontVariation_awjx3"]
 base_font = ExtResource("6_ywgkd")

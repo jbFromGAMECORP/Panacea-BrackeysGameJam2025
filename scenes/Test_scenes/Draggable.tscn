@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkwh6sf6t6jbp"]
 
-[ext_resource type="Script" path="res://draggable.gd" id="1_y8ajd"]
-[ext_resource type="Script" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
+[ext_resource type="Script" uid="uid://c7mgxonou3t33" path="res://draggable.gd" id="1_y8ajd"]
+[ext_resource type="Script" uid="uid://btqru83ttjibd" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
 bg_color = Color(0.417969, 0.345212, 0.267761, 1)

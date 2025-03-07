@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d2kso2fxsgxs"]
 
-[ext_resource type="Script" path="res://scenes/Test_scenes/beaker_test.gd" id="1_ug81o"]
-[ext_resource type="Script" path="res://scenes/Test_scenes/color.gd" id="2_ucbng"]
+[ext_resource type="Script" uid="uid://3knu7eh3dffn" path="res://scenes/Test_scenes/beaker_test.gd" id="1_ug81o"]
+[ext_resource type="Script" uid="uid://c10uileilm1nk" path="res://scenes/Test_scenes/color.gd" id="2_ucbng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b34t8"]
 size = Vector2(117.5, 94)

@@ -1,13 +1,13 @@
 [gd_scene load_steps=22 format=3 uid="uid://bqn6s3f73l21q"]
 
 [ext_resource type="Texture2D" uid="uid://dwhpcl8id8inf" path="res://assets/Inventory/InventoryBase_DarkBlue.PNG" id="1_fvgm3"]
-[ext_resource type="Script" path="res://scripts/inventory_container.gd" id="2_w8q7x"]
+[ext_resource type="Script" uid="uid://cp573367vfnod" path="res://scripts/inventory_container.gd" id="2_w8q7x"]
 [ext_resource type="Texture2D" uid="uid://dlysklq57y2qj" path="res://assets/Inventory/InventorySlot_DarkBlue.PNG" id="3_fifj8"]
 [ext_resource type="Texture2D" uid="uid://bdrhiskqsjmp2" path="res://assets/Inventory/Inventory_Items/tape.png" id="4_6efqa"]
 [ext_resource type="Texture2D" uid="uid://cjkeqow7vfu5x" path="res://assets/Inventory/InventoryArrowLeft_VibrantBlue.PNG" id="5_w1t1p"]
 [ext_resource type="Texture2D" uid="uid://c6oe1g4w0xipl" path="res://assets/Inventory/InventoryArrowRight_VibrantBlue.PNG" id="6_ka2px"]
 [ext_resource type="Texture2D" uid="uid://blyedyv0x8q2q" path="res://assets/Inventory/sci-fiSuitcase_closed_cropped.PNG" id="8_uxy5c"]
-[ext_resource type="Script" path="res://scripts/suitcase_button.gd" id="9_kf8ab"]
+[ext_resource type="Script" uid="uid://ddh0x273qk0mi" path="res://scripts/suitcase_button.gd" id="9_kf8ab"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfvyg"]
 

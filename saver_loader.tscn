@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://80iy244b8so1"]
 
-[ext_resource type="Script" path="res://save_load.gd" id="1_3niii"]
+[ext_resource type="Script" uid="uid://bv7bs4d41afa4" path="res://save_load.gd" id="1_3niii"]
 
 [sub_resource type="Theme" id="Theme_yfbar"]
 default_font_size = 55
