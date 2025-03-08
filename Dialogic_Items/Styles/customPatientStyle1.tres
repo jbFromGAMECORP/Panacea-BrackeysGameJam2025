@@ -36,7 +36,6 @@ overrides = {}
 script = ExtResource("2_iit0c")
 scene = ExtResource("6_gw1c6")
 overrides = {
-"bold_font": "\"res://Dialogic_Items/Styles/Fonts/Permanent_Marker/PermanentMarker-Regular.ttf\"",
 "box_color_custom": "Color(1, 1, 1, 1)",
 "box_color_use_global": "false",
 "box_margin_bottom": "10.0",
@@ -52,9 +51,7 @@ overrides = {
 "name_label_use_global_color": "false",
 "name_label_use_global_font": "false",
 "name_label_use_global_font_size": "false",
-"next_indicator_size": "Vector2(30, 30)",
-"next_indicator_texture": "\"res://Dialogic_Items/Styles/Indicators/indicator_blackRoundedTriangle.png\"",
-"normal_font": "\"res://Dialogic_Items/Styles/Fonts/Gloria_Hallelujah/GloriaHallelujah-Regular.ttf\"",
+"normal_font": "\"res://assets/Fonts/Syne_Mono/SyneMono-Regular.ttf\"",
 "text_custom_color": "Color(0, 0, 0, 1)",
 "text_size": "30.0",
 "text_use_global_color": "false",
