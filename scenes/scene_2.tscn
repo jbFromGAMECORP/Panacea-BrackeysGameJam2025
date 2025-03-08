@@ -1,8 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcpqvd7vv07qw"]
+[gd_scene load_steps=15 format=3 uid="uid://dcpqvd7vv07qw"]
 
-[ext_resource type="Script" uid="uid://cs4tmpmu8iwus" path="res://scripts/scene_2.gd" id="1_pnye7"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="1_s66bq"]
-[ext_resource type="PackedScene" uid="uid://e85at8il0t53" path="res://scenes/Main Character.tscn" id="2_hm133"]
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="2_q88ac"]
 [ext_resource type="Texture2D" uid="uid://dey2aejsy4e8d" path="res://assets/Room Assets/patient area-cropped/table.png" id="3_auk7y"]
 [ext_resource type="Texture2D" uid="uid://b6gihroq8vyn1" path="res://assets/Room Assets/patient area-cropped/lamp.png" id="4_pq6fd"]
@@ -20,8 +18,6 @@
 
 [node name="Scene 2" type="Node2D"]
 scale = Vector2(0.999617, 0.999617)
-script = ExtResource("1_pnye7")
-spawn_object = ExtResource("2_hm133")
 
 [node name="WallType3" type="Sprite2D" parent="."]
 modulate = Color(0.93, 1, 0.987167, 1)

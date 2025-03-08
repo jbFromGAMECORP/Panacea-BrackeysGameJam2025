@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://csjakl35674r5"]
+[gd_scene load_steps=17 format=3 uid="uid://csjakl35674r5"]
 
 [ext_resource type="PackedScene" uid="uid://bqn6s3f73l21q" path="res://scenes/UI/Inventory.tscn" id="1_7nf27"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="4_ogm7m"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/Room Assets/patient area-cropped/cabnet double door.png" id="14_annar"]
 [ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/Room Assets/patient area-cropped/cabnet single.png" id="15_bym7q"]
 [ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/dr_evelyn_morgan.tscn" id="16_m53t3"]
-[ext_resource type="PackedScene" uid="uid://d2t73jdq7xi1u" path="res://scenes/Items/coin.tscn" id="17_yq0lc"]
 [ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/Characters/rando_scientist_npc.tscn" id="18_nej61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr5qv"]
@@ -125,17 +124,6 @@ shape = SubResource("RectangleShape2D_dr5qv")
 [node name="RandoScientist_NPC" parent="." instance=ExtResource("18_nej61")]
 position = Vector2(-695, -174)
 scale = Vector2(0.603638, 0.603638)
-
-[node name="Coins" type="Node" parent="."]
-
-[node name="Coin" parent="Coins" instance=ExtResource("17_yq0lc")]
-position = Vector2(1556, 877)
-
-[node name="Coin2" parent="Coins" instance=ExtResource("17_yq0lc")]
-position = Vector2(1927, 872)
-
-[node name="Coin3" parent="Coins" instance=ExtResource("17_yq0lc")]
-position = Vector2(2068, 868)
 
 [node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("16_m53t3")]
 position = Vector2(-168, 112)

@@ -41,13 +41,16 @@ func _unhandled_input(event: InputEvent) -> void:
 					color_node.reset()
 					
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	var color_node = area.get_parent()
-	color_currently_pouring = color_node.color_additive
+	var vial = area.get_parent()
+	vial.rotation = 90
+	color_currently_pouring = vial.color
 	$Timer.start()
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
+	var vial = area.get_parent()
 	color_currently_pouring = null
+	vial.rotation = 0
 	$Timer.stop()
 
 

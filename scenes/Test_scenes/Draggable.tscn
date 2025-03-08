@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkwh6sf6t6jbp"]
+[gd_scene load_steps=6 format=3 uid="uid://bkwh6sf6t6jbp"]
 
-[ext_resource type="Script" uid="uid://c7mgxonou3t33" path="res://draggable.gd" id="1_y8ajd"]
+[ext_resource type="Script" uid="uid://gtd3ev1mx4a2" path="res://scenes/Test_scenes/Draggable_Scene.gd" id="1_8kp3w"]
+[ext_resource type="Script" uid="uid://c7mgxonou3t33" path="res://scenes/Test_scenes/draggable.gd" id="1_y8ajd"]
 [ext_resource type="Script" uid="uid://btqru83ttjibd" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
@@ -27,13 +28,14 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="Control" type="Control"]
+[node name="Draggable" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8kp3w")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -51,6 +53,13 @@ offset_right = 816.0
 offset_bottom = 914.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8nj6p")
 
+[node name="DragZone2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1228.0
+offset_top = 178.0
+offset_right = 1702.0
+offset_bottom = 879.0
+
 [node name="Draggable Zone" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 308.0
@@ -65,7 +74,7 @@ offset_top = 388.0
 offset_right = 215.0
 offset_bottom = 484.0
 script = ExtResource("1_y8ajd")
-return_on_release = 1
+return_type = 0
 
 [node name="Color_box" type="ColorRect" parent="Draggable Zone/Orange"]
 layout_mode = 0
@@ -88,6 +97,7 @@ offset_top = 218.0
 offset_right = 183.0
 offset_bottom = 314.0
 script = ExtResource("1_y8ajd")
+return_type = 2
 
 [node name="Color_box" type="ColorRect" parent="Draggable Zone/Red"]
 layout_mode = 0
@@ -111,7 +121,7 @@ offset_right = 170.0
 offset_bottom = 153.0
 script = ExtResource("2_le1fh")
 color = Color(0, 0.226563, 1, 1)
-return_on_release = 2
+return_type = 3
 
 [node name="Color_box" type="ColorRect" parent="Draggable Zone/BLUE"]
 layout_mode = 0
@@ -127,9 +137,30 @@ offset_top = 1.0
 offset_right = 116.0
 offset_bottom = 98.0
 
-[node name="DragZone2" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 1228.0
-offset_top = 178.0
-offset_right = 1702.0
-offset_bottom = 879.0
+[node name="Save" type="Button" parent="."]
+layout_mode = 0
+offset_left = 852.0
+offset_top = 48.0
+offset_right = 1074.0
+offset_bottom = 175.0
+text = "Save"
+
+[node name="Load" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1139.0
+offset_top = 49.0
+offset_right = 1361.0
+offset_bottom = 176.0
+text = "Load"
+
+[node name="ChangeLevel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 223.0
+offset_right = 1174.0
+offset_bottom = 350.0
+text = "Change Level"
+
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="ChangeLevel" to="." method="_on_change_level_pressed"]

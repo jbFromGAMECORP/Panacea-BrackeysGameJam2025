@@ -1,18 +1,15 @@
-extends Draggable
+extends Draggable # <-- Ctrl-click me to go to Draggable.gd
 
 @export var color : Color
 @onready var color_box: ColorRect = $Color_box
 
+var persistent_properties_append = ["color"]
 
-# Called when the node enters the scene tree for the first time.
+# Doing _ready() here overwrites draggable's _ready() function, so we call super() to run Draggable's _ready function too.
 func _ready() -> void:
-	color_box.color = color
-	super()
-	pass # Replace with function body.
+	color_box.color = color					# Sets color rect to color chosen in editor
+	super() 								# or super()._ready()
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	super(delta)
-	pass
+#Because we don't overwrite _process, it is run by draggable and so we don't have to call super()
+#func _process(delta: float) -> void:
+#	pass

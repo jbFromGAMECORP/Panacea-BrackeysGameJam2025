@@ -1,4 +1,4 @@
-class_name SceneManager
+extends Node
 
 signal scene_changed(old_scene: Node, new_scene: Node)
 signal transition_started
@@ -26,27 +26,28 @@ var _fade_rect: ColorRect
 var _loading_screen: Control
 
 func _ready() -> void:
-	# Set up transition layer
-	#_setup_transition_layer()
+	#Set up transition layer
+	_setup_transition_layer()
 	
-	# get scene
-	#var root = get_tree().get_root()
-	 # current_scene = root.get_child(root.get_child_count() - 1)
+	#get scene
+	var root = get_tree().get_root()
+	current_scene = root.get_child(root.get_child_count() - 1)
 
-#func _setup_transition_layer() -> void:
-	#_transition_layer = CanvasLayer.new()
-	#_transition_layer.layer = 100  # Ensure it's above other layers
-	#add_child(_transition_layer)
-	#
-	## Setup fade rectangle
-	#_fade_rect = ColorRect.new()
-	#_fade_rect.color = fade_color
-	#_fade_rect.color.a = 0  # Start transparent
-	#_fade_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
-	#_transition_layer.add_child(_fade_rect)
-	#
-	## Setup loading screen
-	#_setup_loading_screen()
+func _setup_transition_layer() -> void:
+	_transition_layer = CanvasLayer.new()
+	_transition_layer.visible = false
+	_transition_layer.layer = 100  # Ensure it's above other layers
+	add_child(_transition_layer)
+	
+	# Setup fade rectangle
+	_fade_rect = ColorRect.new()
+	_fade_rect.color = fade_color
+	_fade_rect.color.a = 0  # Start transparent
+	_fade_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_transition_layer.add_child(_fade_rect)
+	
+	# Setup loading screen
+	_setup_loading_screen()
 
 func _setup_loading_screen() -> void:
 	_loading_screen = Control.new()
@@ -84,11 +85,12 @@ func change_scene(scene_path: StringName, transition: bool = true) -> void:
 	
 	# Remove current scene
 	if current_scene != null:
-		current_scene.queue_free()
+		current_scene.free()
 	
 	# Add new scene
 	get_tree().root.add_child(new_scene)
 	current_scene = new_scene
+	get_tree().current_scene = current_scene
 	
 	# Emit signal
 	scene_changed.emit(old_scene, new_scene)
@@ -149,19 +151,21 @@ func _load_scene(scene_path: StringName) -> Node:
 	
 	return scene_resource.instantiate()
 
-#func _minimum_load_time() -> void:
-	#if min_load_time > 0:
-		#await get_tree().create_timer(min_load_time).timeout
+func _minimum_load_time() -> void:
+	if min_load_time > 0:
+		await get_tree().create_timer(min_load_time).timeout
 
-#func _fade_out() -> void:
-	#var tween = create_tween()
-	#tween.tween_property(_fade_rect, "color:a", 1.0, transition_duration)
-	#await tween.finished
+func _fade_out() -> void:
+	_transition_layer.visible = true
+	var tween = create_tween()
+	tween.tween_property(_fade_rect, "color:a", 1.0, transition_duration)
+	await tween.finished
 
-#func _fade_in() -> void:
-	#var tween = create_tween()
-	#tween.tween_property(_fade_rect, "color:a", 0.0, transition_duration)
-	#await tween.finished
+func _fade_in() -> void:
+	var tween = create_tween()
+	tween.tween_property(_fade_rect, "color:a", 0.0, transition_duration)
+	await tween.finished
+	_transition_layer.visible = false
 
 func preload_scene(scene_path: StringName) -> void:
 	if scene_path in _scene_cache:

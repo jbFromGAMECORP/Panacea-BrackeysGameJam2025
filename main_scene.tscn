@@ -1,10 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://cegb6y1qs6w8k"]
+[gd_scene load_steps=2 format=3 uid="uid://q2ved0h71ym2"]
 
-[ext_resource type="Script" uid="uid://7evwot2saiar" path="res://scripts/saver_loader.gd" id="1_7c5hr"]
+[sub_resource type="GDScript" id="GDScript_o3jxj"]
+script/source = "class_name SaverLoader
+extends Node
+
+@onready var player = $\".\"
+
+func save_game():
+	var file = FileAccess.open(\"res://savegame.data\", FileAccess.WRITE)
+	file.store_var(player.global_position)
+	file.store_var(GlobalSingleton.rock_health)
+	file.close()
+
+func load_game():
+	var file = FileAccess.open(\"res://savegame.data\", FileAccess.READ)
+	player.global_position = file.get_var()
+	GlobalSingleton.rock_health = file.get_var()
+	file.close
+"
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Utilities" type="Node" parent="."]
 
 [node name="SaverLoader" type="Node" parent="Utilities"]
-script = ExtResource("1_7c5hr")
+script = SubResource("GDScript_o3jxj")
