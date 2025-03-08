@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://s28l01qawqwp" path="res://scripts/rich_text_label.gd" id="2_7pn5t"]
 [ext_resource type="Script" uid="uid://bojpar1oo81sn" path="res://scripts/control.gd" id="2_hweom"]
 [ext_resource type="FontFile" uid="uid://djqlvado86g0t" path="res://assets/Fonts/doctor_glitch/Doctor Glitch.otf" id="3_j6qgi"]
-[ext_resource type="AudioStream" uid="uid://d1vj8d05xk6q7" path="res://assets/brackeys_platformer_assets/sounds/tap.wav" id="3_waexn"]
+[ext_resource type="AudioStream" path="res://assets/brackeys_platformer_assets/sounds/tap.wav" id="3_waexn"]
 [ext_resource type="Script" uid="uid://d3wpdmiwhaj33" path="res://scripts/Menu_Buttons.gd" id="5_dq7eg"]
 [ext_resource type="AudioStream" uid="uid://bs6m1rs3baeyj" path="res://assets/Industrial Dungeon 002.wav" id="6_snkkh"]
 

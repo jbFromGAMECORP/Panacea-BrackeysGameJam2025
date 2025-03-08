@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c8we0w8cr7x55"]
+
+[ext_resource type="Texture2D" uid="uid://bvn5y2y6in6iw" path="res://assets/Frames/Patients/patientPaper_crumpled_noLines_white_noRings_cropped.PNG" id="1_kecpy"]
+
+[resource]
+content_margin_left = 30.0
+content_margin_top = 35.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+texture = ExtResource("1_kecpy")
