@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=3 uid="uid://b0knpm8ikgdnr"]
 
 [ext_resource type="Script" uid="uid://b6ufpiuvybwp1" path="res://Dialogic_Items/Styles/VisualNovelTextbox/vn_textbox_layer.gd" id="1_bpydr"]
-[ext_resource type="StyleBox" uid="uid://dehc4fsjs4elp" path="res://Dialogic_Items/Styles/VisualNovelTextbox/customCrumpledPaperPanel.tres" id="1_fngra"]
 [ext_resource type="Script" uid="uid://cjycbc7ebecdh" path="res://Dialogic_Items/Styles/VisualNovelTextbox/animations.gd" id="2_xy7a2"]
+[ext_resource type="StyleBox" uid="uid://bpa8b88hfrtku" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/customSci-FiScreenPanel.tres" id="3_8lsqr"]
 [ext_resource type="Script" uid="uid://dr8v6nj4jj4xf" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_4634k"]
 [ext_resource type="Script" uid="uid://dxb3ci8nmjgtj" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="4_ma5mw"]
 [ext_resource type="Script" uid="uid://duxdeuboc3on5" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="5_40a50"]
 [ext_resource type="Script" uid="uid://dqsdw1wfcjah7" path="res://Dialogic_Items/Styles/VisualNovelTextbox/autoadvance_indicator.gd" id="6_07xym"]
 [ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="6_uch03"]
 [ext_resource type="Script" uid="uid://cexy7iq0q804" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="7_bi7sh"]
-[ext_resource type="StyleBox" uid="uid://cqwngaarqq3sl" path="res://Dialogic_Items/Styles/VisualNovelTextbox/customNotebookTopRingNamePanel.tres" id="9_n88lu"]
+[ext_resource type="StyleBox" uid="uid://d2aqke7bv0lo6" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/customSci-FiScreenNamePanel.tres" id="9_fr6hu"]
 
 [sub_resource type="Animation" id="Animation_au0a2"]
 length = 0.001
@@ -219,7 +219,7 @@ name_label_box_modulate = Color(0, 0, 0, 1)
 [node name="Animations" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_c14kh")
+&"": SubResource("AnimationLibrary_c14kh")
 }
 autoplay = "RESET"
 script = ExtResource("2_xy7a2")
@@ -274,7 +274,7 @@ offset_right = 0.289978
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("1_fngra")
+theme_override_styles/panel = ExtResource("3_8lsqr")
 metadata/_edit_layout_mode = 1
 
 [node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" node_paths=PackedStringArray("textbox_root")]
@@ -330,14 +330,16 @@ unique_name_in_owner = true
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.041
-anchor_bottom = -0.041
-offset_left = 2.0
-offset_top = -79.67
-offset_right = 51.0
-offset_bottom = -2.66998
+anchor_left = -0.006
+anchor_top = -0.052
+anchor_right = -0.006
+anchor_bottom = -0.052
+offset_left = 0.328007
+offset_top = -81.956
+offset_right = 89.328
+offset_bottom = 0.0440154
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("9_n88lu")
+theme_override_styles/panel = ExtResource("9_fr6hu")
 metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 metadata/_edit_group_ = true
