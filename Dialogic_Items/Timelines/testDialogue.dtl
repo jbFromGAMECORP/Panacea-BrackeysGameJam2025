@@ -1,5 +1,5 @@
 join randomScientist left
-[style name="customPatientStyle1"]
+[style name="customScientistStyle1"]
 randomScientist: [i]Hello! This is a test![/i]
 randomScientist: I hope you like it!!!\
 [b]writing random stuff to test how it overflows[/b]\
