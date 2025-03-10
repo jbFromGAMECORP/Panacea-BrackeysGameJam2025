@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bue3m41sdq4y3"]
+
+[ext_resource type="Texture2D" uid="uid://u21eaqpdek8q" path="res://assets/Room Assets/Background/Posters_0.png" id="1_o8o4l"]
+[ext_resource type="Script" uid="uid://b77kr0d3v6rd8" path="res://scenes/Test_scenes/build_unit.gd" id="2_dc7ul"]
+
+[node name="Posters2" type="Sprite2D" node_paths=PackedStringArray("position_points")]
+texture = ExtResource("1_o8o4l")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(0, 224, 1392, 544)
+script = ExtResource("2_dc7ul")
+position_points = NodePath("Random_Placement")
+scale_points = Array[float]([])
+metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
+
+[node name="Random_Placement" type="Line2D" parent="."]
+top_level = true
+points = PackedVector2Array(183, 365, 2265, 365)
+width = 3.0
+default_color = Color(0, 1, 0.0334229, 1)

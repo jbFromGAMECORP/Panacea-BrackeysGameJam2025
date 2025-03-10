@@ -13,12 +13,12 @@ var _scene_cache: Dictionary = {}
 # Configuration
 @export_category("Transition Settings")
 @export var enable_transitions: bool = true
-@export var transition_duration: float = 1.0
+@export var transition_duration: float = .65
 @export var fade_color: Color = Color.BLACK
 
 @export_category("Loading Screen")
 @export var enable_loading_screen: bool = true
-@export var min_load_time: float = 0.5  # Minimum time to show loading screen
+@export var min_load_time: float = 0  # Minimum time to show loading screen
 
 # Internal nodes
 var _transition_layer: CanvasLayer
@@ -83,10 +83,14 @@ func change_scene(scene_path: StringName, transition: bool = true) -> void:
 	# Store old scene reference for signal
 	var old_scene = current_scene
 	
+	if current_scene != get_tree().current_scene:
+		printerr("Transitioner and SceneTree had different current scenes. This is likely due to using get_tree().change_scene...(). Aligning Transitioner to SceneTree.")
+		current_scene = get_tree().current_scene
+		
 	# Remove current scene
 	if current_scene != null:
 		current_scene.free()
-	
+
 	# Add new scene
 	get_tree().root.add_child(new_scene)
 	current_scene = new_scene

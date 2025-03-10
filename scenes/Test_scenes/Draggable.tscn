@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkwh6sf6t6jbp"]
+[gd_scene load_steps=9 format=3 uid="uid://bkwh6sf6t6jbp"]
 
 [ext_resource type="Script" uid="uid://gtd3ev1mx4a2" path="res://scenes/Test_scenes/Draggable_Scene.gd" id="1_8kp3w"]
 [ext_resource type="Script" uid="uid://c7mgxonou3t33" path="res://scenes/Test_scenes/draggable.gd" id="1_y8ajd"]
+[ext_resource type="Script" uid="uid://byruel4737fuh" path="res://scripts/draggable_drop_area.gd" id="2_fc43r"]
 [ext_resource type="Script" uid="uid://btqru83ttjibd" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
@@ -27,6 +28,12 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc43r"]
+size = Vector2(119, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74cf5"]
+size = Vector2(50, 39)
 
 [node name="Draggable" type="Control"]
 layout_mode = 3
@@ -55,10 +62,44 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8nj6p")
 
 [node name="DragZone2" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 1228.0
-offset_top = 178.0
-offset_right = 1702.0
-offset_bottom = 879.0
+offset_left = 1215.0
+offset_top = 179.0
+offset_right = 1701.0
+offset_bottom = 889.0
+
+[node name="Color_box2" type="ColorRect" parent="DragZone2"]
+modulate = Color(1, 1, 1, 0.47451)
+layout_mode = 0
+offset_left = 256.0
+offset_top = 452.0
+offset_right = 425.0
+offset_bottom = 587.0
+mouse_filter = 1
+color = Color(1, 0.492188, 0, 1)
+script = ExtResource("2_fc43r")
+
+[node name="Draggable Detection" type="Area2D" parent="DragZone2/Color_box2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragZone2/Color_box2/Draggable Detection"]
+position = Vector2(85, 68)
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="Color_box3" type="ColorRect" parent="DragZone2"]
+modulate = Color(1, 1, 1, 0.47451)
+layout_mode = 0
+offset_left = -19.0
+offset_top = 278.0
+offset_right = 150.0
+offset_bottom = 413.0
+mouse_filter = 1
+color = Color(1, 0.492188, 0, 1)
+script = ExtResource("2_fc43r")
+
+[node name="Draggable Detection" type="Area2D" parent="DragZone2/Color_box3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragZone2/Color_box3/Draggable Detection"]
+position = Vector2(85, 68)
+shape = SubResource("RectangleShape2D_fc43r")
 
 [node name="Draggable Zone" type="Control" parent="."]
 anchors_preset = 0
@@ -90,6 +131,12 @@ offset_top = -1.0
 offset_right = 119.0
 offset_bottom = 96.0
 
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Orange"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Orange/Draggable Detection"]
+position = Vector2(60, 51)
+shape = SubResource("RectangleShape2D_74cf5")
+
 [node name="Red" type="Control" parent="Draggable Zone"]
 anchors_preset = 0
 offset_left = 65.0
@@ -112,6 +159,12 @@ offset_left = 1.0
 offset_top = -1.0
 offset_right = 119.0
 offset_bottom = 96.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Red"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Red/Draggable Detection"]
+position = Vector2(60, 51)
+shape = SubResource("RectangleShape2D_74cf5")
 
 [node name="BLUE" type="Control" parent="Draggable Zone"]
 anchors_preset = 0
@@ -137,6 +190,12 @@ offset_top = 1.0
 offset_right = 116.0
 offset_bottom = 98.0
 
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/BLUE"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/BLUE/Draggable Detection"]
+position = Vector2(60, 51)
+shape = SubResource("RectangleShape2D_74cf5")
+
 [node name="Save" type="Button" parent="."]
 layout_mode = 0
 offset_left = 852.0
@@ -161,6 +220,15 @@ offset_right = 1174.0
 offset_bottom = 350.0
 text = "Change Level"
 
+[node name="ChangeLevel2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 883.0
+offset_top = 898.0
+offset_right = 1105.0
+offset_bottom = 1025.0
+text = "Change Level"
+
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="ChangeLevel" to="." method="_on_change_level_pressed"]
+[connection signal="pressed" from="ChangeLevel2" to="." method="_on_goto_test_area"]
