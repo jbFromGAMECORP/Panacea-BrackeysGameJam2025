@@ -50,5 +50,6 @@ func set_animation_speed():
 			$AnimatedSprite2D.speed_scale = smoothstep(-150,MAX_SPEED,abs(velocity.x)) #NOTE: -150 should be 0, but I find the curve feels better with a higher standing point.
 	pass
 			
+#Let's us know that this character is the player and not another object
 func player():
 	pass

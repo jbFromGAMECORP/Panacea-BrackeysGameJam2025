@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp6virej4rr7s"]
+
+[ext_resource type="Script" uid="uid://ds67so6v077ir" path="res://scenes/Characters/Dr_Lundy/dr_lundy.gd" id="1_1irje"]
+[ext_resource type="Texture2D" uid="uid://bk6piya25bhcj" path="res://scenes/Characters/Dr_Lundy/Lundy - NPC Sprite.png" id="2_1irje"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_crku5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1irje")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1irje"]
+radius = 253.024
+
+[node name="Protag_Dr_Lundy" type="CharacterBody2D"]
+z_index = 5
+position = Vector2(-1, 0)
+collision_layer = 2
+script = ExtResource("1_1irje")
+metadata/_edit_vertical_guides_ = [50.0]
+metadata/_edit_horizontal_guides_ = [20.0]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5, -669)
+scale = Vector2(0.856417, 0.856417)
+sprite_frames = SubResource("SpriteFrames_crku5")
+animation = &"idle"
+
+[node name="chatDetection" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chatDetection"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_1irje")
