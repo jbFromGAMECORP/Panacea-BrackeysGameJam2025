@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://csjakl35674r5"]
+[gd_scene load_steps=18 format=3 uid="uid://csjakl35674r5"]
 
 [ext_resource type="PackedScene" uid="uid://bqn6s3f73l21q" path="res://scenes/UI/Inventory.tscn" id="1_7nf27"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="4_ogm7m"]
@@ -13,8 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://dw13cnkacroi" path="res://assets/Room Assets/patient area-cropped/chess.png" id="13_28wvh"]
 [ext_resource type="Texture2D" uid="uid://bv14hs748gt1t" path="res://assets/Room Assets/patient area-cropped/cabnet double door.png" id="14_annar"]
 [ext_resource type="Texture2D" uid="uid://hqq6mlh32ytp" path="res://assets/Room Assets/patient area-cropped/cabnet single.png" id="15_bym7q"]
-[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/dr_evelyn_morgan.tscn" id="16_m53t3"]
-[ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/Characters/rando_scientist_npc.tscn" id="18_nej61"]
+[ext_resource type="PackedScene" uid="uid://cp6virej4rr7s" path="res://scenes/Characters/Dr_Lundy/dr_lundy.tscn" id="15_tsi0h"]
+[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/Dr_Evelyn_Morgan/dr_evelyn_morgan.tscn" id="16_m53t3"]
+[ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/Characters/Test_NPCs/rando_scientist_npc.tscn" id="18_nej61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr5qv"]
 size = Vector2(45, 1080)
@@ -127,6 +128,10 @@ scale = Vector2(0.603638, 0.603638)
 
 [node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("16_m53t3")]
 position = Vector2(-168, 112)
+
+[node name="Protag_Dr_Lundy" parent="." instance=ExtResource("15_tsi0h")]
+position = Vector2(404, 96)
+scale = Vector2(0.44, 0.44)
 
 [node name="Inventory" parent="." instance=ExtResource("1_7nf27")]
 position = Vector2(-682, -891)
