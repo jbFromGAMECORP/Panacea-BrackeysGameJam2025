@@ -1,5 +1,6 @@
 extends Draggable # <-- Ctrl-click me to go to Draggable.gd
 
+
 @export var color : Color
 @onready var color_box: ColorRect = $Color_box
 
@@ -13,3 +14,12 @@ func _ready() -> void:
 #Because we don't overwrite _process, it is run by draggable and so we don't have to call super()
 #func _process(delta: float) -> void:
 #	pass
+
+func assign_color(new_color :Color):
+	color = new_color
+	color_box.color = color
+
+func is_correct_spot():
+	if drop_area_hover:
+		return drop_area_hover.color == color
+	return false

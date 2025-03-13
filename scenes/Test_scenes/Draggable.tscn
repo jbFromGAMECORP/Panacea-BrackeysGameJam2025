@@ -1,7 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkwh6sf6t6jbp"]
 
 [ext_resource type="Script" uid="uid://gtd3ev1mx4a2" path="res://scenes/Test_scenes/Draggable_Scene.gd" id="1_8kp3w"]
-[ext_resource type="Script" uid="uid://c7mgxonou3t33" path="res://scenes/Test_scenes/draggable.gd" id="1_y8ajd"]
 [ext_resource type="Script" uid="uid://byruel4737fuh" path="res://scripts/draggable_drop_area.gd" id="2_fc43r"]
 [ext_resource type="Script" uid="uid://btqru83ttjibd" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
 
@@ -33,7 +32,10 @@ corner_radius_bottom_left = 30
 size = Vector2(119, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74cf5"]
-size = Vector2(50, 39)
+size = Vector2(22, 17)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8kp3w"]
+font_size = 50
 
 [node name="Draggable" type="Control"]
 layout_mode = 3
@@ -60,45 +62,27 @@ offset_right = 816.0
 offset_bottom = 914.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8nj6p")
 
-[node name="DragZone2" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 1215.0
+[node name="DragZone2" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 1213.0
 offset_top = 179.0
-offset_right = 1701.0
+offset_right = 1703.0
 offset_bottom = 889.0
+columns = 3
 
 [node name="Color_box2" type="ColorRect" parent="DragZone2"]
-modulate = Color(1, 1, 1, 0.47451)
-layout_mode = 0
-offset_left = 256.0
-offset_top = 452.0
-offset_right = 425.0
-offset_bottom = 587.0
+self_modulate = Color(0.59, 0.59, 0.59, 0.996078)
+custom_minimum_size = Vector2(150, 130)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
 mouse_filter = 1
-color = Color(1, 0.492188, 0, 1)
 script = ExtResource("2_fc43r")
 
 [node name="Draggable Detection" type="Area2D" parent="DragZone2/Color_box2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DragZone2/Color_box2/Draggable Detection"]
-position = Vector2(85, 68)
-shape = SubResource("RectangleShape2D_fc43r")
-
-[node name="Color_box3" type="ColorRect" parent="DragZone2"]
-modulate = Color(1, 1, 1, 0.47451)
-layout_mode = 0
-offset_left = -19.0
-offset_top = 278.0
-offset_right = 150.0
-offset_bottom = 413.0
-mouse_filter = 1
-color = Color(1, 0.492188, 0, 1)
-script = ExtResource("2_fc43r")
-
-[node name="Draggable Detection" type="Area2D" parent="DragZone2/Color_box3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DragZone2/Color_box3/Draggable Detection"]
-position = Vector2(85, 68)
+position = Vector2(76, 65)
 shape = SubResource("RectangleShape2D_fc43r")
 
 [node name="Draggable Zone" type="Control" parent="."]
@@ -108,92 +92,32 @@ offset_top = 178.0
 offset_right = 785.0
 offset_bottom = 896.0
 
-[node name="Orange" type="Control" parent="Draggable Zone"]
+[node name="Color1" type="Control" parent="Draggable Zone"]
 anchors_preset = 0
 offset_left = 97.0
 offset_top = 388.0
 offset_right = 215.0
 offset_bottom = 484.0
-script = ExtResource("1_y8ajd")
-return_type = 0
-
-[node name="Color_box" type="ColorRect" parent="Draggable Zone/Orange"]
-layout_mode = 0
-offset_right = 118.0
-offset_bottom = 97.0
-mouse_filter = 2
-color = Color(1, 0.492188, 0, 1)
-
-[node name="Button" type="TextureButton" parent="Draggable Zone/Orange"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 119.0
-offset_bottom = 96.0
-
-[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Orange"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Orange/Draggable Detection"]
-position = Vector2(60, 51)
-shape = SubResource("RectangleShape2D_74cf5")
-
-[node name="Red" type="Control" parent="Draggable Zone"]
-anchors_preset = 0
-offset_left = 65.0
-offset_top = 218.0
-offset_right = 183.0
-offset_bottom = 314.0
-script = ExtResource("1_y8ajd")
-return_type = 2
-
-[node name="Color_box" type="ColorRect" parent="Draggable Zone/Red"]
-layout_mode = 0
-offset_right = 118.0
-offset_bottom = 97.0
-mouse_filter = 2
-color = Color(1, 0, 0, 1)
-
-[node name="Button" type="TextureButton" parent="Draggable Zone/Red"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 119.0
-offset_bottom = 96.0
-
-[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Red"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Red/Draggable Detection"]
-position = Vector2(60, 51)
-shape = SubResource("RectangleShape2D_74cf5")
-
-[node name="BLUE" type="Control" parent="Draggable Zone"]
-anchors_preset = 0
-offset_left = 52.0
-offset_top = 57.0
-offset_right = 170.0
-offset_bottom = 153.0
 script = ExtResource("2_le1fh")
-color = Color(0, 0.226563, 1, 1)
 return_type = 3
 
-[node name="Color_box" type="ColorRect" parent="Draggable Zone/BLUE"]
+[node name="Color_box" type="ColorRect" parent="Draggable Zone/Color1"]
 layout_mode = 0
 offset_right = 118.0
 offset_bottom = 97.0
 mouse_filter = 2
-color = Color(0.195313, 1, 0, 1)
 
-[node name="Button" type="TextureButton" parent="Draggable Zone/BLUE"]
+[node name="Button" type="TextureButton" parent="Draggable Zone/Color1"]
 layout_mode = 0
-offset_left = -2.0
-offset_top = 1.0
-offset_right = 116.0
-offset_bottom = 98.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 119.0
+offset_bottom = 96.0
 
-[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/BLUE"]
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Color1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/BLUE/Draggable Detection"]
-position = Vector2(60, 51)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Color1/Draggable Detection"]
+position = Vector2(61, 51.5)
 shape = SubResource("RectangleShape2D_74cf5")
 
 [node name="Save" type="Button" parent="."]
@@ -227,6 +151,15 @@ offset_top = 898.0
 offset_right = 1105.0
 offset_bottom = 1025.0
 text = "Change Level"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1014.0
+offset_top = 476.0
+offset_right = 1116.0
+offset_bottom = 589.0
+text = "❌"
+label_settings = SubResource("LabelSettings_8kp3w")
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
