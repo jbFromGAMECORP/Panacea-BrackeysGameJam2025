@@ -76,8 +76,10 @@ func update_succes():
 	color_difference.text = "Color\nDifference:\n" +str(snappedf(diff,.01))
 	if diff < goal_difference:
 		$"Success?".text = "✅"
+		$"Success Button".show()
 	else:
 		$"Success?".text = "❌"
+		$"Success Button".hide()
 
 
 func _on_empty_beaker_pressed() -> void:
@@ -96,3 +98,8 @@ func format_color(color:Color):
 	var b = "B:" + str(snappedf(color.b,.01))
 	return "%s, %s, %s" % [r,g,b]
 	
+
+func _on_success_button_pressed() -> void:
+	_on_new_color_request_pressed()
+	_on_empty_beaker_pressed()
+	update_succes()

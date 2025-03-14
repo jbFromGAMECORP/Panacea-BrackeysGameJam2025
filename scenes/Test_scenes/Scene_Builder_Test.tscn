@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="4_cahdj"]
 [ext_resource type="Texture2D" uid="uid://cxv1rnwcfxs77" path="res://assets/Room Assets/bathroom/tile texture.png" id="5_5hn8b"]
 [ext_resource type="Texture2D" uid="uid://fonk47mxxcsl" path="res://assets/Room Assets/Wood seperator.png" id="5_vjfu2"]
-[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/dr_evelyn_morgan.tscn" id="6_b7jx0"]
+[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/Dr_Evelyn_Morgan/dr_evelyn_morgan.tscn" id="6_b7jx0"]
 [ext_resource type="Texture2D" uid="uid://u21eaqpdek8q" path="res://assets/Room Assets/Background/Posters_0.png" id="7_vv5kp"]
 [ext_resource type="Texture2D" uid="uid://b6gihroq8vyn1" path="res://assets/Room Assets/patient area-cropped/lamp.png" id="8_g00ck"]
 [ext_resource type="Script" uid="uid://b77kr0d3v6rd8" path="res://scenes/Test_scenes/build_unit.gd" id="9_2e10s"]
