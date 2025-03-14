@@ -11,8 +11,8 @@ func _ready():
 	Dialogic.signal_event.connect(DialogicSignal)
 
 func _process(delta):
-		
 	if player_in_area:
+		print_debug("Player is in area")
 		if Input.is_action_just_pressed("e"):
 			run_dialogue("drLundyTestDialogue")
 			
@@ -29,6 +29,7 @@ func DialogicSignal(arg: String):
 		self.queue_free()
 		
 func _on_chat_detection_body_entered(body):
+	print("Detected")
 	if body.has_method("player"):
 		player_in_area = true
 	var layout = Dialogic.Styles.load_style("textBubbleStyle") # Use the name of the STYLE here
@@ -36,5 +37,6 @@ func _on_chat_detection_body_entered(body):
 	Dialogic.start("interactWithLundyTip")
 
 func _on_chat_detection_body_exited(body):
+	print("Player left0")
 	if body.has_method("player"):
 		player_in_area = false

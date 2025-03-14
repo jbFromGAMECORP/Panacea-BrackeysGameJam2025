@@ -123,15 +123,15 @@ position = Vector2(1950, 11)
 shape = SubResource("RectangleShape2D_dr5qv")
 
 [node name="RandoScientist_NPC" parent="." instance=ExtResource("18_nej61")]
-position = Vector2(-695, -174)
+position = Vector2(-731, -194)
 scale = Vector2(0.603638, 0.603638)
-
-[node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("16_m53t3")]
-position = Vector2(-168, 112)
 
 [node name="Protag_Dr_Lundy" parent="." instance=ExtResource("15_tsi0h")]
 position = Vector2(404, 96)
 scale = Vector2(0.44, 0.44)
+
+[node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("16_m53t3")]
+position = Vector2(-168, 112)
 
 [node name="Inventory" parent="." instance=ExtResource("1_7nf27")]
 position = Vector2(-682, -891)
