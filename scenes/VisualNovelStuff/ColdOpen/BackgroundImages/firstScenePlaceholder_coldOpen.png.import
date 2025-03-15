@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di0y0f7vkau54"
-path="res://.godot/imported/fourthScenePlaceholder_coldOpen.png-b9738faf4c9ff04275b1ffafca4c35d8.ctex"
+uid="uid://bibekq3tfltly"
+path="res://.godot/imported/firstScenePlaceholder_coldOpen.png-e4ce7e6b7f849cd7bf1e01acb347c6a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ColdOpen/fourthScenePlaceholder_coldOpen.png"
-dest_files=["res://.godot/imported/fourthScenePlaceholder_coldOpen.png-b9738faf4c9ff04275b1ffafca4c35d8.ctex"]
+source_file="res://scenes/VisualNovelStuff/ColdOpen/BackgroundImages/firstScenePlaceholder_coldOpen.png"
+dest_files=["res://.godot/imported/firstScenePlaceholder_coldOpen.png-e4ce7e6b7f849cd7bf1e01acb347c6a7.ctex"]
 
 [params]
 

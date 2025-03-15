@@ -1,8 +1,8 @@
 [style name="customScientistStyle1"]
-[background arg="res://assets/ColdOpen/firstScenePlaceholder_coldOpen.png" fade="0.4"]
+[background arg="res://scenes/VisualNovelStuff/ColdOpen/BackgroundImages/firstScenePlaceholder_coldOpen.png" fade="0.4"]
 join drQ_coldOpen (NeutralPortrait) right
 drQ_coldOpen: Hmm.. let's see. Madero was it, Maria Madero?
-[background arg="res://assets/ColdOpen/secondScenePlaceholder_coldOpen.png" fade="0.3"]
+[background arg="res://scenes/VisualNovelStuff/ColdOpen/BackgroundImages/secondScenePlaceholder_coldOpen.png" fade="0.3"]
 join maria_coldOpen (NeutralPortrait) left
 maria_coldOpen: Yes.
 drQ_coldOpen: How are you, Maria?
@@ -23,7 +23,7 @@ drQ_coldOpen: Nothing at all? No memories of laughter or fear or anger?
 maria_coldOpen (SadPortrait): Crying, I remember crying. For a long time, it wouldn't stop and then... it just went away and never came back.
 drQ_coldOpen: Excellent, when was that?
 maria_coldOpen: I don't know.
-[background arg="res://assets/ColdOpen/thirdScenePlaceholder_coldOpen.png" fade="0.4"]
+[background arg="res://scenes/VisualNovelStuff/ColdOpen/BackgroundImages/thirdScenePlaceholder_coldOpen.png" fade="0.4"]
 drQ_coldOpen (MadPortrait): Tsk tsk.. hmm. Troublesome. X could be disrupting paths the neocortex, resulting in difficulty of both semantic and episodic recall.
 drQ_coldOpen: This raises serious doubts for the method of collecting data through interview. Hmm.. tell me Maria, can you tell me what is happening to you?
 maria_coldOpen: What is happening?
@@ -37,14 +37,14 @@ drQ_coldOpen: Ah, but there is no 'IT' Maria. That is you, it is your body chang
 maria_coldOpen: I don't want it to change.
 drQ_coldOpen: Want is really neither here nor there. Is there anything else useful you can tell me?
 maria_coldOpen: No...
-[background arg="res://assets/ColdOpen/fourthScenePlaceholder_coldOpen.png" fade="0.4"]
+[background arg="res://scenes/VisualNovelStuff/ColdOpen/BackgroundImages/fourthScenePlaceholder_coldOpen.png" fade="0.4"]
 drQ_coldOpen (NeutralPortrait): Well, then I will go ahead and proceed with todays experiment. If you like you may cover your ears.
 maria_coldOpen (NeutralPortrait): Okay.
-[background arg="res://assets/ColdOpen/fifthScenePlaceholder_coldOpen.png" fade="0.4"]
+[background arg="res://scenes/VisualNovelStuff/ColdOpen/BackgroundImages/fifthScenePlaceholder_coldOpen.png" fade="0.4"]
 drQ_coldOpen: Alright.. in 3.. 2.. 1... click click
 drQ_coldOpen: Hmmm... Oh me, I left the safety on. My apologies Maria, these barbaric sorts of instruments are a new field for me. Let me just check the instructions, ah yes, it seems to be this switch here. Ok, please hold still once more.
 leave maria_coldOpen [animation="Instant Out"]
-[background arg="res://assets/ColdOpen/lastScenePlaceholder_coldOpen.png" fade="0.4"]
+[background arg="res://scenes/VisualNovelStuff/ColdOpen/BackgroundImages/lastScenePlaceholder_coldOpen.png" fade="0.4"]
 drQ_coldOpen: ....Remarkable.
 leave drQ_coldOpen
 [signal arg="timeline_ended"]
