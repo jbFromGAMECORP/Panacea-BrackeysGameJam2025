@@ -38,8 +38,8 @@ directories/dtl_directory={
 "testDialogue": "res://Dialogic_Items/Timelines/testDialogue.dtl",
 "testGameTip": "res://Dialogic_Items/Timelines/testGameTip.dtl"
 }
-layout/style_list=["res://Dialogic_Items/Styles/textBubbleStyle.tres", "res://Dialogic_Items/Styles/testCustomStyle.tres", "res://Dialogic_Items/Styles/customScientistStyle1.tres", "res://Dialogic_Items/Styles/customPatientStyle1.tres"]
-layout/default_style="res://Dialogic_Items/Styles/testCustomStyle.tres"
+layout/style_list=["res://Dialogic_Items/Styles/textBubbleStyle.tres", "res://Dialogic_Items/Styles/testCustomStyle.tres", "res://Dialogic_Items/Styles/customScientistStyle1.tres", "res://Dialogic_Items/Styles/customPatientStyle1.tres", "res://Dialogic_Items/Styles/customGameNattationStyle1.tres"]
+layout/default_style="res://Dialogic_Items/Styles/customScientistStyle1.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.04
 text/initial_text_reveal_skippable=true
