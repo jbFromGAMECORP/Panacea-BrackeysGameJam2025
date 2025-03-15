@@ -7,7 +7,7 @@ extends Control
 ## Be sure to include super() in the inheriting script if you overwrite the _ready or _process function
 
 # This searches for the first button under the node. You must include a button as a child to register clicks.
-@onready var button: TextureButton = find_children("*","BaseButton").front() 
+@onready var button: TextureButton 
 
 # Stores a rectangle representing the edges of the game window.
 @onready var viewport_limits :Rect2= get_viewport().get_visible_rect()
@@ -27,6 +27,11 @@ var new_position :Vector2
 
 func _ready() -> void:
 	add_to_group("Persistent")
+	var children = find_children("*","BaseButton",false,false)
+	for node in children:
+		if node is BaseButton:
+			button = node
+			break
 	button.button_down.connect(drag)
 	button.button_up.connect(release)
 	# We enable processing when dragging, disable when not.
