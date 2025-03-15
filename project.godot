@@ -28,6 +28,7 @@ Transition="*res://scripts/global_scene_transition.gd"
 directories/dch_directory={
 "drLundy": "res://Dialogic_Items/Characters/drLundy.dch",
 "drQ_coldOpen": "res://Dialogic_Items/Characters/drQ_coldOpen.dch",
+"gameNarrator": "res://Dialogic_Items/Characters/gameNarrator.dch",
 "maria_coldOpen": "res://Dialogic_Items/Characters/maria_coldOpen.dch",
 "randomScientist": "res://Dialogic_Items/Characters/randomScientist.dch"
 }
