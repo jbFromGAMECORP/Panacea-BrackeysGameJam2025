@@ -1,13 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2kso2fxsgxs"]
+[gd_scene load_steps=18 format=3 uid="uid://d2kso2fxsgxs"]
 
 [ext_resource type="Script" uid="uid://3knu7eh3dffn" path="res://scenes/Test_scenes/beaker_test.gd" id="1_ug81o"]
+[ext_resource type="Texture2D" uid="uid://vfcklmtk6e1i" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/bootles.png" id="2_1uq7b"]
 [ext_resource type="Script" uid="uid://c10uileilm1nk" path="res://scenes/Test_scenes/color.gd" id="2_ucbng"]
+[ext_resource type="Texture2D" uid="uid://thbjb7lohio8" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/materials.png" id="3_ptwlv"]
+[ext_resource type="Texture2D" uid="uid://bau7qawkjnxbp" path="res://assets/PremadeLabAssets/alchemy set/all png/Alchemy1_11.png" id="4_u1qr3"]
+[ext_resource type="Texture2D" uid="uid://rvsfxkye1hyb" path="res://assets/PremadeLabAssets/alchemy set/all png/Alchemy1_17.png" id="6_obnia"]
+[ext_resource type="Texture2D" uid="uid://c1wk743ew01c5" path="res://assets/PremadeLabAssets/alchemy set/all png/Alchemy1_15.png" id="7_quqnt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqfak"]
+atlas = ExtResource("2_1uq7b")
+region = Rect2(198, 34, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lroke"]
+atlas = ExtResource("3_ptwlv")
+region = Rect2(199, 75, 18, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b34t8"]
-size = Vector2(117.5, 94)
+size = Vector2(54.5, 94)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_diip4"]
-size = Vector2(161.5, 250)
+[sub_resource type="CircleShape2D" id="CircleShape2D_1uq7b"]
+radius = 7.56637
 
 [sub_resource type="LabelSettings" id="LabelSettings_5fr32"]
 font_size = 20
@@ -26,26 +39,60 @@ font_size = 32
 line_spacing = 1.0
 font_size = 64
 
+[sub_resource type="GDScript" id="GDScript_1uq7b"]
+resource_name = "Stat Slider"
+script/source = "extends HSlider
+
+@onready var amount: Label = $CDG/Amount
+
+func _ready() -> void:
+	set_value_no_signal($\"..\".goal_difference)
+	amount.text = str($\"..\".goal_difference)
+	
+func _on_value_changed(value: float) -> void:
+	$Debouncer.start()
+	$\"..\".goal_difference = value
+	amount.text = str(value)
+	
+	
+
+
+func _on_debouncer_timeout() -> void:
+	print(\"fired\")
+	$\"..\".update_succes() # Replace with function body.
+"
+
 [node name="BeakerTest" type="Node2D"]
 script = ExtResource("1_ug81o")
 
 [node name="White" type="ColorRect" parent="."]
+visible = false
 offset_left = 1041.0
 offset_top = 276.0
 offset_right = 1201.0
 offset_bottom = 524.0
 
-[node name="Main Beaker" type="ColorRect" parent="."]
-offset_left = 1041.0
-offset_top = 276.0
-offset_right = 1201.0
-offset_bottom = 524.0
+[node name="Main Beaker" type="Sprite2D" parent="."]
+position = Vector2(1120, 453)
+scale = Vector2(4.95, 4.95)
+texture = SubResource("AtlasTexture_aqfak")
+region_rect = Rect2(0, 0, 20, 28)
 
-[node name="GOAL BEAKER" type="ColorRect" parent="."]
-offset_left = 1344.0
-offset_top = 277.0
-offset_right = 1467.0
-offset_bottom = 522.0
+[node name="Liquid" type="Sprite2D" parent="Main Beaker"]
+position = Vector2(0, 4.0404)
+texture = SubResource("AtlasTexture_lroke")
+region_rect = Rect2(0, 0, 20, 28)
+
+[node name="Goal Beaker" type="Sprite2D" parent="."]
+position = Vector2(1408, 455)
+scale = Vector2(4.95, 4.95)
+texture = SubResource("AtlasTexture_aqfak")
+region_rect = Rect2(0, 0, 20, 28)
+
+[node name="Liquid" type="Sprite2D" parent="Goal Beaker"]
+position = Vector2(0, 4.0404)
+texture = SubResource("AtlasTexture_lroke")
+region_rect = Rect2(0, 0, 20, 28)
 
 [node name="Additive Colors" type="Control" parent="."]
 layout_mode = 3
@@ -55,84 +102,108 @@ offset_top = -1.0
 offset_right = 42.0
 offset_bottom = 39.0
 
-[node name="RED" type="ColorRect" parent="Additive Colors"]
-layout_mode = 0
+[node name="RED" type="Control" parent="Additive Colors"]
+anchors_preset = 0
 offset_left = 580.0
 offset_top = 424.0
-offset_right = 698.0
+offset_right = 636.0
 offset_bottom = 521.0
+pivot_offset = Vector2(28, 48)
 mouse_filter = 2
-color = Color(1, 0, 0, 1)
 script = ExtResource("2_ucbng")
 color_additive = Color(1, 0, 0, 1)
 
 [node name="Area" type="Area2D" parent="Additive Colors/RED"]
-position = Vector2(79, 35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Additive Colors/RED/Area"]
-position = Vector2(-19.75, 14)
+position = Vector2(28, 50)
 shape = SubResource("RectangleShape2D_b34t8")
 
-[node name="BLUE" type="ColorRect" parent="Additive Colors"]
+[node name="Sprite" type="TextureRect" parent="Additive Colors/RED"]
 layout_mode = 0
+offset_right = 56.0
+offset_bottom = 97.0
+pivot_offset = Vector2(28, 48)
+mouse_filter = 2
+texture = ExtResource("4_u1qr3")
+stretch_mode = 5
+
+[node name="BLUE" type="Control" parent="Additive Colors"]
+anchors_preset = 0
 offset_left = 888.0
 offset_top = 422.0
-offset_right = 1006.0
+offset_right = 944.0
 offset_bottom = 522.0
+pivot_offset = Vector2(28, 48)
 mouse_filter = 2
-color = Color(0, 0, 1, 1)
 script = ExtResource("2_ucbng")
 color_additive = Color(0, 0, 1, 1)
 
 [node name="Area" type="Area2D" parent="Additive Colors/BLUE"]
-position = Vector2(79, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Additive Colors/BLUE/Area"]
-position = Vector2(-20, 15)
+position = Vector2(28, 50)
 shape = SubResource("RectangleShape2D_b34t8")
 
-[node name="GREEN" type="ColorRect" parent="Additive Colors"]
+[node name="Sprite" type="TextureRect" parent="Additive Colors/BLUE"]
 layout_mode = 0
+offset_right = 56.0
+offset_bottom = 100.0
+pivot_offset = Vector2(28, 48)
+mouse_filter = 2
+texture = ExtResource("6_obnia")
+stretch_mode = 5
+
+[node name="GREEN" type="Control" parent="Additive Colors"]
+anchors_preset = 0
 offset_left = 729.0
 offset_top = 426.0
-offset_right = 847.0
+offset_right = 785.0
 offset_bottom = 523.0
+pivot_offset = Vector2(28, 48)
 mouse_filter = 2
-color = Color(0, 1, 0, 1)
 script = ExtResource("2_ucbng")
 color_additive = Color(0, 1, 0, 1)
 
 [node name="Area" type="Area2D" parent="Additive Colors/GREEN"]
-position = Vector2(79, 36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Additive Colors/GREEN/Area"]
-position = Vector2(-19.75, 14)
+position = Vector2(28, 50)
 shape = SubResource("RectangleShape2D_b34t8")
+
+[node name="Sprite" type="TextureRect" parent="Additive Colors/GREEN"]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 97.0
+pivot_offset = Vector2(28, 48)
+mouse_filter = 2
+texture = ExtResource("7_quqnt")
+stretch_mode = 5
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1120, 231)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2.25, 167)
-shape = SubResource("RectangleShape2D_diip4")
+position = Vector2(-15.5, 122)
+shape = SubResource("CircleShape2D_1uq7b")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 
 [node name="Beaker Color" type="Label" parent="."]
 offset_left = 983.0
-offset_top = 214.0
+offset_top = 518.0
 offset_right = 1262.0
-offset_bottom = 265.0
+offset_bottom = 569.0
 text = "15165"
 label_settings = SubResource("LabelSettings_5fr32")
 horizontal_alignment = 1
 
 [node name="Goal Color" type="Label" parent="."]
 offset_left = 1282.0
-offset_top = 217.0
+offset_top = 523.0
 offset_right = 1529.0
-offset_bottom = 295.0
+offset_bottom = 601.0
 pivot_offset = Vector2(228, 55)
 text = "15165"
 label_settings = SubResource("LabelSettings_eqxkf")
@@ -149,14 +220,14 @@ label_settings = SubResource("LabelSettings_g022s")
 horizontal_alignment = 1
 
 [node name="Instructions" type="Label" parent="."]
-offset_left = 587.0
-offset_top = 308.0
-offset_right = 1064.0
-offset_bottom = 383.0
+offset_left = 588.0
+offset_top = 267.0
+offset_right = 1065.0
+offset_bottom = 368.0
 text = "1.Pick up the different colors
-2. Hold them over the left rectangle
+2. Hold them over the beaker
 3. Combine colors to match goal color
-4. Win if you are under the goal difference. (Default 0.17)"
+4. Win if you are under the goal difference. (Default 0.18)"
 
 [node name="Arrow" type="Label" parent="."]
 offset_left = 1916.0
@@ -177,23 +248,65 @@ label_settings = SubResource("LabelSettings_5cpqm")
 horizontal_alignment = 1
 
 [node name="Empty Beaker" type="Button" parent="."]
-offset_left = 1065.0
-offset_top = 571.0
-offset_right = 1181.0
-offset_bottom = 603.0
+offset_left = 1064.0
+offset_top = 596.0
+offset_right = 1180.0
+offset_bottom = 628.0
 text = "Empty Beaker
 "
 
 [node name="New Color Request" type="Button" parent="."]
-offset_left = 1348.0
-offset_top = 568.0
-offset_right = 1468.0
-offset_bottom = 600.0
+offset_left = 1347.0
+offset_top = 596.0
+offset_right = 1467.0
+offset_bottom = 628.0
 text = "Get New Color
 "
+
+[node name="Success Button" type="Button" parent="."]
+offset_left = 1210.0
+offset_top = 501.0
+offset_right = 1330.0
+offset_bottom = 533.0
+text = "Success!!"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1023, 436)
+zoom = Vector2(1.25, 1.25)
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 578.0
+offset_top = 156.0
+offset_right = 794.0
+offset_bottom = 172.0
+min_value = 0.01
+max_value = 0.5
+step = 0.01
+value = 0.01
+script = SubResource("GDScript_1uq7b")
+
+[node name="CDG" type="Label" parent="HSlider"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -25.0
+offset_right = 165.0
+offset_bottom = -2.0
+text = "Color Difference Goal"
+
+[node name="Amount" type="Label" parent="HSlider/CDG"]
+layout_mode = 0
+offset_right = 218.0
+offset_bottom = 23.0
+text = "0.17"
+horizontal_alignment = 2
+
+[node name="Debouncer" type="Timer" parent="HSlider"]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Empty Beaker" to="." method="_on_empty_beaker_pressed"]
 [connection signal="pressed" from="New Color Request" to="." method="_on_new_color_request_pressed"]
+[connection signal="pressed" from="Success Button" to="." method="_on_success_button_pressed"]
+[connection signal="value_changed" from="HSlider" to="HSlider" method="_on_value_changed"]
+[connection signal="timeout" from="HSlider/Debouncer" to="HSlider" method="_on_debouncer_timeout"]
