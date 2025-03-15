@@ -1,7 +1,7 @@
 extends Button
 
-var open_texture = preload("res://assets/Inventory/sci-fiSuitcaseFacingRight_open_cropped.PNG")
-var closed_texture = preload("res://assets/Inventory/sci-fiSuitcase_closed_cropped.PNG")
+var open_texture = preload("res://scenes/UI/Inventory/Assets/suitcase_icon_open.png")
+var closed_texture = preload("res://scenes/UI/Inventory/Assets/suitcase_icon_closed_cropped.PNG")
 
 var suitcaseState = ""
 

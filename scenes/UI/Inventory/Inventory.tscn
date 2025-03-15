@@ -1,13 +1,13 @@
 [gd_scene load_steps=22 format=3 uid="uid://bqn6s3f73l21q"]
 
-[ext_resource type="Texture2D" uid="uid://dwhpcl8id8inf" path="res://assets/Inventory/InventoryBase_DarkBlue.PNG" id="1_fvgm3"]
-[ext_resource type="Script" uid="uid://cp573367vfnod" path="res://scripts/inventory_container.gd" id="2_w8q7x"]
-[ext_resource type="Texture2D" uid="uid://dlysklq57y2qj" path="res://assets/Inventory/InventorySlot_DarkBlue.PNG" id="3_fifj8"]
-[ext_resource type="Texture2D" uid="uid://bdrhiskqsjmp2" path="res://assets/Inventory/Inventory_Items/tape.png" id="4_6efqa"]
-[ext_resource type="Texture2D" uid="uid://cjkeqow7vfu5x" path="res://assets/Inventory/InventoryArrowLeft_VibrantBlue.PNG" id="5_w1t1p"]
-[ext_resource type="Texture2D" uid="uid://c6oe1g4w0xipl" path="res://assets/Inventory/InventoryArrowRight_VibrantBlue.PNG" id="6_ka2px"]
-[ext_resource type="Texture2D" uid="uid://blyedyv0x8q2q" path="res://assets/Inventory/sci-fiSuitcase_closed_cropped.PNG" id="8_uxy5c"]
-[ext_resource type="Script" uid="uid://ddh0x273qk0mi" path="res://scripts/suitcase_button.gd" id="9_kf8ab"]
+[ext_resource type="Texture2D" uid="uid://dwhpcl8id8inf" path="res://assets/Inventory/InventoryBase_DarkBlue.PNG" id="1_asvlm"]
+[ext_resource type="Script" uid="uid://cp573367vfnod" path="res://scripts/inventory_container.gd" id="2_gdta5"]
+[ext_resource type="Texture2D" uid="uid://dlysklq57y2qj" path="res://assets/Inventory/InventorySlot_DarkBlue.PNG" id="3_4ys70"]
+[ext_resource type="Texture2D" uid="uid://bdrhiskqsjmp2" path="res://assets/Inventory/Inventory_Items/tape.png" id="4_hmr2e"]
+[ext_resource type="Texture2D" uid="uid://cjkeqow7vfu5x" path="res://assets/Inventory/InventoryArrowLeft_VibrantBlue.PNG" id="5_mk88e"]
+[ext_resource type="Texture2D" uid="uid://c6oe1g4w0xipl" path="res://assets/Inventory/InventoryArrowRight_VibrantBlue.PNG" id="6_iid1l"]
+[ext_resource type="Texture2D" uid="uid://cdhnh8aurpf7u" path="res://scenes/UI/Inventory/Assets/suitcase_icon_closed_cropped.PNG" id="7_asvlm"]
+[ext_resource type="Script" uid="uid://ddh0x273qk0mi" path="res://scripts/suitcase_button.gd" id="8_xdunu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfvyg"]
 
@@ -27,7 +27,7 @@ HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_wcjxs")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_klfvu")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gsm35"]
-texture = ExtResource("3_fifj8")
+texture = ExtResource("3_4ys70")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1arg3"]
 
@@ -51,8 +51,8 @@ offset_top = -14.0
 offset_right = 727.0
 offset_bottom = 179.0
 scale = Vector2(1.03501, 1.05653)
-texture = ExtResource("1_fvgm3")
-script = ExtResource("2_w8q7x")
+texture = ExtResource("1_asvlm")
+script = ExtResource("2_gdta5")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="InventoryContainer"]
@@ -79,7 +79,7 @@ offset_left = 15.0
 offset_top = 17.0
 offset_right = 106.0
 offset_bottom = 102.0
-texture = ExtResource("4_6efqa")
+texture = ExtResource("4_hmr2e")
 expand_mode = 1
 
 [node name="Slot2" type="Panel" parent="InventoryContainer/ScrollContainer/HBoxContainer"]
@@ -272,7 +272,7 @@ offset_right = 124.241
 offset_bottom = 145.004
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1arg3")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_eygth")
-icon = ExtResource("5_w1t1p")
+icon = ExtResource("5_mk88e")
 flat = true
 expand_icon = true
 
@@ -284,7 +284,7 @@ offset_right = 963.88
 offset_bottom = 144.79
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rscrj")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_weo2v")
-icon = ExtResource("6_ka2px")
+icon = ExtResource("6_iid1l")
 flat = true
 expand_icon = true
 
@@ -298,11 +298,11 @@ tooltip_text = "Inventory"
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wh784")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_tuptq")
 toggle_mode = true
-icon = ExtResource("8_uxy5c")
+icon = ExtResource("7_asvlm")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("9_kf8ab")
+script = ExtResource("8_xdunu")
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

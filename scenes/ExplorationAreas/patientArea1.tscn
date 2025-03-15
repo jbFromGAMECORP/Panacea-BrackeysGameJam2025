@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://csjakl35674r5"]
 
-[ext_resource type="PackedScene" uid="uid://bqn6s3f73l21q" path="res://scenes/UI/Inventory.tscn" id="1_7nf27"]
+[ext_resource type="PackedScene" uid="uid://bqn6s3f73l21q" path="res://scenes/UI/Inventory/Inventory.tscn" id="1_7nf27"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="4_ogm7m"]
 [ext_resource type="Texture2D" uid="uid://tyjhg5sl8fsn" path="res://assets/Room Assets/patient area-cropped/dresser.png" id="5_ykge4"]
 [ext_resource type="Texture2D" uid="uid://bu5amclpqnbum" path="res://assets/Room Assets/patient area-cropped/book row 2.png" id="6_lgo7e"]
@@ -134,5 +134,5 @@ scale = Vector2(0.44, 0.44)
 position = Vector2(-168, 112)
 
 [node name="Inventory" parent="." instance=ExtResource("1_7nf27")]
-position = Vector2(-682, -891)
+position = Vector2(-622, -906)
 scale = Vector2(1.3, 1.3)
