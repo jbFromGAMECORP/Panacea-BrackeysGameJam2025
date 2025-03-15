@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd1q8bjg5dvar"
-path="res://.godot/imported/Sci-fiScreen_MultiColorBrdr_DarkBlueBg_cropped.PNG-72866ace539b20a908cb27738a16a765.ctex"
+uid="uid://br5d8gig0misu"
+path="res://.godot/imported/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG-ca813c116abedd15024317872736aba2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameNarrationCustom1TextboxLayer/Frames/Sci-fiScreen_MultiColorBrdr_DarkBlueBg_cropped.PNG"
-dest_files=["res://.godot/imported/Sci-fiScreen_MultiColorBrdr_DarkBlueBg_cropped.PNG-72866ace539b20a908cb27738a16a765.ctex"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Frames/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG"
+dest_files=["res://.godot/imported/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG-ca813c116abedd15024317872736aba2.ctex"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dwxeq7psmnrx0"
-path="res://.godot/imported/SyneMono-Regular.ttf-f39d8e01303c89703fdd67557bc66399.fontdata"
+uid="uid://ctmj0dqtilg86"
+path="res://.godot/imported/Another Danger - Demo.otf-2182b7038552e9109fd30569b2d1a255.fontdata"
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameNarrationCustom1TextboxLayer/Fonts/Syne_Mono/SyneMono-Regular.ttf"
-dest_files=["res://.godot/imported/SyneMono-Regular.ttf-f39d8e01303c89703fdd67557bc66399.fontdata"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Fonts/another_danger/Another Danger - Demo.otf"
+dest_files=["res://.godot/imported/Another Danger - Demo.otf-2182b7038552e9109fd30569b2d1a255.fontdata"]
 
 [params]
 

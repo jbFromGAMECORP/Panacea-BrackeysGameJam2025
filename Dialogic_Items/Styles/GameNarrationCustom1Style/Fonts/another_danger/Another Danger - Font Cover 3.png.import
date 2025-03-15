@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caksjrgxgsctn"
-path="res://.godot/imported/next.svg-f217e2e68acd7578a6a81ba88a387a13.ctex"
+uid="uid://ddyqbkjlu1347"
+path="res://.godot/imported/Another Danger - Font Cover 3.png-b7f7a0ccd6b4cc5e12cc5b9b6c2b6263.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameNarrationCustom1TextboxLayer/next.svg"
-dest_files=["res://.godot/imported/next.svg-f217e2e68acd7578a6a81ba88a387a13.ctex"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Fonts/another_danger/Another Danger - Font Cover 3.png"
+dest_files=["res://.godot/imported/Another Danger - Font Cover 3.png-b7f7a0ccd6b4cc5e12cc5b9b6c2b6263.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

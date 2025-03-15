@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://t2t5ddxjl7nk"
-path="res://.godot/imported/Minercraftory.ttf-c6b2496c3b772c5cabe780ff9c8cbdbe.fontdata"
+uid="uid://cbm4pv1cq7qan"
+path="res://.godot/imported/Another Danger Slanted - Demo.otf-704de02d9fe7c23a8d67b0eba36d3581.fontdata"
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameNarrationCustom1TextboxLayer/Fonts/minercraftory/Minercraftory.ttf"
-dest_files=["res://.godot/imported/Minercraftory.ttf-c6b2496c3b772c5cabe780ff9c8cbdbe.fontdata"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Fonts/another_danger/Another Danger Slanted - Demo.otf"
+dest_files=["res://.godot/imported/Another Danger Slanted - Demo.otf-704de02d9fe7c23a8d67b0eba36d3581.fontdata"]
 
 [params]
 

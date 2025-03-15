@@ -1,6 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://fnj84fp6xd0x"]
 
-[ext_resource type="Texture2D" uid="uid://br5d8gig0misu" path="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameNarrationCustom1TextboxLayer/Frames/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG" id="1_fbqdf"]
+[ext_resource type="Texture2D" uid="uid://br5d8gig0misu" path="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Frames/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG" id="1_fbqdf"]
 
 [resource]
 content_margin_left = 90.0

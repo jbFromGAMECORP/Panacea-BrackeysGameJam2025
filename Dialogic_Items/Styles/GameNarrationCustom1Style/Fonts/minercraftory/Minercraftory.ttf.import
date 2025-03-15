@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://l21t3fnw112k"
-path="res://.godot/imported/Protest Demo.otf-40eae65af83e6de553cbff58fa1cb703.fontdata"
+uid="uid://t2t5ddxjl7nk"
+path="res://.godot/imported/Minercraftory.ttf-6c069ebea504c8ca403d0f6df2d23617.fontdata"
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameNarrationCustom1TextboxLayer/Fonts/protest/Protest Demo.otf"
-dest_files=["res://.godot/imported/Protest Demo.otf-40eae65af83e6de553cbff58fa1cb703.fontdata"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Fonts/minercraftory/Minercraftory.ttf"
+dest_files=["res://.godot/imported/Minercraftory.ttf-6c069ebea504c8ca403d0f6df2d23617.fontdata"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cbm4pv1cq7qan"
-path="res://.godot/imported/Another Danger Slanted - Demo.otf-7f3e52dd8ae194f2a8cb4105c6cf3f60.fontdata"
+uid="uid://dua0q818ve71i"
+path="res://.godot/imported/VELISTA.woff-227e69931f3f95c177e5fc811d5cb1de.fontdata"
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameNarrationCustom1TextboxLayer/Fonts/another_danger/Another Danger Slanted - Demo.otf"
-dest_files=["res://.godot/imported/Another Danger Slanted - Demo.otf-7f3e52dd8ae194f2a8cb4105c6cf3f60.fontdata"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Fonts/velista/VELISTA.woff"
+dest_files=["res://.godot/imported/VELISTA.woff-227e69931f3f95c177e5fc811d5cb1de.fontdata"]
 
 [params]
 
