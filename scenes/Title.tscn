@@ -49,25 +49,8 @@ grow_vertical = 2
 script = ExtResource("1_8ufl1")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 stream = ExtResource("6_snkkh")
-volume_db = 0.0
-pitch_scale = 1.0
 autoplay = true
-stream_paused = false
-mix_target = 0
-max_polyphony = 1
-bus = &"Master"
-playback_type = 0
-script = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -125,25 +108,8 @@ grow_vertical = 2
 script = ExtResource("2_hweom")
 
 [node name="Menu Hover Click" type="AudioStreamPlayer" parent="UIManager"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 stream = ExtResource("3_waexn")
 volume_db = -18.0
-pitch_scale = 1.0
-autoplay = false
-stream_paused = false
-mix_target = 0
-max_polyphony = 1
-bus = &"Master"
-playback_type = 0
-script = null
 
 [node name="Button Container" type="MarginContainer" parent="UIManager"]
 layout_mode = 1
@@ -217,25 +183,7 @@ visible_characters_behavior = 1
 script = ExtResource("2_7pn5t")
 
 [node name="Letter Stamp SFX" type="AudioStreamPlayer" parent="UIManager/RichTextLabel"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 stream = ExtResource("3_waexn")
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-stream_paused = false
-mix_target = 0
-max_polyphony = 1
-bus = &"Master"
-playback_type = 0
-script = null
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.99, 0.99, 0.99, 1)

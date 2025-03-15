@@ -18,9 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://6glouii2i7wf" path="res://scenes/Characters/Test_NPCs/rando_scientist_npc.tscn" id="18_nej61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr5qv"]
-resource_local_to_scene = false
-resource_name = ""
-custom_solver_bias = 0.0
 size = Vector2(45, 1080)
 
 [node name="PanaceaGame" type="Node2D"]

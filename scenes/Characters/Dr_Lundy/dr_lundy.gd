@@ -12,7 +12,6 @@ func _ready():
 
 func _process(delta):
 	if player_in_area:
-		print_debug("Player is in area")
 		if Input.is_action_just_pressed("e"):
 			run_dialogue("drLundyTestDialogue")
 			
@@ -37,6 +36,12 @@ func _on_chat_detection_body_entered(body):
 	Dialogic.start("interactWithLundyTip")
 
 func _on_chat_detection_body_exited(body):
-	print("Player left0")
+	print("Player left")
 	if body.has_method("player"):
 		player_in_area = false
+		
+	#End the "press E to interact" tip if you pass by npc
+	var current_timeline = str(Dialogic.current_timeline)
+	if current_timeline == "[DialogicTimeline:interactWithLundyTip]":
+		Dialogic.end_timeline()
+	

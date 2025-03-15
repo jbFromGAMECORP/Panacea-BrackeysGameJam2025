@@ -1,2 +1,3 @@
-[style name="textBubbleStyle"]
+[style name="customGameInfoStyle1"]
 drLundy (Neutral): Press "E" to interact....
+[signal arg="lundyInteractTip_End"]
