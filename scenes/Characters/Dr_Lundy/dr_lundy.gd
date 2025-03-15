@@ -32,7 +32,7 @@ func _on_chat_detection_body_entered(body):
 	if body.has_method("player"):
 		player_in_area = true
 	var layout = Dialogic.Styles.load_style("textBubbleStyle") # Use the name of the STYLE here
-	layout.register_character(load("res://Dialogic_Items/Characters/drLundy.dch"), $".")
+	layout.register_character(load("res://Dialogic_Items/Characters/drLundy.dch"), $dialogicSpawnPoint)
 	Dialogic.start("interactWithLundyTip")
 
 func _on_chat_detection_body_exited(body):
