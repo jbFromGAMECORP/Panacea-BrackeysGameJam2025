@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br5d8gig0misu"
-path="res://.godot/imported/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG-ca813c116abedd15024317872736aba2.ctex"
+uid="uid://wvr6un43ncg0"
+path="res://.godot/imported/Another Danger - Font Cover 4.png-71c3efccf05e0c318ed5968d399ac802.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Frames/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG"
-dest_files=["res://.godot/imported/Sci-FiScreen_prpBluGrad_yelOrgAcc_darkBg_cropped.PNG-ca813c116abedd15024317872736aba2.ctex"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameInfoCustom1TextboxLayer/Fonts/another_danger/Another Danger - Font Cover 4.png"
+dest_files=["res://.godot/imported/Another Danger - Font Cover 4.png-71c3efccf05e0c318ed5968d399ac802.ctex"]
 
 [params]
 

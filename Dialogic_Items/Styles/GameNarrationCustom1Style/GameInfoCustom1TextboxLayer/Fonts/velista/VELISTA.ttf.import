@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://t2t5ddxjl7nk"
-path="res://.godot/imported/Minercraftory.ttf-6c069ebea504c8ca403d0f6df2d23617.fontdata"
+uid="uid://cjdp2rtx8cve3"
+path="res://.godot/imported/VELISTA.ttf-94cf2c654b87371e0bfdfe5b388ef650.fontdata"
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Fonts/minercraftory/Minercraftory.ttf"
-dest_files=["res://.godot/imported/Minercraftory.ttf-6c069ebea504c8ca403d0f6df2d23617.fontdata"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameInfoCustom1TextboxLayer/Fonts/velista/VELISTA.ttf"
+dest_files=["res://.godot/imported/VELISTA.ttf-94cf2c654b87371e0bfdfe5b388ef650.fontdata"]
 
 [params]
 

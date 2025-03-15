@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bgp4xcvhc06c8"
-path="res://.godot/imported/VELISTA.otf-215695354cbd64b795f41ccff2dc1ae0.fontdata"
+uid="uid://dua0q818ve71i"
+path="res://.godot/imported/VELISTA.woff-3d8e39997b9214b84e1f2f357a7c2848.fontdata"
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Fonts/velista/VELISTA.otf"
-dest_files=["res://.godot/imported/VELISTA.otf-215695354cbd64b795f41ccff2dc1ae0.fontdata"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameInfoCustom1TextboxLayer/Fonts/velista/VELISTA.woff"
+dest_files=["res://.godot/imported/VELISTA.woff-3d8e39997b9214b84e1f2f357a7c2848.fontdata"]
 
 [params]
 

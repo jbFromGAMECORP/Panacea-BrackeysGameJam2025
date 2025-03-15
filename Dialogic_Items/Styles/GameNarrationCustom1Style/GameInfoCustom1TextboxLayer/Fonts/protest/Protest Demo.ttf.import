@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dwxeq7psmnrx0"
-path="res://.godot/imported/SyneMono-Regular.ttf-9952deefa12f1c6febfbe2a7e3d7fadb.fontdata"
+uid="uid://snbkoarpshl1"
+path="res://.godot/imported/Protest Demo.ttf-5613a7477990aa3232f01796d0c73d6b.fontdata"
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Fonts/Syne_Mono/SyneMono-Regular.ttf"
-dest_files=["res://.godot/imported/SyneMono-Regular.ttf-9952deefa12f1c6febfbe2a7e3d7fadb.fontdata"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameInfoCustom1TextboxLayer/Fonts/protest/Protest Demo.ttf"
+dest_files=["res://.godot/imported/Protest Demo.ttf-5613a7477990aa3232f01796d0c73d6b.fontdata"]
 
 [params]
 

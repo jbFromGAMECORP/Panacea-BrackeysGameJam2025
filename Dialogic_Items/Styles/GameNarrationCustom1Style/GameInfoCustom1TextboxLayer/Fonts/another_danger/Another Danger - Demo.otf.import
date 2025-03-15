@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://l21t3fnw112k"
-path="res://.godot/imported/Protest Demo.otf-64e5cf3d947028065c09a4c8c39fa100.fontdata"
+uid="uid://ctmj0dqtilg86"
+path="res://.godot/imported/Another Danger - Demo.otf-fa0ea5959c9e956c4553818eadaa2453.fontdata"
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Fonts/protest/Protest Demo.otf"
-dest_files=["res://.godot/imported/Protest Demo.otf-64e5cf3d947028065c09a4c8c39fa100.fontdata"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameInfoCustom1TextboxLayer/Fonts/another_danger/Another Danger - Demo.otf"
+dest_files=["res://.godot/imported/Another Danger - Demo.otf-fa0ea5959c9e956c4553818eadaa2453.fontdata"]
 
 [params]
 

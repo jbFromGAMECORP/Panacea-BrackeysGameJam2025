@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dua0q818ve71i"
-path="res://.godot/imported/VELISTA.woff-227e69931f3f95c177e5fc811d5cb1de.fontdata"
+uid="uid://dwxeq7psmnrx0"
+path="res://.godot/imported/SyneMono-Regular.ttf-b35f83d3b0ffe72d81431d3561d26d4f.fontdata"
 
 [deps]
 
-source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/Fonts/velista/VELISTA.woff"
-dest_files=["res://.godot/imported/VELISTA.woff-227e69931f3f95c177e5fc811d5cb1de.fontdata"]
+source_file="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameInfoCustom1TextboxLayer/Fonts/Syne_Mono/SyneMono-Regular.ttf"
+dest_files=["res://.godot/imported/SyneMono-Regular.ttf-b35f83d3b0ffe72d81431d3561d26d4f.fontdata"]
 
 [params]
 
