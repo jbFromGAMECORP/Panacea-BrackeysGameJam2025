@@ -109,9 +109,6 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tf2j"]
-resource_local_to_scene = false
-resource_name = ""
-custom_solver_bias = 0.0
 size = Vector2(170, 39)
 
 [node name="Protag_Dr_Evelyn_Morgan" type="CharacterBody2D"]

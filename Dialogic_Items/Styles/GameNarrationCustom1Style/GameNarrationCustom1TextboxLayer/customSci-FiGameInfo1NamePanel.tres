@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dunkt44evk7t2"]
+
+[ext_resource type="Texture2D" uid="uid://kgkxwy1q2ql1" path="res://Dialogic_Items/Styles/GameNarrationCustom1Style/GameNarrationCustom1TextboxLayer/Frames/Sci-FiScreen_bluBrdr_orgAcc_darkBg_cropped.PNG" id="1_b8brp"]
+
+[resource]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_b8brp")
