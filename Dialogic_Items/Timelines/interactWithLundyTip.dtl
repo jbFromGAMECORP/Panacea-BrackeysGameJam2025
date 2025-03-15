@@ -1,2 +1,3 @@
 [style name="customGameNattationStyle1"]
 drLundy (Neutral): Press "E" to interact....
+[signal arg="lundyInteractTip_End"]
