@@ -1,5 +1,5 @@
 join drLundy (Neutral) left
 [style name="customScientistStyle1"]
 drLundy (Default): [i]Hello! I'm Happy![/i]
-drLundy (Annoyed): [b]Now I'm annoyed!!!/b]
+drLundy (Annoyed): [b]Now I'm annoyed!!![]/b]
 [signal arg="exit-lundy"]

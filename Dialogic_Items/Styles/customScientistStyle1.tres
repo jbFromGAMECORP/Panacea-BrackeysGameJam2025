@@ -42,7 +42,7 @@ overrides = {
 "box_color_use_global": "false",
 "box_panel": "\"res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/customSci-FiScreenPanel.tres\"",
 "box_size": "Vector2(800, 250)",
-"italics_font": "\"res://assets/Fonts/fathony_king/Fathony King demo.ttf\"",
+"italics_font": "\"res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Fonts/minercraftory/Minercraftory.ttf\"",
 "name_label_box_modulate": "Color(0.976471, 0.976471, 0.988235, 1)",
 "name_label_box_panel": "\"res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/customSci-FiScreenNamePanel.tres\"",
 "name_label_box_use_global_color": "false",

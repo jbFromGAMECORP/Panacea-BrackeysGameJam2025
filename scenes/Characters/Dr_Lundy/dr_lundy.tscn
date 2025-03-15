@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1irje"]
-radius = 253.024
+radius = 356.742
 
 [node name="Protag_Dr_Lundy" type="CharacterBody2D"]
 z_index = 5
@@ -35,5 +35,8 @@ animation = &"idle"
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chatDetection"]
-position = Vector2(0, 1)
+position = Vector2(-2, 134)
 shape = SubResource("CircleShape2D_1irje")
+
+[connection signal="body_entered" from="chatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="chatDetection" to="." method="_on_chat_detection_body_exited"]

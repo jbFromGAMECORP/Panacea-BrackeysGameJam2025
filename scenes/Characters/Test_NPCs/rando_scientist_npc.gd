@@ -58,7 +58,7 @@ func run_dialogue(dialogue_string):
 	is_chatting = true
 	is_roaming = false
 	Dialogic.start(dialogue_string)
-	
+		
 func DialogicSignal(arg: String):
 	if arg == "exit_rando":
 		$Timer.stop()
@@ -83,6 +83,7 @@ func _on_timer_timeout():
 	current_state = choose([IDLE, NEW_DIR, MOVE])
 
 func _on_chat_detection_body_entered(body):
+	print("Detected")
 	if body.has_method("player"):
 		player_in_area = true
 	var layout = Dialogic.Styles.load_style("textBubbleStyle") # Use the name of the STYLE here
