@@ -5,8 +5,8 @@ var is_chatting = false
 
 #Change with dialogic timelines for Lundy
 func _ready():
-	Dialogic.preload_timeline(load("res://Dialogic_Items/Timelines/interactWithLundyTip.dtl"))
-	preload("res://Dialogic_Items/Styles/textBubbleStyle.tres").prepare()
+	#Dialogic.preload_timeline(load("res://Dialogic_Items/Timelines/interactWithLundyTip.dtl"))
+	#preload("res://Dialogic_Items/Styles/textBubbleStyle.tres").prepare()
 	randomize()
 	Dialogic.signal_event.connect(DialogicSignal)
 
@@ -31,8 +31,8 @@ func _on_chat_detection_body_entered(body):
 	print("Detected")
 	if body.has_method("player"):
 		player_in_area = true
-	var layout = Dialogic.Styles.load_style("textBubbleStyle") # Use the name of the STYLE here
-	layout.register_character(load("res://Dialogic_Items/Characters/drLundy.dch"), $".")
+	var layout = Dialogic.Styles.load_style(DH.STYLE.FLOAT_DIALOG) #DH is a singleton, DialogicHelper
+	DH.set_position(layout,global_position)
 	Dialogic.start("interactWithLundyTip")
 
 func _on_chat_detection_body_exited(body):
