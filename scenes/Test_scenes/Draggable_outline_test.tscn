@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkwh6sf6t6jbp"]
+[gd_scene load_steps=10 format=3 uid="uid://dwf6la4amul67"]
 
-[ext_resource type="Script" uid="uid://gtd3ev1mx4a2" path="res://scenes/Test_scenes/Draggable_Scene.gd" id="1_8kp3w"]
-[ext_resource type="Script" uid="uid://byruel4737fuh" path="res://scripts/draggable_drop_area.gd" id="2_fc43r"]
-[ext_resource type="Script" uid="uid://btqru83ttjibd" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
+[ext_resource type="Script" uid="uid://djd5he3tsty7q" path="res://scenes/Test_scenes/Draggable_Outline_Scene.gd" id="1_ksug5"]
+[ext_resource type="Script" uid="uid://du0q65xomok4t" path="res://scenes/Test_scenes/shape_drop_area.gd" id="2_mykmi"]
+[ext_resource type="Texture2D" uid="uid://c71yl0yuulc21" path="res://assets/Inventory/Inventory_Items/wrench.png" id="2_wq5n5"]
+[ext_resource type="Script" uid="uid://7br27ugagkbp" path="res://scenes/Test_scenes/test_shapes.gd" id="4_mykmi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
 bg_color = Color(0.417969, 0.345212, 0.267761, 1)
@@ -37,14 +38,14 @@ size = Vector2(22, 17)
 [sub_resource type="LabelSettings" id="LabelSettings_8kp3w"]
 font_size = 50
 
-[node name="Draggable" type="Control"]
+[node name="DraggableOutline" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8kp3w")
+script = ExtResource("1_ksug5")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -62,62 +63,33 @@ offset_right = 816.0
 offset_bottom = 914.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8nj6p")
 
-[node name="DragZone2" type="GridContainer" parent="."]
+[node name="DroppableZone" type="GridContainer" parent="."]
 layout_mode = 0
 offset_left = 1213.0
 offset_top = 179.0
-offset_right = 1703.0
-offset_bottom = 889.0
+offset_right = 1705.0
+offset_bottom = 890.0
 columns = 3
 
-[node name="Control" type="Control" parent="DragZone2"]
-custom_minimum_size = Vector2(120, 120)
+[node name="Control" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-script = ExtResource("2_fc43r")
+script = ExtResource("2_mykmi")
 
-[node name="Color_box2" type="ColorRect" parent="DragZone2/Control"]
-custom_minimum_size = Vector2(150, 130)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -65.0
-offset_right = 75.0
-offset_bottom = 65.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 2
-size_flags_vertical = 6
-mouse_filter = 1
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/Control"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("2_wq5n5")
+region_rect = Rect2(1, 22, 98, 93)
 
-[node name="Color_box3" type="ColorRect" parent="DragZone2/Control/Color_box2"]
-custom_minimum_size = Vector2(120, 100)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -68.0
-offset_top = -59.0
-offset_right = 69.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 2
-size_flags_vertical = 6
-mouse_filter = 1
-color = Color(0.419608, 0.345098, 0.266667, 1)
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/Control"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
 
-[node name="Draggable Detection" type="Area2D" parent="DragZone2/Control"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DragZone2/Control/Draggable Detection"]
-position = Vector2(59, 63)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/Control/Draggable Detection"]
 shape = SubResource("RectangleShape2D_fc43r")
 
 [node name="Draggable Zone" type="Control" parent="."]
@@ -131,23 +103,20 @@ offset_bottom = 896.0
 anchors_preset = 0
 offset_left = 97.0
 offset_top = 388.0
-offset_right = 215.0
-offset_bottom = 484.0
-script = ExtResource("2_le1fh")
+offset_right = 220.0
+offset_bottom = 517.0
+mouse_filter = 1
+script = ExtResource("4_mykmi")
 return_type = 2
 
-[node name="Color_box" type="ColorRect" parent="Draggable Zone/Color1"]
-layout_mode = 0
-offset_right = 118.0
-offset_bottom = 97.0
-mouse_filter = 2
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Color1"]
+position = Vector2(61, 53)
+texture = ExtResource("2_wq5n5")
 
 [node name="Button" type="TextureButton" parent="Draggable Zone/Color1"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 119.0
-offset_bottom = 96.0
+offset_right = 121.0
+offset_bottom = 115.0
 
 [node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Color1"]
 

@@ -4,6 +4,8 @@ extends Control
 @onready var save: Button = $Save
 @onready var draggable_zone: Control = $"Draggable Zone"
 @onready var drag_zone_2: Control = $DragZone2
+@onready var area: Area2D = $"DragZone2/Control/Draggable Detection"
+
 var held_object : Node
 
 var exit_scene_and_return = func():
@@ -42,13 +44,11 @@ func _on_goto_test_area() -> void:
 	Transition.change_scene("res://scenes/Test_scenes/Scene_Builder_Test.tscn") # Replace with function body.
 
 func _connect_puzzle_signals():
-	for drop_area in drag_zone_2.get_children():
-		var area: Area2D = drop_area.get_child(0)
-		area.area_entered.connect(check_puzzle)
-		area.area_exited.connect(check_puzzle)
+	for node in drag_zone_2.get_children():
+		node.area.area_entered.connect(check_puzzle)
+		node.area.area_exited.connect(check_puzzle)
 
 func check_puzzle(node):
-	print("Checking!")
 	var solved : bool= draggable_zone.get_children().all(func(x):return x.is_correct_spot())
 	if solved:
 		print("solved!!")

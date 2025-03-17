@@ -3,13 +3,9 @@ extends Control
 @onready var current_scene = get_tree().current_scene
 @onready var detection_area: Area2D = $"Draggable Detection"
 @onready var sprite:CanvasItem = get_child(0)
-@onready var area: Area2D = $"Draggable Detection"
-
 
 var node_in_slot : Control
-var color : Color
-
-
+var puzzle_id :int
 
 
 func _ready() -> void:
@@ -23,20 +19,29 @@ func _connect_signals():
 func _on_area_entered(area:Area2D):
 	if not node_in_slot:
 		var node = area.get_parent()
-		if node is Draggable:
-			print("Entered %s" % name)
-			var new_position = sprite.global_position + (sprite.size-node.size)/2
+		if node is Draggable and _drop_area_criteria(node):
+			var new_position = sprite.global_position
 			node.enter_hover(self,new_position)
 			node_in_slot = node
+			sprite.self_modulate = Color(0.0, 0.0, 0.0, 0.8)
 
 	
 func _on_area_exited(area:Area2D):
 	if node_in_slot:
 		var node = area.get_parent()
-		if node is Draggable:
-			print("Exited %s" % name)
+		if node is Draggable and _drop_area_criteria(node):
 			node.exit_hover()
 			node_in_slot = null
+			sprite.self_modulate = Color(0.0, 0.0, 0.0, 0.545)
 		
-func assign_color(new_color: Color):
-	sprite.color = new_color
+
+func set_shape_sprite(_texture):
+	sprite.texture = _texture
+	pass
+
+func set_id(id):
+	puzzle_id = id
+	
+	
+func _drop_area_criteria(node):
+	return puzzle_id == node.puzzle_id
