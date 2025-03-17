@@ -17,6 +17,10 @@ func _process(delta):
 			
 func run_dialogue(dialogue_string):
 	is_chatting = true
+	var current_timeline = str(Dialogic.current_timeline)
+	if current_timeline == "[DialogicTimeline:interactWithLundyTip]":
+		Dialogic.end_timeline(true)
+		await Dialogic.timeline_ended
 	Dialogic.start(dialogue_string)
 	
 func DialogicSignal(arg: String):
