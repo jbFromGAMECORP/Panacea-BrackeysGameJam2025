@@ -1,4 +1,3 @@
 [style name="customGameInfoStyle1"]
-join gameNarrator (Default) leftmost
 gameNarrator: Press "E" to interact....
 [signal arg="lundyInteractTip_End"]

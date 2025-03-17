@@ -126,7 +126,7 @@ shape = SubResource("RectangleShape2D_dr5qv")
 position = Vector2(-731, -194)
 scale = Vector2(0.603638, 0.603638)
 
-[node name="Protag_Dr_Lundy" parent="." instance=ExtResource("15_tsi0h")]
+[node name="Dr_Lundy_NPC" parent="." instance=ExtResource("15_tsi0h")]
 position = Vector2(404, -542)
 scale = Vector2(0.44, 0.44)
 
