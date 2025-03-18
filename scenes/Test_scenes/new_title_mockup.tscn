@@ -1,17 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://dy2lp76tk73gk"]
+[gd_scene load_steps=18 format=3 uid="uid://bwcyowm835uvt"]
 
-[ext_resource type="Script" uid="uid://cc5m3chr11wyv" path="res://scripts/title.gd" id="1_8ufl1"]
-[ext_resource type="FontFile" uid="uid://bt3rcvvmfnq7" path="res://assets/Fonts/another_danger/Another Danger - Demo.otf" id="1_n38um"]
-[ext_resource type="Texture2D" uid="uid://cplh6tp5n0cu0" path="res://assets/logo only.png" id="1_ylost"]
-[ext_resource type="Script" uid="uid://jbumhfruedww" path="res://scripts/rich_text_label.gd" id="2_7pn5t"]
-[ext_resource type="Script" uid="uid://bojpar1oo81sn" path="res://scripts/control.gd" id="2_hweom"]
-[ext_resource type="FontFile" uid="uid://djqlvado86g0t" path="res://assets/Fonts/doctor_glitch/Doctor Glitch.otf" id="3_j6qgi"]
-[ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="3_waexn"]
-[ext_resource type="Script" uid="uid://qhf2x7kdtxml" path="res://scripts/Menu_Buttons.gd" id="5_dq7eg"]
-[ext_resource type="AudioStream" uid="uid://bs6m1rs3baeyj" path="res://assets/Industrial Dungeon 002.wav" id="6_snkkh"]
+[ext_resource type="Script" uid="uid://cc5m3chr11wyv" path="res://scripts/title.gd" id="1_p8jpa"]
+[ext_resource type="Texture2D" uid="uid://bywdegmtx52g1" path="res://scenes/Test_scenes/assets/mockup.jpg" id="2_a1ssv"]
+[ext_resource type="AudioStream" uid="uid://bs6m1rs3baeyj" path="res://assets/Industrial Dungeon 002.wav" id="3_0sspf"]
+[ext_resource type="Texture2D" uid="uid://cplh6tp5n0cu0" path="res://assets/logo only.png" id="4_01123"]
+[ext_resource type="Script" uid="uid://bojpar1oo81sn" path="res://scripts/control.gd" id="5_srryv"]
+[ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="6_36itg"]
+[ext_resource type="FontFile" uid="uid://djqlvado86g0t" path="res://assets/Fonts/doctor_glitch/Doctor Glitch.otf" id="7_2waps"]
+[ext_resource type="Script" uid="uid://qhf2x7kdtxml" path="res://scripts/Menu_Buttons.gd" id="8_lkswn"]
+[ext_resource type="Shader" uid="uid://dxiavuahbnaky" path="res://scenes/Test_scenes/assets/new_title_mockup.gdshader" id="9_lyusr"]
+[ext_resource type="FontFile" uid="uid://bt3rcvvmfnq7" path="res://assets/Fonts/another_danger/Another Danger - Demo.otf" id="10_8vxbm"]
+[ext_resource type="Script" uid="uid://jbumhfruedww" path="res://scripts/rich_text_label.gd" id="11_btjkc"]
 
 [sub_resource type="FontVariation" id="FontVariation_awjx3"]
-base_font = ExtResource("3_j6qgi")
+base_font = ExtResource("7_2waps")
 spacing_glyph = -1
 spacing_top = 2
 
@@ -38,6 +40,14 @@ Button/styles/hover = SubResource("StyleBoxFlat_uwet5")
 Button/styles/normal = SubResource("StyleBoxEmpty_qs2wu")
 Button/styles/pressed = SubResource("StyleBoxEmpty_cy4dj")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dk7x"]
+shader = ExtResource("9_lyusr")
+shader_parameter/fov = 128.991
+shader_parameter/cull_back = true
+shader_parameter/y_rot = -38.015
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.543
+
 [node name="Title Screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -45,13 +55,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8ufl1")
+script = ExtResource("1_p8jpa")
+
+[node name="Mockup" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_a1ssv")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(1117, 286)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(103, -4, 592, -73, 690, 190, 590, 253, 393, 169, 185, 145, 149, 111, 85, 131, 85, 86)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(59, 272)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(103, -4, 647, -48, 768, 99, 597, 451, 137, 442)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_snkkh")
+stream = ExtResource("3_0sspf")
 autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,6 +91,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="PanaceaLogo" type="TextureRect" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0.137255)
 layout_mode = 1
 anchors_preset = 6
@@ -75,10 +106,11 @@ offset_bottom = 85.0001
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.75, 1.75)
-texture = ExtResource("1_ylost")
+texture = ExtResource("4_01123")
 flip_h = true
 
 [node name="PanaceaLogo" type="TextureRect" parent="PanaceaLogo"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.137255)
 layout_mode = 1
 anchors_preset = 6
@@ -93,7 +125,7 @@ offset_bottom = 159.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.29762, 1.29762)
-texture = ExtResource("1_ylost")
+texture = ExtResource("4_01123")
 
 [node name="UIManager" type="Control" parent="."]
 layout_mode = 1
@@ -104,10 +136,10 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_hweom")
+script = ExtResource("5_srryv")
 
 [node name="Menu Hover Click" type="AudioStreamPlayer" parent="UIManager"]
-stream = ExtResource("3_waexn")
+stream = ExtResource("6_36itg")
 volume_db = -18.0
 
 [node name="Button Container" type="MarginContainer" parent="UIManager"]
@@ -117,10 +149,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -83.0
-offset_top = 150.0
-offset_right = 95.0
-offset_bottom = 284.0
+offset_left = -693.0
+offset_top = -243.0
+offset_right = -375.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.75, 1.75)
@@ -129,67 +161,91 @@ pivot_offset = Vector2(89, 0)
 [node name="Start" type="Button" parent="UIManager/Button Container"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_kvw6m")
 action_mode = 0
-text = "Start"
-script = ExtResource("5_dq7eg")
+text = "New Game  "
+alignment = 0
+script = ExtResource("8_lkswn")
 
 [node name="Options" type="Button" parent="UIManager/Button Container"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 4
 focus_mode = 0
 theme = SubResource("Theme_kvw6m")
 action_mode = 0
-text = "Options"
-script = ExtResource("5_dq7eg")
+text = "Options  "
+alignment = 0
+script = ExtResource("8_lkswn")
 
 [node name="Quit" type="Button" parent="UIManager/Button Container"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 8
 focus_mode = 0
 theme = SubResource("Theme_kvw6m")
 action_mode = 0
-text = "Exit
-"
-script = ExtResource("5_dq7eg")
+text = "Exit  "
+alignment = 0
+script = ExtResource("8_lkswn")
 
-[node name="Title" type="RichTextLabel" parent="UIManager"]
-unique_name_in_owner = true
-clip_contents = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -315.0
-offset_top = -379.0
-offset_right = 341.0
-offset_bottom = -34.0
-grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("1_n38um")
-theme_override_font_sizes/normal_font_size = 200
-bbcode_enabled = true
-text = "[shake rate=20.0 level=15 connected=1]PANACEA[/shake]"
-fit_content = true
-autowrap_mode = 0
-custom_effects = [null]
-visible_characters_behavior = 1
-script = ExtResource("2_7pn5t")
-
-[node name="Letter Stamp SFX" type="AudioStreamPlayer" parent="UIManager/Title"]
-stream = ExtResource("3_waexn")
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+position = Vector2(1088, 227)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.99, 0.99, 0.99, 1)
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 6
+material = SubResource("ShaderMaterial_6dk7x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 950.0
+offset_top = 141.0
+offset_right = -170.0
+offset_bottom = -539.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(800, 400)
+render_target_update_mode = 4
+
+[node name="Title" type="RichTextLabel" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+clip_contents = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -349.0
+offset_top = 58.0
+offset_right = 307.0
+offset_bottom = 403.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("10_8vxbm")
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "[shake rate=10.0 level=5  connected=1]PANACEA[/shake]"
+fit_content = true
+autowrap_mode = 0
+custom_effects = [null]
+visible_characters_behavior = 1
+script = ExtResource("11_btjkc")
+
+[node name="Letter Stamp SFX" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport/Title"]
+stream = ExtResource("6_36itg")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, 546)
+position = Vector2(936, 531)
 zoom = Vector2(1.05, 1.05)
 
 [connection signal="pressed" from="UIManager/Button Container/Start" to="UIManager" method="start_pressed"]

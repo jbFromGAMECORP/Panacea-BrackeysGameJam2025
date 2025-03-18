@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 func offset_menu_by_mouse():
 	var mouse_position = get_global_mouse_position().clamp(Vector2.ZERO,get_viewport_rect().end)
 	var vector_offset = (mouse_position-default_position)*MOUSE_OFFSET_RATIO
-	global_position = default_position - vector_offset
+	$"../Camera2D".offset = vector_offset
 
 
 #NOTE: This is a simple version. Ultimately we'll need a Scene Handler Script (as an Autoload/Singlton) that this function will call to instead.

@@ -1,5 +1,5 @@
 extends Control
-@onready var rich_text_label: RichTextLabel = $UIManager/RichTextLabel
+@onready var rich_text_label: RichTextLabel = %Title
 @onready var panacea_logo: TextureRect = $PanaceaLogo
 @onready var button_container: MarginContainer = $"UIManager/Button Container"
 
