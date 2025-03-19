@@ -35,6 +35,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "coldOpenScene": "res://Dialogic_Items/Timelines/coldOpenScene.dtl",
+"cowboyTestTimeline": "res://Dialogic_Items/Timelines/cowboyTestTimeline.dtl",
 "drLundyTestDialogue": "res://Dialogic_Items/Timelines/drLundyTestDialogue.dtl",
 "interactWithLundyTip": "res://Dialogic_Items/Timelines/interactWithLundyTip.dtl",
 "testDialogue": "res://Dialogic_Items/Timelines/testDialogue.dtl",
@@ -60,7 +61,10 @@ choices/reveal_delay=0
 choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
-text/autopauses={}
+text/autopauses={
+",:": 0.15,
+".?!": 0.3
+}
 audio/channel_defaults={
 "": {
 "audio_bus": "",
@@ -77,6 +81,7 @@ audio/channel_defaults={
 }
 variables={}
 glossary/default_case_sensitive=true
+text/absolute_autopauses=false
 
 [display]
 
