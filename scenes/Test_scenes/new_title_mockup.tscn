@@ -1,16 +1,41 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwcyowm835uvt"]
+[gd_scene load_steps=20 format=3 uid="uid://bwcyowm835uvt"]
 
 [ext_resource type="Script" uid="uid://cc5m3chr11wyv" path="res://scripts/title.gd" id="1_p8jpa"]
 [ext_resource type="Texture2D" uid="uid://bywdegmtx52g1" path="res://scenes/Test_scenes/assets/mockup.jpg" id="2_a1ssv"]
 [ext_resource type="AudioStream" uid="uid://bs6m1rs3baeyj" path="res://assets/Industrial Dungeon 002.wav" id="3_0sspf"]
 [ext_resource type="Texture2D" uid="uid://cplh6tp5n0cu0" path="res://assets/logo only.png" id="4_01123"]
+[ext_resource type="AudioStream" uid="uid://gv2nwdklqirx" path="res://scenes/Test_scenes/assets/pyroxene.mp3" id="4_a1ssv"]
 [ext_resource type="Script" uid="uid://bojpar1oo81sn" path="res://scripts/control.gd" id="5_srryv"]
 [ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="6_36itg"]
 [ext_resource type="FontFile" uid="uid://djqlvado86g0t" path="res://assets/Fonts/doctor_glitch/Doctor Glitch.otf" id="7_2waps"]
-[ext_resource type="Script" uid="uid://qhf2x7kdtxml" path="res://scripts/Menu_Buttons.gd" id="8_lkswn"]
+[ext_resource type="Script" uid="uid://d3wpdmiwhaj33" path="res://scripts/Menu_Buttons.gd" id="8_lkswn"]
 [ext_resource type="Shader" uid="uid://dxiavuahbnaky" path="res://scenes/Test_scenes/assets/new_title_mockup.gdshader" id="9_lyusr"]
 [ext_resource type="FontFile" uid="uid://bt3rcvvmfnq7" path="res://assets/Fonts/another_danger/Another Danger - Demo.otf" id="10_8vxbm"]
-[ext_resource type="Script" uid="uid://jbumhfruedww" path="res://scripts/rich_text_label.gd" id="11_btjkc"]
+[ext_resource type="Script" uid="uid://s28l01qawqwp" path="res://scripts/rich_text_label.gd" id="11_btjkc"]
+
+[sub_resource type="GDScript" id="GDScript_a1ssv"]
+resource_name = "TitleMusicTest"
+script/source = "extends AudioStreamPlayer
+
+#@export var pitch_slide_time :int = 12
+func _ready() -> void:
+	new_timer()
+	pass
+	
+func new_pitch():
+	var pitch = randfn(1,0.35)
+	var pitch_slide_time = randfn(10,4)
+	print(pitch_scale,\" ----> \", pitch)
+	await create_tween().tween_property(self,\"pitch_scale\",pitch,pitch_slide_time).finished
+	prints(\"pitch change done\")
+	new_timer()
+	
+	
+func new_timer():
+	var timer = randi_range(8,12)
+	prints(\"new_timer:\",timer)
+	get_tree().create_timer(timer).timeout.connect(new_pitch)
+"
 
 [sub_resource type="FontVariation" id="FontVariation_awjx3"]
 base_font = ExtResource("7_2waps")
@@ -68,17 +93,24 @@ texture = ExtResource("2_a1ssv")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(1117, 286)
-color = Color(0, 0, 0, 1)
+color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 polygon = PackedVector2Array(103, -4, 592, -73, 690, 190, 590, 253, 393, 169, 185, 145, 149, 111, 85, 131, 85, 86)
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
 position = Vector2(59, 272)
-color = Color(0, 0, 0, 1)
+color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 polygon = PackedVector2Array(103, -4, 647, -48, 768, 99, 597, 451, 137, 442)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0sspf")
 autoplay = true
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_a1ssv")
+volume_db = -6.038
+autoplay = true
+parameters/looping = true
+script = SubResource("GDScript_a1ssv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -234,7 +266,7 @@ grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("10_8vxbm")
 theme_override_font_sizes/normal_font_size = 200
 bbcode_enabled = true
-text = "[shake rate=10.0 level=5  connected=1]PANACEA[/shake]"
+text = "[shake rate=10.0 level=8  connected=1]PANACEA[/shake]"
 fit_content = true
 autowrap_mode = 0
 custom_effects = [null]

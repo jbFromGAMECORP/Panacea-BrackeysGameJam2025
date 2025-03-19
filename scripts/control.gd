@@ -38,14 +38,14 @@ func start_pressed():
 
 # This will instantiate a window scene with a bunch of options to tweak.
 func options_pressed():
-	if current_tween.is_running():
+	if current_tween.is_valid():
 		print("ALREADY TWEENING DAWG!")
 		return
 	print("OPTIONS BUTTON PRESSED")
 	#open_options_menu() #TODO
 
 func quit_pressed():
-	if current_tween.is_running():
+	if current_tween.is_valid():
 		print("ALREADY TWEENING DAWG!")
 		return
 	print("Exit Pressed")
