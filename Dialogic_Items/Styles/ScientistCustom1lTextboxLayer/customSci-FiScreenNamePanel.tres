@@ -1,6 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d2aqke7bv0lo6"]
 
-[ext_resource type="Texture2D" uid="uid://drcwcykvxpqln" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Frames/sci-fi-nameBox-croppedOption2.PNG" id="1_fnil5"]
+[ext_resource type="Texture2D" uid="uid://b1hpqp13xsstr" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Frames/scientist_namebox_IzzyDrawn.png" id="1_fnil5"]
 
 [resource]
 content_margin_left = 45.0
