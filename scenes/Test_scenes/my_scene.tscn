@@ -1,0 +1,647 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scenes/Test_scenes/Draggable_Outline_Scene.gd" id="1_svqa4"]
+[ext_resource type="Script" path="res://scenes/Test_scenes/shape_drop_area.gd" id="2_atn1a"]
+[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/bucket.png" id="3_gkqra"]
+[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/bulb.png" id="4_ikj01"]
+[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/lighter.png" id="5_do4km"]
+[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/mglass.png" id="6_bbs1r"]
+[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/tape.png" id="7_b47ba"]
+[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/wrench.png" id="8_c3fm3"]
+[ext_resource type="Script" path="res://scenes/Test_scenes/test_shapes.gd" id="9_183a1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
+bg_color = Color(0.417969, 0.345212, 0.267761, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.214844, 0.136152, 0.0520325, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nj6p"]
+bg_color = Color(0.73, 0.73, 0.73, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.21, 0.21, 0.21, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc43r"]
+size = Vector2(119, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74cf5"]
+size = Vector2(22, 17)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8kp3w"]
+font_size = 50
+
+[node name="DraggableOutline" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_svqa4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1192.0
+offset_top = 154.0
+offset_right = 1726.0
+offset_bottom = 914.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oyyac")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 154.0
+offset_right = 816.0
+offset_bottom = 914.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8nj6p")
+
+[node name="DroppableZone" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 1213.0
+offset_top = 179.0
+offset_right = 1705.0
+offset_bottom = 890.0
+columns = 3
+
+[node name="Control" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/Control"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("3_gkqra")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/Control"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/Control/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="DropZone0" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/DropZone0"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("4_ikj01")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/DropZone0"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/DropZone0/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="DropZone1" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/DropZone1"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("5_do4km")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/DropZone1"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/DropZone1/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="DropZone2" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/DropZone2"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("6_bbs1r")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/DropZone2"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/DropZone2/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="DropZone3" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/DropZone3"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("7_b47ba")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/DropZone3"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/DropZone3/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="DropZone4" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/DropZone4"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("8_c3fm3")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/DropZone4"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/DropZone4/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="DropZone5" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/DropZone5"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("3_gkqra")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/DropZone5"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/DropZone5/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="DropZone6" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/DropZone6"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("4_ikj01")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/DropZone6"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/DropZone6/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="DropZone7" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/DropZone7"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("5_do4km")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/DropZone7"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/DropZone7/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="DropZone8" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/DropZone8"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("6_bbs1r")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/DropZone8"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/DropZone8/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="DropZone9" type="Control" parent="DroppableZone"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_atn1a")
+
+[node name="Shape_box" type="Sprite2D" parent="DroppableZone/DropZone9"]
+self_modulate = Color(0, 0, 0, 0.545098)
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("7_b47ba")
+region_rect = Rect2(1, 22, 98, 93)
+
+[node name="Draggable Detection" type="Area2D" parent="DroppableZone/DropZone9"]
+position = Vector2(75, 75)
+scale = Vector2(1.08, 1.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroppableZone/DropZone9/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
+
+[node name="Draggable Zone" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 308.0
+offset_top = 178.0
+offset_right = 785.0
+offset_bottom = 896.0
+
+[node name="Color1" type="Control" parent="Draggable Zone"]
+z_index = 10
+anchors_preset = 0
+offset_left = 84.2894
+offset_top = 252.39
+offset_right = 207.289
+offset_bottom = 381.39
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Color1"]
+position = Vector2(49.5, 58)
+texture = ExtResource("7_b47ba")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Color1"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Color1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Color1/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Droppable0" type="Control" parent="Draggable Zone"]
+z_index = 10
+anchors_preset = 0
+offset_left = 205.5
+offset_top = 208.603
+offset_right = 328.5
+offset_bottom = 337.603
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Droppable0"]
+position = Vector2(49.5, 58)
+texture = ExtResource("7_b47ba")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Droppable0"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Droppable0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Droppable0/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Droppable1" type="Control" parent="Draggable Zone"]
+z_index = 10
+anchors_preset = 0
+offset_left = 96.5865
+offset_top = 169.5
+offset_right = 219.587
+offset_bottom = 298.5
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Droppable1"]
+position = Vector2(49.5, 58)
+texture = ExtResource("8_c3fm3")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Droppable1"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Droppable1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Droppable1/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Droppable2" type="Control" parent="Draggable Zone"]
+z_index = 10
+anchors_preset = 0
+offset_left = 112.041
+offset_top = 234.343
+offset_right = 235.041
+offset_bottom = 363.343
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Droppable2"]
+position = Vector2(49.5, 58)
+texture = ExtResource("4_ikj01")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Droppable2"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Droppable2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Droppable2/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Droppable3" type="Control" parent="Draggable Zone"]
+z_index = 10
+anchors_preset = 0
+offset_left = 150.08
+offset_top = 262.0
+offset_right = 273.08
+offset_bottom = 391.0
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Droppable3"]
+position = Vector2(49.5, 58)
+texture = ExtResource("6_bbs1r")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Droppable3"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Droppable3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Droppable3/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Droppable4" type="Control" parent="Draggable Zone"]
+z_index = 10
+anchors_preset = 0
+offset_left = 222.0
+offset_top = 233.995
+offset_right = 345.0
+offset_bottom = 362.995
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Droppable4"]
+position = Vector2(49.5, 58)
+texture = ExtResource("5_do4km")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Droppable4"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Droppable4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Droppable4/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Droppable5" type="Control" parent="Draggable Zone"]
+z_index = 10
+anchors_preset = 0
+offset_left = 102.527
+offset_top = 204.534
+offset_right = 225.527
+offset_bottom = 333.534
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Droppable5"]
+position = Vector2(49.5, 58)
+texture = ExtResource("4_ikj01")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Droppable5"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Droppable5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Droppable5/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Droppable6" type="Control" parent="Draggable Zone"]
+z_index = 10
+anchors_preset = 0
+offset_left = 124.564
+offset_top = 265.947
+offset_right = 247.564
+offset_bottom = 394.947
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Droppable6"]
+position = Vector2(49.5, 58)
+texture = ExtResource("5_do4km")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Droppable6"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Droppable6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Droppable6/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Droppable7" type="Control" parent="Draggable Zone"]
+z_index = 10
+anchors_preset = 0
+offset_left = 157.5
+offset_top = 265.41
+offset_right = 280.5
+offset_bottom = 394.41
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Droppable7"]
+position = Vector2(49.5, 58)
+texture = ExtResource("6_bbs1r")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Droppable7"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Droppable7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Droppable7/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Droppable8" type="Control" parent="Draggable Zone"]
+anchors_preset = 0
+offset_left = 134.291
+offset_top = 266.487
+offset_right = 257.291
+offset_bottom = 395.487
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Droppable8"]
+position = Vector2(61, 53)
+texture = ExtResource("3_gkqra")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Droppable8"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Droppable8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Droppable8/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Droppable9" type="Control" parent="Draggable Zone"]
+z_index = 10
+anchors_preset = 0
+offset_left = 208.5
+offset_top = 214.415
+offset_right = 331.5
+offset_bottom = 343.415
+mouse_filter = 1
+script = ExtResource("9_183a1")
+return_type = 2
+
+[node name="Texture" type="Sprite2D" parent="Draggable Zone/Droppable9"]
+position = Vector2(49.5, 58)
+texture = ExtResource("3_gkqra")
+
+[node name="Button" type="TextureButton" parent="Draggable Zone/Droppable9"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 115.0
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Droppable9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Droppable9/Draggable Detection"]
+position = Vector2(61, 51.5)
+shape = SubResource("RectangleShape2D_74cf5")
+
+[node name="Save" type="Button" parent="."]
+layout_mode = 0
+offset_left = 852.0
+offset_top = 48.0
+offset_right = 1074.0
+offset_bottom = 175.0
+text = "Save"
+
+[node name="Load" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1139.0
+offset_top = 49.0
+offset_right = 1361.0
+offset_bottom = 176.0
+text = "Load"
+
+[node name="ChangeLevel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 223.0
+offset_right = 1174.0
+offset_bottom = 350.0
+button_pressed = true
+text = "Change Level"
+
+[node name="ChangeLevel2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 883.0
+offset_top = 898.0
+offset_right = 1105.0
+offset_bottom = 1025.0
+text = "Change Level"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1014.0
+offset_top = 476.0
+offset_right = 1116.0
+offset_bottom = 589.0
+text = "❌"
+label_settings = SubResource("LabelSettings_8kp3w")
+
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="ChangeLevel" to="." method="_on_change_level_pressed"]
+[connection signal="pressed" from="ChangeLevel2" to="." method="_on_goto_test_area"]

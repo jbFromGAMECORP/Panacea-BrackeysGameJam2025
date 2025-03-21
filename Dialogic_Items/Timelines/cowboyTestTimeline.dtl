@@ -1,0 +1,18 @@
+join drLundy leftmost [animation="Slide In Left" length="1.0"]
+join maria_coldOpen rightmost
+[wait time="1.0"]
+update drLundy [animation="Bounce" wait="true"]
+[wait time="1.0"]
+update drLundy [animation="Heartbeat" wait="true"]
+[wait time="1.0"]
+update drLundy [animation="Shake X" wait="true"]
+[wait time="1.0"]
+update drLundy [animation="Shake Y" wait="true"]
+[wait time="1.0"]
+update drLundy [animation="Tada" wait="true"]
+[wait time="1.0"]
+drLundy: Hey Player, Welcome to Cowboy's Test Arena!...\
+None shall survive. Let's test some code shall we?
+- Umm.. Sure?
+- No Thanks
+	drLundy: I wasn't asking.[pause=0.2].[pause=0.2].[pause=0.2]

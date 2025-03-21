@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="1_jpdxa"]
 [ext_resource type="Texture2D" uid="uid://de4441n7cdoi2" path="res://assets/Room Assets/floor texture.png" id="2_ebrb0"]
+[ext_resource type="Texture2D" uid="uid://do3mj8epvxu7p" path="res://assets/Room Assets/Wall Texture.jpg" id="2_h32n7"]
 [ext_resource type="Texture2D" uid="uid://crucwtd57vqw2" path="res://assets/Room Assets/binder white.png" id="3_678tf"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="4_cahdj"]
 [ext_resource type="Texture2D" uid="uid://cxv1rnwcfxs77" path="res://assets/Room Assets/bathroom/tile texture.png" id="5_5hn8b"]
 [ext_resource type="Texture2D" uid="uid://fonk47mxxcsl" path="res://assets/Room Assets/Wood seperator.png" id="5_vjfu2"]
 [ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/Dr_Evelyn_Morgan/dr_evelyn_morgan.tscn" id="6_b7jx0"]
+[ext_resource type="Texture2D" uid="uid://dq2gir102lyu1" path="res://assets/Room Assets/concrete texture.jpg" id="7_iqkle"]
 [ext_resource type="Texture2D" uid="uid://u21eaqpdek8q" path="res://assets/Room Assets/Background/Posters_0.png" id="7_vv5kp"]
 [ext_resource type="Texture2D" uid="uid://b6gihroq8vyn1" path="res://assets/Room Assets/patient area-cropped/lamp.png" id="8_g00ck"]
 [ext_resource type="Texture2D" uid="uid://dsd326xyy1l80" path="res://assets/Room Assets/basebaord - Copy.jpg" id="8_iqkle"]
@@ -18,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cmvjdv74kv3v7" path="res://assets/Room Assets/black bars.png" id="16_2e10s"]
 [ext_resource type="Texture2D" uid="uid://vfcklmtk6e1i" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/bootles.png" id="18_y65ff"]
 [ext_resource type="Texture2D" uid="uid://thbjb7lohio8" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/materials.png" id="19_l7kk3"]
-[ext_resource type="Texture2D" uid="uid://c5fc6jlvfk5io" path="res://assets/PremadeLabAssets/PixelArtLaboratoryProps_TheLeafyLemur/lab.png" id="21_dl3n3"]
+[ext_resource type="Texture2D" uid="uid://cxggxlxw8swvy" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/gasses.png" id="21_dl3n3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
 blend_mode = 2
@@ -87,7 +89,7 @@ material = SubResource("CanvasItemMaterial_2e10s")
 position = Vector2(-577.878, -87.6662)
 scale = Vector2(0.6, 1)
 skew = -0.558505
-texture = ExtResource("6_m53fq")
+texture = ExtResource("2_h32n7")
 centered = false
 
 [node name="TileTexture6" type="Sprite2D" parent="Edges"]
@@ -115,7 +117,7 @@ position = Vector2(3524.1, 1090.56)
 rotation = -3.14159
 scale = Vector2(0.746583, 1)
 skew = -1.36663
-texture = ExtResource("6_m53fq")
+texture = ExtResource("2_h32n7")
 centered = false
 
 [node name="TileTexture5" type="Sprite2D" parent="Edges"]
@@ -204,14 +206,14 @@ modulate = Color(0.8, 0.8, 0.8, 0.145098)
 material = SubResource("CanvasItemMaterial_2e10s")
 position = Vector2(13.1026, -57.2266)
 scale = Vector2(0.585394, 1)
-texture = ExtResource("6_m53fq")
+texture = ExtResource("2_h32n7")
 centered = false
 
 [node name="Wall Texture2" type="Sprite2D" parent="Wall/WallType3"]
 self_modulate = Color(0.89, 0.89, 0.89, 0.215686)
 position = Vector2(13.1026, 3.65277)
 scale = Vector2(1.25724, 0.75)
-texture = ExtResource("7_ksa6s")
+texture = ExtResource("7_iqkle")
 centered = false
 
 [node name="TileTexture2" type="Sprite2D" parent="Wall/WallType3"]
@@ -233,7 +235,7 @@ centered = false
 modulate = Color(0.7, 0.7, 0.7, 0.341176)
 material = SubResource("CanvasItemMaterial_2e10s")
 scale = Vector2(0.594744, 1)
-texture = ExtResource("6_m53fq")
+texture = ExtResource("2_h32n7")
 centered = false
 
 [node name="WallType5" type="Sprite2D" parent="Wall"]
@@ -248,7 +250,7 @@ centered = false
 modulate = Color(0.7, 0.7, 0.7, 0.341176)
 material = SubResource("CanvasItemMaterial_2e10s")
 scale = Vector2(0.592554, 1)
-texture = ExtResource("6_m53fq")
+texture = ExtResource("2_h32n7")
 centered = false
 
 [node name="Basebaord" type="Sprite2D" parent="Wall"]

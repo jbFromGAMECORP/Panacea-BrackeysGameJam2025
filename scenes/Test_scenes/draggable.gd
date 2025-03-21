@@ -8,6 +8,8 @@ extends Control
 
 # This searches for the first button under the node. You must include a button as a child to register clicks.
 @onready var button: TextureButton 
+@onready var sprite = get_child(0)
+var sprite_pos = size/2
 
 # Stores a rectangle representing the edges of the game window.
 @onready var viewport_limits :Rect2= get_viewport().get_visible_rect()
@@ -35,16 +37,16 @@ func _ready() -> void:
 	button.button_down.connect(drag)
 	button.button_up.connect(release)
 	# We enable processing when dragging, disable when not.
-	set_process(false)
+	set_physics_process(false)
 
 # The object is dragged by updating position to the mouse every frame. Clamp limits the object to the game window.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if drop_area_hover:
-		$Color_box.top_level = true
-		$Color_box.global_position = new_position
+		sprite.top_level = true
+		sprite.global_position = new_position
 	else:
-		$Color_box.top_level = false
-		$Color_box.position = Vector2.ZERO
+		sprite.top_level = false
+		sprite.position = sprite_pos
 	global_position = (get_global_mouse_position() + mouse_offset).clamp(viewport_limits.position,viewport_limits.end-size)
 	
 	
@@ -54,12 +56,12 @@ func drag():
 	prints(name,"dragging start")
 	mouse_offset = global_position - get_global_mouse_position()		# Stores where on the objects area you grabbed
 	z_index = 10													# Assures the object will layer above all else.
-	set_process(true)													# Enables dragging
+	set_physics_process(true)													# Enables dragging
 
 	
 func release():
 	get_tree().current_scene.held_object = null
-	set_process(false)													# Disables dragging
+	set_physics_process(false)													# Disables dragging
 	if drop_area_hover:
 		place_back(new_position)
 		return
@@ -74,6 +76,8 @@ func release():
 			place_back(closest_point_in_area())
 
 func enter_hover(node,pos):
+	if drop_area_hover:
+		await get_tree().process_frame
 	drop_area_hover = node
 	new_position = pos
 		
@@ -113,3 +117,7 @@ func get_persistent_properties():
 func set_persistent_properties(prop_dict:Dictionary):
 	for prop in prop_dict:
 		set(prop,prop_dict[prop])
+		
+## Overide this function to have requirement to enter a snap area
+func _drop_area_criteria(node):
+	return true

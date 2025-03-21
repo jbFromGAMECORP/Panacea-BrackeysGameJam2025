@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://cc5m3chr11wyv" path="res://scripts/title.gd" id="1_8ufl1"]
 [ext_resource type="FontFile" uid="uid://bt3rcvvmfnq7" path="res://assets/Fonts/another_danger/Another Danger - Demo.otf" id="1_n38um"]
 [ext_resource type="Texture2D" uid="uid://cplh6tp5n0cu0" path="res://assets/logo only.png" id="1_ylost"]
-[ext_resource type="Script" uid="uid://s28l01qawqwp" path="res://scripts/rich_text_label.gd" id="2_7pn5t"]
+[ext_resource type="Script" uid="uid://jbumhfruedww" path="res://scripts/rich_text_label.gd" id="2_7pn5t"]
 [ext_resource type="Script" uid="uid://bojpar1oo81sn" path="res://scripts/control.gd" id="2_hweom"]
 [ext_resource type="FontFile" uid="uid://djqlvado86g0t" path="res://assets/Fonts/doctor_glitch/Doctor Glitch.otf" id="3_j6qgi"]
 [ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="3_waexn"]
-[ext_resource type="Script" uid="uid://d3wpdmiwhaj33" path="res://scripts/Menu_Buttons.gd" id="5_dq7eg"]
+[ext_resource type="Script" uid="uid://qhf2x7kdtxml" path="res://scripts/Menu_Buttons.gd" id="5_dq7eg"]
 [ext_resource type="AudioStream" uid="uid://bs6m1rs3baeyj" path="res://assets/Industrial Dungeon 002.wav" id="6_snkkh"]
 
 [sub_resource type="FontVariation" id="FontVariation_awjx3"]
@@ -16,14 +16,13 @@ spacing_glyph = -1
 spacing_top = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwet5"]
+content_margin_left = 20.0
 content_margin_bottom = 0.0
 draw_center = false
 border_width_bottom = 3
 border_color = Color(1, 1, 1, 1)
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-expand_margin_left = 2.0
-expand_margin_right = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qs2wu"]
 
@@ -33,7 +32,7 @@ expand_margin_right = 2.0
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_pressed_color = Color(0.978975, 0.459856, 1, 1)
 Button/colors/font_pressed_color = Color(0.980392, 0.458824, 1, 1)
-Button/font_sizes/font_size = 25
+Button/font_sizes/font_size = 43
 Button/fonts/font = SubResource("FontVariation_awjx3")
 Button/styles/hover = SubResource("StyleBoxFlat_uwet5")
 Button/styles/normal = SubResource("StyleBoxEmpty_qs2wu")
@@ -161,7 +160,8 @@ text = "Exit
 "
 script = ExtResource("5_dq7eg")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UIManager"]
+[node name="Title" type="RichTextLabel" parent="UIManager"]
+unique_name_in_owner = true
 clip_contents = false
 layout_mode = 1
 anchors_preset = 5
@@ -182,11 +182,15 @@ custom_effects = [null]
 visible_characters_behavior = 1
 script = ExtResource("2_7pn5t")
 
-[node name="Letter Stamp SFX" type="AudioStreamPlayer" parent="UIManager/RichTextLabel"]
+[node name="Letter Stamp SFX" type="AudioStreamPlayer" parent="UIManager/Title"]
 stream = ExtResource("3_waexn")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.99, 0.99, 0.99, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 546)
+zoom = Vector2(1.05, 1.05)
 
 [connection signal="pressed" from="UIManager/Button Container/Start" to="UIManager" method="start_pressed"]
 [connection signal="pressed" from="UIManager/Button Container/Options" to="UIManager" method="options_pressed"]

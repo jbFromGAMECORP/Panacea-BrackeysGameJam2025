@@ -21,5 +21,13 @@ func assign_color(new_color :Color):
 
 func is_correct_spot():
 	if drop_area_hover:
-		return drop_area_hover.color == color
+		return drop_area_hover.sprite.color == sprite.color
 	return false
+
+func set_shape_sprite(_texture):
+	$Texture.texture = _texture
+	pass
+
+func release():
+	super()
+	prints("match:",is_correct_spot())
