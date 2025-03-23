@@ -1,4 +1,4 @@
-join drLundy (Neutral) left
+join drLundy (Neutral) leftmost
 [style name="customScientistStyle1"]
 drLundy (Default): [i]Hello! I'm Happy![/i]
 drLundy (Annoyed): [b]Now I'm annoyed!!![/b]
