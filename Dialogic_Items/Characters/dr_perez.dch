@@ -10,43 +10,43 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "Default",
-&"description": "One of our fellow doctors.",
-&"display_name": "Dr, Lundy",
+&"default_portrait": "annoyed",
+&"description": "",
+&"display_name": "dr_perez",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"Annoyed": {
+"annoyed": {
 "export_overrides": {
-"image": "\"res://scenes/Characters/Dr_Lundy/annoy.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1.0,
-"scene": ""
-},
-"Default": {
-"export_overrides": {
-"image": "\"res://scenes/Characters/Dr_Lundy/default.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1.0,
-"scene": ""
-},
-"Neutral": {
-"export_overrides": {
-"image": "\"res://scenes/Characters/Dr_Lundy/neutral.png\""
+"image": "\"res://scenes/Characters/Dr_Perez/annoyed.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": ""
 },
-"Sad": {
+"defualt": {
 "export_overrides": {
-"image": "\"res://scenes/Characters/Dr_Lundy/sad.png\""
+"image": "\"res://scenes/Characters/Dr_Perez/defualt.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"nutrual": {
+"export_overrides": {
+"image": "\"res://scenes/Characters/Dr_Perez/nutrual.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"sad": {
+"export_overrides": {
+"image": "\"res://scenes/Characters/Dr_Perez/sad.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
@@ -54,5 +54,5 @@
 "scene": ""
 }
 },
-&"scale": 0.65
+&"scale": 0.7
 }

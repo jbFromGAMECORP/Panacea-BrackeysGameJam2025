@@ -262,7 +262,6 @@ mouse_filter = 2
 
 [node name="DialogTextPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer"]
 unique_name_in_owner = true
-self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.18
@@ -327,15 +326,12 @@ mouse_filter = 2
 
 [node name="NameLabelPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder"]
 unique_name_in_owner = true
-self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.041
-anchor_bottom = -0.041
-offset_left = 2.0
-offset_top = -79.67
-offset_right = 51.0
-offset_bottom = -2.66998
+offset_left = -24.0
+offset_top = -84.0
+offset_right = 186.0
+offset_bottom = -38.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("9_jk4mg")
 metadata/_edit_layout_mode = 1
@@ -345,9 +341,10 @@ metadata/_edit_group_ = true
 [node name="DialogicNode_NameLabel" type="Label" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder/NameLabelPanel" node_paths=PackedStringArray("name_label_root")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_v8y64")
 theme_override_font_sizes/font_size = 15
-text = "S"
+text = "Random Scientist"
 script = ExtResource("10_6phc8")
 name_label_root = NodePath("..")
