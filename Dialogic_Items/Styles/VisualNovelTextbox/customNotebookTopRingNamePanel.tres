@@ -1,10 +1,10 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cqwngaarqq3sl"]
 
-[ext_resource type="Texture2D" uid="uid://cuoxfsimfjri2" path="res://Dialogic_Items/Styles/PatientCustom1TextboxLayer/Frames/patient_namebox.png" id="1_wqq8b"]
+[ext_resource type="Texture2D" uid="uid://coeerilte6cew" path="res://assets/green_label.png" id="1_wqq8b"]
 
 [resource]
-content_margin_left = 20.0
-content_margin_top = 30.0
-content_margin_right = 20.0
-content_margin_bottom = 25.0
 texture = ExtResource("1_wqq8b")
+texture_margin_left = 44.0
+texture_margin_right = 40.0
+axis_stretch_vertical = 1
+region_rect = Rect2(37.2833, 0, 234.513, 116.612)

@@ -25,7 +25,9 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_hxr78"]
 script = ExtResource("2_iit0c")
 scene = ExtResource("4_yksp5")
-overrides = {}
+overrides = {
+"portrait_size_mode": "0"
+}
 
 [sub_resource type="Resource" id="Resource_q4sxi"]
 script = ExtResource("2_iit0c")
@@ -42,6 +44,7 @@ overrides = {
 "box_panel": "\"res://Dialogic_Items/Styles/VisualNovelTextbox/customCrumpledPaperPanel.tres\"",
 "box_size": "Vector2(800, 250)",
 "name_label_box_modulate": "Color(1, 1, 1, 1)",
+"name_label_box_offset": "Vector2(23, 5)",
 "name_label_box_panel": "\"res://Dialogic_Items/Styles/VisualNovelTextbox/customNotebookTopRingNamePanel.tres\"",
 "name_label_box_use_global_color": "false",
 "name_label_custom_color": "Color(0, 0, 0, 1)",
@@ -97,4 +100,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("2_iit0c")]([])
-metadata/_latest_layer = "13"
+metadata/_latest_layer = "11"
