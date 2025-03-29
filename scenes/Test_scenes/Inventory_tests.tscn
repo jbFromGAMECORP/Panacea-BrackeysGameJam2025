@@ -1,6 +1,7 @@
-[gd_scene load_steps=56 format=3 uid="uid://diltp38ph8r2c"]
+[gd_scene load_steps=57 format=3 uid="uid://diltp38ph8r2c"]
 
 [ext_resource type="Texture2D" uid="uid://kq7jwpsxpmvr" path="res://assets/Room Assets/patient area/patient area/wall type 3.png" id="1_dsvme"]
+[ext_resource type="Script" uid="uid://c7mlrle53jqnn" path="res://scenes/Test_scenes/InventoryManager.gd" id="1_g3107"]
 [ext_resource type="Texture2D" uid="uid://cwdlijeyv3xqr" path="res://assets/Inventory/inventoryBase_mask_test.png" id="2_io6xq"]
 [ext_resource type="Texture2D" uid="uid://lc02cmfehhgf" path="res://assets/Inventory/inventoryBase_cropped.PNG" id="2_veyya"]
 [ext_resource type="Script" uid="uid://33svdrx205vt" path="res://scripts/Cowboy_inv_test_script.gd" id="3_k80wg"]
@@ -107,6 +108,11 @@ font_size = 40
 [node name="Inventory" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = -13.0
+offset_top = -348.0
+offset_right = -13.0
+offset_bottom = -348.0
+script = ExtResource("1_g3107")
 
 [node name="WallType3" type="Sprite2D" parent="."]
 visible = false
@@ -114,9 +120,12 @@ position = Vector2(1215, 541)
 texture = ExtResource("1_dsvme")
 
 [node name="Default Inventory" type="Control" parent="."]
+visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 5.0
+offset_top = -73.0
+offset_right = 45.0
+offset_bottom = -33.0
 
 [node name="SuitcaseButton" type="Button" parent="Default Inventory"]
 layout_mode = 0
@@ -350,9 +359,11 @@ expand_icon = true
 [node name="ArrowHeldTimer" type="Timer" parent="Default Inventory/InventoryContainer"]
 
 [node name="Minimal Inventory" type="Control" parent="."]
+visible = false
 anchors_preset = 0
+offset_top = -70.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = -30.0
 
 [node name="SuitcaseButton" type="Button" parent="Minimal Inventory"]
 layout_mode = 0
@@ -647,18 +658,6 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1syjl")
 
-[node name="Label" type="Label" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "1"
-label_settings = SubResource("LabelSettings_qg8o4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="BLUE" type="Control" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2"]
 layout_mode = 3
 anchors_preset = 0
@@ -795,6 +794,11 @@ offset_right = 961.691
 offset_bottom = 224.544
 theme_override_font_sizes/font_size = 23
 text = "+1 item"
+
+[node name="Drag Holder" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="Default Inventory/SuitcaseButton" to="Default Inventory/InventoryContainer" method="_on_suitcase_button_pressed"]
 [connection signal="button_down" from="Default Inventory/InventoryContainer/LeftArrowButton" to="Default Inventory/InventoryContainer" method="_on_left_arrow_button_pressed"]

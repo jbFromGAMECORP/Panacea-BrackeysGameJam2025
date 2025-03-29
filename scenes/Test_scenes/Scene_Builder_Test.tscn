@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c1ulqoho2y1xh"]
+[gd_scene load_steps=32 format=3 uid="uid://c1ulqoho2y1xh"]
 
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="1_jpdxa"]
 [ext_resource type="Texture2D" uid="uid://de4441n7cdoi2" path="res://assets/Room Assets/floor texture.png" id="2_ebrb0"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cmvjdv74kv3v7" path="res://assets/Room Assets/black bars.png" id="16_2e10s"]
 [ext_resource type="Texture2D" uid="uid://vfcklmtk6e1i" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/bootles.png" id="18_y65ff"]
 [ext_resource type="Texture2D" uid="uid://thbjb7lohio8" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/materials.png" id="19_l7kk3"]
-[ext_resource type="Texture2D" uid="uid://cxggxlxw8swvy" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/gasses.png" id="21_dl3n3"]
+[ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="21_iqkle"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
 blend_mode = 2
@@ -49,9 +49,6 @@ normal = Vector2(0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hn8b"]
 size = Vector2(736, 120)
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_iqkle"]
-exposure_multiplier = 1.166
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2e10s"]
 atlas = ExtResource("16_2e10s")
 region = Rect2(0, 54, 2426, 972)
@@ -72,9 +69,11 @@ func on_pressed():
 metadata/_edit_vertical_guides_ = [7238.0]
 metadata/_edit_horizontal_guides_ = [929.0, 96.0, 365.0]
 
-[node name="Edges" type="Node2D" parent="."]
+[node name="Hallway 1" type="Node2D" parent="."]
 
-[node name="WallType7" type="Sprite2D" parent="Edges"]
+[node name="Edges" type="Node2D" parent="Hallway 1"]
+
+[node name="WallType7" type="Sprite2D" parent="Hallway 1/Edges"]
 modulate = Color(0.93, 1, 0.987167, 1)
 position = Vector2(7695, 511)
 rotation = 1.5708
@@ -83,7 +82,7 @@ skew = 1.0472
 texture = ExtResource("4_cahdj")
 centered = false
 
-[node name="Wall Texture" type="Sprite2D" parent="Edges/WallType7"]
+[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Edges/WallType7"]
 modulate = Color(0.81, 0.81, 0.81, 0.145098)
 material = SubResource("CanvasItemMaterial_2e10s")
 position = Vector2(-577.878, -87.6662)
@@ -92,7 +91,7 @@ skew = -0.558505
 texture = ExtResource("2_h32n7")
 centered = false
 
-[node name="TileTexture6" type="Sprite2D" parent="Edges"]
+[node name="TileTexture6" type="Sprite2D" parent="Hallway 1/Edges"]
 visible = false
 modulate = Color(1, 0.796078, 0.803922, 0.658824)
 position = Vector2(7397.22, 225.753)
@@ -101,7 +100,7 @@ scale = Vector2(0.792873, 0.654537)
 skew = 1.09995
 texture = ExtResource("5_5hn8b")
 
-[node name="WallType6" type="Sprite2D" parent="Edges"]
+[node name="WallType6" type="Sprite2D" parent="Hallway 1/Edges"]
 modulate = Color(0.93, 1, 0.987167, 1)
 clip_children = 2
 position = Vector2(-1271, 1095.65)
@@ -110,7 +109,7 @@ scale = Vector2(0.473587, 1.16546)
 texture = ExtResource("4_cahdj")
 centered = false
 
-[node name="Wall Texture" type="Sprite2D" parent="Edges/WallType6"]
+[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Edges/WallType6"]
 modulate = Color(0.81, 0.81, 0.81, 0.145098)
 material = SubResource("CanvasItemMaterial_2e10s")
 position = Vector2(3524.1, 1090.56)
@@ -120,7 +119,7 @@ skew = -1.36663
 texture = ExtResource("2_h32n7")
 centered = false
 
-[node name="TileTexture5" type="Sprite2D" parent="Edges"]
+[node name="TileTexture5" type="Sprite2D" parent="Hallway 1/Edges"]
 visible = false
 modulate = Color(1, 0.796078, 0.803922, 0.658824)
 position = Vector2(-226.7, 341.232)
@@ -129,11 +128,11 @@ scale = Vector2(0.792873, 0.894478)
 skew = -1.09956
 texture = ExtResource("5_5hn8b")
 
-[node name="Floor" type="Node2D" parent="."]
+[node name="Floor" type="Node2D" parent="Hallway 1"]
 position = Vector2(0, 884)
 scale = Vector2(1, 1.07999)
 
-[node name="Floor2" type="Sprite2D" parent="Floor"]
+[node name="Floor2" type="Sprite2D" parent="Hallway 1/Floor"]
 position = Vector2(3565.35, -6.10352e-05)
 scale = Vector2(1.52304, 1.08291)
 skew = -0.523599
@@ -142,7 +141,7 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 887, 2427, 193)
 
-[node name="Floor1" type="Sprite2D" parent="Floor"]
+[node name="Floor1" type="Sprite2D" parent="Hallway 1/Floor"]
 position = Vector2(-28, 6.10352e-05)
 scale = Vector2(1.56613, 1.08291)
 skew = 0.523599
@@ -151,21 +150,21 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 887, 2427, 193)
 
-[node name="FloorTexture" type="Sprite2D" parent="Floor"]
+[node name="FloorTexture" type="Sprite2D" parent="Hallway 1/Floor"]
 modulate = Color(0.396078, 0.447059, 0.784314, 0.0392157)
 position = Vector2(2378.03, 99.5137)
 scale = Vector2(1.75618, 1.48981)
 skew = 0.0610864
 texture = ExtResource("2_ebrb0")
 
-[node name="FloorTexture2" type="Sprite2D" parent="Floor"]
+[node name="FloorTexture2" type="Sprite2D" parent="Hallway 1/Floor"]
 modulate = Color(0.396078, 0.447059, 0.784314, 0.0392157)
 position = Vector2(6088.14, 75.9266)
 scale = Vector2(0.935024, 1.48981)
 skew = 0.0610864
 texture = ExtResource("2_ebrb0")
 
-[node name="Floor Breaker" type="Sprite2D" parent="Floor"]
+[node name="Floor Breaker" type="Sprite2D" parent="Hallway 1/Floor"]
 modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
 position = Vector2(1173.66, 91)
 scale = Vector2(0.608369, 1.26921)
@@ -174,7 +173,7 @@ texture = ExtResource("3_678tf")
 region_enabled = true
 region_rect = Rect2(1124, 406, 53, 192)
 
-[node name="Floor Breaker2" type="Sprite2D" parent="Floor"]
+[node name="Floor Breaker2" type="Sprite2D" parent="Hallway 1/Floor"]
 modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
 position = Vector2(6049, 91)
 scale = Vector2(0.608369, 1.26921)
@@ -183,7 +182,7 @@ texture = ExtResource("3_678tf")
 region_enabled = true
 region_rect = Rect2(1124, 406, 53, 192)
 
-[node name="FloorBreaker2" type="Sprite2D" parent="Floor"]
+[node name="FloorBreaker2" type="Sprite2D" parent="Hallway 1/Floor"]
 modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
 position = Vector2(3719, 91)
 scale = Vector2(0.608369, 1.26921)
@@ -192,15 +191,15 @@ texture = ExtResource("3_678tf")
 region_enabled = true
 region_rect = Rect2(1124, 406, 53, 192)
 
-[node name="Wall" type="Node2D" parent="."]
+[node name="Wall" type="Node2D" parent="Hallway 1"]
 
-[node name="WallType3" type="Sprite2D" parent="Wall"]
+[node name="WallType3" type="Sprite2D" parent="Hallway 1/Wall"]
 clip_children = 1
 scale = Vector2(0.992171, 0.821296)
 texture = ExtResource("4_cahdj")
 centered = false
 
-[node name="Wall Texture" type="Sprite2D" parent="Wall/WallType3"]
+[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Wall/WallType3"]
 visible = false
 modulate = Color(0.8, 0.8, 0.8, 0.145098)
 material = SubResource("CanvasItemMaterial_2e10s")
@@ -209,21 +208,21 @@ scale = Vector2(0.585394, 1)
 texture = ExtResource("2_h32n7")
 centered = false
 
-[node name="Wall Texture2" type="Sprite2D" parent="Wall/WallType3"]
+[node name="Wall Texture2" type="Sprite2D" parent="Hallway 1/Wall/WallType3"]
 self_modulate = Color(0.89, 0.89, 0.89, 0.215686)
 position = Vector2(13.1026, 3.65277)
 scale = Vector2(1.25724, 0.75)
 texture = ExtResource("7_iqkle")
 centered = false
 
-[node name="TileTexture2" type="Sprite2D" parent="Wall/WallType3"]
+[node name="TileTexture2" type="Sprite2D" parent="Hallway 1/Wall/WallType3"]
 visible = false
 modulate = Color(1, 0.796078, 0.803922, 0.658824)
 position = Vector2(1211.74, 543.044)
 scale = Vector2(0.988164, 1)
 texture = ExtResource("5_5hn8b")
 
-[node name="WallType4" type="Sprite2D" parent="Wall"]
+[node name="WallType4" type="Sprite2D" parent="Hallway 1/Wall"]
 modulate = Color(0.93, 1, 0.987167, 1)
 clip_children = 2
 position = Vector2(2408, 0)
@@ -231,14 +230,14 @@ scale = Vector2(0.992171, 0.821296)
 texture = ExtResource("4_cahdj")
 centered = false
 
-[node name="Wall Texture" type="Sprite2D" parent="Wall/WallType4"]
+[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Wall/WallType4"]
 modulate = Color(0.7, 0.7, 0.7, 0.341176)
 material = SubResource("CanvasItemMaterial_2e10s")
 scale = Vector2(0.594744, 1)
 texture = ExtResource("2_h32n7")
 centered = false
 
-[node name="WallType5" type="Sprite2D" parent="Wall"]
+[node name="WallType5" type="Sprite2D" parent="Hallway 1/Wall"]
 modulate = Color(0.93, 1, 0.987167, 1)
 clip_children = 2
 position = Vector2(4824.9, 0)
@@ -246,57 +245,57 @@ scale = Vector2(0.992171, 0.821296)
 texture = ExtResource("4_cahdj")
 centered = false
 
-[node name="Wall Texture" type="Sprite2D" parent="Wall/WallType5"]
+[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Wall/WallType5"]
 modulate = Color(0.7, 0.7, 0.7, 0.341176)
 material = SubResource("CanvasItemMaterial_2e10s")
 scale = Vector2(0.592554, 1)
 texture = ExtResource("2_h32n7")
 centered = false
 
-[node name="Basebaord" type="Sprite2D" parent="Wall"]
+[node name="Basebaord" type="Sprite2D" parent="Hallway 1/Wall"]
 modulate = Color(0.501556, 0.589913, 0.742188, 1)
 position = Vector2(4820.5, 869)
 scale = Vector2(16.0833, 1.90909)
 texture = ExtResource("8_iqkle")
 
-[node name="WoodSeperator" type="Sprite2D" parent="Wall"]
+[node name="WoodSeperator" type="Sprite2D" parent="Hallway 1/Wall"]
 position = Vector2(2408, 445.615)
 rotation = -1.5708
 scale = Vector2(0.373421, 0.985985)
 texture = ExtResource("5_vjfu2")
 
-[node name="WoodSeperator3" type="Sprite2D" parent="Wall/WoodSeperator"]
+[node name="WoodSeperator3" type="Sprite2D" parent="Hallway 1/Wall/WoodSeperator"]
 position = Vector2(5.35608, -2442.23)
 texture = ExtResource("5_vjfu2")
 
-[node name="WoodSeperator4" type="Sprite2D" parent="Wall/WoodSeperator"]
+[node name="WoodSeperator4" type="Sprite2D" parent="Hallway 1/Wall/WoodSeperator"]
 position = Vector2(5.35522, 4893.59)
 texture = ExtResource("5_vjfu2")
 
-[node name="WoodSeperator2" type="Sprite2D" parent="Wall/WoodSeperator"]
+[node name="WoodSeperator2" type="Sprite2D" parent="Hallway 1/Wall/WoodSeperator"]
 position = Vector2(-5.35693, 2451.26)
 texture = ExtResource("5_vjfu2")
 
-[node name="Doors" type="Node2D" parent="."]
+[node name="Doors" type="Node2D" parent="Hallway 1"]
 position = Vector2(6219, 1040)
 
-[node name="door" type="Sprite2D" parent="Doors"]
+[node name="door" type="Sprite2D" parent="Hallway 1/Doors"]
 position = Vector2(1095.69, -328.512)
 rotation = -1.5708
 scale = Vector2(8.76777, 2.56363)
 skew = 1.0821
 texture = SubResource("GradientTexture2D_vv5kp")
 
-[node name="door2" type="Sprite2D" parent="Doors"]
+[node name="door2" type="Sprite2D" parent="Hallway 1/Doors"]
 position = Vector2(-6307.5, -321)
 rotation = 1.5708
 scale = Vector2(8.74591, 2.64802)
 skew = -1.08036
 texture = SubResource("GradientTexture2D_vv5kp")
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="Hallway 1"]
 
-[node name="Posters" type="Sprite2D" parent="Items" node_paths=PackedStringArray("position_points")]
+[node name="Posters" type="Sprite2D" parent="Hallway 1/Items" node_paths=PackedStringArray("position_points")]
 position = Vector2(2789, 347)
 scale = Vector2(0.547722, 0.566071)
 texture = ExtResource("7_vv5kp")
@@ -308,13 +307,13 @@ position_enabled = true
 position_points = NodePath("Random_Placement")
 metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
 
-[node name="Random_Placement" type="Line2D" parent="Items/Posters"]
+[node name="Random_Placement" type="Line2D" parent="Hallway 1/Items/Posters"]
 top_level = true
 points = PackedVector2Array(2609, 365, 4699, 365)
 width = 3.0
 default_color = Color(0, 1, 0.0334229, 1)
 
-[node name="Posters2" type="Sprite2D" parent="Items" node_paths=PackedStringArray("position_points")]
+[node name="Posters2" type="Sprite2D" parent="Hallway 1/Items" node_paths=PackedStringArray("position_points")]
 position = Vector2(819, 357)
 scale = Vector2(0.566, 0.566)
 texture = ExtResource("7_vv5kp")
@@ -327,13 +326,13 @@ position_enabled = true
 position_points = NodePath("Random_Placement")
 metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
 
-[node name="Random_Placement" type="Line2D" parent="Items/Posters2"]
+[node name="Random_Placement" type="Line2D" parent="Hallway 1/Items/Posters2"]
 top_level = true
 points = PackedVector2Array(183, 365, 2265, 365)
 width = 3.0
 default_color = Color(0, 1, 0.0334229, 1)
 
-[node name="Lamp" type="Sprite2D" parent="Items" node_paths=PackedStringArray("position_points")]
+[node name="Lamp" type="Sprite2D" parent="Hallway 1/Items" node_paths=PackedStringArray("position_points")]
 position = Vector2(3268, 612)
 texture = ExtResource("8_g00ck")
 centered = false
@@ -344,13 +343,13 @@ position_points = NodePath("Random_Placement")
 scale_enabled = true
 metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
 
-[node name="Random_Placement" type="Line2D" parent="Items/Lamp"]
+[node name="Random_Placement" type="Line2D" parent="Hallway 1/Items/Lamp"]
 top_level = true
 points = PackedVector2Array(2669, 612, 3276, 612)
 width = 3.0
 default_color = Color(0, 1, 0.0334229, 1)
 
-[node name="Lamp2" type="Sprite2D" parent="Items/Lamp"]
+[node name="Lamp2" type="Sprite2D" parent="Hallway 1/Items/Lamp"]
 modulate = Color(0.0853333, 0, 0.16, 0.133333)
 show_behind_parent = true
 position = Vector2(-57, -3)
@@ -358,14 +357,14 @@ texture = ExtResource("8_g00ck")
 centered = false
 offset = Vector2(-81.5, -238)
 
-[node name="Cabinet-double" type="Sprite2D" parent="Items"]
+[node name="Cabinet-double" type="Sprite2D" parent="Hallway 1/Items"]
 position = Vector2(2606, 608)
 scale = Vector2(0.840206, 0.840206)
 texture = ExtResource("9_m53fq")
 centered = false
 offset = Vector2(0, -5)
 
-[node name="Cabinet-double2" type="Sprite2D" parent="Items"]
+[node name="Cabinet-double2" type="Sprite2D" parent="Hallway 1/Items"]
 position = Vector2(2843, 608)
 scale = Vector2(0.840206, 0.840206)
 texture = ExtResource("9_m53fq")
@@ -373,22 +372,22 @@ centered = false
 offset = Vector2(0, -5)
 flip_h = true
 
-[node name="Cabinet-single" type="Sprite2D" parent="Items"]
+[node name="Cabinet-single" type="Sprite2D" parent="Hallway 1/Items"]
 position = Vector2(3083, 608)
 scale = Vector2(0.841297, 0.841297)
 texture = ExtResource("10_2e10s")
 centered = false
 offset = Vector2(0, -2)
 
-[node name="AirVents" type="Sprite2D" parent="Items"]
+[node name="AirVents" type="Sprite2D" parent="Hallway 1/Items"]
 position = Vector2(3209, 96)
 texture = ExtResource("11_ksa6s")
 
-[node name="AirVents3" type="Sprite2D" parent="Items"]
+[node name="AirVents3" type="Sprite2D" parent="Hallway 1/Items"]
 position = Vector2(5631, 96)
 texture = ExtResource("11_ksa6s")
 
-[node name="AirVents2" type="Sprite2D" parent="Items"]
+[node name="AirVents2" type="Sprite2D" parent="Hallway 1/Items"]
 position = Vector2(384, 96)
 texture = ExtResource("11_ksa6s")
 
@@ -435,16 +434,36 @@ limit_bottom = 1080
 position_smoothing_speed = 20.0
 editor_draw_limits = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Protag_Dr_Evelyn_Morgan/Camera2D"]
-camera_attributes = SubResource("CameraAttributesPractical_iqkle")
+[node name="Bottles" type="Sprite2D" parent="."]
+position = Vector2(2912, 583)
+scale = Vector2(2.03125, 2.15625)
+texture = ExtResource("18_y65ff")
+hframes = 14
+vframes = 13
+frame = 16
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Protag_Dr_Evelyn_Morgan"]
+[node name="fill" type="Sprite2D" parent="Bottles"]
+self_modulate = Color(0.70896, 0.2352, 0.84, 0.858824)
+show_behind_parent = true
+texture = ExtResource("19_l7kk3")
+hframes = 12
+vframes = 15
+frame = 30
 
-[node name="BlackBars" type="TextureRect" parent="Protag_Dr_Evelyn_Morgan/CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlackBars" type="TextureRect" parent="CanvasLayer/GUI"]
 custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
-offset_right = 960.0
+offset_right = 1900.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -454,43 +473,22 @@ size_flags_vertical = 3
 texture = SubResource("AtlasTexture_2e10s")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="Protag_Dr_Evelyn_Morgan/CanvasLayer"]
+[node name="Button" type="Button" parent="CanvasLayer/GUI"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -899.0
-offset_top = -480.0
-offset_right = -739.0
-offset_bottom = -407.0
+offset_left = 41.0
+offset_top = 40.0
+offset_right = 201.0
+offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Change Scene"
 script = SubResource("GDScript_g00ck")
 
-[node name="Bootles" type="Sprite2D" parent="."]
-position = Vector2(2912, 583)
-scale = Vector2(2.03125, 2.15625)
-texture = ExtResource("18_y65ff")
-hframes = 14
-vframes = 13
-frame = 16
+[node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("21_iqkle")]
 
-[node name="fill" type="Sprite2D" parent="Bootles"]
-self_modulate = Color(0.70896, 0.2352, 0.84, 0.858824)
-show_behind_parent = true
-texture = ExtResource("19_l7kk3")
-hframes = 12
-vframes = 15
-frame = 30
-
-[node name="Lab" type="Sprite2D" parent="."]
-position = Vector2(3088, 548)
-scale = Vector2(9.82292, 9.82292)
-texture = ExtResource("21_dl3n3")
-hframes = 8
-vframes = 6
-frame = 4
-
-[connection signal="pressed" from="Protag_Dr_Evelyn_Morgan/CanvasLayer/Button" to="Protag_Dr_Evelyn_Morgan/CanvasLayer/Button" method="on_pressed"]
+[connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
