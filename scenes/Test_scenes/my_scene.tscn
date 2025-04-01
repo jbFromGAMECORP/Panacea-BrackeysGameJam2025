@@ -1,14 +1,14 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://m2bcradk5hil"]
 
-[ext_resource type="Script" path="res://scenes/Test_scenes/Draggable_Outline_Scene.gd" id="1_svqa4"]
-[ext_resource type="Script" path="res://scenes/Test_scenes/shape_drop_area.gd" id="2_atn1a"]
-[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/bucket.png" id="3_gkqra"]
-[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/bulb.png" id="4_ikj01"]
-[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/lighter.png" id="5_do4km"]
-[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/mglass.png" id="6_bbs1r"]
-[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/tape.png" id="7_b47ba"]
-[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/wrench.png" id="8_c3fm3"]
-[ext_resource type="Script" path="res://scenes/Test_scenes/test_shapes.gd" id="9_183a1"]
+[ext_resource type="Script" uid="uid://djd5he3tsty7q" path="res://scenes/Test_scenes/Draggable_Outline_Scene.gd" id="1_svqa4"]
+[ext_resource type="Script" uid="uid://du0q65xomok4t" path="res://scenes/Test_scenes/shape_drop_area.gd" id="2_atn1a"]
+[ext_resource type="Texture2D" uid="uid://d2lvmyak3a84f" path="res://assets/Inventory/Inventory_Items/bucket.png" id="3_gkqra"]
+[ext_resource type="Texture2D" uid="uid://c7p2wydxi6yxd" path="res://assets/Inventory/Inventory_Items/bulb.png" id="4_ikj01"]
+[ext_resource type="Texture2D" uid="uid://chfpmjsm6c48a" path="res://assets/Inventory/Inventory_Items/lighter.png" id="5_do4km"]
+[ext_resource type="Texture2D" uid="uid://dqk20prf6nty2" path="res://assets/Inventory/Inventory_Items/mglass.png" id="6_bbs1r"]
+[ext_resource type="Texture2D" uid="uid://bdrhiskqsjmp2" path="res://assets/Inventory/Inventory_Items/tape.png" id="7_b47ba"]
+[ext_resource type="Texture2D" uid="uid://c71yl0yuulc21" path="res://assets/Inventory/Inventory_Items/wrench.png" id="8_c3fm3"]
+[ext_resource type="Script" uid="uid://7br27ugagkbp" path="res://scenes/Test_scenes/test_shapes.gd" id="9_183a1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
 bg_color = Color(0.417969, 0.345212, 0.267761, 1)
@@ -621,7 +621,6 @@ offset_left = 952.0
 offset_top = 223.0
 offset_right = 1174.0
 offset_bottom = 350.0
-button_pressed = true
 text = "Change Level"
 
 [node name="ChangeLevel2" type="Button" parent="."]

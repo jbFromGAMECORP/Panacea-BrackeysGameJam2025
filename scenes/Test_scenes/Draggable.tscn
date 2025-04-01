@@ -1,8 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkwh6sf6t6jbp"]
 
 [ext_resource type="Script" uid="uid://gtd3ev1mx4a2" path="res://scenes/Test_scenes/Draggable_Scene.gd" id="1_8kp3w"]
-[ext_resource type="Script" uid="uid://byruel4737fuh" path="res://scripts/draggable_drop_area.gd" id="2_fc43r"]
+[ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DropArea.tscn" id="2_8kp3w"]
 [ext_resource type="Script" uid="uid://btqru83ttjibd" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
+[ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="4_fc43r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
 bg_color = Color(0.417969, 0.345212, 0.267761, 1)
@@ -27,9 +28,6 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc43r"]
-size = Vector2(119, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74cf5"]
 size = Vector2(22, 17)
@@ -70,12 +68,8 @@ offset_right = 1703.0
 offset_bottom = 889.0
 columns = 3
 
-[node name="Control" type="Control" parent="DragZone2"]
-custom_minimum_size = Vector2(120, 120)
+[node name="Control" parent="DragZone2" instance=ExtResource("2_8kp3w")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-script = ExtResource("2_fc43r")
 
 [node name="Color_box2" type="ColorRect" parent="DragZone2/Control"]
 custom_minimum_size = Vector2(150, 130)
@@ -114,45 +108,54 @@ size_flags_vertical = 6
 mouse_filter = 1
 color = Color(0.419608, 0.345098, 0.266667, 1)
 
-[node name="Draggable Detection" type="Area2D" parent="DragZone2/Control"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DragZone2/Control/Draggable Detection"]
-position = Vector2(59, 63)
-shape = SubResource("RectangleShape2D_fc43r")
-
 [node name="Draggable Zone" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 308.0
-offset_top = 178.0
+offset_top = 190.0
 offset_right = 785.0
-offset_bottom = 896.0
+offset_bottom = 877.0
 
 [node name="Color1" type="Control" parent="Draggable Zone"]
 anchors_preset = 0
-offset_left = 97.0
-offset_top = 388.0
-offset_right = 215.0
-offset_bottom = 484.0
+offset_left = 154.0
+offset_top = 106.0
+offset_right = 154.0
+offset_bottom = 106.0
 script = ExtResource("2_le1fh")
 return_type = 2
 
 [node name="Color_box" type="ColorRect" parent="Draggable Zone/Color1"]
-layout_mode = 0
-offset_right = 118.0
-offset_bottom = 97.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -48.5
+offset_right = 59.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="Button" type="TextureButton" parent="Draggable Zone/Color1"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 119.0
-offset_bottom = 96.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -48.5
+offset_right = 59.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Color1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Color1/Draggable Detection"]
-position = Vector2(61, 51.5)
 shape = SubResource("RectangleShape2D_74cf5")
 
 [node name="Save" type="Button" parent="."]
@@ -195,6 +198,10 @@ offset_right = 1116.0
 offset_bottom = 589.0
 text = "❌"
 label_settings = SubResource("LabelSettings_8kp3w")
+
+[node name="Inventory" parent="." instance=ExtResource("4_fc43r")]
+offset_top = 544.0
+offset_bottom = 544.0
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

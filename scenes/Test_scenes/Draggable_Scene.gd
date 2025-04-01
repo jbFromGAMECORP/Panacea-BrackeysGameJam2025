@@ -69,14 +69,16 @@ func _set_puzzle_colors():
 		color.h = fmod(color.h+0.03,1.0)
 	
 func _generate_points():
-	const x_count = 3
-	const y_count = 4
-	var x_spacing = draggable_zone.size.x / (x_count+1)
-	var y_spacing = draggable_zone.size.y / (y_count+1)
+	#var margin :int = 10
+	const x_count :float = 3.0
+	const y_count :float = 4.0
+	var x_spacing = draggable_zone.size.x / x_count
+	var y_spacing = draggable_zone.size.y / y_count
+	var offset = draggable_zone.get_child(0).get_child(0).size/2
 	var grid = []
 	for y in 4:
 		for x in 3:
-			grid.append(Vector2(x*x_spacing,y*y_spacing))
+			grid.append(Vector2(x*x_spacing,y*y_spacing)+offset)
 		print(grid.slice(-3))
 	return grid
 

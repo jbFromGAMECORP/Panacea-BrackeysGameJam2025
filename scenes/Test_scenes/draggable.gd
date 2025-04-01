@@ -13,7 +13,7 @@ signal drag_released(node)
 # This searches for the first button under the node. You must include a button as a child to register clicks.
 @onready var button: TextureButton 
 @onready var sprite = get_child(0)
-@onready var sprite_pos = sprite.position
+@onready var sprite_offset = sprite.position
 @onready var local_manager : Node 
 
 # Stores a rectangle representing the edges of the game window.
@@ -22,15 +22,15 @@ var mouse_offset:Vector2										# How far from the top left corner your mouse 
 enum RETURN_TYPE{NO_RETURN, 									# Leave object where released
 				POSITION,										# Return to original position
 				PARENT_AREA_RANDOM,								# Return to random position inside parent's control area.
-				PARENT_AREA_CLOSEST} 							# Return to closest position inside parent's control area.
+				PARENT_AREA_CLOSEST, 							# Return to closest position inside parent's control area.
+				TELEPORT}
 @export var return_type:RETURN_TYPE = RETURN_TYPE.POSITION		# Select the type of return to position for draggable
-@onready var original_position : Vector2 = position				# Used by 'POSITION' to know where to return to.
+@onready var original_position : Vector2 						# Used by 'POSITION' to know where to return to.
 const fly_back_speed := 3000.0									# Pixels per second items will animate back to position
 
 var persistent_properties = {"position":true,"rotation":true}	# Determine which properties are persisted.
 
-var drop_area_hover = null
-var new_position :Vector2
+@export var in_drop_area : Node = null
 
 func _ready() -> void:
 	add_to_group("Persistent")
@@ -57,12 +57,6 @@ func find_button():
 
 # The object is dragged by updating position to the mouse every frame. Clamp limits the object to the game window.
 func _physics_process(delta: float) -> void:
-	if drop_area_hover:
-		sprite.top_level = true
-		sprite.global_position = new_position
-	else:
-		sprite.top_level = false
-		sprite.position = sprite_pos
 	global_position = (get_global_mouse_position() + mouse_offset).clamp(viewport_limits.position,viewport_limits.end-size)
 	
 	
@@ -80,31 +74,46 @@ func drag():
 func release():
 	print("click released!")
 	drag_released.emit(self)
-	#get_tree().current_scene.held_object = null
 	set_physics_process(false)													# Disables dragging
-	if drop_area_hover:
-		place_back(new_position)
+	if in_drop_area:
+		let_go_of_sprite()
+		reparent(in_drop_area)
+		top_level= false
+		position = Vector2.ZERO
 		return
 	match return_type:													# Match looks for the branch that matches it's value.
 		RETURN_TYPE.NO_RETURN:
 			place_back(global_position)
 		RETURN_TYPE.POSITION:
 			place_back(get_parent().global_position + original_position)
+			top_level = false
+			position = original_position
 		RETURN_TYPE.PARENT_AREA_RANDOM:
 			place_back(random_point_in_area())
 		RETURN_TYPE.PARENT_AREA_CLOSEST:
 			place_back(closest_point_in_area())
+		RETURN_TYPE.TELEPORT:
+			top_level = false
+			position = original_position
 	
 
 func enter_hover(node,pos):
-	if drop_area_hover:
+	if in_drop_area:
 		await get_tree().process_frame
-	drop_area_hover = node
-	new_position = pos
-		
+	in_drop_area = node
+	grab_sprite(pos)
+
+func grab_sprite(pos):
+	sprite.top_level = true
+	sprite.global_position = pos + sprite_offset
+
 func exit_hover():
-	drop_area_hover = null
-	new_position = Vector2.ZERO
+	in_drop_area = null
+	let_go_of_sprite()
+
+func let_go_of_sprite():
+	sprite.top_level = false
+	sprite.position = sprite_offset
 	
 func random_point_in_area():
 	var boundaries :Rect2 = get_parent().get_global_rect()						# Parent area is stored
@@ -113,22 +122,17 @@ func random_point_in_area():
 	return Vector2(randf_range(boundaries.position.x, boundaries.end.x-size.x), # Generates random point inside the boundaries.
 				   randf_range(boundaries.position.y, boundaries.end.y-size.y)) # We -size to margin to the object's bottom-right end.
 
-
 func closest_point_in_area():
 	var boundaries :Rect2 = get_parent().get_global_rect()
 	return global_position.clamp(boundaries.position,boundaries.end-size) 		# clamp position to within boundaries
 
+
 # Tween back to destination. Since we are top level we use global positions.
 func place_back(global_dest:Vector2):
-	
 	var time = global_dest.distance_to(global_position)/fly_back_speed
 	print(global_dest.distance_to(global_position)/time)
 	await create_tween().tween_property(self,"global_position",global_dest,time).set_trans(Tween.TRANS_BACK).finished
-	
-	# Disabling top_level causes it to inherit the parents transforms again, moving it. 
-	# So we store position and restore afterwards.
-	top_level = false
-	position = original_position
+
 
 func get_persistent_properties():
 	var the_dict = {}

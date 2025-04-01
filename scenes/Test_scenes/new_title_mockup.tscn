@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwcyowm835uvt"]
+[gd_scene load_steps=19 format=3 uid="uid://bwcyowm835uvt"]
 
 [ext_resource type="Script" uid="uid://cc5m3chr11wyv" path="res://scripts/title.gd" id="1_p8jpa"]
 [ext_resource type="Texture2D" uid="uid://bywdegmtx52g1" path="res://scenes/Test_scenes/assets/mockup.jpg" id="2_a1ssv"]
@@ -23,8 +23,8 @@ func _ready() -> void:
 	pass
 	
 func new_pitch():
-	var pitch = randfn(1,0.35)
-	var pitch_slide_time = randfn(10,4)
+	var pitch = randfn(1,0.2)
+	var pitch_slide_time = randfn(10,3)
 	print(pitch_scale,\" ----> \", pitch)
 	await create_tween().tween_property(self,\"pitch_scale\",pitch,pitch_slide_time).finished
 	prints(\"pitch change done\")
@@ -43,17 +43,16 @@ spacing_glyph = -1
 spacing_top = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwet5"]
-content_margin_left = 20.0
 content_margin_bottom = 0.0
 draw_center = false
 border_width_bottom = 3
 border_color = Color(1, 1, 1, 1)
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+expand_margin_left = 3.0
+expand_margin_right = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qs2wu"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cy4dj"]
 
 [sub_resource type="Theme" id="Theme_kvw6m"]
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
@@ -63,7 +62,7 @@ Button/font_sizes/font_size = 43
 Button/fonts/font = SubResource("FontVariation_awjx3")
 Button/styles/hover = SubResource("StyleBoxFlat_uwet5")
 Button/styles/normal = SubResource("StyleBoxEmpty_qs2wu")
-Button/styles/pressed = SubResource("StyleBoxEmpty_cy4dj")
+Button/styles/pressed = SubResource("StyleBoxFlat_uwet5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6dk7x"]
 shader = ExtResource("9_lyusr")
@@ -103,7 +102,6 @@ polygon = PackedVector2Array(103, -4, 647, -48, 768, 99, 597, 451, 137, 442)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0sspf")
-autoplay = true
 
 [node name="Music2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_a1ssv")
@@ -198,7 +196,7 @@ size_flags_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_kvw6m")
 action_mode = 0
-text = "New Game  "
+text = "New Game"
 alignment = 0
 script = ExtResource("8_lkswn")
 
@@ -210,7 +208,7 @@ size_flags_vertical = 4
 focus_mode = 0
 theme = SubResource("Theme_kvw6m")
 action_mode = 0
-text = "Options  "
+text = "Options"
 alignment = 0
 script = ExtResource("8_lkswn")
 
@@ -222,7 +220,7 @@ size_flags_vertical = 8
 focus_mode = 0
 theme = SubResource("Theme_kvw6m")
 action_mode = 0
-text = "Exit  "
+text = "Exit"
 alignment = 0
 script = ExtResource("8_lkswn")
 

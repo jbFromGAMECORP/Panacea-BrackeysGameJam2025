@@ -49,7 +49,7 @@ func preload_timelines():
  
 func connect_signals():
 	Dialogic.get_subsystem("Text").text_started.connect(speaker_changed)
-	Dialogic.timeline_ended.connect(func(x=0):print("TIMELINE ENDED"))
+	Dialogic.timeline_ended.connect(func():print("TIMELINE ENDED"))
 
 
 ## Simple helper that will find the textbox and pass the desired textbox position.
@@ -73,7 +73,7 @@ func get_namebox_side(new_character):
 	var portraits_info = portrait_system.get_character_info(new_character)
 	if not portraits_info["joined"]: return
 	var char_position:String = portraits_info["position_id"]
-	var namebox_side = 0 if char_position.contains("left") else 0.5 if char_position.contains("center") else 1
+	var namebox_side = 0.0 if char_position.contains("left") else 0.5 if char_position.contains("center") else 1.0
 	var layout : DialogicLayoutBase = Dialogic.get_subsystem("Styles").get_layout_node()
 	var textbox = layout.get_node("VN_TextboxLayer")
 	if not textbox: return
