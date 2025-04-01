@@ -4,7 +4,6 @@ extends Control
 signal object_taken
 signal object_placed
 @onready var drag_holder: Control = $"Drag Holder"
-
 var held_object : Draggable
 var held_object_parent : Node
 

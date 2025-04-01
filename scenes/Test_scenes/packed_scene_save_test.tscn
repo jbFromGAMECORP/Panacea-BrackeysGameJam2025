@@ -1,4 +1,26 @@
-[gd_scene format=3 uid="uid://boj3urx3jayul"]
+[gd_scene load_steps=3 format=3 uid="uid://boj3urx3jayul"]
+
+[ext_resource type="Script" uid="uid://kuu3btce246h" path="res://scenes/Test_scenes/color_save_object.gd" id="1_j0ok3"]
+
+[sub_resource type="GDScript" id="GDScript_3e3xs"]
+resource_name = "Test_resource_saver"
+script/source = "extends Control
+
+
+
+func _ready() -> void:
+	pass
+	
+func create_object():
+	var color_object = Control.new()
+	color_object.set_script(load(\"res://scenes/Test_scenes/color_save_object.gd\"))
+	add_child(color_object)
+	color_object.add_child(ColorPicker.new())
+
+func destory_object():
+	pass
+	
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_3e3xs")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -18,3 +41,26 @@ text = "Add Thing"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(167, 111)
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 787.0
+offset_top = 333.0
+offset_right = 827.0
+offset_bottom = 373.0
+script = ExtResource("1_j0ok3")
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Control"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -16.0
+offset_right = 260.0
+offset_bottom = 279.0
+text = "Color Picker"
+
+[node name="Destory Thing" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="color_changed" from="Control/ColorPickerButton" to="Control" method="_on_color_picker_button_color_changed"]

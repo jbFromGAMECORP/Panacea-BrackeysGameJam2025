@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2mhtepojnswy"]
+
+[ext_resource type="Script" uid="uid://bpkaeoy2slsfg" path="res://scenes/Test_scenes/Test Resource.gd" id="1_3upgu"]
+
+[resource]
+script = ExtResource("1_3upgu")
+color2 = "Yellow"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c1ulqoho2y1xh"]
+[gd_scene load_steps=38 format=3 uid="uid://c1ulqoho2y1xh"]
 
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="1_jpdxa"]
 [ext_resource type="Texture2D" uid="uid://de4441n7cdoi2" path="res://assets/Room Assets/floor texture.png" id="2_ebrb0"]
@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://vfcklmtk6e1i" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/bootles.png" id="18_y65ff"]
 [ext_resource type="Texture2D" uid="uid://thbjb7lohio8" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/materials.png" id="19_l7kk3"]
 [ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="21_iqkle"]
+[ext_resource type="Texture2D" uid="uid://dpx7nt0tx3cv1" path="res://assets/icons/builder.png" id="22_l7kk3"]
+[ext_resource type="Texture2D" uid="uid://chfpmjsm6c48a" path="res://assets/Inventory/Inventory_Items/lighter.png" id="23_dl3n3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
 blend_mode = 2
@@ -64,6 +66,26 @@ func on_pressed():
 	Transition.change_scene(\"res://scenes/Test_scenes/Draggable.tscn\")
 	
 "
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_l7kk3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7kk3"]
+bg_color = Color(0.417969, 0.345212, 0.267761, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.214844, 0.136152, 0.0520325, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ny6lg"]
+texture = ExtResource("22_l7kk3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_472fd"]
+texture = ExtResource("23_dl3n3")
 
 [node name="SceneBuilderTest" type="Node2D"]
 metadata/_edit_vertical_guides_ = [7238.0]
@@ -420,6 +442,7 @@ shape = SubResource("RectangleShape2D_5hn8b")
 debug_color = Color(1, 0.588235, 0, 0.137255)
 
 [node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("6_b7jx0")]
+texture_filter = 2
 position = Vector2(6002, 966)
 slide_on_ceiling = false
 floor_constant_speed = true
@@ -491,4 +514,65 @@ script = SubResource("GDScript_g00ck")
 
 [node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("21_iqkle")]
 
+[node name="Dot1" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="0"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Dot2" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="1"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Dot3" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="2"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Dot4" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="3"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Dot5" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="4"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Dot6" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="5"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Panel5" type="Panel" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_left = 630.0
+offset_top = 59.0
+offset_right = 1064.0
+offset_bottom = 677.0
+rotation = 1.5708
+theme_override_styles/panel = SubResource("StyleBoxFlat_l7kk3")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/GUI"]
+visible = false
+layout_mode = 0
+offset_left = 221.0
+offset_top = 70.0
+offset_right = 623.0
+offset_bottom = 380.0
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/GUI"]
+visible = false
+layout_mode = 0
+offset_left = 273.0
+offset_top = 576.0
+offset_right = 675.0
+offset_bottom = 886.0
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 590.0
+offset_right = 371.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ny6lg")
+
+[node name="Panel4" type="Panel" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 756.0
+offset_right = 397.0
+offset_bottom = 821.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_472fd")
+
 [connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
+
+[editable path="CanvasLayer/GUI/Inventory"]

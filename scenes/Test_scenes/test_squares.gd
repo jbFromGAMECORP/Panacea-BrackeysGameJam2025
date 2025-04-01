@@ -20,8 +20,8 @@ func assign_color(new_color :Color):
 	color_box.color = color
 
 func is_correct_spot():
-	if drop_area_hover:
-		return drop_area_hover.sprite.color == sprite.color
+	if in_drop_area and in_drop_area.sprite:
+		return in_drop_area.sprite.color == sprite.color
 	return false
 
 func set_shape_sprite(_texture):
