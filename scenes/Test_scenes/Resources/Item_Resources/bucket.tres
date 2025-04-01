@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://b5kvbg745f5a4"]
+
+[ext_resource type="Script" uid="uid://cm0375cbhv71" path="res://item_resource.gd" id="1_dr4np"]
+[ext_resource type="Texture2D" uid="uid://d2lvmyak3a84f" path="res://assets/Inventory/Inventory_Items/bucket.png" id="2_axo1f"]
+
+[resource]
+script = ExtResource("1_dr4np")
+item_name = &"bucket"
+item_description = "IDK"
+texture = ExtResource("2_axo1f")
+type = 0

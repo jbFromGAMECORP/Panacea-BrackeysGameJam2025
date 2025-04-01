@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://item_resource.gd" id="1_pbjfc"]
+[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/lighter.png" id="2_sl3jo"]
+
+[resource]
+script = ExtResource("1_pbjfc")
+item_name = &"lighter"
+item_description = "IDK"
+texture = ExtResource("2_sl3jo")
+type = 0

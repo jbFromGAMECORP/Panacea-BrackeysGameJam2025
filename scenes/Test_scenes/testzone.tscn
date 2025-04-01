@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccdwb7mtfpmyi"]
+
+[sub_resource type="GDScript" id="GDScript_4a1s6"]
+resource_name = "TESTZONE"
+script/source = "extends Control
+# Set any of the given flags from the editor.
+@export_flags(\"Fire\", \"Water\", \"Earth\", \"Wind\") var spell_elements = 0
+		
+func _ready() -> void:
+	var elem = [\"Fire\", \"Water\", \"Earth\", \"Wind\"]
+	for x in len(elem):
+		if (spell_elements&&1<<x):
+			print(elem[x],\" \", 1<<x)
+	print_bit(spell_elements)
+	
+func print_bit(num):
+	var string :String = \"\"
+	for x in 8:
+		string+= \"1\" if (1<<x)&num else \"0\"
+	print(string.reverse())
+		
+
+		
+"
+
+[node name="TESTZONE" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_4a1s6")

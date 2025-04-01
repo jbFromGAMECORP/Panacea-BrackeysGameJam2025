@@ -20,12 +20,12 @@ func _on_area_entered(area:Area2D):
 	if not node_in_slot:
 		var node = area.get_parent()
 		if node is Draggable and _drop_area_criteria(node):
-			var new_position = sprite.global_position
+			var new_position :Vector2= global_position
 			node.enter_hover(self,new_position)
 			node_in_slot = node
 			sprite.self_modulate = Color(0.0, 0.0, 0.0, 0.8)
 
-	
+			
 func _on_area_exited(area:Area2D):
 	if node_in_slot:
 		var node = area.get_parent()

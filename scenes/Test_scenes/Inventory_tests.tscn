@@ -1,10 +1,13 @@
-[gd_scene load_steps=59 format=3 uid="uid://diltp38ph8r2c"]
+[gd_scene load_steps=64 format=3 uid="uid://diltp38ph8r2c"]
 
 [ext_resource type="Texture2D" uid="uid://kq7jwpsxpmvr" path="res://assets/Room Assets/patient area/patient area/wall type 3.png" id="1_dsvme"]
 [ext_resource type="Script" uid="uid://c7mlrle53jqnn" path="res://scenes/Test_scenes/InventoryManager.gd" id="1_g3107"]
+[ext_resource type="Script" uid="uid://cm0375cbhv71" path="res://item_resource.gd" id="2_3h226"]
 [ext_resource type="Texture2D" uid="uid://cwdlijeyv3xqr" path="res://assets/Inventory/inventoryBase_mask_test.png" id="2_io6xq"]
 [ext_resource type="Texture2D" uid="uid://lc02cmfehhgf" path="res://assets/Inventory/inventoryBase_cropped.PNG" id="2_veyya"]
 [ext_resource type="Script" uid="uid://33svdrx205vt" path="res://scripts/Cowboy_inv_test_script.gd" id="3_k80wg"]
+[ext_resource type="Resource" uid="uid://b5kvbg745f5a4" path="res://scenes/Test_scenes/Resources/Item_Resources/bucket.tres" id="3_pi32f"]
+[ext_resource type="Resource" path="res://scenes/Test_scenes/Resources/Item_Resources/wrench.tres" id="3_u3jap"]
 [ext_resource type="Texture2D" uid="uid://4p35btd34t8x" path="res://assets/Inventory/inventorySlot_cropped.PNG" id="4_08kfj"]
 [ext_resource type="Texture2D" uid="uid://bdrhiskqsjmp2" path="res://assets/Inventory/Inventory_Items/tape.png" id="5_d67dt"]
 [ext_resource type="Texture2D" uid="uid://c0xofr5pg2ryw" path="res://assets/Testbars.png" id="6_upx3q"]
@@ -20,13 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://dih1coellhwm8" path="res://addons/dialogic/Editor/Images/Pieces/variable.svg" id="17_ymjbv"]
 [ext_resource type="Texture2D" uid="uid://bt87p6qlso0ya" path="res://addons/dialogic/Editor/Images/dialogic-logo.svg" id="18_kj74b"]
 [ext_resource type="Texture2D" uid="uid://dwhpcl8id8inf" path="res://assets/Inventory/InventoryBase_DarkBlue.PNG" id="19_avxks"]
-[ext_resource type="Script" uid="uid://bxoqa3s7n2bww" path="res://scripts/inventory_container_pages.gd" id="20_itjss"]
+[ext_resource type="Script" uid="uid://dggnd1gorwjnt" path="res://scripts/inventory_container_pages.gd" id="20_itjss"]
 [ext_resource type="Texture2D" uid="uid://dlysklq57y2qj" path="res://assets/Inventory/InventorySlot_DarkBlue.PNG" id="21_81vr8"]
 [ext_resource type="Script" uid="uid://c7mgxonou3t33" path="res://scenes/Test_scenes/draggable.gd" id="23_8m72e"]
 [ext_resource type="Texture2D" uid="uid://cjkeqow7vfu5x" path="res://assets/Inventory/InventoryArrowLeft_VibrantBlue.PNG" id="24_0xr7j"]
 [ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DropArea.tscn" id="24_8m72e"]
 [ext_resource type="Theme" uid="uid://begekcwlxvr52" path="res://assets/Inventory/Inventory_Theme.tres" id="24_cj0fm"]
 [ext_resource type="Texture2D" uid="uid://c6oe1g4w0xipl" path="res://assets/Inventory/InventoryArrowRight_VibrantBlue.PNG" id="25_wvd73"]
+[ext_resource type="PackedScene" uid="uid://cwf3rvj2ur16l" path="res://scenes/Test_scenes/Resoure_scens/item_base.tscn" id="30_3h226"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wh784"]
 
@@ -109,6 +113,22 @@ size = Vector2(10, 10)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_kgbtr"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycmce"]
+content_margin_left = 60.0
+content_margin_top = 60.0
+content_margin_right = 60.0
+content_margin_bottom = 60.0
+bg_color = Color(0.417969, 0.345212, 0.267761, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.214844, 0.136152, 0.0520325, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [node name="Inventory" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -117,6 +137,7 @@ offset_top = -348.0
 offset_right = -13.0
 offset_bottom = -348.0
 script = ExtResource("1_g3107")
+inventory = Array[ExtResource("2_3h226")]([ExtResource("3_pi32f"), null, ExtResource("3_u3jap"), null])
 
 [node name="WallType3" type="Sprite2D" parent="."]
 visible = false
@@ -920,6 +941,21 @@ text = "+1 item"
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Panel5" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 598.0
+offset_right = 773.0
+offset_bottom = 981.0
+pivot_offset = Vector2(218.608, 310.732)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ycmce")
+
+[node name="Draggable Area" type="CenterContainer" parent="Panel5"]
+layout_mode = 2
+
+[node name="Item_Base" parent="Panel5/Draggable Area" instance=ExtResource("30_3h226")]
+layout_mode = 2
 
 [connection signal="pressed" from="Default Inventory/SuitcaseButton" to="Default Inventory/InventoryContainer" method="_on_suitcase_button_pressed"]
 [connection signal="button_down" from="Default Inventory/InventoryContainer/LeftArrowButton" to="Default Inventory/InventoryContainer" method="_on_left_arrow_button_pressed"]

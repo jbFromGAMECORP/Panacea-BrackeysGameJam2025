@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://boj3urx3jayul"]
+[gd_scene load_steps=4 format=3 uid="uid://boj3urx3jayul"]
 
 [ext_resource type="Script" uid="uid://kuu3btce246h" path="res://scenes/Test_scenes/color_save_object.gd" id="1_j0ok3"]
 
@@ -21,6 +21,18 @@ func destory_object():
 	pass
 	
 "
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0ok3"]
+bg_color = Color(0.417969, 0.345212, 0.267761, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.214844, 0.136152, 0.0520325, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -62,5 +74,13 @@ text = "Color Picker"
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+
+[node name="Panel5" type="Panel" parent="."]
+offset_left = 643.0
+offset_top = 30.0
+offset_right = 1077.0
+offset_bottom = 648.0
+rotation = 1.5708
+theme_override_styles/panel = SubResource("StyleBoxFlat_j0ok3")
 
 [connection signal="color_changed" from="Control/ColorPickerButton" to="Control" method="_on_color_picker_button_color_changed"]

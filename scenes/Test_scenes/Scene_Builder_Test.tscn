@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c1ulqoho2y1xh"]
+[gd_scene load_steps=37 format=3 uid="uid://c1ulqoho2y1xh"]
 
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="1_jpdxa"]
 [ext_resource type="Texture2D" uid="uid://de4441n7cdoi2" path="res://assets/Room Assets/floor texture.png" id="2_ebrb0"]
@@ -68,18 +68,6 @@ func on_pressed():
 "
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_l7kk3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7kk3"]
-bg_color = Color(0.417969, 0.345212, 0.267761, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.214844, 0.136152, 0.0520325, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ny6lg"]
 texture = ExtResource("22_l7kk3")
@@ -531,15 +519,6 @@ button_group = SubResource("ButtonGroup_l7kk3")
 
 [node name="Dot6" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="5"]
 button_group = SubResource("ButtonGroup_l7kk3")
-
-[node name="Panel5" type="Panel" parent="CanvasLayer/GUI"]
-layout_mode = 0
-offset_left = 630.0
-offset_top = 59.0
-offset_right = 1064.0
-offset_bottom = 677.0
-rotation = 1.5708
-theme_override_styles/panel = SubResource("StyleBoxFlat_l7kk3")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/GUI"]
 visible = false

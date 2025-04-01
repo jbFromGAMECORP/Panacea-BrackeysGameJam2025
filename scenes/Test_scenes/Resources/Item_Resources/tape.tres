@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://item_resource.gd" id="1_dbcjp"]
+[ext_resource type="Texture2D" path="res://assets/Inventory/Inventory_Items/tape.png" id="2_gwoup"]
+
+[resource]
+script = ExtResource("1_dbcjp")
+item_name = &"tape"
+item_description = "IDK"
+texture = ExtResource("2_gwoup")
+type = 0

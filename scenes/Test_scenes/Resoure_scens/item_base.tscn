@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwf3rvj2ur16l"]
+
+[ext_resource type="Script" uid="uid://p74a52qqgmsc" path="res://item_base.gd" id="1_ukqlw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue70l"]
+size = Vector2(22, 17)
+
+[node name="Item_Base" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ukqlw")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -48.5
+offset_right = 59.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Draggable Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Detection"]
+shape = SubResource("RectangleShape2D_ue70l")
