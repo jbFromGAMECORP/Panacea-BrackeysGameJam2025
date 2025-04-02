@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkwh6sf6t6jbp"]
 
 [ext_resource type="Script" uid="uid://gtd3ev1mx4a2" path="res://scenes/Test_scenes/Draggable_Scene.gd" id="1_8kp3w"]
-[ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DropArea.tscn" id="2_8kp3w"]
+[ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="2_8kp3w"]
 [ext_resource type="Script" uid="uid://btqru83ttjibd" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
 [ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="4_fc43r"]
 
@@ -122,7 +122,6 @@ offset_top = 106.0
 offset_right = 154.0
 offset_bottom = 106.0
 script = ExtResource("2_le1fh")
-return_type = 2
 
 [node name="Color_box" type="ColorRect" parent="Draggable Zone/Color1"]
 layout_mode = 1

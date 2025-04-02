@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwf3rvj2ur16l"]
+[gd_scene load_steps=4 format=3 uid="uid://cwf3rvj2ur16l"]
 
 [ext_resource type="Script" uid="uid://p74a52qqgmsc" path="res://item_base.gd" id="1_ukqlw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ue70l"]
-size = Vector2(22, 17)
+size = Vector2(2, 2)
+
+[sub_resource type="GDScript" id="GDScript_ukqlw"]
+resource_name = "IN_DragZone Text"
+script/source = "extends Label
+
+
+func _process(delta: float) -> void:
+	text = str($\"..\".in_drop_area)
+"
 
 [node name="Item_Base" type="Control"]
 layout_mode = 3
@@ -29,6 +38,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Draggable Detection" type="Area2D" parent="."]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Detection"]
 shape = SubResource("RectangleShape2D_ue70l")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -54.0
+offset_right = 31.0
+offset_bottom = -31.0
+text = "DEBUG"
+script = SubResource("GDScript_ukqlw")

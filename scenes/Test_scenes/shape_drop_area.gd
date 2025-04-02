@@ -21,7 +21,7 @@ func _on_area_entered(area:Area2D):
 		var node = area.get_parent()
 		if node is Draggable and _drop_area_criteria(node):
 			var new_position :Vector2= global_position
-			node.enter_hover(self,new_position)
+			node.enter_zone(self,new_position)
 			node_in_slot = node
 			sprite.self_modulate = Color(0.0, 0.0, 0.0, 0.8)
 
@@ -30,7 +30,7 @@ func _on_area_exited(area:Area2D):
 	if node_in_slot:
 		var node = area.get_parent()
 		if node is Draggable and _drop_area_criteria(node):
-			node.exit_hover()
+			node.exit_zone()
 			node_in_slot = null
 			sprite.self_modulate = Color(0.0, 0.0, 0.0, 0.545)
 		
@@ -43,5 +43,6 @@ func set_id(id):
 	puzzle_id = id
 	
 	
-func _drop_area_criteria(node):
-	return puzzle_id == node.puzzle_id
+func _drop_area_criteria(node:Node):
+	
+	return node.get("puzzle_id") and puzzle_id == node.puzzle_id

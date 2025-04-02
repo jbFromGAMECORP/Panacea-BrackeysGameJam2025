@@ -23,14 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://dih1coellhwm8" path="res://addons/dialogic/Editor/Images/Pieces/variable.svg" id="17_ymjbv"]
 [ext_resource type="Texture2D" uid="uid://bt87p6qlso0ya" path="res://addons/dialogic/Editor/Images/dialogic-logo.svg" id="18_kj74b"]
 [ext_resource type="Texture2D" uid="uid://dwhpcl8id8inf" path="res://assets/Inventory/InventoryBase_DarkBlue.PNG" id="19_avxks"]
-[ext_resource type="Script" uid="uid://dggnd1gorwjnt" path="res://scripts/inventory_container_pages.gd" id="20_itjss"]
+[ext_resource type="Script" uid="uid://bxoqa3s7n2bww" path="res://scripts/inventory_container_pages.gd" id="20_itjss"]
 [ext_resource type="Texture2D" uid="uid://dlysklq57y2qj" path="res://assets/Inventory/InventorySlot_DarkBlue.PNG" id="21_81vr8"]
 [ext_resource type="Script" uid="uid://c7mgxonou3t33" path="res://scenes/Test_scenes/draggable.gd" id="23_8m72e"]
 [ext_resource type="Texture2D" uid="uid://cjkeqow7vfu5x" path="res://assets/Inventory/InventoryArrowLeft_VibrantBlue.PNG" id="24_0xr7j"]
-[ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DropArea.tscn" id="24_8m72e"]
+[ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="24_8m72e"]
 [ext_resource type="Theme" uid="uid://begekcwlxvr52" path="res://assets/Inventory/Inventory_Theme.tres" id="24_cj0fm"]
 [ext_resource type="Texture2D" uid="uid://c6oe1g4w0xipl" path="res://assets/Inventory/InventoryArrowRight_VibrantBlue.PNG" id="25_wvd73"]
-[ext_resource type="PackedScene" uid="uid://cwf3rvj2ur16l" path="res://scenes/Test_scenes/Resoure_scens/item_base.tscn" id="30_3h226"]
+[ext_resource type="PackedScene" uid="uid://cucgabq38ngxs" path="res://scenes/Test_scenes/DragArea.tscn" id="31_44kwl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wh784"]
 
@@ -626,7 +626,6 @@ offset_left = 175.0
 offset_top = -20.0
 offset_right = 1192.0
 offset_bottom = 173.0
-scale = Vector2(1.03501, 1.05653)
 pivot_offset = Vector2(-52.1734, 88.024)
 size_flags_horizontal = 6
 texture = ExtResource("19_avxks")
@@ -705,7 +704,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("23_8m72e")
-return_type = 4
 in_drop_area = NodePath("..")
 
 [node name="Color_box" type="ColorRect" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2/DropArea/BLUE"]
@@ -739,6 +737,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Draggable Detection" type="Area2D" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2/DropArea/BLUE"]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2/DropArea/BLUE/Draggable Detection"]
 shape = SubResource("RectangleShape2D_8m72e")
@@ -748,7 +747,7 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1syjl")
 
-[node name="DropArea" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4" instance=ExtResource("24_8m72e")]
+[node name="DragZone" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4" instance=ExtResource("24_8m72e")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -760,7 +759,7 @@ offset_right = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BLUE" type="Control" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DropArea" node_paths=PackedStringArray("in_drop_area")]
+[node name="BLUE" type="Control" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DragZone" node_paths=PackedStringArray("in_drop_area")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -770,10 +769,9 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("23_8m72e")
-return_type = 4
 in_drop_area = NodePath("..")
 
-[node name="Color_box" type="ColorRect" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DropArea/BLUE"]
+[node name="Color_box" type="ColorRect" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DragZone/BLUE"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -789,7 +787,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.195313, 1, 0, 1)
 
-[node name="Button" type="TextureButton" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DropArea/BLUE"]
+[node name="Button" type="TextureButton" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DragZone/BLUE"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -803,9 +801,9 @@ offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Draggable Detection" type="Area2D" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DropArea/BLUE"]
+[node name="Draggable Detection" type="Area2D" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DragZone/BLUE"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DropArea/BLUE/Draggable Detection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DragZone/BLUE/Draggable Detection"]
 shape = SubResource("RectangleShape2D_8m72e")
 
 [node name="Slot3" type="Panel" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer"]
@@ -824,6 +822,7 @@ offset_left = 0.0
 offset_right = 0.0
 grow_horizontal = 2
 grow_vertical = 2
+return_type = 1
 
 [node name="LeftArrowButton" type="Button" parent="Page Inventory/InventoryContainer_pages"]
 layout_mode = 0
@@ -937,25 +936,37 @@ offset_bottom = 224.544
 theme_override_font_sizes/font_size = 23
 text = "+1 item"
 
+[node name="Panel5" type="Panel" parent="Page Inventory/InventoryContainer_pages"]
+layout_mode = 0
+offset_left = -79.0587
+offset_top = 225.243
+offset_right = 598.941
+offset_bottom = 608.243
+pivot_offset = Vector2(218.608, 310.732)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ycmce")
+
+[node name="Draggable Area" type="MarginContainer" parent="Page Inventory/InventoryContainer_pages/Panel5"]
+layout_mode = 2
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 618.0
+offset_bottom = 323.0
+
+[node name="DragArea" parent="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area" instance=ExtResource("31_44kwl")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+return_type = 3
+multiple_nodes = true
+
+[node name="Draggable Detection" parent="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/DragArea" index="0"]
+position = Vector2(281.059, 132.138)
+scale = Vector2(6.6535, 3.51416)
+
 [node name="Drag Holder" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Panel5" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = 95.0
-offset_top = 598.0
-offset_right = 773.0
-offset_bottom = 981.0
-pivot_offset = Vector2(218.608, 310.732)
-theme_override_styles/panel = SubResource("StyleBoxFlat_ycmce")
-
-[node name="Draggable Area" type="CenterContainer" parent="Panel5"]
-layout_mode = 2
-
-[node name="Item_Base" parent="Panel5/Draggable Area" instance=ExtResource("30_3h226")]
-layout_mode = 2
 
 [connection signal="pressed" from="Default Inventory/SuitcaseButton" to="Default Inventory/InventoryContainer" method="_on_suitcase_button_pressed"]
 [connection signal="button_down" from="Default Inventory/InventoryContainer/LeftArrowButton" to="Default Inventory/InventoryContainer" method="_on_left_arrow_button_pressed"]
@@ -975,3 +986,5 @@ layout_mode = 2
 [connection signal="pressed" from="Page Inventory/InventoryContainer_pages/RightArrowButton" to="Page Inventory/InventoryContainer_pages" method="_on_right_arrow_button_pressed"]
 [connection signal="pressed" from="Page Inventory/InventoryContainer_pages/sub" to="Page Inventory/InventoryContainer_pages" method="_on_sub_pressed"]
 [connection signal="pressed" from="Page Inventory/InventoryContainer_pages/add" to="Page Inventory/InventoryContainer_pages" method="_on_add_pressed"]
+
+[editable path="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/DragArea"]
