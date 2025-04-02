@@ -1,11 +1,9 @@
-extends Control
+extends DragZone
 
 @onready var current_scene = get_tree().current_scene
-@onready var detection_area: Area2D = $"Draggable Detection"
-@onready var sprite:CanvasItem = get_child(0)
+@onready var sprite: Sprite2D = $"Draggable Detection/Shape_box"
 
-var node_in_slot : Control
-var puzzle_id :int
+var puzzle_id :String
 
 
 func _ready() -> void:
@@ -15,25 +13,13 @@ func _ready() -> void:
 func _connect_signals():
 	detection_area.area_entered.connect(_on_area_entered)
 	detection_area.area_exited.connect(_on_area_exited)
-	
-func _on_area_entered(area:Area2D):
-	if not node_in_slot:
-		var node = area.get_parent()
-		if node is Draggable and _drop_area_criteria(node):
-			var new_position :Vector2= global_position
-			node.enter_zone(self,new_position)
-			node_in_slot = node
-			sprite.self_modulate = Color(0.0, 0.0, 0.0, 0.8)
 
-			
-func _on_area_exited(area:Area2D):
-	if node_in_slot:
-		var node = area.get_parent()
-		if node is Draggable and _drop_area_criteria(node):
-			node.exit_zone()
-			node_in_slot = null
-			sprite.self_modulate = Color(0.0, 0.0, 0.0, 0.545)
-		
+
+func  _subclass_enter_effects():
+	sprite.self_modulate = Color(0.0, 0.0, 0.0, 0.8)
+
+func _subclass_exit_effects():
+	sprite.self_modulate = Color(0.0, 0.0, 0.0, 0.545)
 
 func set_shape_sprite(_texture):
 	sprite.texture = _texture
@@ -42,7 +28,5 @@ func set_shape_sprite(_texture):
 func set_id(id):
 	puzzle_id = id
 	
-	
-func _drop_area_criteria(node:Node):
-	
+func _subclass_criteria(node:Node):
 	return node.get("puzzle_id") and puzzle_id == node.puzzle_id

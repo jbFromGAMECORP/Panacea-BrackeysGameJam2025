@@ -5,7 +5,7 @@ extends Control
 @onready var draggable_zone: Control = $"Draggable Zone"
 @onready var drop_zone: Control = $DroppableZone
 var held_object : Node
-@onready var sprite_size = draggable_zone.get_child(0).size
+@onready var sprite_size = draggable_zone.get_child(-1).size
 @export var cached: bool = false
 
 var exit_scene_and_return = func():
@@ -61,8 +61,7 @@ func _connect_puzzle_signals():
 		area.area_exited.connect(check_puzzle)
 
 func check_puzzle(node):
-	print("Checking!")
-	var solved : bool= draggable_zone.get_children().all(func(x):return x.is_correct_spot())
+	var solved : bool= draggable_zone.get_children().all(func(x):return x is Draggable and x.is_correct_spot())
 	if solved:
 		print("solved!!")
 		$Label.text = "✅"
@@ -95,7 +94,7 @@ func _generate_points(amount):
 func _plot_to_points(points: Array):
 	print(typeof(points))
 	points.shuffle()
-	var original = draggable_zone.get_child(0)
+	var original = draggable_zone.get_child(-1)
 	var original2 = drop_zone.get_child(0)
 	original.position = points.pop_back()
 	print("TESTTTTTTTTTT",draggable_zone.get_child(0).owner.name)
@@ -103,7 +102,7 @@ func _plot_to_points(points: Array):
 	while points:
 		var new_node = original.duplicate()
 		draggable_zone.add_child(new_node)
-		new_node.name = "Droppable" + str(idx)
+		new_node.name = "Draggable" + str(idx)
 		recursive_owner(new_node)
 		new_node.position = points.pop_back()
 		var new_area = original2.duplicate()
@@ -112,18 +111,21 @@ func _plot_to_points(points: Array):
 		idx += 1
 		recursive_owner(new_area)
 	for node in draggable_zone.get_children():
-		print(node.owner.name)
-	print(draggable_zone.owner.name)
+		print(node.name)
+	print(draggable_zone.name)
 	
 func _set_puzzle_shapes(texture_name_array):
 	var droppables = drop_zone.get_children()
 	var draggables :Array = draggable_zone.get_children()
+	draggables.pop_front()
 	draggables.shuffle()
 	for i in len(draggables):
 		var texture = _get_sprites(texture_name_array[i])
 		for node in [draggables,droppables]:
+			if node[i] is Area2D:continue
 			node[i].set_shape_sprite(texture)
-			node[i].set_id(i)
+			node[i].set_id(texture_name_array[i])
+			
 	
 	
 func _get_sprites(texture_name):

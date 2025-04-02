@@ -555,3 +555,4 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_472fd")
 [connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
 
 [editable path="CanvasLayer/GUI/Inventory"]
+[editable path="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/DragArea"]

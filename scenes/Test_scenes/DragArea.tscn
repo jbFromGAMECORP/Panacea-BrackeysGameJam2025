@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://byruel4737fuh" path="res://scripts/drag_zone.gd" id="1_utp7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fc43r"]
-size = Vector2(84.4535, 77.3622)
+size = Vector2(84.3187, 77.7055)
 
 [node name="DragArea" type="Control"]
 layout_mode = 3
@@ -13,6 +13,8 @@ offset_right = 1.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 script = ExtResource("1_utp7m")
+return_type = 3
+multiple_nodes = true
 
 [node name="Draggable Detection" type="Area2D" parent="."]
 

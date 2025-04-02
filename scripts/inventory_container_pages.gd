@@ -19,10 +19,12 @@ var max_page := 1 									# How many pages it takes to fit current inventory am
 var tween := Tween.new() 							# Tween holder, new tweens can either wait or replace a already running tween
 
 func _ready() -> void:
+	scale = MINIMIZED_SCALE
+	set_process_mode(Node.PROCESS_MODE_DISABLED)
 	hide()
 	init_inventory()
 	connect_signals_for_item_amount_change()
-	print(max(0, $ScrollContainer/HBoxContainer.get_rect().size.x - scrollContainer.get_rect().size.x))
+	#_on_suitcase_button_pressed()
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -68,18 +70,19 @@ func _on_suitcase_button_pressed() -> void:
 		
 	tween = create_tween()
 	tween.tween_property(self,"scale",end_scale,ANIMATION_SPEED).from(start_scale)
-	prints("tweening from",start_scale,"to",end_scale)
 	await tween.finished
 	
 	if not suitcase_is_openning:
 		close_suitcase()
 
 func close_suitcase():
+	set_process_mode(Node.PROCESS_MODE_DISABLED)
 	visible = false
 	suitcase.set_button_icon(suitcase.closed_texture)
 	init_inventory()
 	
 func open_suitcase():
+	set_process_mode(Node.PROCESS_MODE_INHERIT)
 	visible = true
 	suitcase.set_button_icon(suitcase.open_texture)
 	init_inventory()
@@ -104,7 +107,6 @@ func _on_right_arrow_button_pressed() -> void:
 	update_page_indicators()
 
 func _on_sub_pressed() -> void:
-	print(max(0, $ScrollContainer/HBoxContainer.get_rect().size.x - scrollContainer.get_rect().size.x))
 	if h_box_container.get_child_count()-1:
 		h_box_container.get_child(-1).queue_free() # Replace with function body.
 

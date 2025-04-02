@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://diltp38ph8r2c"]
+[gd_scene load_steps=65 format=3 uid="uid://diltp38ph8r2c"]
 
 [ext_resource type="Texture2D" uid="uid://kq7jwpsxpmvr" path="res://assets/Room Assets/patient area/patient area/wall type 3.png" id="1_dsvme"]
 [ext_resource type="Script" uid="uid://c7mlrle53jqnn" path="res://scenes/Test_scenes/InventoryManager.gd" id="1_g3107"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://bxoqa3s7n2bww" path="res://scripts/inventory_container_pages.gd" id="20_itjss"]
 [ext_resource type="Texture2D" uid="uid://dlysklq57y2qj" path="res://assets/Inventory/InventorySlot_DarkBlue.PNG" id="21_81vr8"]
 [ext_resource type="Script" uid="uid://c7mgxonou3t33" path="res://scenes/Test_scenes/draggable.gd" id="23_8m72e"]
+[ext_resource type="Texture2D" uid="uid://cmfdcxhgaodh7" path="res://scenes/UI/Inventory/Assets/suitcase_icon_closed.png" id="23_44kwl"]
 [ext_resource type="Texture2D" uid="uid://cjkeqow7vfu5x" path="res://assets/Inventory/InventoryArrowLeft_VibrantBlue.PNG" id="24_0xr7j"]
 [ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="24_8m72e"]
 [ext_resource type="Theme" uid="uid://begekcwlxvr52" path="res://assets/Inventory/Inventory_Theme.tres" id="24_cj0fm"]
@@ -613,7 +614,7 @@ tooltip_text = "Inventory"
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qaoq3")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_r6jwe")
 toggle_mode = true
-icon = ExtResource("9_jem52")
+icon = ExtResource("23_44kwl")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -622,10 +623,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryContainer_pages" type="TextureRect" parent="Page Inventory"]
 layout_mode = 0
-offset_left = 175.0
-offset_top = -20.0
-offset_right = 1192.0
-offset_bottom = 173.0
+offset_left = -1753.0
+offset_top = 313.0
+offset_right = -736.0
+offset_bottom = 506.0
 pivot_offset = Vector2(-52.1734, 88.024)
 size_flags_horizontal = 6
 texture = ExtResource("19_avxks")
@@ -694,7 +695,7 @@ offset_right = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BLUE" type="Control" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2/DropArea" node_paths=PackedStringArray("in_drop_area")]
+[node name="BLUE" type="Control" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2/DropArea"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -704,7 +705,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("23_8m72e")
-in_drop_area = NodePath("..")
 
 [node name="Color_box" type="ColorRect" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot2/DropArea/BLUE"]
 layout_mode = 1
@@ -759,7 +759,7 @@ offset_right = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BLUE" type="Control" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DragZone" node_paths=PackedStringArray("in_drop_area")]
+[node name="BLUE" type="Control" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DragZone"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -769,7 +769,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("23_8m72e")
-in_drop_area = NodePath("..")
 
 [node name="Color_box" type="ColorRect" parent="Page Inventory/InventoryContainer_pages/ScrollContainer/HBoxContainer/Slot4/DragZone/BLUE"]
 layout_mode = 1
@@ -874,6 +873,7 @@ stretch_mode = 1
 flip_h = true
 
 [node name="Dots" type="HBoxContainer" parent="Page Inventory/InventoryContainer_pages"]
+visible = false
 layout_mode = 0
 offset_left = 405.0
 offset_top = 23.6624
@@ -919,6 +919,7 @@ theme = ExtResource("24_cj0fm")
 button_group = SubResource("ButtonGroup_kgbtr")
 
 [node name="sub" type="Button" parent="Page Inventory/InventoryContainer_pages"]
+visible = false
 layout_mode = 0
 offset_left = 780.836
 offset_top = 184.544
@@ -928,6 +929,7 @@ theme_override_font_sizes/font_size = 23
 text = "-1 item"
 
 [node name="add" type="Button" parent="Page Inventory/InventoryContainer_pages"]
+visible = false
 layout_mode = 0
 offset_left = 870.691
 offset_top = 184.544
@@ -938,10 +940,10 @@ text = "+1 item"
 
 [node name="Panel5" type="Panel" parent="Page Inventory/InventoryContainer_pages"]
 layout_mode = 0
-offset_left = -79.0587
-offset_top = 225.243
-offset_right = 598.941
-offset_bottom = 608.243
+offset_left = 1822.0
+offset_top = -114.0
+offset_right = 2500.0
+offset_bottom = 269.0
 pivot_offset = Vector2(218.608, 310.732)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ycmce")
 
@@ -952,21 +954,17 @@ offset_top = 60.0
 offset_right = 618.0
 offset_bottom = 323.0
 
-[node name="DragArea" parent="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area" instance=ExtResource("31_44kwl")]
+[node name="Drag_Inventory" parent="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area" instance=ExtResource("31_44kwl")]
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
-return_type = 3
-multiple_nodes = true
 
-[node name="Draggable Detection" parent="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/DragArea" index="0"]
-position = Vector2(281.059, 132.138)
-scale = Vector2(6.6535, 3.51416)
+[node name="Draggable Detection" parent="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/Drag_Inventory" index="0"]
+position = Vector2(278, 132)
+scale = Vector2(7.77265, 4.60443)
 
-[node name="Drag Holder" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CollisionShape2D" parent="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/Drag_Inventory/Draggable Detection" index="0"]
+position = Vector2(0.0673828, -0.171661)
 
 [connection signal="pressed" from="Default Inventory/SuitcaseButton" to="Default Inventory/InventoryContainer" method="_on_suitcase_button_pressed"]
 [connection signal="button_down" from="Default Inventory/InventoryContainer/LeftArrowButton" to="Default Inventory/InventoryContainer" method="_on_left_arrow_button_pressed"]
@@ -987,4 +985,4 @@ offset_bottom = 40.0
 [connection signal="pressed" from="Page Inventory/InventoryContainer_pages/sub" to="Page Inventory/InventoryContainer_pages" method="_on_sub_pressed"]
 [connection signal="pressed" from="Page Inventory/InventoryContainer_pages/add" to="Page Inventory/InventoryContainer_pages" method="_on_add_pressed"]
 
-[editable path="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/DragArea"]
+[editable path="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/Drag_Inventory"]

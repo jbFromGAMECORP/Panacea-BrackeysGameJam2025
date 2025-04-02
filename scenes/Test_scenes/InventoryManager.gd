@@ -6,6 +6,7 @@ signal object_placed
 @export var inventory : Array[ItemResource]
 var held_object : Draggable
 var held_object_parent : Node
+@onready var drag_inventory: DragZone = $"Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/Drag_Inventory"
 
 
 func _ready() -> void:
@@ -32,4 +33,4 @@ func create_items():
 		if item:
 			var item_object:Draggable = load("res://scenes/Test_scenes/Resoure_scens/item_base.tscn").instantiate()
 			item_object.item = item
-			$"Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/DragArea".add_child(item_object)
+			drag_inventory.add_child(item_object)

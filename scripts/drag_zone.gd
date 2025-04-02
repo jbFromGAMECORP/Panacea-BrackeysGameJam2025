@@ -7,9 +7,9 @@ enum RETURN_TYPE{NO_RETURN, 									# Leave object where released
 				PARENT_AREA_CLOSEST, 							# Return to closest position inside parent's control area.
 				TELEPORT}
 @onready var detection_area: Area2D = $"Draggable Detection"
-@onready var sprite:CanvasItem = get_node("Color_box2")
 @export var return_type:RETURN_TYPE = RETURN_TYPE.TELEPORT
 @export var multiple_nodes:bool = false
+
 
 var color : Color
 var detect : bool = true
@@ -25,21 +25,26 @@ func _connect_signals():
 	
 func _on_area_entered(area:Area2D):
 	var node = area.get_parent()
-	if node is Draggable and node.detect:
+	if node is Draggable and node.detect and _subclass_criteria(node):
+		print(area.get_parent().name,"\tEntered\t",self)
 		if multiple_nodes:
 			node.enter_zone(self)
-			print("ENTERED: ",name)
 		elif get_child_count() == 1 or get_child(-1) == node:
 			node.enter_zone(self,global_position)
-			print("ENTERED: ",name)
+		_subclass_enter_effects()
 
+func _subclass_enter_effects(): # Overwrite in subclasses
+	pass
 
 func _on_area_exited(area:Area2D):
 	var node = area.get_parent()
-	if node is Draggable and node.detect:
-		print("EXITED: ",name)
+	if node is Draggable and node.detect and self == node.in_drag_zone and _subclass_criteria(node):
+		print(area.get_parent().name,"\tLeft\t",self)
 		node.exit_zone()
+		_subclass_exit_effects()
 
-		
-func assign_color(new_color: Color):
-	sprite.color = new_color
+func _subclass_exit_effects(): # Overwrite in subclasses
+	pass
+	
+func _subclass_criteria(node:Draggable): # Overwrite in subclasses
+	return true

@@ -24,8 +24,8 @@ const fly_back_speed := 3000.0									# Pixels per second items will animate ba
 const RETURN_TYPE = DragZone.RETURN_TYPE
 var persistent_properties = {"position":true,"rotation":true}	# Determine which properties are persisted.
 
-@export var in_drop_area : DragZone = null
-var detect: bool = true
+@export var in_drag_zone = null									#: Stores the currently hovering DragZone. Reparents to it upon release.
+var detect: bool = true											# Turns off during tweening, so DragZones can't grab it while flying back.
 
 func _ready() -> void:
 	add_to_group("Persistent")
@@ -38,13 +38,14 @@ func _ready() -> void:
 	# We enable processing when dragging, disable when not.
 	set_physics_process(false)
 	
-
+# TODO: Implement Draggable and Dragzone Handlers
 func connect_to_local_manager():
 	var manager = get_tree().current_scene
 	if manager is InventoryManager:
 		manager.connect_draggable_signals(drag_started,drag_released)
 	return manager
-	
+
+#Auto-Detect a child button to use for mouse interaction.
 func find_button():
 	var children = find_children("*","BaseButton",false,false)
 	for node in children:
@@ -58,24 +59,23 @@ func _physics_process(delta: float=0) -> void:
 	
 	
 func drag():
-	drag_started.emit(self)
-	original_position = position
+	drag_started.emit(self)												# This is picked up by the Dragzone Handler
+	scale += Vector2(.3,.3)												# Small scale to help show it's 'picked up'
+	original_position = position										# Stores where you picked it up from
 	mouse_offset = global_position - get_global_mouse_position()		# Stores where on the objects area you grabbed
-	top_level = true
-	_physics_process()
-	set_physics_process(true)													# Enables dragging
+	top_level = true													# Appear above all items
+	_physics_process()													# Start Dragging
+	set_physics_process(true)											# Enables dragging
 
-	
+
 func release():
-	print("click released!")
-	set_physics_process(false)													# Disables dragging
-	#drag_released.emit(self)
+	scale -= Vector2(.3,.3)												# Reset scale back down
+	set_physics_process(false)											# Disables dragging
+	drag_released.emit(self)											# This is picked up by the Dragzone Handler
 	
-	if in_drop_area and in_drop_area != get_parent():
+	if in_drag_zone and in_drag_zone != get_parent():					
 		change_drag_zone()
-		return
-			
-	
+		
 	match get_parent().return_type:													# Match looks for the branch that matches it's value.
 		RETURN_TYPE.NO_RETURN:
 			pass
@@ -93,27 +93,35 @@ func release():
 	var temp = global_position
 	top_level = false
 	global_position = temp
-	in_drop_area = get_parent()
+	in_drag_zone = get_parent()
 
 		
 	
 
 func enter_zone(node,pos=null):
-	print("triggered!")
-	if in_drop_area:
-		await get_tree().process_frame
-	in_drop_area = node
+	if in_drag_zone:
+		await get_tree().physics_frame
+		if in_drag_zone.is_greater_than(node):
+			return
+	in_drag_zone = node
 	if pos != null:
 		grab_sprite(pos)
+
 
 func grab_sprite(pos):
 	sprite.top_level = true
 	sprite.global_position = pos + sprite_offset
 
+
 func exit_zone():
-	print("triggered!")
-	in_drop_area = null
+	await get_tree().physics_frame
+	var area = $"Draggable Detection".get_overlapping_areas().get(0)
+	if area: 
+		in_drag_zone = area.get_parent()
+	else:
+		in_drag_zone = null
 	let_go_of_sprite()
+
 
 func let_go_of_sprite():
 	sprite.top_level = false
@@ -147,6 +155,7 @@ func get_persistent_properties():
 			the_dict[prop] = get(prop)
 	return the_dict
 	
+	
 func set_persistent_properties(prop_dict:Dictionary):
 	for prop in prop_dict:
 		set(prop,prop_dict[prop])
@@ -156,9 +165,10 @@ func _drop_area_criteria(node):
 	return true
 
 
+	
 func change_drag_zone():
 	detect = false
-	reparent(in_drop_area)
+	reparent(in_drag_zone)
 	await get_tree().physics_frame
 	detect = true
 	let_go_of_sprite()
