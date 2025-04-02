@@ -61,7 +61,7 @@ func _connect_puzzle_signals():
 		area.area_exited.connect(check_puzzle)
 
 func check_puzzle(node):
-	var solved : bool= draggable_zone.get_children().all(func(x):return x is Draggable and x.is_correct_spot())
+	var solved : bool= drop_zone.get_children().all(func(drop_zone:Node):return drop_zone.get_child_count()-1)
 	if solved:
 		print("solved!!")
 		$Label.text = "✅"

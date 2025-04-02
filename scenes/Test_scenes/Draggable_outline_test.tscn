@@ -180,10 +180,10 @@ text = "❌"
 label_settings = SubResource("LabelSettings_8kp3w")
 
 [node name="Inventory" parent="." instance=ExtResource("5_wq5n5")]
-offset_left = -36.0
-offset_top = 147.0
-offset_right = -36.0
-offset_bottom = 147.0
+offset_left = -83.0
+offset_top = 283.0
+offset_right = -83.0
+offset_bottom = 283.0
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

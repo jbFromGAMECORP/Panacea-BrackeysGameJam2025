@@ -622,17 +622,19 @@ script = ExtResource("10_668tk")
 metadata/_edit_use_anchors_ = true
 
 [node name="InventoryContainer_pages" type="TextureRect" parent="Page Inventory"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -1753.0
-offset_top = 313.0
-offset_right = -736.0
-offset_bottom = 506.0
-pivot_offset = Vector2(-52.1734, 88.024)
+offset_left = -1082.0
+offset_top = -281.0
+offset_right = -65.0
+offset_bottom = -88.0
+pivot_offset = Vector2(1209, 389)
 size_flags_horizontal = 6
 texture = ExtResource("19_avxks")
 script = ExtResource("20_itjss")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Page Inventory/InventoryContainer_pages"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.289
@@ -824,6 +826,7 @@ grow_vertical = 2
 return_type = 1
 
 [node name="LeftArrowButton" type="Button" parent="Page Inventory/InventoryContainer_pages"]
+visible = false
 layout_mode = 0
 offset_left = 50.0
 offset_top = 55.0
@@ -848,6 +851,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="RightArrowButton" type="Button" parent="Page Inventory/InventoryContainer_pages"]
+visible = false
 layout_mode = 0
 offset_left = 893.0
 offset_top = 55.0
@@ -940,10 +944,10 @@ text = "+1 item"
 
 [node name="Panel5" type="Panel" parent="Page Inventory/InventoryContainer_pages"]
 layout_mode = 0
-offset_left = 1822.0
-offset_top = -114.0
-offset_right = 2500.0
-offset_bottom = 269.0
+offset_left = 1289.0
+offset_top = 337.0
+offset_right = 1967.0
+offset_bottom = 720.0
 pivot_offset = Vector2(218.608, 310.732)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ycmce")
 
