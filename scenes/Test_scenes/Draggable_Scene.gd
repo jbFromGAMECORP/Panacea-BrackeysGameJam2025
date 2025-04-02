@@ -45,11 +45,11 @@ func _on_goto_test_area() -> void:
 
 func _connect_puzzle_signals():
 	for node in drag_zone_2.get_children():
-		node.area.area_entered.connect(check_puzzle)
-		node.area.area_exited.connect(check_puzzle)
+		node.detection_area.area_entered.connect(check_puzzle)
+		node.detection_area.area_exited.connect(check_puzzle)
 
 func check_puzzle(node):
-	var solved : bool= draggable_zone.get_children().all(func(x):return x.is_correct_spot())
+	var solved : bool= draggable_zone.get_children().slice(1).all(func(x):return x.is_correct_spot())
 	if solved:
 		print("solved!!")
 		$Label.text = "✅"
@@ -59,33 +59,33 @@ func check_puzzle(node):
 func _set_puzzle_colors():
 	var zones = drag_zone_2.get_children()
 	var pairs :Array = draggable_zone.get_children()
+	pairs.pop_front()
 	pairs.shuffle()
 
 	var color = Color(1.0, 0.017, 0.0)
 	color.h += randf()
 	for i in len(pairs):
 		pairs[i].assign_color(color)
-		zones[i].assign_color(color)
+		zones[i].get_child(1).color = color
 		color.h = fmod(color.h+0.03,1.0)
 	
 func _generate_points():
-	#var margin :int = 10
 	const x_count :float = 3.0
 	const y_count :float = 4.0
 	var x_spacing = draggable_zone.size.x / x_count
 	var y_spacing = draggable_zone.size.y / y_count
-	var offset = draggable_zone.get_child(0).get_child(0).size/2
 	var grid = []
+	var offset = $"Draggable Zone/Color1/Color_box".size/2
 	for y in 4:
 		for x in 3:
-			grid.append(Vector2(x*x_spacing,y*y_spacing)+offset)
+			grid.append(Vector2(x*x_spacing,y*y_spacing) + offset)
 		print(grid.slice(-3))
 	return grid
 
 func _plot_to_points(points: Array):
 	print(typeof(points))
 	points.shuffle()
-	var original = draggable_zone.get_child(0)
+	var original = draggable_zone.get_child(1)
 	var original2 = drag_zone_2.get_child(0)
 	original.position = points.pop_back()
 	while points:

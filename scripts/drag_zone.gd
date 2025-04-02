@@ -29,7 +29,7 @@ func _on_area_entered(area:Area2D):
 		print(area.get_parent().name,"\tEntered\t",self)
 		if multiple_nodes:
 			node.enter_zone(self)
-		elif get_child_count() == 1 or get_child(-1) == node:
+		elif not has_draggable_child() or is_draggable_child(node):
 			node.enter_zone(self,global_position)
 		_subclass_enter_effects()
 
@@ -48,3 +48,9 @@ func _subclass_exit_effects(): # Overwrite in subclasses
 	
 func _subclass_criteria(node:Draggable): # Overwrite in subclasses
 	return true
+
+func has_draggable_child():
+	return (get_child(-1) is Draggable)
+
+func is_draggable_child(node):
+	return get_child(-1) == node

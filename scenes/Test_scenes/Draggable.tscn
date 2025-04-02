@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkwh6sf6t6jbp"]
+[gd_scene load_steps=11 format=3 uid="uid://bkwh6sf6t6jbp"]
 
 [ext_resource type="Script" uid="uid://gtd3ev1mx4a2" path="res://scenes/Test_scenes/Draggable_Scene.gd" id="1_8kp3w"]
 [ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="2_8kp3w"]
 [ext_resource type="Script" uid="uid://btqru83ttjibd" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
+[ext_resource type="Script" uid="uid://byruel4737fuh" path="res://scripts/drag_zone.gd" id="3_74cf5"]
 [ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="4_fc43r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
@@ -28,6 +29,9 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0ygp"]
+size = Vector2(475, 699.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74cf5"]
 size = Vector2(22, 17)
@@ -114,6 +118,16 @@ offset_left = 308.0
 offset_top = 190.0
 offset_right = 785.0
 offset_bottom = 877.0
+script = ExtResource("3_74cf5")
+return_type = 3
+multiple_nodes = true
+metadata/_custom_type_script = "uid://byruel4737fuh"
+
+[node name="Draggable Detection" type="Area2D" parent="Draggable Zone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone/Draggable Detection"]
+position = Vector2(239.5, 345.25)
+shape = SubResource("RectangleShape2D_h0ygp")
 
 [node name="Color1" type="Control" parent="Draggable Zone"]
 anchors_preset = 0
