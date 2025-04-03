@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://bto80vcqk4dmx"]
+
+[ext_resource type="Script" uid="uid://cm0375cbhv71" path="res://item_resource.gd" id="1_rvsos"]
+[ext_resource type="Texture2D" uid="uid://bdrhiskqsjmp2" path="res://assets/Inventory/Inventory_Items/tape.png" id="2_0ioq6"]
+
+[resource]
+script = ExtResource("1_rvsos")
+item_name = &"tape"
+item_description = "When all else fails. Ductape has your back."
+texture = ExtResource("2_0ioq6")
+type = 0

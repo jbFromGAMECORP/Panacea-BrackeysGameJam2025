@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dynjo12vxqvk7"]
+
+[ext_resource type="Script" uid="uid://b3h0b2y7rkso8" path="res://node.gd" id="1_4qnh1"]
+[ext_resource type="Texture2D" uid="uid://cplh6tp5n0cu0" path="res://assets/logo only.png" id="2_noqxo"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_4qnh1")
+enter_expression_here = "200+30"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-19, 23)
+texture = ExtResource("2_noqxo")

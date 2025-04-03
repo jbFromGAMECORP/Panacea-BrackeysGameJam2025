@@ -10,7 +10,6 @@ enum RETURN_TYPE{NO_RETURN, 									# Leave object where released
 @export var return_type:RETURN_TYPE = RETURN_TYPE.TELEPORT
 @export var multiple_nodes:bool = false
 
-
 var color : Color
 var detect : bool = true
 

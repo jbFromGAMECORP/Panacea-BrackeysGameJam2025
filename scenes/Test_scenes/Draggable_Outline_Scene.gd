@@ -75,17 +75,16 @@ func _generate_points(amount):
 	const offset = Vector2(15,15)
 	var x_max = mini(3,amount)
 	var y_max = ceili(amount/3.0)
-	var x_spacing = draggable_zone.size.x / (x_max)
-	var y_spacing = draggable_zone.size.y / (y_max)
+	var x_spacing = draggable_zone.size.x / (x_max-1)
+	var y_spacing = draggable_zone.size.y / (y_max-1)
 	var grid = []
 	var debug_string :String
 	for count in amount:
 		var x = count % x_max
 		var y = count / x_max
-		var vector = (
-			Vector2(x*x_spacing,y*y_spacing) + 
-			Vector2(randfn(0,100),randfn(0,100)) + 
-			offset)
+		var vector = (	Vector2(x*x_spacing,y*y_spacing) + 
+						Vector2(randfn(0,52),randfn(0,50)) + 
+						offset)
 		grid.append(vector.clamp(Vector2.ZERO,limits.size-sprite_size))
 		if x == 2: print(grid.slice(-3))
 	return grid

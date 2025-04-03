@@ -18,7 +18,7 @@ var _scene_cache: Dictionary = {}
 
 @export_category("Loading Screen")
 @export var enable_loading_screen: bool = true
-@export var min_load_time: float = 0  # Minimum time to show loading screen
+@export var min_load_time: float = 0.01  # Minimum time to show loading screen
 
 # Internal nodes
 var _transition_layer: CanvasLayer

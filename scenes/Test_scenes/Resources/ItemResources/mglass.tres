@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://dl8yq2dgd54we"]
+
+[ext_resource type="Script" uid="uid://cm0375cbhv71" path="res://item_resource.gd" id="1_fhumw"]
+[ext_resource type="Texture2D" uid="uid://dqk20prf6nty2" path="res://assets/Inventory/Inventory_Items/mglass.png" id="2_24ibk"]
+
+[resource]
+script = ExtResource("1_fhumw")
+item_name = &"mglass"
+item_description = "What are you some kinda defective detective??"
+texture = ExtResource("2_24ibk")
+type = 0

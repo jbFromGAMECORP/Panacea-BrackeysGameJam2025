@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://ccvcpu43am2f5"]
+
+[ext_resource type="Script" uid="uid://cm0375cbhv71" path="res://item_resource.gd" id="1_1dxyj"]
+[ext_resource type="Texture2D" uid="uid://c7p2wydxi6yxd" path="res://assets/Inventory/Inventory_Items/bulb.png" id="2_6fwko"]
+
+[resource]
+script = ExtResource("1_1dxyj")
+item_name = &"bulb"
+item_description = "Hold it above your head if you get a bright idea"
+texture = ExtResource("2_6fwko")
+type = 0

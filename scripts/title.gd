@@ -17,7 +17,6 @@ func initialize_child_transparency():
 	panacea_logo.modulate = Color.TRANSPARENT
 	button_container.modulate = Color.TRANSPARENT
 	
-	# Todo
 func start_logo_tween():
 	create_tween().tween_property(panacea_logo,"modulate",Color.WHITE,1.2).set_ease(Tween.EASE_OUT)
 	

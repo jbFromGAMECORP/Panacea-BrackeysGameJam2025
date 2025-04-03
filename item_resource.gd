@@ -2,7 +2,7 @@ extends Resource
 class_name ItemResource
 
 @export var item_name : StringName
-@export var item_description : String
+@export_multiline var item_description : String
 @export var texture : Texture2D
 @export var type : ITEM_TYPE
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://doinscl0ehu0f"]
+
+[ext_resource type="Script" uid="uid://cm0375cbhv71" path="res://item_resource.gd" id="1_detlc"]
+[ext_resource type="Texture2D" uid="uid://c71yl0yuulc21" path="res://assets/Inventory/Inventory_Items/wrench.png" id="2_8a361"]
+
+[resource]
+script = ExtResource("1_detlc")
+item_name = &"wrench"
+item_description = "Great for tune ups. Just don't throw it in the gears."
+texture = ExtResource("2_8a361")
+type = 0

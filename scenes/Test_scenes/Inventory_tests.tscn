@@ -113,10 +113,6 @@ size = Vector2(10, 10)
 [sub_resource type="ButtonGroup" id="ButtonGroup_kgbtr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycmce"]
-content_margin_left = 60.0
-content_margin_top = 60.0
-content_margin_right = 60.0
-content_margin_bottom = 60.0
 bg_color = Color(0.417969, 0.345212, 0.267761, 1)
 border_width_left = 10
 border_width_top = 10
@@ -944,29 +940,28 @@ text = "+1 item"
 layout_mode = 0
 offset_left = 1289.0
 offset_top = 337.0
-offset_right = 1967.0
-offset_bottom = 720.0
+offset_right = 1914.0
+offset_bottom = 660.0
 pivot_offset = Vector2(218.608, 310.732)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ycmce")
 
-[node name="Draggable Area" type="MarginContainer" parent="Page Inventory/InventoryContainer_pages/Panel5"]
+[node name="Drag_Inventory" parent="Page Inventory/InventoryContainer_pages/Panel5" instance=ExtResource("31_44kwl")]
 layout_mode = 2
+anchors_preset = 0
 offset_left = 60.0
-offset_top = 60.0
-offset_right = 618.0
-offset_bottom = 323.0
-
-[node name="Drag_Inventory" parent="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area" instance=ExtResource("31_44kwl")]
-layout_mode = 2
+offset_top = 126.0
+offset_right = -60.0
+offset_bottom = -60.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="Draggable Detection" parent="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/Drag_Inventory" index="0"]
-position = Vector2(278, 132)
-scale = Vector2(7.77265, 4.60443)
+[node name="Draggable Detection" parent="Page Inventory/InventoryContainer_pages/Panel5/Drag_Inventory" index="0"]
+position = Vector2(253, 37)
+scale = Vector2(7.17901, 3.95941)
 
-[node name="CollisionShape2D" parent="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/Drag_Inventory/Draggable Detection" index="0"]
+[node name="CollisionShape2D" parent="Page Inventory/InventoryContainer_pages/Panel5/Drag_Inventory/Draggable Detection" index="0"]
 position = Vector2(0.0673828, -0.171661)
+debug_color = Color(0, 0.595, 0.7, 0.360784)
 
 [connection signal="pressed" from="Default Inventory/SuitcaseButton" to="Default Inventory/InventoryContainer" method="_on_suitcase_button_pressed"]
 [connection signal="button_down" from="Default Inventory/InventoryContainer/LeftArrowButton" to="Default Inventory/InventoryContainer" method="_on_left_arrow_button_pressed"]
@@ -987,4 +982,4 @@ position = Vector2(0.0673828, -0.171661)
 [connection signal="pressed" from="Page Inventory/InventoryContainer_pages/sub" to="Page Inventory/InventoryContainer_pages" method="_on_sub_pressed"]
 [connection signal="pressed" from="Page Inventory/InventoryContainer_pages/add" to="Page Inventory/InventoryContainer_pages" method="_on_add_pressed"]
 
-[editable path="Page Inventory/InventoryContainer_pages/Panel5/Draggable Area/Drag_Inventory"]
+[editable path="Page Inventory/InventoryContainer_pages/Panel5/Drag_Inventory"]

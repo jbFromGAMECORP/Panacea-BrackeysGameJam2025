@@ -91,10 +91,11 @@ texture = ExtResource("2_wq5n5")
 region_rect = Rect2(1, 22, 98, 93)
 
 [node name="Draggable Zone" parent="." instance=ExtResource("4_cm1ik")]
+layout_mode = 1
 offset_left = 362.0
 offset_top = 243.0
-offset_right = 737.0
-offset_bottom = 811.0
+offset_right = -1175.0
+offset_bottom = -251.0
 
 [node name="Draggable Detection" parent="Draggable Zone" index="0"]
 position = Vector2(187, 291)

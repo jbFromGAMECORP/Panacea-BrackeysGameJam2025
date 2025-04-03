@@ -1,7 +1,7 @@
 extends Control
 const FADE_DURATION = 1.25
 const MOUSE_OFFSET_RATIO = .015
-const NEXT_SCENE = "res://scenes/Test_scenes/ColdOpenComicTest.tscn"
+@export_file("*.tscn") var NEXT_SCENE : String
 @onready var default_position := global_position
 @onready var menu_hover_click: AudioStreamPlayer = $"Menu Hover Click"
 @onready var button_container: MarginContainer = $"Button Container"
@@ -30,7 +30,7 @@ func start_pressed():
 	if current_tween.is_valid():
 		print("ALREADY TWEENING DAWG!")
 		return
-	print("START BUTTON PRESSED") #TODO
+	print("START BUTTON PRESSED") 
 	Transition.change_scene(NEXT_SCENE)
 
 

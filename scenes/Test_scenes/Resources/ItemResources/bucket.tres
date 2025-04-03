@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_dr4np")
 item_name = &"bucket"
-item_description = "IDK"
+item_description = "Hmm... a bucket. Could fill it with water?"
 texture = ExtResource("2_axo1f")
 type = 0

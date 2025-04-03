@@ -43,6 +43,7 @@ grow_vertical = 2
 shape = SubResource("RectangleShape2D_ue70l")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -24.0
 offset_top = -54.0
