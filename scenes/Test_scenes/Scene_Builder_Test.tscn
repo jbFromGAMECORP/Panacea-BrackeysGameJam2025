@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c1ulqoho2y1xh"]
+[gd_scene load_steps=33 format=3 uid="uid://c1ulqoho2y1xh"]
 
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="1_jpdxa"]
 [ext_resource type="Texture2D" uid="uid://de4441n7cdoi2" path="res://assets/Room Assets/floor texture.png" id="2_ebrb0"]
@@ -21,8 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://vfcklmtk6e1i" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/bootles.png" id="18_y65ff"]
 [ext_resource type="Texture2D" uid="uid://thbjb7lohio8" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/materials.png" id="19_l7kk3"]
 [ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="21_iqkle"]
-[ext_resource type="Texture2D" uid="uid://dpx7nt0tx3cv1" path="res://assets/icons/builder.png" id="22_l7kk3"]
-[ext_resource type="Texture2D" uid="uid://chfpmjsm6c48a" path="res://assets/Inventory/Inventory_Items/lighter.png" id="23_dl3n3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
 blend_mode = 2
@@ -68,12 +66,6 @@ func on_pressed():
 "
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_l7kk3"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ny6lg"]
-texture = ExtResource("22_l7kk3")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_472fd"]
-texture = ExtResource("23_dl3n3")
 
 [node name="SceneBuilderTest" type="Node2D"]
 metadata/_edit_vertical_guides_ = [7238.0]
@@ -491,16 +483,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 41.0
-offset_top = 40.0
-offset_right = 201.0
-offset_bottom = 113.0
+offset_left = 1709.0
+offset_top = 50.0
+offset_right = 1869.0
+offset_bottom = 123.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Change Scene"
 script = SubResource("GDScript_g00ck")
 
 [node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("21_iqkle")]
+
+[node name="Page Inventory" parent="CanvasLayer/GUI/Inventory" index="3"]
+offset_left = -28.0
+offset_top = 348.0
+offset_right = 12.0
+offset_bottom = 388.0
 
 [node name="Dot1" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="0"]
 button_group = SubResource("ButtonGroup_l7kk3")
@@ -535,22 +533,6 @@ offset_left = 273.0
 offset_top = 576.0
 offset_right = 675.0
 offset_bottom = 886.0
-
-[node name="Panel3" type="Panel" parent="CanvasLayer/GUI"]
-layout_mode = 0
-offset_left = 302.0
-offset_top = 590.0
-offset_right = 371.0
-offset_bottom = 655.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_ny6lg")
-
-[node name="Panel4" type="Panel" parent="CanvasLayer/GUI"]
-layout_mode = 0
-offset_left = 328.0
-offset_top = 756.0
-offset_right = 397.0
-offset_bottom = 821.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_472fd")
 
 [connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
 
