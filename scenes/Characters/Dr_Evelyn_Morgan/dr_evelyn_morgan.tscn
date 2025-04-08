@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8j4o0xptxrfy"]
+[gd_scene load_steps=20 format=3 uid="uid://b8j4o0xptxrfy"]
 
 [ext_resource type="Script" uid="uid://dnjdnie5jk5up" path="res://scenes/Characters/Dr_Evelyn_Morgan/dr_evelyn_morgan.gd" id="1_bek8w"]
 [ext_resource type="Texture2D" uid="uid://co5vw34wwqb78" path="res://assets/Protagonist/WalkingAnimation/1-walk-shadow.png" id="2_s0ca0"]
@@ -111,8 +111,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tf2j"]
 size = Vector2(170, 39)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30hm7"]
+radius = 20.0
+height = 174.0
+
 [node name="Protag_Dr_Evelyn_Morgan" type="CharacterBody2D"]
-z_index = 5
+y_sort_enabled = true
 position = Vector2(-1, 0)
 collision_layer = 2
 script = ExtResource("1_bek8w")
@@ -120,10 +124,18 @@ metadata/_edit_vertical_guides_ = [50.0]
 metadata/_edit_horizontal_guides_ = [20.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -303)
+position = Vector2(4, -18)
 sprite_frames = SubResource("SpriteFrames_crku5")
 animation = &"idle"
+offset = Vector2(-4, -285)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-25, -15.5)
 shape = SubResource("RectangleShape2D_4tf2j")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-25, -15.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_30hm7")
+debug_color = Color(0, 0.7, 0.303333, 0.419608)

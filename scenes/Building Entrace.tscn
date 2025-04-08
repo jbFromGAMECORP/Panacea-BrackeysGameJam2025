@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dw0tre01ddq81"]
+[gd_scene load_steps=48 format=3 uid="uid://dw0tre01ddq81"]
 
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="1_wmd5c"]
 [ext_resource type="Texture2D" uid="uid://do3mj8epvxu7p" path="res://assets/Room Assets/Wall Texture.jpg" id="2_abkmt"]
@@ -12,10 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://u21eaqpdek8q" path="res://assets/Room Assets/Background/Posters_0.png" id="10_0pbvx"]
 [ext_resource type="Texture2D" uid="uid://baht56l8f5s6r" path="res://scenes/Test_scenes/assets/Sprite - Front and Isometric - Cubic Wooden Furniture - Wood with White and Red.png" id="10_j16ff"]
 [ext_resource type="Script" uid="uid://b77kr0d3v6rd8" path="res://scenes/Test_scenes/build_unit.gd" id="11_8u3og"]
+[ext_resource type="Texture2D" uid="uid://qtmb1jxc1ore" path="res://assets/Room Assets/paitent corrdors - cropped/door.png" id="11_wmd5c"]
 [ext_resource type="Texture2D" uid="uid://bphjg165h7x6f" path="res://assets/Placeholder Art/plant.png" id="14_o7mw7"]
+[ext_resource type="Script" uid="uid://wnby8evy7nan" path="res://TEXT_EFFECT.gd" id="15_o7mw7"]
 [ext_resource type="Texture2D" uid="uid://blbhjgqls0ug4" path="res://assets/Room Assets/patient area-cropped/air vents.png" id="15_tdix5"]
 [ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/Dr_Evelyn_Morgan/dr_evelyn_morgan.tscn" id="16_sd57k"]
 [ext_resource type="Script" uid="uid://5wop7vhpqiy0" path="res://scenes/Test_scenes/dr_evelyn_morgan_vert_test.gd" id="17_ils0f"]
+[ext_resource type="Texture2D" uid="uid://bsoy8086utdyy" path="res://assets/Placeholder Art/poles.png" id="18_abkmt"]
 [ext_resource type="Texture2D" uid="uid://drey3007url2j" path="res://assets/Placeholder Art/painting.png" id="19_wmd5c"]
 [ext_resource type="Texture2D" uid="uid://cmvjdv74kv3v7" path="res://assets/Room Assets/black bars.png" id="20_qj6pb"]
 [ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="21_w8t1w"]
@@ -24,6 +27,28 @@
 blend_mode = 2
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_abkmt"]
+
+[sub_resource type="Gradient" id="Gradient_abkmt"]
+offsets = PackedFloat32Array(0.0545455, 0.115152, 0.175758, 0.254545, 0.321212, 0.836364)
+colors = PackedColorArray(0.693735, 0.858688, 0.893742, 1, 0.7304, 0.877507, 0.88, 1, 0.693735, 0.858688, 0.893742, 1, 0.7565, 0.887775, 0.89, 1, 0.693735, 0.858688, 0.893742, 1, 0.693735, 0.858688, 0.893742, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y6vgr"]
+gradient = SubResource("Gradient_abkmt")
+width = 400
+height = 200
+fill_from = Vector2(0.215962, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_myaxg"]
+offsets = PackedFloat32Array(0, 0.97, 1)
+colors = PackedColorArray(0.259162, 0.341127, 0.341598, 1, 0.259162, 0.341127, 0.341598, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rodud"]
+gradient = SubResource("Gradient_myaxg")
+width = 400
+height = 200
+fill = 2
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_5hn8b"]
 interpolation_mode = 1
@@ -44,6 +69,29 @@ content_margin_right = 20.0
 content_margin_bottom = 20.0
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="RichTextEffect" id="RichTextEffect_wmd5c"]
+script = ExtResource("15_o7mw7")
+metadata/_custom_type_script = "uid://wnby8evy7nan"
+
+[sub_resource type="Gradient" id="Gradient_o7mw7"]
+offsets = PackedFloat32Array(0, 0.272727, 0.793939, 0.975758)
+colors = PackedColorArray(0, 0, 0, 1, 0.32, 0.32, 0.32, 1, 0.32, 0.32, 0.32, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wmd5c"]
+gradient = SubResource("Gradient_o7mw7")
+height = 680
+
+[sub_resource type="Gradient" id="Gradient_wmd5c"]
+offsets = PackedFloat32Array(0.272727, 0.606061, 1)
+colors = PackedColorArray(0.32, 0.32, 0.32, 1, 0.32, 0.32, 0.32, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_abkmt"]
+gradient = SubResource("Gradient_wmd5c")
+height = 680
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jpdxa"]
 normal = Vector2(1, 0.53)
 
@@ -54,6 +102,18 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cahdj"]
 normal = Vector2(0, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7mw7"]
+radius = 90.0
+height = 1492.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmd5c"]
+radius = 14.0
+height = 110.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abkmt"]
+radius = 14.0
+height = 1178.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2e10s"]
 atlas = ExtResource("20_qj6pb")
@@ -74,16 +134,17 @@ func on_pressed():
 [sub_resource type="ButtonGroup" id="ButtonGroup_l7kk3"]
 
 [node name="SceneBuilderTest" type="Node2D"]
+y_sort_enabled = true
 metadata/_edit_vertical_guides_ = [7238.0]
 metadata/_edit_horizontal_guides_ = [929.0, 96.0, 365.0]
 
-[node name="Hallway 1" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="."]
 
-[node name="Edges" type="Node2D" parent="Hallway 1"]
+[node name="Edges" type="Node2D" parent="Background"]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="WallType7" type="Sprite2D" parent="Hallway 1/Edges"]
+[node name="WallType7" type="Sprite2D" parent="Background/Edges"]
 modulate = Color(0.93, 1, 0.987167, 1)
 position = Vector2(7695, 511)
 rotation = 1.5708
@@ -92,7 +153,7 @@ skew = 1.0472
 texture = ExtResource("1_wmd5c")
 centered = false
 
-[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Edges/WallType7"]
+[node name="Wall Texture" type="Sprite2D" parent="Background/Edges/WallType7"]
 modulate = Color(0.81, 0.81, 0.81, 0.145098)
 material = SubResource("CanvasItemMaterial_2e10s")
 position = Vector2(-577.878, -87.6662)
@@ -101,7 +162,7 @@ skew = -0.558505
 texture = ExtResource("2_abkmt")
 centered = false
 
-[node name="TileTexture6" type="Sprite2D" parent="Hallway 1/Edges"]
+[node name="TileTexture6" type="Sprite2D" parent="Background/Edges"]
 visible = false
 modulate = Color(1, 0.796078, 0.803922, 0.658824)
 position = Vector2(7397.22, 225.753)
@@ -110,7 +171,7 @@ scale = Vector2(0.792873, 0.654537)
 skew = 1.09995
 texture = ExtResource("3_y6vgr")
 
-[node name="WallType6" type="Sprite2D" parent="Hallway 1/Edges"]
+[node name="WallType6" type="Sprite2D" parent="Background/Edges"]
 modulate = Color(0.93, 1, 0.987167, 1)
 clip_children = 2
 position = Vector2(-1271, 1095.65)
@@ -119,7 +180,7 @@ scale = Vector2(0.473587, 1.16546)
 texture = ExtResource("1_wmd5c")
 centered = false
 
-[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Edges/WallType6"]
+[node name="Wall Texture" type="Sprite2D" parent="Background/Edges/WallType6"]
 modulate = Color(0.81, 0.81, 0.81, 0.145098)
 material = SubResource("CanvasItemMaterial_2e10s")
 position = Vector2(3524.1, 1090.56)
@@ -129,7 +190,7 @@ skew = -1.36663
 texture = ExtResource("2_abkmt")
 centered = false
 
-[node name="TileTexture5" type="Sprite2D" parent="Hallway 1/Edges"]
+[node name="TileTexture5" type="Sprite2D" parent="Background/Edges"]
 visible = false
 modulate = Color(1, 0.796078, 0.803922, 0.658824)
 position = Vector2(-226.7, 341.232)
@@ -138,13 +199,13 @@ scale = Vector2(0.792873, 0.894478)
 skew = -1.09956
 texture = ExtResource("3_y6vgr")
 
-[node name="Floor" type="Node2D" parent="Hallway 1"]
+[node name="Floor" type="Node2D" parent="Background"]
 position = Vector2(0, 884)
 scale = Vector2(1, 1.07999)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Floor2" type="Sprite2D" parent="Hallway 1/Floor"]
+[node name="Floor2" type="Sprite2D" parent="Background/Floor"]
 position = Vector2(3565.35, -6.10352e-05)
 scale = Vector2(1.52304, 1.08291)
 skew = -0.523599
@@ -153,7 +214,7 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 887, 2427, 193)
 
-[node name="Floor1" type="Sprite2D" parent="Hallway 1/Floor"]
+[node name="Floor1" type="Sprite2D" parent="Background/Floor"]
 position = Vector2(-28, 6.10352e-05)
 scale = Vector2(1.56613, 1.08291)
 skew = 0.523599
@@ -162,21 +223,21 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 887, 2427, 193)
 
-[node name="FloorTexture" type="Sprite2D" parent="Hallway 1/Floor"]
+[node name="FloorTexture" type="Sprite2D" parent="Background/Floor"]
 modulate = Color(0.396078, 0.447059, 0.784314, 0.0392157)
 position = Vector2(2378.03, 99.5137)
 scale = Vector2(1.75618, 1.48981)
 skew = 0.0610864
 texture = ExtResource("5_rodud")
 
-[node name="FloorTexture2" type="Sprite2D" parent="Hallway 1/Floor"]
+[node name="FloorTexture2" type="Sprite2D" parent="Background/Floor"]
 modulate = Color(0.396078, 0.447059, 0.784314, 0.0392157)
 position = Vector2(6088.14, 75.9266)
 scale = Vector2(0.935024, 1.48981)
 skew = 0.0610864
 texture = ExtResource("5_rodud")
 
-[node name="Floor Breaker" type="Sprite2D" parent="Hallway 1/Floor"]
+[node name="Floor Breaker" type="Sprite2D" parent="Background/Floor"]
 modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
 position = Vector2(1173.66, 91)
 scale = Vector2(0.608369, 1.26921)
@@ -185,7 +246,7 @@ texture = ExtResource("6_sg2e0")
 region_enabled = true
 region_rect = Rect2(1124, 406, 53, 192)
 
-[node name="Floor Breaker2" type="Sprite2D" parent="Hallway 1/Floor"]
+[node name="Floor Breaker2" type="Sprite2D" parent="Background/Floor"]
 modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
 position = Vector2(6049, 91)
 scale = Vector2(0.608369, 1.26921)
@@ -194,7 +255,7 @@ texture = ExtResource("6_sg2e0")
 region_enabled = true
 region_rect = Rect2(1124, 406, 53, 192)
 
-[node name="FloorBreaker2" type="Sprite2D" parent="Hallway 1/Floor"]
+[node name="FloorBreaker2" type="Sprite2D" parent="Background/Floor"]
 modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
 position = Vector2(3719, 91)
 scale = Vector2(0.608369, 1.26921)
@@ -203,78 +264,77 @@ texture = ExtResource("6_sg2e0")
 region_enabled = true
 region_rect = Rect2(1124, 406, 53, 192)
 
-[node name="Wall" type="Node2D" parent="Hallway 1"]
+[node name="Wall" type="Node2D" parent="Background"]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Left" type="Sprite2D" parent="Hallway 1/Wall"]
-modulate = Color(0.957333, 0.84, 1, 1)
+[node name="Left" type="Sprite2D" parent="Background/Wall"]
+modulate = Color(1, 0.84, 0.84, 1)
+position = Vector2(2408, 0)
 scale = Vector2(0.992171, 0.821296)
 texture = ExtResource("1_wmd5c")
 centered = false
 
-[node name="Wall Texture2" type="Sprite2D" parent="Hallway 1/Wall/Left"]
+[node name="Wall Texture2" type="Sprite2D" parent="Background/Wall/Left"]
 self_modulate = Color(0.89, 0.89, 0.89, 0.12549)
 position = Vector2(13.1026, 3.65277)
 scale = Vector2(1.25724, 0.75)
 texture = ExtResource("7_yf0h2")
 centered = false
 
-[node name="Mid" type="Sprite2D" parent="Hallway 1/Wall"]
-modulate = Color(0.93, 1, 0.987167, 1)
-clip_children = 2
-position = Vector2(2408, 0)
+[node name="Mid" type="Sprite2D" parent="Background/Wall"]
+modulate = Color(1, 0.84, 0.84, 1)
+position = Vector2(17.0002, 0)
 scale = Vector2(0.992171, 0.821296)
 texture = ExtResource("1_wmd5c")
 centered = false
 
-[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Wall/Mid"]
-modulate = Color(0.7, 0.7, 0.7, 0.341176)
-material = SubResource("CanvasItemMaterial_2e10s")
-scale = Vector2(0.594744, 1)
-texture = ExtResource("2_abkmt")
+[node name="Wall Texture2" type="Sprite2D" parent="Background/Wall/Mid"]
+self_modulate = Color(0.89, 0.89, 0.89, 0.12549)
+position = Vector2(13.1026, 3.65277)
+scale = Vector2(1.25724, 0.75)
+texture = ExtResource("7_yf0h2")
 centered = false
 
-[node name="Right" type="Sprite2D" parent="Hallway 1/Wall"]
-modulate = Color(0.93, 1, 0.987167, 1)
-clip_children = 2
-position = Vector2(4824.9, 0)
+[node name="Right" type="Sprite2D" parent="Background/Wall"]
+modulate = Color(1, 0.84, 0.84, 1)
+position = Vector2(4825, 0)
 scale = Vector2(0.992171, 0.821296)
 texture = ExtResource("1_wmd5c")
 centered = false
 
-[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Wall/Right"]
-modulate = Color(0.7, 0.7, 0.7, 0.341176)
-material = SubResource("CanvasItemMaterial_2e10s")
-scale = Vector2(0.592554, 1)
-texture = ExtResource("2_abkmt")
+[node name="Wall Texture2" type="Sprite2D" parent="Background/Wall/Right"]
+self_modulate = Color(0.89, 0.89, 0.89, 0.12549)
+position = Vector2(13.1026, 3.65277)
+scale = Vector2(1.25724, 0.75)
+texture = ExtResource("7_yf0h2")
 centered = false
 
-[node name="Basebaord" type="Sprite2D" parent="Hallway 1/Wall"]
+[node name="Basebaord" type="Sprite2D" parent="Background/Wall"]
 modulate = Color(0.501556, 0.589913, 0.742188, 1)
-position = Vector2(4820.5, 869)
-scale = Vector2(16.0833, 1.90909)
+position = Vector2(3620.5, 869)
+scale = Vector2(24.0833, 1.90909)
 texture = ExtResource("8_0mnun")
 
-[node name="WoodSeperator" type="Sprite2D" parent="Hallway 1/Wall"]
+[node name="WoodSeperator" type="Sprite2D" parent="Background/Wall"]
 position = Vector2(2408, 445.615)
 rotation = -1.5708
 scale = Vector2(0.373421, 0.985985)
 texture = ExtResource("9_aahcn")
 
-[node name="WoodSeperator3" type="Sprite2D" parent="Hallway 1/Wall/WoodSeperator"]
+[node name="WoodSeperator3" type="Sprite2D" parent="Background/Wall/WoodSeperator"]
 position = Vector2(5.35608, -2442.23)
 texture = ExtResource("9_aahcn")
 
-[node name="WoodSeperator4" type="Sprite2D" parent="Hallway 1/Wall/WoodSeperator"]
+[node name="WoodSeperator4" type="Sprite2D" parent="Background/Wall/WoodSeperator"]
 position = Vector2(5.35522, 4893.59)
 texture = ExtResource("9_aahcn")
 
-[node name="WoodSeperator2" type="Sprite2D" parent="Hallway 1/Wall/WoodSeperator"]
+[node name="WoodSeperator2" type="Sprite2D" parent="Background/Wall/WoodSeperator"]
 position = Vector2(-5.35693, 2451.26)
 texture = ExtResource("9_aahcn")
 
-[node name="Chair" type="Sprite2D" parent="Hallway 1/Wall"]
+[node name="Chair" type="Sprite2D" parent="Background/Wall"]
 material = SubResource("CanvasItemMaterial_abkmt")
 position = Vector2(1231, 816)
 scale = Vector2(3.30682, 3.30682)
@@ -282,48 +342,93 @@ texture = ExtResource("10_j16ff")
 region_enabled = true
 region_rect = Rect2(40, 258, 96, 88)
 
-[node name="Chair2" type="Sprite2D" parent="Hallway 1/Wall/Chair"]
+[node name="Chair2" type="Sprite2D" parent="Background/Wall/Chair"]
 material = SubResource("CanvasItemMaterial_abkmt")
 position = Vector2(90.7217, 0)
 texture = ExtResource("10_j16ff")
 region_enabled = true
 region_rect = Rect2(40, 258, 96, 88)
 
-[node name="Chair4" type="Sprite2D" parent="Hallway 1/Wall/Chair"]
+[node name="Chair4" type="Sprite2D" parent="Background/Wall/Chair"]
 material = SubResource("CanvasItemMaterial_abkmt")
 position = Vector2(181.443, 0)
 texture = ExtResource("10_j16ff")
 region_enabled = true
 region_rect = Rect2(40, 258, 96, 88)
 
-[node name="Chair3" type="Sprite2D" parent="Hallway 1/Wall/Chair"]
+[node name="Chair3" type="Sprite2D" parent="Background/Wall/Chair"]
 material = SubResource("CanvasItemMaterial_abkmt")
 position = Vector2(-90.7216, 0)
 texture = ExtResource("10_j16ff")
 region_enabled = true
 region_rect = Rect2(40, 258, 96, 88)
 
-[node name="Doors" type="Node2D" parent="Hallway 1"]
+[node name="windows" type="Node2D" parent="Background"]
+position = Vector2(3689, 436)
+
+[node name="window1" type="Sprite2D" parent="Background/windows"]
+position = Vector2(-424.102, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows/window1"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window2" type="Sprite2D" parent="Background/windows"]
+position = Vector2(-9, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows/window2"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window3" type="Sprite2D" parent="Background/windows"]
+position = Vector2(408, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows/window3"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window4" type="Sprite2D" parent="Background/windows"]
+position = Vector2(824, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows/window4"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="Doors" type="Node2D" parent="Background"]
 position = Vector2(6219, 1040)
 
-[node name="door" type="Sprite2D" parent="Hallway 1/Doors"]
+[node name="door" type="Sprite2D" parent="Background/Doors"]
 position = Vector2(1095.69, -328.512)
 rotation = -1.5708
 scale = Vector2(8.76777, 2.56363)
 skew = 1.0821
 texture = SubResource("GradientTexture2D_vv5kp")
 
-[node name="door2" type="Sprite2D" parent="Hallway 1/Doors"]
+[node name="door2" type="Sprite2D" parent="Background/Doors"]
 position = Vector2(-6307.5, -321)
 rotation = 1.5708
 scale = Vector2(8.74591, 2.64802)
 skew = -1.08036
 texture = SubResource("GradientTexture2D_vv5kp")
 
-[node name="Items" type="Node2D" parent="Hallway 1"]
+[node name="Door" type="Sprite2D" parent="Background/Doors"]
+position = Vector2(-3425, -453)
+scale = Vector2(1.02395, 1.17375)
+texture = ExtResource("11_wmd5c")
 
-[node name="Posters" type="Sprite2D" parent="Hallway 1/Items" node_paths=PackedStringArray("position_points")]
-position = Vector2(2789, 347)
+[node name="Items" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Posters" type="Sprite2D" parent="Items" node_paths=PackedStringArray("position_points")]
+position = Vector2(2749, -280)
 scale = Vector2(0.547722, 0.566071)
 texture = ExtResource("10_0pbvx")
 region_enabled = true
@@ -334,15 +439,15 @@ position_enabled = true
 position_points = NodePath("Random_Placement")
 metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
 
-[node name="Random_Placement" type="Line2D" parent="Hallway 1/Items/Posters"]
+[node name="Random_Placement" type="Line2D" parent="Items/Posters"]
 top_level = true
 points = PackedVector2Array(2609, 365, 4699, 365)
 width = 3.0
 default_color = Color(0, 1, 0.0334229, 1)
 
-[node name="Posters2" type="Sprite2D" parent="Hallway 1/Items" node_paths=PackedStringArray("position_points")]
+[node name="Posters2" type="Sprite2D" parent="Items" node_paths=PackedStringArray("position_points")]
 material = SubResource("CanvasItemMaterial_y6vgr")
-position = Vector2(4231, 333)
+position = Vector2(3387, -385)
 scale = Vector2(0.566, 0.566)
 texture = ExtResource("10_0pbvx")
 hframes = 3
@@ -354,35 +459,35 @@ position_enabled = true
 position_points = NodePath("Random_Placement")
 metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
 
-[node name="Random_Placement" type="Line2D" parent="Hallway 1/Items/Posters2"]
+[node name="Random_Placement" type="Line2D" parent="Items/Posters2"]
 top_level = true
 points = PackedVector2Array(183, 365, 2265, 365)
 width = 3.0
 default_color = Color(0, 1, 0.0334229, 1)
 
-[node name="AirVents" type="Sprite2D" parent="Hallway 1/Items"]
+[node name="AirVents" type="Sprite2D" parent="Items"]
 position = Vector2(3209, 96)
 texture = ExtResource("15_tdix5")
 
-[node name="AirVents3" type="Sprite2D" parent="Hallway 1/Items"]
+[node name="AirVents3" type="Sprite2D" parent="Items"]
 position = Vector2(5631, 96)
 texture = ExtResource("15_tdix5")
 
-[node name="AirVents2" type="Sprite2D" parent="Hallway 1/Items"]
+[node name="AirVents2" type="Sprite2D" parent="Items"]
 position = Vector2(384, 96)
 texture = ExtResource("15_tdix5")
 
-[node name="Plant" type="Sprite2D" parent="Hallway 1/Items"]
+[node name="Plant" type="Sprite2D" parent="Items"]
 position = Vector2(732, 718)
 scale = Vector2(1.2052, 1.2052)
 texture = ExtResource("14_o7mw7")
 
-[node name="Plant2" type="Sprite2D" parent="Hallway 1/Items"]
+[node name="Plant2" type="Sprite2D" parent="Items"]
 position = Vector2(2065, 708)
 scale = Vector2(1.2052, 1.2052)
 texture = ExtResource("14_o7mw7")
 
-[node name="Label" type="RichTextLabel" parent="Hallway 1/Items"]
+[node name="Label" type="RichTextLabel" parent="Items"]
 offset_left = 1924.0
 offset_top = 129.0
 offset_right = 2189.0
@@ -390,7 +495,7 @@ offset_bottom = 467.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_myaxg")
 bbcode_enabled = true
-text = "[center][font_size=32][u]SAFETY FIRST[/u][/font_size][i]
+text = "[ghost][center][font_size=32][u]SAFETY FIRST[/u][/font_size][i]
 “An incident-free week is a productive week.”[/i] [/center] 
 [font_size=14
 [ul bullet=]
@@ -403,6 +508,52 @@ text = "[center][font_size=32][u]SAFETY FIRST[/u][/font_size][i]
 □ Level 1 clearance does not mean Level 2 privilege
 "
 fit_content = true
+custom_effects = [SubResource("RichTextEffect_wmd5c")]
+
+[node name="Metal Detector" type="Sprite2D" parent="Items"]
+z_index = 10
+position = Vector2(3210, 704.5)
+scale = Vector2(1.57812, 1.07206)
+texture = SubResource("GradientTexture2D_wmd5c")
+
+[node name="lid" type="Sprite2D" parent="Items/Metal Detector"]
+position = Vector2(-0.0493698, -352.905)
+scale = Vector2(1.0099, 0.0767481)
+texture = SubResource("GradientTexture2D_abkmt")
+
+[node name="Metal Detector2" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(3104, 623)
+scale = Vector2(1, 0.851563)
+texture = SubResource("GradientTexture2D_wmd5c")
+
+[node name="Metal Detector" type="Sprite2D" parent="Items/Metal Detector2"]
+z_index = 10
+position = Vector2(-162, 129.174)
+scale = Vector2(1, 1.17431)
+texture = SubResource("GradientTexture2D_wmd5c")
+
+[node name="lid" type="Sprite2D" parent="Items/Metal Detector2/Metal Detector"]
+position = Vector2(81.6092, -369.856)
+scale = Vector2(0.98555, 0.256758)
+skew = 1.21824
+texture = SubResource("GradientTexture2D_wmd5c")
+
+[node name="Painting" type="Sprite2D" parent="Items"]
+y_sort_enabled = true
+position = Vector2(1355, 365)
+texture = ExtResource("19_wmd5c")
+
+[node name="Poles" type="Sprite2D" parent="Items"]
+y_sort_enabled = true
+position = Vector2(3441.5, 971)
+texture = ExtResource("18_abkmt")
+offset = Vector2(257, -191)
+
+[node name="Poles2" type="Sprite2D" parent="Items"]
+position = Vector2(3969, 976)
+texture = ExtResource("18_abkmt")
+offset = Vector2(258.5, -196)
 
 [node name="Bounds" type="StaticBody2D" parent="."]
 position = Vector2(-41, 527)
@@ -427,9 +578,33 @@ position = Vector2(-66, 363)
 shape = SubResource("WorldBoundaryShape2D_cahdj")
 debug_color = Color(1, 0.588235, 0, 0.137255)
 
+[node name="chairs" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(1425, 320)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o7mw7")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="metal detector2" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(3253, 538)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wmd5c")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="metal detector3" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(3247, 378)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wmd5c")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="ropes" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(4009.5, 449)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_abkmt")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
 [node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("16_sd57k")]
 texture_filter = 2
-position = Vector2(1775, 966)
+position = Vector2(3645, 1039)
 slide_on_ceiling = false
 floor_constant_speed = true
 platform_on_leave = 2
@@ -444,7 +619,6 @@ position_smoothing_speed = 20.0
 editor_draw_limits = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -524,10 +698,6 @@ offset_left = 273.0
 offset_top = 576.0
 offset_right = 675.0
 offset_bottom = 886.0
-
-[node name="Painting" type="Sprite2D" parent="."]
-position = Vector2(1355, 365)
-texture = ExtResource("19_wmd5c")
 
 [connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
 

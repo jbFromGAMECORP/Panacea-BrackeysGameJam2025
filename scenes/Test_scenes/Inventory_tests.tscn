@@ -946,6 +946,7 @@ pivot_offset = Vector2(218.608, 310.732)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ycmce")
 
 [node name="Drag_Inventory" parent="Page Inventory/InventoryContainer_pages/Panel5" instance=ExtResource("31_44kwl")]
+unique_name_in_owner = true
 layout_mode = 2
 anchors_preset = 0
 offset_left = 60.0

@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccdwb7mtfpmyi"]
+[gd_scene load_steps=3 format=3 uid="uid://ccdwb7mtfpmyi"]
+
+[ext_resource type="Texture2D" uid="uid://d2lvmyak3a84f" path="res://assets/Inventory/Inventory_Items/bucket.png" id="1_v3rnx"]
 
 [sub_resource type="GDScript" id="GDScript_4a1s6"]
 resource_name = "TESTZONE"
@@ -28,6 +30,7 @@ func print_bit(num):
 "
 
 [node name="TESTZONE" type="Control"]
+y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,3 +38,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_4a1s6")
+
+[node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+y_sort_enabled = true
+position = Vector2(165, 137)
+texture = ExtResource("1_v3rnx")
+
+[node name="Node2D2" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+y_sort_enabled = true
+position = Vector2(144, 106)
+texture = ExtResource("1_v3rnx")
