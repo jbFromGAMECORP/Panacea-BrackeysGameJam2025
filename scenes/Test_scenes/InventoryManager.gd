@@ -4,9 +4,11 @@ extends Control
 signal object_taken
 signal object_placed
 @export var player : PlayerResource
+enum SPREAD_TYPE {RANDOM,DISTRIBUTE}
+@export var spread_type :SPREAD_TYPE = 0
 var held_object : Draggable
 var held_object_parent : Node
-@onready var drag_inventory: DragZone = $"Page Inventory/InventoryContainer_pages/Panel5/Drag_Inventory"
+@onready var drag_inventory: DragZone = %Drag_Inventory
 
 
 func _ready() -> void:
@@ -40,26 +42,35 @@ func create_items(inventory:Array[ItemResource]):
 
 func spread_items():
 	prints("drag inventory size:::",drag_inventory.size)
-
+	match spread_type:
+		SPREAD_TYPE.RANDOM:
+			pass
+		SPREAD_TYPE.DISTRIBUTE:
+			pass
 	arrange_items_to_points(drag_inventory)
-
-func _generate_points(area,count) -> Array[Vector2]:
-	var x_count :float = ceili(sqrt(count))
-	var y_count :float = count/x_count
-	var x_spacing = area.size.x / (x_count -1)
-	var y_spacing = area.size.y / (y_count -1)
-	var grid: Array[Vector2]= []
-	for x in x_count:
-		for y in y_count:
-			grid.append(Vector2(x*x_spacing,y*y_spacing))
-		print(grid.slice(-3))
-	return grid
 
 func arrange_items_to_points(area):
 	var nodes = area.get_children().slice(1)
-	var points :Array[Vector2]= _generate_points(area,len(nodes))
-	#points.shuffle()
+	var points :Array= _generate_points(area,len(nodes))
+	points.shuffle()
+	points = points.map(_distribute_point)
 	
 	for node in nodes:
-		node.scale = Vector2.ONE * .25
 		node.position = points.pop_front()
+
+func _generate_points(area,count) -> Array[Vector2]:
+	const offset = 48
+	var x_count :float = ceili(sqrt(count))
+	var y_count :float = count/x_count
+	var x_spacing = (area.size.x-offset*2) / (x_count-1)
+	var y_spacing = (area.size.y-offset*2) / (y_count-1)
+	var grid: Array[Vector2]= []
+	for x in x_count:
+		for y in y_count:
+			grid.append(Vector2(x*x_spacing,y*y_spacing)+Vector2(offset,offset))
+		print(grid.slice(-3))
+	return grid
+
+func _distribute_point(point : Vector2):
+	const distr = 200
+	return (point + Vector2(randfn(0,distr),randfn(0,distr))).clamp(Vector2.ZERO,drag_inventory.size)

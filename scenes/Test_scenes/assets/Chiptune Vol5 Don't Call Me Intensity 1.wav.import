@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8swogiuvbsur"
+path="res://.godot/imported/Chiptune Vol5 Don't Call Me Intensity 1.wav-a8fe9696c439424f6e1c66cf1c96624c.sample"
+
+[deps]
+
+source_file="res://scenes/Test_scenes/assets/Chiptune Vol5 Don't Call Me Intensity 1.wav"
+dest_files=["res://.godot/imported/Chiptune Vol5 Don't Call Me Intensity 1.wav-a8fe9696c439424f6e1c66cf1c96624c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

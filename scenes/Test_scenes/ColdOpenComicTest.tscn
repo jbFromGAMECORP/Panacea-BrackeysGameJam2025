@@ -1,0 +1,234 @@
+[gd_scene load_steps=8 format=3 uid="uid://n0lmnf0kos0u"]
+
+[ext_resource type="Script" uid="uid://t88332w8x1b" path="res://scenes/Test_scenes/cold_open_comic_test.gd" id="1_bo1r6"]
+[ext_resource type="Texture2D" uid="uid://blcdaopffhquv" path="res://scenes/Test_scenes/assets/Comic Panel.png" id="2_tput5"]
+[ext_resource type="Texture2D" uid="uid://dslfxbpw0vl5k" path="res://scenes/Test_scenes/assets/comic 3.png" id="3_gvoub"]
+[ext_resource type="Texture2D" uid="uid://bj1iqq0cgpn7g" path="res://scenes/Test_scenes/assets/fadepanel.png" id="3_rdxqw"]
+[ext_resource type="AudioStream" uid="uid://8swogiuvbsur" path="res://scenes/Test_scenes/assets/Chiptune Vol5 Don't Call Me Intensity 1.wav" id="3_tput5"]
+
+[sub_resource type="GDScript" id="GDScript_tput5"]
+resource_name = "Music test labels"
+script/source = "extends Control
+
+func _process(delta: float) -> void:
+	$Music1.text = \"%.1f\\n%.1f\" % [$\"../Music\".volume_db,$\"../Music\".volume_linear]
+	$Music2.text = \"%.1f\\n%.1f\" % [$\"../Music2\".volume_db,$\"../Music2\".volume_linear]
+	$\"Music Queue\".text = str($\"..\".music_queue[0].name) + \" | \" + $\"..\".music_queue[1].name
+	$Music1.modulate = Color.GREEN if $\"../Music\".playing else Color.RED
+	$Music2.modulate = Color.GREEN if $\"../Music2\".playing else Color.RED
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_rdxqw"]
+font_size = 50
+
+[node name="ColdOpen" type="Node2D"]
+script = ExtResource("1_bo1r6")
+metadata/_edit_horizontal_guides_ = [541.0]
+metadata/_edit_vertical_guides_ = [960.0]
+
+[node name="Polygon2D11" type="Polygon2D" parent="."]
+show_behind_parent = true
+position = Vector2(3, -14)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-47, -94, 2077, -28, 1954, 1114, -22, 1120)
+
+[node name="ComicPanel2" type="Sprite2D" parent="."]
+position = Vector2(6, 617)
+texture = ExtResource("2_tput5")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 384.718, 1920, 695.282)
+
+[node name="ComicPanel" type="Sprite2D" parent="."]
+clip_children = 2
+texture = ExtResource("2_tput5")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 385.077)
+
+[node name="Comic1" type="Sprite2D" parent="ComicPanel"]
+position = Vector2(240, 35)
+scale = Vector2(0.553561, 0.585976)
+texture = ExtResource("3_gvoub")
+offset = Vector2(5.22388, 257.923)
+
+[node name="Panels" type="Node2D" parent="ComicPanel"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+
+[node name="Panel0" type="Sprite2D" parent="ComicPanel/Panels"]
+position = Vector2(467, 181)
+rotation = 1.57079
+scale = Vector2(0.765606, 1.16824)
+texture = ExtResource("3_rdxqw")
+offset = Vector2(4.44086, 253.658)
+
+[node name="Panel1" type="Sprite2D" parent="ComicPanel/Panels"]
+position = Vector2(731, 2.39687)
+scale = Vector2(0.7594, 1.01975)
+texture = ExtResource("3_rdxqw")
+offset = Vector2(4.44086, 253.658)
+
+[node name="Panel2" type="Sprite2D" parent="ComicPanel/Panels"]
+position = Vector2(875.148, 199)
+rotation = -1.57079
+scale = Vector2(0.7594, 0.662633)
+texture = ExtResource("3_rdxqw")
+offset = Vector2(4.44086, 253.658)
+
+[node name="Panel3" type="Sprite2D" parent="ComicPanel/Panels"]
+position = Vector2(1170.44, 192)
+rotation = -1.57079
+scale = Vector2(0.7594, 0.733429)
+texture = ExtResource("3_rdxqw")
+offset = Vector2(4.44086, 253.658)
+
+[node name="Panel4" type="Sprite2D" parent="ComicPanel/Panels"]
+position = Vector2(1616, 35)
+scale = Vector2(0.592955, 0.861593)
+texture = ExtResource("3_rdxqw")
+offset = Vector2(-0.618469, 250.236)
+
+[node name="Panel5" type="Sprite2D" parent="ComicPanel/Panels"]
+position = Vector2(188.247, 651.861)
+scale = Vector2(0.545327, 0.958524)
+texture = ExtResource("3_rdxqw")
+offset = Vector2(4.44086, 253.658)
+
+[node name="Panel6" type="Sprite2D" parent="ComicPanel/Panels"]
+position = Vector2(565, 617.458)
+scale = Vector2(0.913118, 1.24795)
+texture = ExtResource("3_rdxqw")
+offset = Vector2(4.44086, 253.658)
+
+[node name="Panel7" type="Sprite2D" parent="ComicPanel/Panels"]
+position = Vector2(935.271, 693.629)
+scale = Vector2(0.54916, 0.758515)
+texture = ExtResource("3_rdxqw")
+offset = Vector2(4.44086, 253.658)
+
+[node name="Panel9" type="Sprite2D" parent="ComicPanel/Panels"]
+position = Vector2(1218, 1055.63)
+rotation = -3.14159
+scale = Vector2(0.568417, 0.934421)
+texture = ExtResource("3_rdxqw")
+offset = Vector2(4.44086, 253.658)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tput5")
+volume_db = -12.077
+max_polyphony = 2
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tput5")
+volume_db = -12.077
+max_polyphony = 2
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1535.0
+offset_top = 13.0
+offset_right = 1575.0
+offset_bottom = 53.0
+script = SubResource("GDScript_tput5")
+
+[node name="Music1" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -1528.0
+offset_top = 54.0
+offset_right = -1168.0
+offset_bottom = 201.0
+text = "0"
+label_settings = SubResource("LabelSettings_rdxqw")
+horizontal_alignment = 1
+
+[node name="Music2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 67.0
+offset_right = 367.0
+offset_bottom = 214.0
+text = "0"
+label_settings = SubResource("LabelSettings_rdxqw")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 147.0
+text = "Music Player 2:"
+label_settings = SubResource("LabelSettings_rdxqw")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -1535.0
+offset_top = -13.0
+offset_right = -1175.0
+offset_bottom = 134.0
+text = "Music Player 1:"
+label_settings = SubResource("LabelSettings_rdxqw")
+
+[node name="Music Queue" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -797.0
+offset_top = -7.0
+offset_right = -437.0
+offset_bottom = 140.0
+text = "Music Player 1:"
+label_settings = SubResource("LabelSettings_rdxqw")
+
+[node name="Polygon2D" type="Sprite2D" parent="."]
+visible = false
+clip_children = 1
+position = Vector2(1679, 650)
+texture = ExtResource("2_tput5")
+region_enabled = true
+region_rect = Rect2(338.359, 379.23, 430.667, 469.641)
+
+[node name="Node2D" type="Node2D" parent="Polygon2D"]
+position = Vector2(-127, -27)
+
+[node name="ComicPanel3" type="Sprite2D" parent="Polygon2D/Node2D"]
+position = Vector2(116, 12)
+scale = Vector2(8.78947, 10.6588)
+texture = ExtResource("2_tput5")
+region_enabled = true
+region_rect = Rect2(93, 60, 114, 85)
+
+[node name="ComicPanel2" type="Sprite2D" parent="Polygon2D/Node2D"]
+position = Vector2(144, 35)
+rotation = 6.28319
+scale = Vector2(1.21635, 0.928823)
+texture = ExtResource("2_tput5")
+region_enabled = true
+region_rect = Rect2(24.7635, 17.2829, 455.774, 359.144)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 540.0
+offset_right = 1919.0
+offset_bottom = 542.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 960.0
+offset_top = -219.0
+offset_right = 2879.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708

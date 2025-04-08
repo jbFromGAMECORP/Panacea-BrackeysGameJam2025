@@ -61,6 +61,7 @@ func _physics_process(delta: float=0) -> void:
 func drag():
 	drag_started.emit(self)												# This is picked up by the Dragzone Handler
 	scale += Vector2(.3,.3)												# Small scale to help show it's 'picked up'
+	z_index += 10
 	original_position = position										# Stores where you picked it up from
 	mouse_offset = global_position - get_global_mouse_position()		# Stores where on the objects area you grabbed
 	top_level = true													# Appear above all items
@@ -70,6 +71,7 @@ func drag():
 
 func release():
 	scale -= Vector2(.3,.3)												# Reset scale back down
+	z_index -= 10
 	set_physics_process(false)											# Disables dragging
 	drag_released.emit(self)											# This is picked up by the Dragzone Handler
 	
@@ -116,7 +118,7 @@ func grab_sprite(pos):
 func exit_zone():
 	await get_tree().physics_frame
 	var area = $"Draggable Detection".get_overlapping_areas().get(0)
-	if area: 
+	if area and area.get_parent()._subclass_criteria(self): 
 		in_drag_zone = area.get_parent()
 	else:
 		in_drag_zone = null

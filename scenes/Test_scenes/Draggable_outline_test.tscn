@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c71yl0yuulc21" path="res://assets/Inventory/Inventory_Items/wrench.png" id="2_wq5n5"]
 [ext_resource type="PackedScene" uid="uid://cucgabq38ngxs" path="res://scenes/Test_scenes/DragArea.tscn" id="4_cm1ik"]
 [ext_resource type="Script" uid="uid://7br27ugagkbp" path="res://scenes/Test_scenes/test_shapes.gd" id="4_mykmi"]
-[ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="5_wq5n5"]
+[ext_resource type="PackedScene" uid="uid://b4suvmpf53t64" path="res://scenes/Test_scenes/new_suitcase_inventory.tscn" id="6_cm1ik"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
 bg_color = Color(0.417969, 0.345212, 0.267761, 1)
@@ -180,11 +180,7 @@ offset_bottom = 589.0
 text = "❌"
 label_settings = SubResource("LabelSettings_8kp3w")
 
-[node name="Inventory" parent="." instance=ExtResource("5_wq5n5")]
-offset_left = -83.0
-offset_top = 283.0
-offset_right = -83.0
-offset_bottom = 283.0
+[node name="Inventory" parent="." instance=ExtResource("6_cm1ik")]
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

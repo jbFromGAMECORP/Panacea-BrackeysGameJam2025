@@ -1,22 +1,22 @@
 {
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
-"_translation_id": "",
-"color": Color(1, 1, 1, 1),
-"custom_info": {
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
 "style": "",
 "suffix": ""
 },
-"default_portrait": "RandomScientist1",
-"description": "A random scientist at the facility.",
-"display_name": "Random Scientist",
-"mirror": false,
-"nicknames": [""],
-"offset": Vector2(0, 0),
-"portraits": {
+&"default_portrait": "RandomScientist1",
+&"description": "A random scientist at the facility.",
+&"display_name": "Random Scientist",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
 "RandomScientist1": {
 "export_overrides": {
 "image": "\"res://assets/PremadeLabAssets/LaboratoryTilesetPixelArt16px_marceles/labnpcs_randoGuy_facingForward.png\""
@@ -27,5 +27,5 @@
 "scene": ""
 }
 },
-"scale": 1.0
+&"scale": 1.0
 }

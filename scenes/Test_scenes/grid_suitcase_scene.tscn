@@ -1,0 +1,298 @@
+[gd_scene load_steps=15 format=3 uid="uid://jvngay5tn1u"]
+
+[ext_resource type="Resource" uid="uid://bmpulmhsvba3f" path="res://scenes/Test_scenes/Resources/InventoryResources/PlayerInventory.tres" id="2_d0r5c"]
+[ext_resource type="Texture2D" uid="uid://cmfdcxhgaodh7" path="res://scenes/UI/Inventory/Assets/suitcase_icon_closed.png" id="3_5gh1t"]
+[ext_resource type="Script" uid="uid://ddh0x273qk0mi" path="res://scripts/suitcase_button.gd" id="4_jdav1"]
+[ext_resource type="PackedScene" uid="uid://b4suvmpf53t64" path="res://scenes/Test_scenes/new_suitcase_inventory.tscn" id="5_d0r5c"]
+[ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="5_wyigw"]
+
+[sub_resource type="GDScript" id="GDScript_an7ss"]
+resource_name = "GridIventory"
+script/source = "
+extends Control
+
+signal object_taken
+signal object_placed
+@export var player : PlayerResource
+enum SPREAD_TYPE {RANDOM,DISTRIBUTE}
+var held_object : Draggable
+var held_object_parent : Node
+@export var drag_inventory :Control
+
+
+func _ready() -> void:
+	var item_array = create_items(player.inventory)
+	create_slots()
+	assign_items(item_array)
+	
+	# Called from created draggables, they pass their signals in.
+func connect_draggable_signals(_drag_started:Signal,_drag_released:Signal):
+	_drag_started.connect(drag_started)
+	_drag_released.connect(drag_released)
+	
+func drag_started(obj:Node):
+	held_object = obj
+	held_object_parent = obj.get_parent()
+	
+func drag_released(obj:Node):
+	held_object = null
+	held_object_parent = null
+	
+
+func create_items(inventory:Array[ItemResource]):
+	const item_base = preload(\"res://scenes/Test_scenes/Resoure_scens/item_base.tscn\")
+	var item_array:Array
+	for item in inventory:
+		if item:
+			var item_object:Draggable = item_base.instantiate()
+			item_object.item = item
+			item_array.append(item_object)
+	return item_array
+
+func assign_items(item_array:Array):
+	item_array.reverse()
+	for slot in drag_inventory.get_children():
+		slot.add_child(item_array.pop_back())
+	
+func create_slots():
+	const amount = 11
+	var slot = drag_inventory.get_child(0)
+	for x in amount:
+		drag_inventory.add_child(slot.duplicate())
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qaoq3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6jwe"]
+
+[sub_resource type="GDScript" id="GDScript_mkctq"]
+resource_name = "Invetory Container"
+script/source = "extends TextureRect
+
+@onready var suitcase: Button = $\"../SuitcaseButton\"
+
+
+@onready var _default_scale := scale
+const MINIMIZED_SCALE := Vector2(0,.3)				# Target scale for disappearing into case
+const ANIMATION_SPEED = .18 						# Base speed for Tweens.
+
+var tween := Tween.new() 							# Tween holder, new tweens can either wait or replace a already running tween
+
+func _ready() -> void:
+	scale = MINIMIZED_SCALE
+	$OpenSuitcaseSprite/InventoryGrid.set_process_mode(Node.PROCESS_MODE_DISABLED)
+	hide()
+
+func _on_suitcase_button_pressed() -> void:
+	if tween.is_valid():
+		tween.kill()
+		
+	var is_openning = process_suitcase_state()
+	print(\"openning!\" if is_openning else \"Closing!\")
+	var start_scale:Vector2
+	var end_scale:Vector2
+	if is_openning:
+		open_suitcase()
+		start_scale = MINIMIZED_SCALE
+		end_scale = _default_scale 
+	else:
+		$OpenSuitcaseSprite/InventoryGrid.set_process_mode(Node.PROCESS_MODE_DISABLED)
+		start_scale = _default_scale
+		end_scale = MINIMIZED_SCALE
+		
+	tween = create_tween()
+	tween.tween_property(self,\"scale\",end_scale,ANIMATION_SPEED).from(start_scale)
+	await tween.finished
+	print(\"tween done\")
+	if not is_openning:
+		close_suitcase()
+	else:
+		$OpenSuitcaseSprite/InventoryGrid.set_process_mode(Node.PROCESS_MODE_INHERIT)
+
+func close_suitcase():
+	
+	visible = false
+	suitcase.set_button_icon(suitcase.closed_texture)
+	
+func open_suitcase():
+	visible = true
+	suitcase.set_button_icon(suitcase.open_texture)
+
+func process_suitcase_state() -> bool:
+	suitcase._on_pressed() 
+	return suitcase.suitcaseState == \"open\"
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycmce"]
+bg_color = Color(0.417969, 0.345212, 0.267761, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.214844, 0.136152, 0.0520325, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjvfs"]
+bg_color = Color(0.22, 0.139187, 0.0528, 0.529412)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_de0pg"]
+bg_color = Color(0.22, 0.139187, 0.0528, 0.239216)
+border_width_right = 60
+border_color = Color(0.313726, 0.235294, 0.152941, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkctq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo6ie"]
+bg_color = Color(0.298039, 0, 0, 0.278431)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.780392)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Inventory" type="Control" node_paths=PackedStringArray("drag_inventory")]
+layout_mode = 3
+anchors_preset = 0
+script = SubResource("GDScript_an7ss")
+player = ExtResource("2_d0r5c")
+drag_inventory = NodePath("InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid")
+
+[node name="SuitcaseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -15.0
+offset_right = 231.0
+offset_bottom = 179.0
+scale = Vector2(0.719998, 0.719998)
+tooltip_text = "Inventory"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qaoq3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r6jwe")
+toggle_mode = true
+icon = ExtResource("3_5gh1t")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_jdav1")
+
+[node name="InventoryContainer_pages" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -1275.0
+offset_top = -339.0
+offset_right = -1275.0
+offset_bottom = -339.0
+pivot_offset = Vector2(624, 492)
+size_flags_horizontal = 6
+script = SubResource("GDScript_mkctq")
+
+[node name="OpenSuitcaseSprite" type="Panel" parent="InventoryContainer_pages"]
+layout_mode = 0
+offset_left = 1289.0
+offset_top = 456.0
+offset_right = 1961.0
+offset_bottom = 872.0
+pivot_offset = Vector2(218.608, 310.732)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ycmce")
+
+[node name="Full panel" type="Panel" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 656.0
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gjvfs")
+
+[node name="Side Panel" type="Panel" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 120.0
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_de0pg")
+
+[node name="Label" type="Label" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 128.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_mkctq")
+text = "Note-book Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 96.0
+offset_bottom = 256.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_mkctq")
+text = "Static Object #2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 288.0
+offset_right = 96.0
+offset_bottom = 384.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_mkctq")
+text = "Static Object #3"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="InventoryGrid" type="GridContainer" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
+layout_mode = 2
+offset_left = 117.0
+offset_top = 82.0
+offset_right = 640.0
+offset_bottom = 454.0
+columns = 4
+
+[node name="Drag_Inventory" parent="InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid" instance=ExtResource("5_wyigw")]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Panel" type="Panel" parent="InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid/Drag_Inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oo6ie")
+
+[node name="Inventory" parent="." instance=ExtResource("5_d0r5c")]
+offset_left = 757.0
+offset_top = -3.0
+offset_right = 757.0
+offset_bottom = -3.0
+
+[connection signal="pressed" from="SuitcaseButton" to="InventoryContainer_pages" method="_on_suitcase_button_pressed"]

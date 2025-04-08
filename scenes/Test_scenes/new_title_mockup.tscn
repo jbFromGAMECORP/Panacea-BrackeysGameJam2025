@@ -8,10 +8,10 @@
 [ext_resource type="Script" uid="uid://bojpar1oo81sn" path="res://scripts/ui_manager.gd" id="5_srryv"]
 [ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="6_36itg"]
 [ext_resource type="FontFile" uid="uid://djqlvado86g0t" path="res://assets/Fonts/doctor_glitch/Doctor Glitch.otf" id="7_2waps"]
-[ext_resource type="Script" uid="uid://qhf2x7kdtxml" path="res://scripts/Menu_Buttons.gd" id="8_lkswn"]
+[ext_resource type="Script" uid="uid://d3wpdmiwhaj33" path="res://scripts/Menu_Buttons.gd" id="8_lkswn"]
 [ext_resource type="Shader" uid="uid://dxiavuahbnaky" path="res://scenes/Test_scenes/assets/new_title_mockup.gdshader" id="9_lyusr"]
 [ext_resource type="FontFile" uid="uid://bt3rcvvmfnq7" path="res://assets/Fonts/another_danger/Another Danger - Demo.otf" id="10_8vxbm"]
-[ext_resource type="Script" uid="uid://jbumhfruedww" path="res://scripts/rich_text_label.gd" id="11_btjkc"]
+[ext_resource type="Script" uid="uid://s28l01qawqwp" path="res://scripts/rich_text_label.gd" id="11_btjkc"]
 
 [sub_resource type="GDScript" id="GDScript_a1ssv"]
 resource_name = "TitleMusicTest"

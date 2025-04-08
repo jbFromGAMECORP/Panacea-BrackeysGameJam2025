@@ -288,6 +288,7 @@ theme_override_font_sizes/normal_font_size = 15
 theme_override_font_sizes/bold_font_size = 15
 bbcode_enabled = true
 text = "Some default text"
+fit_content = true
 visible_characters_behavior = 1
 script = ExtResource("3_4634k")
 textbox_root = NodePath("..")
