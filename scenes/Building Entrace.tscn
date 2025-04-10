@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dw0tre01ddq81"]
+[gd_scene load_steps=53 format=3 uid="uid://dw0tre01ddq81"]
 
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="1_wmd5c"]
 [ext_resource type="Texture2D" uid="uid://do3mj8epvxu7p" path="res://assets/Room Assets/Wall Texture.jpg" id="2_abkmt"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://drey3007url2j" path="res://assets/Placeholder Art/painting.png" id="19_wmd5c"]
 [ext_resource type="Texture2D" uid="uid://cmvjdv74kv3v7" path="res://assets/Room Assets/black bars.png" id="20_qj6pb"]
 [ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="21_w8t1w"]
+[ext_resource type="Texture2D" uid="uid://beweo6iwixawg" path="res://scenes/Characters/Dr_Lydia/Lydia - NPC Sprite.png" id="23_rodud"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
 blend_mode = 2
@@ -115,7 +116,62 @@ height = 110.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abkmt"]
 radius = 14.0
-height = 1178.0
+height = 900.0
+
+[sub_resource type="GDScript" id="GDScript_rodud"]
+resource_name = "LydiaWalkTest"
+script/source = "extends Node2D
+
+var tween : Tween
+@onready var player: CharacterBody2D = $\"../Protag_Dr_Evelyn_Morgan\"
+@onready var lydia_dest: float = $\"Lydia Dest\".position.x
+@onready var camera_2d: Camera2D = $\"../Protag_Dr_Evelyn_Morgan/Camera2D\"
+
+const MAX_SPEED = 150.0
+const BEHIND_DISTANCE = 600.0
+var speed = 50.0
+var waiting: bool = false
+
+func _ready() -> void:
+	tween = create_tween()
+	camera_2d.offset.x = 150 #TODO redo camera and add a pull state - so lydia drags it.
+	await get_tree().create_timer(1).timeout
+	Dialogic.start(\"1_3_Lydia_EntranceHallway\")
+
+func _physics_process(delta: float) -> void:
+	var dist = global_position.x - player.global_position.x
+	camera_2d.offset.x = min(dist / 4.0,BEHIND_DISTANCE/4)
+	process_player_walk(dist)
+	if not reached_destination():
+		process_lydia_walk(delta,dist)
+	
+func process_lydia_walk(delta,dist):
+	var coefficeint = dist / BEHIND_DISTANCE * 2
+	
+	if too_far_behind(dist):
+		waiting = true
+		if speed < 10.0: return
+		speed = lerp(speed,0.0,delta * coefficeint)
+	else:
+		waiting = false
+		speed = lerp(speed,MAX_SPEED,delta * coefficeint)
+	position.x = move_toward(position.x,lydia_dest,speed*delta)
+	
+	print(int(speed), \"  \" , \"******\" if too_far_behind(dist) else int(dist),\"waiting\" if waiting else '')
+
+func too_far_behind(dist):
+	return  dist > BEHIND_DISTANCE * (0.75 if waiting else 1.0)
+
+func reached_destination():
+	return position.x == lydia_dest
+
+func process_player_walk(dist):
+	player.MAX_SPEED = clamp(remap(dist,300,600,MAX_SPEED,MAX_SPEED*3),MAX_SPEED,MAX_SPEED*3)
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sg2e0"]
+normal = Vector2(-1, 0)
+distance = 120.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2e10s"]
 atlas = ExtResource("20_qj6pb")
@@ -272,7 +328,7 @@ metadata/_edit_lock_ = true
 
 [node name="Left" type="Sprite2D" parent="Background/Wall"]
 modulate = Color(1, 0.84, 0.84, 1)
-position = Vector2(2408, 0)
+position = Vector2(3, -2)
 scale = Vector2(0.992171, 0.821296)
 texture = ExtResource("1_wmd5c")
 centered = false
@@ -286,7 +342,7 @@ centered = false
 
 [node name="Mid" type="Sprite2D" parent="Background/Wall"]
 modulate = Color(1, 0.84, 0.84, 1)
-position = Vector2(17.0002, 0)
+position = Vector2(2408, 0)
 scale = Vector2(0.992171, 0.821296)
 texture = ExtResource("1_wmd5c")
 centered = false
@@ -366,7 +422,8 @@ region_enabled = true
 region_rect = Rect2(40, 258, 96, 88)
 
 [node name="windows" type="Node2D" parent="Background"]
-position = Vector2(3689, 436)
+position = Vector2(3214, 436)
+scale = Vector2(1, 1.2)
 
 [node name="window1" type="Sprite2D" parent="Background/windows"]
 position = Vector2(-424.102, -7.00006)
@@ -404,25 +461,73 @@ show_behind_parent = true
 scale = Vector2(1.05, 1.05)
 texture = SubResource("GradientTexture2D_rodud")
 
+[node name="window5" type="Sprite2D" parent="Background/windows"]
+position = Vector2(1241, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows/window5"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="windows2" type="Node2D" parent="Background"]
+position = Vector2(6072, 436)
+scale = Vector2(1, 1.2)
+
+[node name="window1" type="Sprite2D" parent="Background/windows2"]
+position = Vector2(-424.102, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows2/window1"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window2" type="Sprite2D" parent="Background/windows2"]
+position = Vector2(-9, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows2/window2"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window3" type="Sprite2D" parent="Background/windows2"]
+position = Vector2(408, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows2/window3"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window4" type="Sprite2D" parent="Background/windows2"]
+position = Vector2(822, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows2/window4"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
 [node name="Doors" type="Node2D" parent="Background"]
-position = Vector2(6219, 1040)
 
 [node name="door" type="Sprite2D" parent="Background/Doors"]
-position = Vector2(1095.69, -328.512)
+position = Vector2(7314.69, 711.488)
 rotation = -1.5708
 scale = Vector2(8.76777, 2.56363)
 skew = 1.0821
 texture = SubResource("GradientTexture2D_vv5kp")
 
 [node name="door2" type="Sprite2D" parent="Background/Doors"]
-position = Vector2(-6307.5, -321)
+position = Vector2(-88.5, 719)
 rotation = 1.5708
 scale = Vector2(8.74591, 2.64802)
 skew = -1.08036
 texture = SubResource("GradientTexture2D_vv5kp")
 
 [node name="Door" type="Sprite2D" parent="Background/Doors"]
-position = Vector2(-3425, -453)
+position = Vector2(5150, 587)
 scale = Vector2(1.02395, 1.17375)
 texture = ExtResource("11_wmd5c")
 
@@ -490,10 +595,10 @@ scale = Vector2(1.2052, 1.2052)
 texture = ExtResource("14_o7mw7")
 
 [node name="Label" type="RichTextLabel" parent="Items"]
-offset_left = 1924.0
-offset_top = 129.0
-offset_right = 2189.0
-offset_bottom = 467.0
+offset_left = 2152.0
+offset_top = -530.0
+offset_right = 2417.0
+offset_bottom = -192.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("16_myaxg")
 theme_override_fonts/italics_font = ExtResource("17_rodud")
@@ -514,9 +619,14 @@ text = "[center][font_size=30][u]SAFETY FIRST[/u][/font_size][i]
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_wmd5c")]
 
+[node name="Painting" type="Sprite2D" parent="Items"]
+y_sort_enabled = true
+position = Vector2(1355, 365)
+texture = ExtResource("19_wmd5c")
+
 [node name="Metal Detector" type="Sprite2D" parent="Items"]
 z_index = 10
-position = Vector2(3210, 704.5)
+position = Vector2(3630.5, 704.5)
 scale = Vector2(1.57812, 1.07206)
 texture = SubResource("GradientTexture2D_wmd5c")
 
@@ -543,19 +653,27 @@ scale = Vector2(0.98555, 0.256758)
 skew = 1.21824
 texture = SubResource("GradientTexture2D_wmd5c")
 
-[node name="Painting" type="Sprite2D" parent="Items"]
-y_sort_enabled = true
-position = Vector2(1355, 365)
-texture = ExtResource("19_wmd5c")
-
 [node name="Poles" type="Sprite2D" parent="Items"]
 y_sort_enabled = true
-position = Vector2(3441.5, 971)
+position = Vector2(3862, 971)
+scale = Vector2(0.773233, 0.773233)
 texture = ExtResource("18_abkmt")
 offset = Vector2(257, -191)
 
+[node name="Poles2" type="Sprite2D" parent="Items/Poles"]
+position = Vector2(527.5, 5)
+texture = ExtResource("18_abkmt")
+offset = Vector2(258.5, -196)
+
 [node name="Poles2" type="Sprite2D" parent="Items"]
-position = Vector2(3969, 976)
+y_sort_enabled = true
+position = Vector2(2609, 971)
+scale = Vector2(0.773233, 0.773233)
+texture = ExtResource("18_abkmt")
+offset = Vector2(257, -191)
+
+[node name="Poles2" type="Sprite2D" parent="Items/Poles2"]
+position = Vector2(527.5, 5)
 texture = ExtResource("18_abkmt")
 offset = Vector2(258.5, -196)
 
@@ -589,30 +707,63 @@ shape = SubResource("CapsuleShape2D_o7mw7")
 debug_color = Color(1, 0.588235, 0, 0.137255)
 
 [node name="metal detector2" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(3253, 538)
+position = Vector2(3673.5, 538)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wmd5c")
 debug_color = Color(1, 0.588235, 0, 0.137255)
 
 [node name="metal detector3" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(3247, 378)
+position = Vector2(3667.5, 378)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wmd5c")
 debug_color = Color(1, 0.588235, 0, 0.137255)
 
 [node name="ropes" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(4009.5, 449)
+position = Vector2(4305, 449)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_abkmt")
 debug_color = Color(1, 0.588235, 0, 0.137255)
 
+[node name="ropes2" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(3052, 449)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_abkmt")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="Lydia" type="Node2D" parent="."]
+position = Vector2(621, 983)
+script = SubResource("GDScript_rodud")
+metadata/_edit_group_ = true
+
+[node name="LydiaSprite" type="Sprite2D" parent="Lydia"]
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("23_rodud")
+offset = Vector2(16, -622)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Lydia"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lydia/StaticBody2D"]
+position = Vector2(0, -329)
+shape = SubResource("WorldBoundaryShape2D_sg2e0")
+
+[node name="Lydia Dest" type="Marker2D" parent="Lydia"]
+top_level = true
+position = Vector2(3426, 773)
+gizmo_extents = 107.0
+
 [node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("16_sd57k")]
 texture_filter = 2
-position = Vector2(3645, 1039)
+position = Vector2(197, 983)
 slide_on_ceiling = false
 floor_constant_speed = true
 platform_on_leave = 2
 script = ExtResource("17_ils0f")
+MAX_SPEED = 500.0
+MAX_WALKING_ANIMATION = 500.0
+ACCEL = 700.0
+DECEL = 1200.0
+TURN_DECEL = 2000.0
+FIRST_STEP_BOOST = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="Protag_Dr_Evelyn_Morgan"]
 limit_left = -200
@@ -625,10 +776,13 @@ editor_draw_limits = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="BlackBars" type="TextureRect" parent="CanvasLayer/GUI"]
 custom_minimum_size = Vector2(1920, 1080)

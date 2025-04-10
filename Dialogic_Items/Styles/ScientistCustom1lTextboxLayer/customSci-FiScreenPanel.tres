@@ -1,15 +1,15 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bpa8b88hfrtku"]
 
-[ext_resource type="Texture2D" uid="uid://da45fnbgcw20" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Frames/scientist_textbox_IzzyDrawn.png" id="1_hhq7k"]
+[ext_resource type="Texture2D" uid="uid://bueum55mjktsh" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Frames/scientist_textbox-mediumer.png" id="1_hhq7k"]
 
 [resource]
-content_margin_left = 87.0
+content_margin_left = 60.0
 content_margin_top = 60.0
-content_margin_right = 120.0
-content_margin_bottom = 50.0
+content_margin_right = 40.0
+content_margin_bottom = 70.0
 texture = ExtResource("1_hhq7k")
 texture_margin_left = 80.0
 texture_margin_top = 69.0
 texture_margin_right = 51.0
-texture_margin_bottom = 78.0
-region_rect = Rect2(31, 2, 717, 398)
+texture_margin_bottom = 70.0
+region_rect = Rect2(34, 2, 527, 298)

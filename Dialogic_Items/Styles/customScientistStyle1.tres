@@ -15,12 +15,17 @@
 [sub_resource type="Resource" id="Resource_afcf6"]
 script = ExtResource("2_xf8f8")
 scene = ExtResource("1_t6g54")
-overrides = {}
+overrides = {
+"canvas_layer": "2.0",
+"global_bg_color": "Color(1, 0, 0, 0.9)"
+}
 
 [sub_resource type="Resource" id="Resource_scvie"]
 script = ExtResource("2_xf8f8")
 scene = ExtResource("3_iu4ha")
-overrides = {}
+overrides = {
+"disabled": "true"
+}
 
 [sub_resource type="Resource" id="Resource_y1vw4"]
 script = ExtResource("2_xf8f8")
@@ -51,7 +56,7 @@ overrides = {
 "name_label_use_global_color": "false",
 "name_label_use_global_font_size": "false",
 "normal_font": "\"res://assets/Fonts/Syne_Mono/SyneMono-Regular.ttf\"",
-"text_size": "30.0",
+"text_size": "34.0",
 "text_use_global_color": "false",
 "text_use_global_font": "false",
 "text_use_global_size": "false"

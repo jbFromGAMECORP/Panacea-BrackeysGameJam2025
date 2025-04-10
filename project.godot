@@ -35,6 +35,7 @@ directories/dch_directory={
 "randomScientist": "res://Dialogic_Items/Characters/randomScientist.dch"
 }
 directories/dtl_directory={
+"1_3_Lydia_EntranceHallway": "res://Dialogic_Items/Timelines/1_3_Lydia_EntranceHallway.dtl",
 "coldOpenScene": "res://Dialogic_Items/Timelines/coldOpenScene.dtl",
 "cold_open_comic_test": "res://scenes/Test_scenes/cold_open_comic_test.dtl",
 "cowboyTestTimeline": "res://Dialogic_Items/Timelines/cowboyTestTimeline.dtl",
@@ -142,5 +143,6 @@ down={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=2
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

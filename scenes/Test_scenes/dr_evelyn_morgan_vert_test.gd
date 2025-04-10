@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 #region Player Movement
-const MAX_SPEED = 500.0			# How fast we can go
-const ACCEL = 700.0				# How quickly we move up to max_speed
-const DECEL = 1200.0			# How quickly we come to a stop
-const TURN_DECEL = 2000.0		# How snappy turns are
-const FIRST_STEP_BOOST = 100.0  # How quickly our walk starts
+@export var MAX_SPEED = 500.0			# How fast we can go
+@export var MAX_WALKING_ANIMATION = 500.0			# How fast we can go
+@export var ACCEL = 700.0				# How quickly we move up to max_speed
+@export var DECEL = 1200.0			# How quickly we come to a stop
+@export var TURN_DECEL = 2000.0		# How snappy turns are
+@export var FIRST_STEP_BOOST = 100.0  # How quickly our walk starts
 #endregion 
 
 #region Camera Constants
@@ -70,7 +71,7 @@ func set_animation_speed():
 		"idle":														# Don't adjust for Idle
 			$AnimatedSprite2D.speed_scale = 1
 		"walking":													# A eased scale from 0 to 1, based on our speed's factor between 0 and MAX_SPEED
-			$AnimatedSprite2D.speed_scale = smoothstep(-150,MAX_SPEED,abs(velocity.length())) #NOTE: -150 should be 0, but I find the curve feels better with a higher standing point.
+			$AnimatedSprite2D.speed_scale = smoothstep(-150,MAX_WALKING_ANIMATION,abs(velocity.length())) #NOTE: -150 should be 0, but I find the curve feels better with a higher standing point.
 	pass
 			
 func player():
