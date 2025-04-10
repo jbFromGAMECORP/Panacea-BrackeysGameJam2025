@@ -27,6 +27,7 @@ DH="*res://scripts/DialogicHelper.gd"
 [dialogic]
 
 directories/dch_directory={
+"Lydia": "res://Dialogic_Items/Characters/Lydia.dch",
 "drLundy": "res://Dialogic_Items/Characters/drLundy.dch",
 "drQ_coldOpen": "res://Dialogic_Items/Characters/drQ_coldOpen.dch",
 "dr_perez": "res://Dialogic_Items/Characters/dr_perez.dch",
@@ -85,6 +86,9 @@ audio/channel_defaults={
 variables={}
 glossary/default_case_sensitive=true
 text/absolute_autopauses=false
+history/simple_history_enabled=false
+history/simple_history_save=false
+text/input_action="dialogic_default_action"
 
 [display]
 

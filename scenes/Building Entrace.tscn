@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dw0tre01ddq81"]
+[gd_scene load_steps=54 format=3 uid="uid://dw0tre01ddq81"]
 
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="1_wmd5c"]
 [ext_resource type="Texture2D" uid="uid://do3mj8epvxu7p" path="res://assets/Room Assets/Wall Texture.jpg" id="2_abkmt"]
@@ -76,6 +76,26 @@ bg_color = Color(1, 1, 1, 1)
 script = ExtResource("15_o7mw7")
 metadata/_custom_type_script = "uid://wnby8evy7nan"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rodud"]
+content_margin_left = 13.0
+content_margin_top = 1.0
+content_margin_right = 3.0
+content_margin_bottom = 1.0
+bg_color = Color(0.848485, 0.848485, 0.848485, 1)
+border_width_left = 10
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.423062, 0.116934, 0.116934, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 2
+corner_detail = 2
+shadow_color = Color(0, 0, 0, 0.317647)
+shadow_size = 3
+shadow_offset = Vector2(0, 0.5)
+
 [sub_resource type="Gradient" id="Gradient_o7mw7"]
 offsets = PackedFloat32Array(0, 0.272727, 0.793939, 0.975758)
 colors = PackedColorArray(0, 0, 0, 1, 0.32, 0.32, 0.32, 1, 0.32, 0.32, 0.32, 1, 0, 0, 0, 1)
@@ -137,7 +157,8 @@ func _ready() -> void:
 	camera_2d.offset.x = 150 #TODO redo camera and add a pull state - so lydia drags it.
 	await get_tree().create_timer(1).timeout
 	Dialogic.start(\"1_3_Lydia_EntranceHallway\")
-
+	await Dialogic.timeline_ended
+	Dialogic.start(\"testDialogue\")
 func _physics_process(delta: float) -> void:
 	var dist = global_position.x - player.global_position.x
 	camera_2d.offset.x = min(dist / 4.0,BEHIND_DISTANCE/4)
@@ -531,10 +552,7 @@ position = Vector2(5150, 587)
 scale = Vector2(1.02395, 1.17375)
 texture = ExtResource("11_wmd5c")
 
-[node name="Items" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="Posters" type="Sprite2D" parent="Items" node_paths=PackedStringArray("position_points")]
+[node name="Posters" type="Sprite2D" parent="Background" node_paths=PackedStringArray("position_points")]
 position = Vector2(2749, -280)
 scale = Vector2(0.547722, 0.566071)
 texture = ExtResource("10_0pbvx")
@@ -546,13 +564,13 @@ position_enabled = true
 position_points = NodePath("Random_Placement")
 metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
 
-[node name="Random_Placement" type="Line2D" parent="Items/Posters"]
+[node name="Random_Placement" type="Line2D" parent="Background/Posters"]
 top_level = true
 points = PackedVector2Array(2609, 365, 4699, 365)
 width = 3.0
 default_color = Color(0, 1, 0.0334229, 1)
 
-[node name="Posters2" type="Sprite2D" parent="Items" node_paths=PackedStringArray("position_points")]
+[node name="Posters2" type="Sprite2D" parent="Background" node_paths=PackedStringArray("position_points")]
 material = SubResource("CanvasItemMaterial_y6vgr")
 position = Vector2(3387, -385)
 scale = Vector2(0.566, 0.566)
@@ -566,11 +584,14 @@ position_enabled = true
 position_points = NodePath("Random_Placement")
 metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
 
-[node name="Random_Placement" type="Line2D" parent="Items/Posters2"]
+[node name="Random_Placement" type="Line2D" parent="Background/Posters2"]
 top_level = true
 points = PackedVector2Array(183, 365, 2265, 365)
 width = 3.0
 default_color = Color(0, 1, 0.0334229, 1)
+
+[node name="Items" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="AirVents" type="Sprite2D" parent="Items"]
 position = Vector2(3209, 96)
@@ -595,10 +616,11 @@ scale = Vector2(1.2052, 1.2052)
 texture = ExtResource("14_o7mw7")
 
 [node name="Label" type="RichTextLabel" parent="Items"]
-offset_left = 2152.0
-offset_top = -530.0
-offset_right = 2417.0
-offset_bottom = -192.0
+offset_left = 1804.0
+offset_top = 214.0
+offset_right = 2069.0
+offset_bottom = 552.0
+scale = Vector2(0.881105, 0.881105)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("16_myaxg")
 theme_override_fonts/italics_font = ExtResource("17_rodud")
@@ -615,6 +637,22 @@ text = "[center][font_size=30][u]SAFETY FIRST[/u][/font_size][i]
 □ Do not share access codes
 
 □ Level 1 clearance does not mean Level 2 privilege
+"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_wmd5c")]
+
+[node name="Label2" type="RichTextLabel" parent="Items"]
+clip_contents = false
+offset_left = 5065.0
+offset_top = 229.0
+offset_right = 5213.0
+offset_bottom = 271.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("16_myaxg")
+theme_override_fonts/italics_font = ExtResource("17_rodud")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rodud")
+bbcode_enabled = true
+text = "[center][font_size=30]Security[/font_size][i]
 "
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_wmd5c")]
@@ -753,7 +791,7 @@ gizmo_extents = 107.0
 
 [node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("16_sd57k")]
 texture_filter = 2
-position = Vector2(197, 983)
+position = Vector2(197, 1038)
 slide_on_ceiling = false
 floor_constant_speed = true
 platform_on_leave = 2
