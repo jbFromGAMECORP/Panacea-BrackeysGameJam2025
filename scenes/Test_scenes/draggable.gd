@@ -23,9 +23,7 @@ var mouse_offset:Vector2										# How far from the top left corner your mouse 
 const fly_back_speed := 3000.0									# Pixels per second items will animate back to position
 const RETURN_TYPE = DragZone.RETURN_TYPE
 var persistent_properties = {"position":true,"rotation":true}	# Determine which properties are persisted.
-
 @export var in_drag_zone = null									#: Stores the currently hovering DragZone. Reparents to it upon release.
-var detect: bool = true											# Turns off during tweening, so DragZones can't grab it while flying back.
 
 func _ready() -> void:
 	add_to_group("Persistent")
@@ -101,13 +99,14 @@ func release():
 	
 
 func enter_zone(node,pos=null):
-	if in_drag_zone:
-		await get_tree().physics_frame
-		if in_drag_zone.is_greater_than(node):
-			return
-	in_drag_zone = node
-	if pos != null:
-		grab_sprite(pos)
+	if is_physics_processing():
+		if in_drag_zone:
+			await get_tree().physics_frame
+			if in_drag_zone.is_greater_than(node):
+				return
+		in_drag_zone = node
+		if pos != null:
+			grab_sprite(pos)
 
 
 func grab_sprite(pos):
@@ -116,13 +115,14 @@ func grab_sprite(pos):
 
 
 func exit_zone():
-	await get_tree().physics_frame
-	var area = $"Draggable Detection".get_overlapping_areas().get(0)
-	if area and area.get_parent()._subclass_criteria(self): 
-		in_drag_zone = area.get_parent()
-	else:
-		in_drag_zone = null
-	let_go_of_sprite()
+	if is_physics_processing():
+		await get_tree().physics_frame
+		var area = $"Draggable Detection".get_overlapping_areas().get(0)
+		if area and area.get_parent()._subclass_criteria(self): 
+			in_drag_zone = area.get_parent()
+		else:
+			in_drag_zone = null
+		let_go_of_sprite()
 
 
 func let_go_of_sprite():
@@ -144,9 +144,7 @@ func closest_point_in_area():
 # Tween back to destination. Since we are top level we use global positions.
 func place_back(global_dest:Vector2):
 	var time = global_dest.distance_to(global_position)/fly_back_speed
-	detect = false
 	await create_tween().tween_property(self,"global_position",global_dest,time).set_trans(Tween.TRANS_BACK).finished
-	detect = true
 
 
 func get_persistent_properties():
@@ -169,10 +167,8 @@ func _drop_area_criteria(node):
 
 	
 func change_drag_zone():
-	detect = false
 	reparent(in_drag_zone)
 	await get_tree().physics_frame
-	detect = true
 	let_go_of_sprite()
 	var temp = global_position
 	top_level = false
@@ -181,3 +177,6 @@ func change_drag_zone():
 	if  return_type == RETURN_TYPE.TELEPORT or \
 		return_type == RETURN_TYPE.POSITION:
 		position = Vector2.ZERO
+
+func criteria():
+	return is_physics_processing()

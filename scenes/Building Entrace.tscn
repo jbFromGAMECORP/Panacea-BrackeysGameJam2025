@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dw0tre01ddq81"]
+[gd_scene load_steps=50 format=3 uid="uid://dw0tre01ddq81"]
 
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="1_wmd5c"]
 [ext_resource type="Texture2D" uid="uid://do3mj8epvxu7p" path="res://assets/Room Assets/Wall Texture.jpg" id="2_abkmt"]
@@ -16,8 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://bphjg165h7x6f" path="res://assets/Placeholder Art/plant.png" id="14_o7mw7"]
 [ext_resource type="Script" uid="uid://wnby8evy7nan" path="res://TEXT_EFFECT.gd" id="15_o7mw7"]
 [ext_resource type="Texture2D" uid="uid://blbhjgqls0ug4" path="res://assets/Room Assets/patient area-cropped/air vents.png" id="15_tdix5"]
+[ext_resource type="FontFile" uid="uid://bbo8dgxfw02o2" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Fonts/Volkhov-Regular.ttf" id="16_myaxg"]
 [ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/Dr_Evelyn_Morgan/dr_evelyn_morgan.tscn" id="16_sd57k"]
 [ext_resource type="Script" uid="uid://5wop7vhpqiy0" path="res://scenes/Test_scenes/dr_evelyn_morgan_vert_test.gd" id="17_ils0f"]
+[ext_resource type="FontFile" uid="uid://bqq132k7pyq06" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Fonts/Volkhov-Italic.ttf" id="17_rodud"]
 [ext_resource type="Texture2D" uid="uid://bsoy8086utdyy" path="res://assets/Placeholder Art/poles.png" id="18_abkmt"]
 [ext_resource type="Texture2D" uid="uid://drey3007url2j" path="res://assets/Placeholder Art/painting.png" id="19_wmd5c"]
 [ext_resource type="Texture2D" uid="uid://cmvjdv74kv3v7" path="res://assets/Room Assets/black bars.png" id="20_qj6pb"]
@@ -493,9 +495,11 @@ offset_top = 129.0
 offset_right = 2189.0
 offset_bottom = 467.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("16_myaxg")
+theme_override_fonts/italics_font = ExtResource("17_rodud")
 theme_override_styles/normal = SubResource("StyleBoxFlat_myaxg")
 bbcode_enabled = true
-text = "[ghost][center][font_size=32][u]SAFETY FIRST[/u][/font_size][i]
+text = "[center][font_size=30][u]SAFETY FIRST[/u][/font_size][i]
 “An incident-free week is a productive week.”[/i] [/center] 
 [font_size=14
 [ul bullet=]

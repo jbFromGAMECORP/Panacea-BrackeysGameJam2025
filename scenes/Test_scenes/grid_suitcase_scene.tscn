@@ -80,7 +80,6 @@ var tween := Tween.new() 							# Tween holder, new tweens can either wait or re
 
 func _ready() -> void:
 	scale = MINIMIZED_SCALE
-	$OpenSuitcaseSprite/InventoryGrid.set_process_mode(Node.PROCESS_MODE_DISABLED)
 	hide()
 
 func _on_suitcase_button_pressed() -> void:
@@ -96,7 +95,6 @@ func _on_suitcase_button_pressed() -> void:
 		start_scale = MINIMIZED_SCALE
 		end_scale = _default_scale 
 	else:
-		$OpenSuitcaseSprite/InventoryGrid.set_process_mode(Node.PROCESS_MODE_DISABLED)
 		start_scale = _default_scale
 		end_scale = MINIMIZED_SCALE
 		
@@ -106,8 +104,6 @@ func _on_suitcase_button_pressed() -> void:
 	print(\"tween done\")
 	if not is_openning:
 		close_suitcase()
-	else:
-		$OpenSuitcaseSprite/InventoryGrid.set_process_mode(Node.PROCESS_MODE_INHERIT)
 
 func close_suitcase():
 	
@@ -152,7 +148,13 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 16
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkctq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyigw"]
+bg_color = Color(0.286275, 0.137255, 0.0666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo6ie"]
 bg_color = Color(0.298039, 0, 0, 0.278431)
@@ -226,38 +228,40 @@ offset_right = 120.0
 offset_bottom = 400.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_de0pg")
 
-[node name="Label" type="Label" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
+[node name="Label4" type="Label" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 32.0
-offset_right = 96.0
+offset_right = 112.0
 offset_bottom = 128.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_mkctq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyigw")
 text = "Note-book Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
+[node name="Label5" type="Label" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 160.0
-offset_right = 96.0
+offset_right = 112.0
 offset_bottom = 256.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_mkctq")
-text = "Static Object #2"
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyigw")
+text = "Static Object 
+#2"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Label3" type="Label" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
+[node name="Label6" type="Label" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 288.0
-offset_right = 96.0
+offset_right = 112.0
 offset_bottom = 384.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_mkctq")
-text = "Static Object #3"
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyigw")
+text = "Static Object 
+#3"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
