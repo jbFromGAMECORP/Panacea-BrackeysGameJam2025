@@ -4,7 +4,8 @@
 
 [resource]
 content_margin_left = 45.0
-content_margin_top = 30.0
+content_margin_top = 18.0
 content_margin_right = 35.0
-content_margin_bottom = 30.0
+content_margin_bottom = 18.0
 texture = ExtResource("1_fnil5")
+region_rect = Rect2(4, 3, 347, 121)

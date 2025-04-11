@@ -1,8 +1,8 @@
-join Lydia leftmost
-Lydia (pleased): Welcome to the Pancea Research Facility, Dr Morgan.
+join Lydia leftmost [animation="Slide In Left" length="0.3" wait="true"]
+lidiaaaaaaaaaaaa: Welcome to the Pancea Research Facility, Dr Morgan.
 Lydia (pleased): This will be your home from now on.
-join drLundy rightmost
+join drLundy rightmost [animation="Slide In Right" length="0.3" wait="true"]
 drLundy: HEY HEY, LUNDY IS HERE. WHAT"S UP!
 Lydia: Security can be quite strict with entrance and exit protocols... though I can't imagine you'll be stepping through that door again for a while.
-Lydia: Not to worry, this place has everything you need.
+drLundy: Not to worry, this place has everything you need.
 Lydia: .................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................

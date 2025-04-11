@@ -328,14 +328,13 @@ mouse_filter = 2
 
 [node name="NameLabelPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder"]
 unique_name_in_owner = true
-self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.052
 anchor_bottom = -0.052
-offset_top = -81.956
-offset_right = 89.328
-offset_bottom = 0.0440154
+offset_top = -71.344
+offset_right = 162.0
+offset_bottom = -13.344
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("9_fr6hu")
 metadata/_edit_layout_mode = 1
@@ -348,6 +347,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_v8y64")
 theme_override_font_sizes/font_size = 15
-text = "name"
+text = "Dr. Morgan"
 script = ExtResource("7_bi7sh")
 name_label_root = NodePath("..")
