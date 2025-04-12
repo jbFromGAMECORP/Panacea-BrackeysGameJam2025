@@ -27,6 +27,7 @@ DH="*res://scripts/DialogicHelper.gd"
 [dialogic]
 
 directories/dch_directory={
+"Evelyn": "res://Dialogic_Items/Characters/Evelyn.dch",
 "Lydia": "res://Dialogic_Items/Characters/Lydia.dch",
 "drLundy": "res://Dialogic_Items/Characters/drLundy.dch",
 "drQ_coldOpen": "res://Dialogic_Items/Characters/drQ_coldOpen.dch",

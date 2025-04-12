@@ -1,8 +1,11 @@
 join Lydia leftmost [animation="Slide In Left" length="0.3" wait="true"]
-lidiaaaaaaaaaaaa: Welcome to the Pancea Research Facility, Dr Morgan.
+Lydia: Welcome to the Pancea Research Facility, Dr Morgan.
 Lydia (pleased): This will be your home from now on.
 join drLundy rightmost [animation="Slide In Right" length="0.3" wait="true"]
-drLundy: HEY HEY, LUNDY IS HERE. WHAT"S UP!
+drLundy: HEY HEY, LUNDY IS HERE. WHAT'S UP!
 Lydia: Security can be quite strict with entrance and exit protocols... though I can't imagine you'll be stepping through that door again for a while.
 drLundy: Not to worry, this place has everything you need.
-Lydia: .................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Lydia: Dr. Morgan, I this time I request you remove all metal from your pockets and person
+- Yes
+- No
+Evelyn: Oh, Umm.. Okay. [input] There that should be everything.

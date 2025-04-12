@@ -1,0 +1,957 @@
+[gd_scene load_steps=54 format=3 uid="uid://d2e7timq4spmf"]
+
+[ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="1_vt4q2"]
+[ext_resource type="Texture2D" uid="uid://do3mj8epvxu7p" path="res://assets/Room Assets/Wall Texture.jpg" id="2_kwi5v"]
+[ext_resource type="Texture2D" uid="uid://cxv1rnwcfxs77" path="res://assets/Room Assets/bathroom/tile texture.png" id="3_jy2ey"]
+[ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="4_lpjb1"]
+[ext_resource type="Texture2D" uid="uid://de4441n7cdoi2" path="res://assets/Room Assets/floor texture.png" id="5_mnhmy"]
+[ext_resource type="Texture2D" uid="uid://crucwtd57vqw2" path="res://assets/Room Assets/binder white.png" id="6_bmi6p"]
+[ext_resource type="Texture2D" uid="uid://dq2gir102lyu1" path="res://assets/Room Assets/concrete texture.jpg" id="7_a72s6"]
+[ext_resource type="Texture2D" uid="uid://dsd326xyy1l80" path="res://assets/Room Assets/basebaord - Copy.jpg" id="8_laxyc"]
+[ext_resource type="Texture2D" uid="uid://fonk47mxxcsl" path="res://assets/Room Assets/Wood seperator.png" id="9_3wq7l"]
+[ext_resource type="Texture2D" uid="uid://baht56l8f5s6r" path="res://scenes/Test_scenes/assets/Sprite - Front and Isometric - Cubic Wooden Furniture - Wood with White and Red.png" id="10_igvy3"]
+[ext_resource type="Texture2D" uid="uid://qtmb1jxc1ore" path="res://assets/Room Assets/paitent corrdors - cropped/door.png" id="11_k60a2"]
+[ext_resource type="Texture2D" uid="uid://u21eaqpdek8q" path="res://assets/Room Assets/Background/Posters_0.png" id="12_00hm3"]
+[ext_resource type="Script" uid="uid://b77kr0d3v6rd8" path="res://scenes/Test_scenes/build_unit.gd" id="13_m2ren"]
+[ext_resource type="Texture2D" uid="uid://blbhjgqls0ug4" path="res://assets/Room Assets/patient area-cropped/air vents.png" id="14_lm4fh"]
+[ext_resource type="Texture2D" uid="uid://bphjg165h7x6f" path="res://assets/Placeholder Art/plant.png" id="15_vinpo"]
+[ext_resource type="FontFile" uid="uid://bbo8dgxfw02o2" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Fonts/Volkhov-Regular.ttf" id="16_k13g0"]
+[ext_resource type="FontFile" uid="uid://bqq132k7pyq06" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Fonts/Volkhov-Italic.ttf" id="17_d7irg"]
+[ext_resource type="Script" uid="uid://wnby8evy7nan" path="res://TEXT_EFFECT.gd" id="18_hkb5g"]
+[ext_resource type="Texture2D" uid="uid://drey3007url2j" path="res://assets/Placeholder Art/painting.png" id="19_pma2f"]
+[ext_resource type="Texture2D" uid="uid://bsoy8086utdyy" path="res://assets/Placeholder Art/poles.png" id="20_3itdm"]
+[ext_resource type="Texture2D" uid="uid://beweo6iwixawg" path="res://scenes/Characters/Dr_Lydia/Lydia - NPC Sprite.png" id="21_0783v"]
+[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/Dr_Evelyn_Morgan/dr_evelyn_morgan.tscn" id="22_h7tne"]
+[ext_resource type="Script" uid="uid://5wop7vhpqiy0" path="res://scenes/Test_scenes/dr_evelyn_morgan_vert_test.gd" id="23_pigoh"]
+[ext_resource type="Texture2D" uid="uid://cmvjdv74kv3v7" path="res://assets/Room Assets/black bars.png" id="24_ip2w4"]
+[ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="25_kfn4v"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
+blend_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_abkmt"]
+offsets = PackedFloat32Array(0.0545455, 0.115152, 0.175758, 0.254545, 0.321212, 0.836364)
+colors = PackedColorArray(0.693735, 0.858688, 0.893742, 1, 0.7304, 0.877507, 0.88, 1, 0.693735, 0.858688, 0.893742, 1, 0.7565, 0.887775, 0.89, 1, 0.693735, 0.858688, 0.893742, 1, 0.693735, 0.858688, 0.893742, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y6vgr"]
+gradient = SubResource("Gradient_abkmt")
+width = 400
+height = 200
+fill_from = Vector2(0.215962, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_myaxg"]
+offsets = PackedFloat32Array(0, 0.97, 1)
+colors = PackedColorArray(0.259162, 0.341127, 0.341598, 1, 0.259162, 0.341127, 0.341598, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rodud"]
+gradient = SubResource("Gradient_myaxg")
+width = 400
+height = 200
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_5hn8b"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.03, 0.47, 0.53, 0.96)
+colors = PackedColorArray(0, 0, 0, 1, 0.439216, 0.439216, 0.439216, 1, 0, 0, 0, 1, 0.439216, 0.439216, 0.439216, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vv5kp"]
+gradient = SubResource("Gradient_5hn8b")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y6vgr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_abkmt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myaxg"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_wmd5c"]
+script = ExtResource("18_hkb5g")
+metadata/_custom_type_script = "uid://wnby8evy7nan"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rodud"]
+content_margin_left = 13.0
+content_margin_top = 1.0
+content_margin_right = 3.0
+content_margin_bottom = 1.0
+bg_color = Color(0.848485, 0.848485, 0.848485, 1)
+border_width_left = 10
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.423062, 0.116934, 0.116934, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 2
+corner_detail = 2
+shadow_color = Color(0, 0, 0, 0.317647)
+shadow_size = 3
+shadow_offset = Vector2(0, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_o7mw7"]
+offsets = PackedFloat32Array(0, 0.272727, 0.793939, 0.975758)
+colors = PackedColorArray(0, 0, 0, 1, 0.32, 0.32, 0.32, 1, 0.32, 0.32, 0.32, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wmd5c"]
+gradient = SubResource("Gradient_o7mw7")
+height = 680
+
+[sub_resource type="Gradient" id="Gradient_wmd5c"]
+offsets = PackedFloat32Array(0.272727, 0.606061, 1)
+colors = PackedColorArray(0.32, 0.32, 0.32, 1, 0.32, 0.32, 0.32, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_abkmt"]
+gradient = SubResource("Gradient_wmd5c")
+height = 680
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jpdxa"]
+normal = Vector2(1, 0.53)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ebrb0"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_678tf"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cahdj"]
+normal = Vector2(0, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7mw7"]
+radius = 90.0
+height = 1492.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmd5c"]
+radius = 14.0
+height = 110.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abkmt"]
+radius = 14.0
+height = 900.0
+
+[sub_resource type="GDScript" id="GDScript_rodud"]
+resource_name = "LydiaWalkTest"
+script/source = "extends Node2D
+
+var tween : Tween
+@onready var player: CharacterBody2D = $\"../Protag_Dr_Evelyn_Morgan\"
+@onready var lydia_dest: float = $\"Lydia Dest\".position.x
+@onready var camera_2d: Camera2D = $\"../Protag_Dr_Evelyn_Morgan/Camera2D\"
+
+const MAX_SPEED = 150.0
+const BEHIND_DISTANCE = 600.0
+var speed = 50.0
+var waiting: bool = false
+
+func _ready() -> void:
+	tween = create_tween()
+	camera_2d.offset.x = 150 #TODO redo camera and add a pull state - so lydia drags it.
+	await get_tree().create_timer(1).timeout
+	Dialogic.start(\"1_3_Lydia_EntranceHallway\")
+	await Dialogic.timeline_ended
+	Dialogic.start(\"testDialogue\")
+	
+func _physics_process(delta: float) -> void:
+	var dist = global_position.x - player.global_position.x
+	camera_2d.offset.x = min(dist / 4.0,BEHIND_DISTANCE/4)
+	process_player_walk(dist)
+	if not reached_destination():
+		process_lydia_walk(delta,dist)
+	
+func process_lydia_walk(delta,dist):
+	var coefficeint = dist / BEHIND_DISTANCE * 2
+	
+	if too_far_behind(dist):
+		waiting = true
+		if speed < 10.0: return
+		speed = lerp(speed,0.0,delta * coefficeint)
+	else:
+		waiting = false
+		speed = lerp(speed,MAX_SPEED,delta * coefficeint)
+	position.x = move_toward(position.x,lydia_dest,speed*delta)
+	
+	#print(int(speed), \"  \" , \"******\" if too_far_behind(dist) else int(dist),\"waiting\" if waiting else '')
+
+func too_far_behind(dist):
+	return  dist > BEHIND_DISTANCE * (0.75 if waiting else 1.0)
+
+func reached_destination():
+	return position.x == lydia_dest
+
+func process_player_walk(dist):
+	player.MAX_SPEED = clamp(remap(dist,300,600,MAX_SPEED,MAX_SPEED*3),MAX_SPEED,MAX_SPEED*3)
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sg2e0"]
+normal = Vector2(-1, 0)
+distance = 120.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e10s"]
+atlas = ExtResource("24_ip2w4")
+region = Rect2(0, 54, 2426, 972)
+
+[sub_resource type="GDScript" id="GDScript_g00ck"]
+resource_name = "Temp_button"
+script/source = "extends Button
+
+func on_pressed():
+	#BuildUnit.choose_new_seed()
+	#var new_script = load(\"res://scenes/Test_scenes/build_unit.gd\")
+	#get_tree().change_scene_to_packed(load(\"res://scenes/Test_scenes/Draggable.tscn\"))
+	Transition.change_scene(\"res://scenes/Test_scenes/Draggable.tscn\")
+	
+"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_l7kk3"]
+
+[node name="SceneBuilderTest" type="Node2D"]
+y_sort_enabled = true
+metadata/_edit_vertical_guides_ = [7238.0]
+metadata/_edit_horizontal_guides_ = [824.0, 96.0, 365.0]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Edges" type="Node2D" parent="Background"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="WallType7" type="Sprite2D" parent="Background/Edges"]
+modulate = Color(0.93, 1, 0.987167, 1)
+position = Vector2(7695, 511)
+rotation = 1.5708
+scale = Vector2(0.992171, 0.821296)
+skew = 1.0472
+texture = ExtResource("1_vt4q2")
+centered = false
+
+[node name="Wall Texture" type="Sprite2D" parent="Background/Edges/WallType7"]
+modulate = Color(0.81, 0.81, 0.81, 0.145098)
+material = SubResource("CanvasItemMaterial_2e10s")
+position = Vector2(-577.878, -87.6662)
+scale = Vector2(0.6, 1)
+skew = -0.558505
+texture = ExtResource("2_kwi5v")
+centered = false
+
+[node name="TileTexture6" type="Sprite2D" parent="Background/Edges"]
+visible = false
+modulate = Color(1, 0.796078, 0.803922, 0.658824)
+position = Vector2(7397.22, 225.753)
+rotation = 1.5708
+scale = Vector2(0.792873, 0.654537)
+skew = 1.09995
+texture = ExtResource("3_jy2ey")
+
+[node name="WallType6" type="Sprite2D" parent="Background/Edges"]
+modulate = Color(0.93, 1, 0.987167, 1)
+clip_children = 2
+position = Vector2(-1271, 1095.65)
+rotation = -1.5708
+scale = Vector2(0.473587, 1.16546)
+texture = ExtResource("1_vt4q2")
+centered = false
+
+[node name="Wall Texture" type="Sprite2D" parent="Background/Edges/WallType6"]
+modulate = Color(0.81, 0.81, 0.81, 0.145098)
+material = SubResource("CanvasItemMaterial_2e10s")
+position = Vector2(3524.1, 1090.56)
+rotation = -3.14159
+scale = Vector2(0.746583, 1)
+skew = -1.36663
+texture = ExtResource("2_kwi5v")
+centered = false
+
+[node name="TileTexture5" type="Sprite2D" parent="Background/Edges"]
+visible = false
+modulate = Color(1, 0.796078, 0.803922, 0.658824)
+position = Vector2(-226.7, 341.232)
+rotation = 1.5708
+scale = Vector2(0.792873, 0.894478)
+skew = -1.09956
+texture = ExtResource("3_jy2ey")
+
+[node name="Floor" type="Node2D" parent="Background"]
+position = Vector2(0, 813)
+scale = Vector2(1, 1.07999)
+
+[node name="Floor2" type="Sprite2D" parent="Background/Floor"]
+position = Vector2(3565.35, -6.10352e-05)
+scale = Vector2(1.52304, 1.59546)
+skew = -0.523599
+texture = ExtResource("4_lpjb1")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 887, 2427, 193)
+
+[node name="Floor1" type="Sprite2D" parent="Background/Floor"]
+position = Vector2(-28, 6.10352e-05)
+scale = Vector2(1.56613, 1.48466)
+skew = 0.523599
+texture = ExtResource("4_lpjb1")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 887, 2427, 193)
+
+[node name="FloorTexture" type="Sprite2D" parent="Background/Floor"]
+modulate = Color(0.396078, 0.447059, 0.784314, 0.0392157)
+position = Vector2(2376.38, 126.5)
+scale = Vector2(1.75618, 1.86017)
+skew = 0.0610864
+texture = ExtResource("5_mnhmy")
+
+[node name="FloorTexture2" type="Sprite2D" parent="Background/Floor"]
+modulate = Color(0.396078, 0.447059, 0.784314, 0.0392157)
+position = Vector2(6085.71, 115.632)
+scale = Vector2(0.935024, 2.03474)
+skew = 0.0610864
+texture = ExtResource("5_mnhmy")
+
+[node name="Floor Breaker" type="Sprite2D" parent="Background/Floor"]
+modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
+position = Vector2(1157.44, 117.575)
+scale = Vector2(0.608369, 1.59353)
+skew = 0.548033
+texture = ExtResource("6_bmi6p")
+region_enabled = true
+region_rect = Rect2(1124, 406, 53, 192)
+
+[node name="Floor Breaker2" type="Sprite2D" parent="Background/Floor"]
+modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
+position = Vector2(6026.56, 127.76)
+scale = Vector2(0.608369, 1.71783)
+skew = 0.548033
+texture = ExtResource("6_bmi6p")
+region_enabled = true
+region_rect = Rect2(1124, 406, 53, 192)
+
+[node name="FloorBreaker2" type="Sprite2D" parent="Background/Floor"]
+modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
+position = Vector2(3719, 91)
+scale = Vector2(0.608369, 1.26921)
+skew = 0.548033
+texture = ExtResource("6_bmi6p")
+region_enabled = true
+region_rect = Rect2(1124, 406, 53, 192)
+
+[node name="Ceiling" type="Node2D" parent="Background"]
+position = Vector2(-24, 13)
+scale = Vector2(1, 1.07999)
+
+[node name="Floor1" type="Sprite2D" parent="Background/Ceiling"]
+self_modulate = Color(0.69, 0.552, 0.552, 1)
+position = Vector2(-348.032, -16.6668)
+scale = Vector2(1.56057, 1.999)
+skew = -1.19381
+texture = ExtResource("4_lpjb1")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 887, 2427, 193)
+
+[node name="Floor3" type="Sprite2D" parent="Background/Ceiling"]
+self_modulate = Color(0.69, 0.552, 0.552, 1)
+position = Vector2(3427.55, -16.6668)
+scale = Vector2(1.73546, 1.999)
+skew = 1.19381
+texture = ExtResource("4_lpjb1")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 887, 2427, 193)
+
+[node name="FloorTexture" type="Sprite2D" parent="Background/Ceiling"]
+modulate = Color(0.396078, 0.447059, 0.784314, 0.0392157)
+position = Vector2(2380.09, 65.8512)
+scale = Vector2(1.75618, 1.02782)
+skew = 0.0610864
+texture = ExtResource("5_mnhmy")
+
+[node name="FloorTexture2" type="Sprite2D" parent="Background/Ceiling"]
+modulate = Color(0.396078, 0.447059, 0.784314, 0.0392157)
+position = Vector2(6088.14, 75.9266)
+scale = Vector2(0.935024, 1.48981)
+skew = 0.0610864
+texture = ExtResource("5_mnhmy")
+
+[node name="Floor Breaker2" type="Sprite2D" parent="Background/Ceiling"]
+modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
+position = Vector2(6049, 91)
+scale = Vector2(0.608369, 1.26921)
+skew = 0.548033
+texture = ExtResource("6_bmi6p")
+region_enabled = true
+region_rect = Rect2(1124, 406, 53, 192)
+
+[node name="FloorBreaker2" type="Sprite2D" parent="Background/Ceiling"]
+modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
+position = Vector2(3719, 91)
+scale = Vector2(0.608369, 1.26921)
+skew = 0.548033
+texture = ExtResource("6_bmi6p")
+region_enabled = true
+region_rect = Rect2(1124, 406, 53, 192)
+
+[node name="Wall" type="Node2D" parent="Background"]
+position = Vector2(0, 150)
+scale = Vector2(1, 0.75)
+metadata/_edit_group_ = true
+
+[node name="Left" type="Sprite2D" parent="Background/Wall"]
+modulate = Color(1, 0.84, 0.84, 1)
+position = Vector2(3, -2)
+scale = Vector2(0.992171, 0.821296)
+texture = ExtResource("1_vt4q2")
+centered = false
+
+[node name="Wall Texture2" type="Sprite2D" parent="Background/Wall/Left"]
+self_modulate = Color(0.89, 0.89, 0.89, 0.12549)
+position = Vector2(13.1026, 3.65277)
+scale = Vector2(1.25724, 0.75)
+texture = ExtResource("7_a72s6")
+centered = false
+
+[node name="Mid" type="Sprite2D" parent="Background/Wall"]
+modulate = Color(1, 0.84, 0.84, 1)
+position = Vector2(2408, 0)
+scale = Vector2(0.992171, 0.821296)
+texture = ExtResource("1_vt4q2")
+centered = false
+
+[node name="Wall Texture2" type="Sprite2D" parent="Background/Wall/Mid"]
+self_modulate = Color(0.89, 0.89, 0.89, 0.12549)
+position = Vector2(13.1026, 3.65277)
+scale = Vector2(1.25724, 0.75)
+texture = ExtResource("7_a72s6")
+centered = false
+
+[node name="Right" type="Sprite2D" parent="Background/Wall"]
+modulate = Color(1, 0.84, 0.84, 1)
+position = Vector2(4825, 0)
+scale = Vector2(0.992171, 0.821296)
+texture = ExtResource("1_vt4q2")
+centered = false
+
+[node name="Wall Texture2" type="Sprite2D" parent="Background/Wall/Right"]
+self_modulate = Color(0.89, 0.89, 0.89, 0.12549)
+position = Vector2(13.1026, 3.65277)
+scale = Vector2(1.25724, 0.75)
+texture = ExtResource("7_a72s6")
+centered = false
+
+[node name="Basebaord" type="Sprite2D" parent="Background/Wall"]
+modulate = Color(0.501556, 0.589913, 0.742188, 1)
+position = Vector2(3620.5, 869)
+scale = Vector2(24.0833, 1.90909)
+texture = ExtResource("8_laxyc")
+
+[node name="WoodSeperator" type="Sprite2D" parent="Background/Wall"]
+position = Vector2(2408, 445.615)
+rotation = -1.5708
+scale = Vector2(0.373421, 0.985985)
+texture = ExtResource("9_3wq7l")
+
+[node name="WoodSeperator3" type="Sprite2D" parent="Background/Wall/WoodSeperator"]
+position = Vector2(5.35608, -2442.23)
+texture = ExtResource("9_3wq7l")
+
+[node name="WoodSeperator4" type="Sprite2D" parent="Background/Wall/WoodSeperator"]
+position = Vector2(5.35522, 4893.59)
+texture = ExtResource("9_3wq7l")
+
+[node name="WoodSeperator2" type="Sprite2D" parent="Background/Wall/WoodSeperator"]
+position = Vector2(-5.35693, 2451.26)
+texture = ExtResource("9_3wq7l")
+
+[node name="windows" type="Node2D" parent="Background"]
+position = Vector2(3243, 459)
+scale = Vector2(0.929764, 1.11572)
+
+[node name="window1" type="Sprite2D" parent="Background/windows"]
+position = Vector2(-424.102, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows/window1"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window2" type="Sprite2D" parent="Background/windows"]
+position = Vector2(-9, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows/window2"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window3" type="Sprite2D" parent="Background/windows"]
+position = Vector2(408, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows/window3"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window4" type="Sprite2D" parent="Background/windows"]
+position = Vector2(824, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows/window4"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window5" type="Sprite2D" parent="Background/windows"]
+position = Vector2(1241, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows/window5"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="windows2" type="Node2D" parent="Background"]
+position = Vector2(6072, 436)
+scale = Vector2(1, 1.2)
+
+[node name="window1" type="Sprite2D" parent="Background/windows2"]
+position = Vector2(-424.102, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows2/window1"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window2" type="Sprite2D" parent="Background/windows2"]
+position = Vector2(-9, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows2/window2"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window3" type="Sprite2D" parent="Background/windows2"]
+position = Vector2(408, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows2/window3"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="window4" type="Sprite2D" parent="Background/windows2"]
+position = Vector2(822, -7.00006)
+texture = SubResource("GradientTexture2D_y6vgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/windows2/window4"]
+show_behind_parent = true
+scale = Vector2(1.05, 1.05)
+texture = SubResource("GradientTexture2D_rodud")
+
+[node name="Doors" type="Node2D" parent="Background"]
+
+[node name="door" type="Sprite2D" parent="Background/Doors"]
+position = Vector2(7314.69, 711.488)
+rotation = -1.5708
+scale = Vector2(8.76777, 2.56363)
+skew = 1.0821
+texture = SubResource("GradientTexture2D_vv5kp")
+
+[node name="door2" type="Sprite2D" parent="Background/Doors"]
+position = Vector2(-93, 659)
+rotation = 1.5708
+scale = Vector2(8.74591, 2.64802)
+skew = -1.08036
+texture = SubResource("GradientTexture2D_vv5kp")
+
+[node name="Door" type="Sprite2D" parent="Background/Doors"]
+position = Vector2(5150, 587)
+scale = Vector2(1.02395, 1.17375)
+texture = ExtResource("11_k60a2")
+
+[node name="Posters" type="Sprite2D" parent="Background" node_paths=PackedStringArray("position_points")]
+position = Vector2(2749, -280)
+scale = Vector2(0.547722, 0.566071)
+texture = ExtResource("12_00hm3")
+region_enabled = true
+region_rect = Rect2(944, 224, 448, 544)
+script = ExtResource("13_m2ren")
+random_frame = true
+position_enabled = true
+position_points = NodePath("Random_Placement")
+metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
+
+[node name="Random_Placement" type="Line2D" parent="Background/Posters"]
+top_level = true
+points = PackedVector2Array(2609, 365, 4699, 365)
+width = 3.0
+default_color = Color(0, 1, 0.0334229, 1)
+
+[node name="Posters2" type="Sprite2D" parent="Background" node_paths=PackedStringArray("position_points")]
+material = SubResource("CanvasItemMaterial_y6vgr")
+position = Vector2(3387, -385)
+scale = Vector2(0.566, 0.566)
+texture = ExtResource("12_00hm3")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(0, 224, 1392, 544)
+script = ExtResource("13_m2ren")
+random_frame = true
+position_enabled = true
+position_points = NodePath("Random_Placement")
+metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
+
+[node name="Random_Placement" type="Line2D" parent="Background/Posters2"]
+top_level = true
+points = PackedVector2Array(183, 365, 2265, 365)
+width = 3.0
+default_color = Color(0, 1, 0.0334229, 1)
+
+[node name="Chair" type="Sprite2D" parent="Background"]
+material = SubResource("CanvasItemMaterial_abkmt")
+position = Vector2(1231, 773)
+scale = Vector2(3.30682, 2.48011)
+texture = ExtResource("10_igvy3")
+region_enabled = true
+region_rect = Rect2(40, 258, 96, 88)
+
+[node name="Chair2" type="Sprite2D" parent="Background/Chair"]
+material = SubResource("CanvasItemMaterial_abkmt")
+position = Vector2(90.7217, 0)
+texture = ExtResource("10_igvy3")
+region_enabled = true
+region_rect = Rect2(40, 258, 96, 88)
+
+[node name="Chair4" type="Sprite2D" parent="Background/Chair"]
+material = SubResource("CanvasItemMaterial_abkmt")
+position = Vector2(181.443, 0)
+texture = ExtResource("10_igvy3")
+region_enabled = true
+region_rect = Rect2(40, 258, 96, 88)
+
+[node name="Chair3" type="Sprite2D" parent="Background/Chair"]
+material = SubResource("CanvasItemMaterial_abkmt")
+position = Vector2(-90.7216, 0)
+texture = ExtResource("10_igvy3")
+region_enabled = true
+region_rect = Rect2(40, 258, 96, 88)
+
+[node name="Items" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="AirVents" type="Sprite2D" parent="Items"]
+position = Vector2(3209, 196.5)
+texture = ExtResource("14_lm4fh")
+
+[node name="AirVents3" type="Sprite2D" parent="Items"]
+position = Vector2(5631, 196.5)
+texture = ExtResource("14_lm4fh")
+
+[node name="AirVents2" type="Sprite2D" parent="Items"]
+position = Vector2(384, 196.5)
+texture = ExtResource("14_lm4fh")
+
+[node name="Plant" type="Sprite2D" parent="Items"]
+position = Vector2(774, 708)
+scale = Vector2(0.824, 0.824)
+texture = ExtResource("15_vinpo")
+
+[node name="Plant2" type="Sprite2D" parent="Items"]
+position = Vector2(2035, 708)
+scale = Vector2(0.823699, 0.823699)
+texture = ExtResource("15_vinpo")
+
+[node name="Label" type="RichTextLabel" parent="Items"]
+offset_left = 261.0
+offset_top = 326.0
+offset_right = 526.0
+offset_bottom = 664.0
+scale = Vector2(0.881105, 0.881105)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("16_k13g0")
+theme_override_fonts/italics_font = ExtResource("17_d7irg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_myaxg")
+bbcode_enabled = true
+text = "[center][font_size=30][u]SAFETY FIRST[/u][/font_size][i]
+“An incident-free week is a productive week.”[/i] [/center] 
+[font_size=14
+[ul bullet=]
+□ Wear your ID badge at all times
+
+□ Report spills and breaches immediately
+
+□ Do not share access codes
+
+□ Level 1 clearance does not mean Level 2 privilege
+"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_wmd5c")]
+
+[node name="Label2" type="RichTextLabel" parent="Items"]
+clip_contents = false
+offset_left = 5065.0
+offset_top = 229.0
+offset_right = 5213.0
+offset_bottom = 271.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("16_k13g0")
+theme_override_fonts/italics_font = ExtResource("17_d7irg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rodud")
+bbcode_enabled = true
+text = "[center][font_size=30]Security[/font_size][i]
+"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_wmd5c")]
+
+[node name="Painting" type="Sprite2D" parent="Items"]
+y_sort_enabled = true
+position = Vector2(1399, 398)
+scale = Vector2(0.856, 0.758621)
+texture = ExtResource("19_pma2f")
+
+[node name="Metal Detector" type="Sprite2D" parent="Items"]
+z_index = 10
+position = Vector2(3630.5, 704.5)
+scale = Vector2(1.57812, 1.07206)
+texture = SubResource("GradientTexture2D_wmd5c")
+
+[node name="lid" type="Sprite2D" parent="Items/Metal Detector"]
+position = Vector2(-0.0493698, -352.905)
+scale = Vector2(1.0099, 0.0767481)
+texture = SubResource("GradientTexture2D_abkmt")
+
+[node name="Metal Detector2" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(3104, 623)
+scale = Vector2(1, 0.851563)
+texture = SubResource("GradientTexture2D_wmd5c")
+
+[node name="Metal Detector" type="Sprite2D" parent="Items/Metal Detector2"]
+z_index = 10
+position = Vector2(-162, 129.174)
+scale = Vector2(1, 1.17431)
+texture = SubResource("GradientTexture2D_wmd5c")
+
+[node name="lid" type="Sprite2D" parent="Items/Metal Detector2/Metal Detector"]
+position = Vector2(81.6092, -369.856)
+scale = Vector2(0.98555, 0.256758)
+skew = 1.21824
+texture = SubResource("GradientTexture2D_wmd5c")
+
+[node name="Poles" type="Sprite2D" parent="Items"]
+y_sort_enabled = true
+position = Vector2(3862, 933.479)
+scale = Vector2(0.773233, 0.773233)
+texture = ExtResource("20_3itdm")
+offset = Vector2(257, -191)
+
+[node name="Poles2" type="Sprite2D" parent="Items/Poles"]
+position = Vector2(527.5, 5)
+texture = ExtResource("20_3itdm")
+offset = Vector2(258.5, -196)
+
+[node name="Poles2" type="Sprite2D" parent="Items"]
+y_sort_enabled = true
+position = Vector2(2609, 933.479)
+scale = Vector2(0.773233, 0.773233)
+texture = ExtResource("20_3itdm")
+offset = Vector2(257, -191)
+
+[node name="Poles2" type="Sprite2D" parent="Items/Poles2"]
+position = Vector2(527.5, 5)
+texture = ExtResource("20_3itdm")
+offset = Vector2(258.5, -196)
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+position = Vector2(-41, 527)
+
+[node name="left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-43, 449)
+shape = SubResource("WorldBoundaryShape2D_jpdxa")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(7305, 0)
+shape = SubResource("WorldBoundaryShape2D_ebrb0")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-182, 546)
+shape = SubResource("WorldBoundaryShape2D_678tf")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-177, 291)
+shape = SubResource("WorldBoundaryShape2D_cahdj")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="chairs" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(1425, 259.884)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o7mw7")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="metal detector2" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(3673.5, 538)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wmd5c")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="metal detector3" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(3667.5, 378)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wmd5c")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="ropes" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(4305, 411.479)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_abkmt")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="ropes2" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(3052, 411.479)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_abkmt")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="Lydia" type="Node2D" parent="."]
+position = Vector2(621, 983)
+script = SubResource("GDScript_rodud")
+metadata/_edit_group_ = true
+
+[node name="LydiaSprite" type="Sprite2D" parent="Lydia"]
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("21_0783v")
+offset = Vector2(16, -622)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Lydia"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lydia/StaticBody2D"]
+position = Vector2(0, -329)
+shape = SubResource("WorldBoundaryShape2D_sg2e0")
+
+[node name="Lydia Dest" type="Marker2D" parent="Lydia"]
+top_level = true
+position = Vector2(3426, 773)
+gizmo_extents = 107.0
+
+[node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("22_h7tne")]
+texture_filter = 2
+position = Vector2(197, 1038)
+slide_on_ceiling = false
+floor_constant_speed = true
+platform_on_leave = 2
+script = ExtResource("23_pigoh")
+MAX_SPEED = 500.0
+MAX_WALKING_ANIMATION = 500.0
+ACCEL = 700.0
+DECEL = 1200.0
+TURN_DECEL = 2000.0
+FIRST_STEP_BOOST = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="Protag_Dr_Evelyn_Morgan"]
+limit_left = -200
+limit_top = 0
+limit_right = 7433
+limit_bottom = 1080
+position_smoothing_speed = 20.0
+editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="BlackBars" type="TextureRect" parent="CanvasLayer/GUI"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+offset_right = 1900.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1213, 540)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_2e10s")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/GUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1709.0
+offset_top = -4.0
+offset_right = 1869.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Change Scene"
+script = SubResource("GDScript_g00ck")
+
+[node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("25_kfn4v")]
+
+[node name="Page Inventory" parent="CanvasLayer/GUI/Inventory" index="3"]
+offset_left = -28.0
+offset_top = 348.0
+offset_right = 12.0
+offset_bottom = 388.0
+
+[node name="Dot1" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="0"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Dot2" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="1"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Dot3" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="2"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Dot4" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="3"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Dot5" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="4"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Dot6" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="5"]
+button_group = SubResource("ButtonGroup_l7kk3")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/GUI"]
+visible = false
+layout_mode = 0
+offset_left = 221.0
+offset_top = 70.0
+offset_right = 623.0
+offset_bottom = 380.0
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/GUI"]
+visible = false
+layout_mode = 0
+offset_left = 273.0
+offset_top = 576.0
+offset_right = 675.0
+offset_bottom = 886.0
+
+[connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
+
+[editable path="CanvasLayer/GUI/Inventory"]
+[editable path="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Panel5/Drag_Inventory"]
