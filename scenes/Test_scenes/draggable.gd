@@ -38,8 +38,9 @@ func _ready() -> void:
 	
 # TODO: Implement Draggable and Dragzone Handlers
 func connect_to_local_manager():
-	var manager = get_tree().current_scene
+	var manager = get_tree().current_scene.inventory_manager
 	if manager is InventoryManager:
+		print("INV MANGER FOUND")
 		manager.connect_draggable_signals(drag_started,drag_released)
 	return manager
 

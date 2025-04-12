@@ -11,7 +11,7 @@ script/source = "extends Label
 
 
 func _process(delta: float) -> void:
-	text = str($\"..\".in_drag_zone) + \"\\n Detect: \" + \"On\" if $\"..\".detect else \"Off\"
+	text = str($\"..\".in_drag_zone)
 "
 
 [node name="Item_Base" type="Control"]

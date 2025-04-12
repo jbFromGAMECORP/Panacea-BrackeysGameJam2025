@@ -17,13 +17,13 @@ var detect : bool = true
 func _ready() -> void:
 	_connect_signals()
 	
-	
 func _connect_signals():
 	detection_area.area_entered.connect(_on_area_entered)
 	detection_area.area_exited.connect(_on_area_exited)
 	
 func _on_area_entered(area:Area2D):
 	var node = area.get_parent()
+	if node.has_method("dummy"): node=node.real_node
 	if node is Draggable and node.criteria() and _subclass_criteria(node):
 		print(area.get_parent().name,"\tEntered\t",self)
 		if multiple_nodes:
@@ -37,6 +37,7 @@ func _subclass_enter_effects(): # Overwrite in subclasses
 
 func _on_area_exited(area:Area2D):
 	var node = area.get_parent()
+	if node.has_method("dummy"): node=node.real_node
 	if node is Draggable and node.criteria() and self == node.in_drag_zone and _subclass_criteria(node):
 		print(area.get_parent().name,"\tLeft\t",self)
 		node.exit_zone()

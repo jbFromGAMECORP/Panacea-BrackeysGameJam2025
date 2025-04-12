@@ -593,9 +593,9 @@ expand_icon = true
 
 [node name="Page Inventory" type="Control" parent="."]
 anchors_preset = 0
-offset_top = 385.0
+offset_top = 319.0
 offset_right = 40.0
-offset_bottom = 425.0
+offset_bottom = 359.0
 
 [node name="SuitcaseButton" type="Button" parent="Page Inventory"]
 layout_mode = 0

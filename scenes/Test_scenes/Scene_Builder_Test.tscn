@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c1ulqoho2y1xh"]
+[gd_scene load_steps=38 format=3 uid="uid://c1ulqoho2y1xh"]
 
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="1_jpdxa"]
 [ext_resource type="Texture2D" uid="uid://de4441n7cdoi2" path="res://assets/Room Assets/floor texture.png" id="2_ebrb0"]
@@ -21,6 +21,16 @@
 [ext_resource type="Texture2D" uid="uid://vfcklmtk6e1i" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/bootles.png" id="18_y65ff"]
 [ext_resource type="Texture2D" uid="uid://thbjb7lohio8" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/materials.png" id="19_l7kk3"]
 [ext_resource type="PackedScene" uid="uid://b4suvmpf53t64" path="res://scenes/Test_scenes/new_suitcase_inventory.tscn" id="21_iqkle"]
+[ext_resource type="PackedScene" uid="uid://cucgabq38ngxs" path="res://scenes/Test_scenes/DragArea.tscn" id="22_y65ff"]
+[ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="23_l7kk3"]
+[ext_resource type="Texture2D" uid="uid://c71yl0yuulc21" path="res://assets/Inventory/Inventory_Items/wrench.png" id="24_dl3n3"]
+
+[sub_resource type="GDScript" id="GDScript_dl3n3"]
+resource_name = "Level"
+script/source = "extends Node2D
+
+@export var inventory_manager:InventoryManager
+"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
 blend_mode = 2
@@ -65,7 +75,51 @@ func on_pressed():
 	
 "
 
-[node name="SceneBuilderTest" type="Node2D"]
+[sub_resource type="GDScript" id="GDScript_l7kk3"]
+resource_name = "dummy dragger"
+script/source = "extends Control
+
+@onready var inventory: InventoryManager = $\"../CanvasLayer/GUI/Inventory\"
+@onready var viewport_limits :Rect2= get_viewport().get_visible_rect()
+var mouse_offset:Vector2										# How far from the top left corner your mouse is when dragging.
+var real_node : Draggable
+func _ready() -> void:
+	position = Vector2(-1000,-1000)
+	set_physics_process(false)
+	inventory.object_taken.connect(obj_taken)
+	inventory.object_placed.connect(obj_placed)
+	
+func obj_taken(obj:Draggable):
+	print(\"DUMMY HEARD OBJ TAKEN\")
+	await get_tree().physics_frame
+	real_node = obj
+	mouse_offset = obj.mouse_offset
+	set_physics_process(true)
+	pass
+	
+func obj_placed(obj:Draggable):
+	print(\"DUMMY HEARD OBJ PLACED\")
+	await get_tree().physics_frame
+	mouse_offset = Vector2(300,300)
+	real_node = null
+	set_physics_process(false)
+	position = Vector2(-1000,-1000)
+	pass
+	
+func _physics_process(delta: float=0) -> void:
+	global_position = (get_global_mouse_position() + mouse_offset)
+
+
+func dummy():
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny6lg"]
+size = Vector2(2, 2)
+
+[node name="SceneBuilderTest" type="Node2D" node_paths=PackedStringArray("inventory_manager")]
+script = SubResource("GDScript_dl3n3")
+inventory_manager = NodePath("CanvasLayer/GUI/Inventory")
 metadata/_edit_vertical_guides_ = [7238.0]
 metadata/_edit_horizontal_guides_ = [929.0, 96.0, 365.0]
 
@@ -421,11 +475,17 @@ debug_color = Color(1, 0.588235, 0, 0.137255)
 
 [node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("6_b7jx0")]
 texture_filter = 2
-position = Vector2(6002, 966)
+position = Vector2(3172, 966)
 slide_on_ceiling = false
 floor_constant_speed = true
 platform_on_leave = 2
 script = ExtResource("13_vv5kp")
+MAX_SPEED = 500.0
+MAX_WALKING_ANIMATION = 500.0
+ACCEL = 700.0
+DECEL = 1200.0
+TURN_DECEL = 2000.0
+FIRST_STEP_BOOST = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="Protag_Dr_Evelyn_Morgan"]
 limit_left = -200
@@ -451,6 +511,16 @@ hframes = 12
 vframes = 15
 frame = 30
 
+[node name="DragArea" parent="." instance=ExtResource("22_y65ff")]
+offset_left = 823.0
+offset_top = 596.0
+offset_right = 823.0
+offset_bottom = 596.0
+multiple_nodes = false
+
+[node name="Draggable Detection" parent="DragArea" index="0"]
+collision_mask = 2
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" type="Control" parent="CanvasLayer"]
@@ -460,6 +530,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="BlackBars" type="TextureRect" parent="CanvasLayer/GUI"]
+visible = false
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
 anchors_preset = -1
@@ -475,6 +546,7 @@ texture = SubResource("AtlasTexture_2e10s")
 expand_mode = 1
 
 [node name="Button" type="Button" parent="CanvasLayer/GUI"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -508,4 +580,73 @@ offset_bottom = 886.0
 
 [node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("21_iqkle")]
 
+[node name="Control" parent="." instance=ExtResource("23_l7kk3")]
+offset_left = 563.0
+offset_top = 718.0
+offset_right = 563.0
+offset_bottom = 718.0
+
+[node name="Draggable Detection" parent="Control" index="0"]
+collision_mask = 2
+
+[node name="Color_box2" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(150, 130)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -65.0
+offset_right = 75.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+mouse_filter = 1
+
+[node name="Color_box3" type="ColorRect" parent="Control/Color_box2"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -59.0
+offset_right = 69.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+mouse_filter = 1
+color = Color(0.419608, 0.345098, 0.266667, 1)
+
+[node name="DummyDragger" type="Control" parent="."]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1489.0
+offset_top = 586.0
+offset_right = 1489.0
+offset_bottom = 586.0
+script = SubResource("GDScript_l7kk3")
+
+[node name="Sprite" type="Sprite2D" parent="DummyDragger"]
+texture = ExtResource("24_dl3n3")
+
+[node name="Draggable Detection" type="Area2D" parent="DummyDragger"]
+collision_layer = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyDragger/Draggable Detection"]
+shape = SubResource("RectangleShape2D_ny6lg")
+
 [connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
+
+[editable path="DragArea"]
+[editable path="Control"]

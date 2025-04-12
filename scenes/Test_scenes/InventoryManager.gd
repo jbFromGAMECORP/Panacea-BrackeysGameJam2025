@@ -25,11 +25,13 @@ func drag_started(obj:Node):
 	held_object = obj
 	held_object_parent = obj.get_parent()
 	#obj.reparent(drag_holder,false)
+	object_taken.emit(obj)
 	
 func drag_released(obj:Node):
 	#obj.reparent(held_object_parent,false)
 	held_object = null
 	held_object_parent = null
+	object_placed.emit(obj)
 	
 
 func create_items(inventory:Array[ItemResource]):

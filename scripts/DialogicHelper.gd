@@ -54,6 +54,7 @@ func connect_signals():
 
 ## Simple helper that will find the textbox and pass the desired textbox position.
 func set_position(layout,pos):
+	print("SETTING POSITION")
 	var textbox = layout.get_node("VN_TextboxLayer")
 	if textbox: textbox.set_goto_position(pos)
 	else: printerr("Dialogic Helper | set_position(): Cannot find node 'VN_TextboxLayer', \
@@ -70,15 +71,16 @@ func speaker_changed(new_speaker):
 	
 	#TODO: extend the scripts for scientist and patient and have them call this function instead.
 func get_namebox_side(new_character):
+	return
 	var portraits_info = portrait_system.get_character_info(new_character)
-	if not portraits_info["joined"]: return
+	if not portraits_info["joined"]: print("NO PORTRAIT");return
+	print("NEW SPEAKER: ",current_char, " || Side: ",portrait_system.get_character_info(new_character)["position_id"])
 	var char_position:String = portraits_info["position_id"]
-	var namebox_side = 0.0 if char_position.contains("left") else 0.5 if char_position.contains("center") else 1
+	var namebox_side = 0.0 if char_position.contains("left") else 0.5 if char_position.contains("center") else 1.0
 	var layout : DialogicLayoutBase = Dialogic.get_subsystem("Styles").get_layout_node()
 	var textbox = layout.get_node("VN_TextboxLayer")
-	if not textbox: return
+	if not textbox: print("NO TEXTBOX");return
 	var name_label: PanelContainer = textbox.get_node("%NameLabelPanel")
 	name_label.anchor_left = namebox_side
 	name_label.anchor_right = namebox_side
-	if namebox_side:
-		name_label.position.x -= name_label.size.x -100.0
+	name_label.grow_horizontal = 1-namebox_side
