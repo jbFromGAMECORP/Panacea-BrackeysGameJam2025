@@ -23,13 +23,15 @@ func _connect_signals():
 	
 func _on_area_entered(area:Area2D):
 	var node = area.get_parent()
-	if node.has_method("dummy"): node=node.real_node
+	var pos = get_canvas_transform()*global_position
+	print(global_position," as Transofrmed POS: ",pos)
+	if node.has_method("dummy"): node=node.follow_node
 	if node is Draggable and node.criteria() and _subclass_criteria(node):
 		print(area.get_parent().name,"\tEntered\t",self)
 		if multiple_nodes:
 			node.enter_zone(self)
 		elif not has_draggable_child() or is_draggable_child(node):
-			node.enter_zone(self,global_position)
+			node.enter_zone(self,pos)
 		_subclass_enter_effects()
 
 func _subclass_enter_effects(): # Overwrite in subclasses
@@ -37,7 +39,7 @@ func _subclass_enter_effects(): # Overwrite in subclasses
 
 func _on_area_exited(area:Area2D):
 	var node = area.get_parent()
-	if node.has_method("dummy"): node=node.real_node
+	if node.has_method("dummy"): node=node.follow_node
 	if node is Draggable and node.criteria() and self == node.in_drag_zone and _subclass_criteria(node):
 		print(area.get_parent().name,"\tLeft\t",self)
 		node.exit_zone()

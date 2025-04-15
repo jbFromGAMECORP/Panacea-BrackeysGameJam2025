@@ -1,4 +1,5 @@
 extends Control
+@export var inventory_manager:InventoryManager
 @onready var scene_name = name
 @onready var load: Button = $Load
 @onready var save: Button = $Save
@@ -13,7 +14,6 @@ var exit_scene_and_return = func():
 		await Transition.get_tree().create_timer(1).timeout
 		Transition.change_scene("res://scenes/Test_scenes/Draggable.tscn")
 		
-
 
 func _ready() -> void:
 	prints("Persistent Objects:",get_tree().get_nodes_in_group("Persistent"))

@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwf3rvj2ur16l"]
+[gd_scene load_steps=5 format=3 uid="uid://cwf3rvj2ur16l"]
 
 [ext_resource type="Script" uid="uid://p74a52qqgmsc" path="res://item_base.gd" id="1_ukqlw"]
+[ext_resource type="Texture2D" uid="uid://d2lvmyak3a84f" path="res://assets/Inventory/Inventory_Items/bucket.png" id="2_ue70l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ue70l"]
-size = Vector2(2, 2)
+size = Vector2(3, 3)
 
 [sub_resource type="GDScript" id="GDScript_ukqlw"]
 resource_name = "IN_DragZone Text"
@@ -16,14 +17,16 @@ func _process(delta: float) -> void:
 
 [node name="Item_Base" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_ukqlw")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ue70l")
 
-[node name="Button" type="TextureButton" parent="."]
+[node name="ClickArea" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

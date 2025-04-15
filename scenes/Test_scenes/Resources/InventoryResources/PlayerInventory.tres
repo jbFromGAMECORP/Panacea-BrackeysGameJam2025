@@ -1,15 +1,11 @@
-[gd_resource type="Resource" script_class="PlayerResource" load_steps=9 format=3 uid="uid://bmpulmhsvba3f"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=5 format=3 uid="uid://bmpulmhsvba3f"]
 
 [ext_resource type="Script" uid="uid://cm0375cbhv71" path="res://item_resource.gd" id="1_j1p45"]
 [ext_resource type="Resource" uid="uid://b5kvbg745f5a4" path="res://scenes/Test_scenes/Resources/ItemResources/bucket.tres" id="2_j1p45"]
 [ext_resource type="Resource" uid="uid://ccvcpu43am2f5" path="res://scenes/Test_scenes/Resources/ItemResources/bulb.tres" id="3_adir6"]
 [ext_resource type="Script" uid="uid://cu17pybcwb2d" path="res://scenes/Test_scenes/PlayerResource.gd" id="4_33mn6"]
-[ext_resource type="Resource" uid="uid://doinscl0ehu0f" path="res://scenes/Test_scenes/Resources/ItemResources/wrench.tres" id="4_ua4u0"]
-[ext_resource type="Resource" uid="uid://fd5kv40fqmvi" path="res://scenes/Test_scenes/Resources/ItemResources/lighter.tres" id="5_77ox3"]
-[ext_resource type="Resource" uid="uid://bto80vcqk4dmx" path="res://scenes/Test_scenes/Resources/ItemResources/tape.tres" id="6_mvdeh"]
-[ext_resource type="Resource" uid="uid://dl8yq2dgd54we" path="res://scenes/Test_scenes/Resources/ItemResources/mglass.tres" id="7_33jtm"]
 
 [resource]
 script = ExtResource("4_33mn6")
-inventory = Array[ExtResource("1_j1p45")]([ExtResource("2_j1p45"), ExtResource("3_adir6"), ExtResource("4_ua4u0"), ExtResource("5_77ox3"), ExtResource("6_mvdeh"), ExtResource("7_33jtm")])
+inventory = Array[ExtResource("1_j1p45")]([ExtResource("2_j1p45"), ExtResource("3_adir6")])
 metadata/_custom_type_script = "uid://cu17pybcwb2d"

@@ -6,7 +6,7 @@ signal object_placed
 @export var player : PlayerResource
 enum SPREAD_TYPE {RANDOM,DISTRIBUTE}
 @export var spread_type :SPREAD_TYPE = 0
-var held_object : Draggable
+var held_object : Node
 var held_object_parent : Node
 @onready var drag_inventory: DragZone = %Drag_Inventory
 
@@ -14,6 +14,7 @@ var held_object_parent : Node
 func _ready() -> void:
 	create_items(player.inventory)
 	spread_items()
+	pass
 	
 	# Called from created draggables, they pass their signals in.
 func connect_draggable_signals(_drag_started:Signal,_drag_released:Signal):
@@ -61,16 +62,17 @@ func arrange_items_to_points(area):
 		node.position = points.pop_front()
 
 func _generate_points(area,count) -> Array[Vector2]:
-	const offset = 48
+	var offset = 48
 	var x_count :float = ceili(sqrt(count))
 	var y_count :float = count/x_count
 	var x_spacing = (area.size.x-offset*2) / (x_count-1)
-	var y_spacing = (area.size.y-offset*2) / (y_count-1)
+	var y_spacing = max((area.size.y-offset*2) / (y_count-1),2)
 	var grid: Array[Vector2]= []
 	for x in x_count:
 		for y in y_count:
 			grid.append(Vector2(x*x_spacing,y*y_spacing)+Vector2(offset,offset))
 		print(grid.slice(-3))
+	print(grid)
 	return grid
 
 func _distribute_point(point : Vector2):

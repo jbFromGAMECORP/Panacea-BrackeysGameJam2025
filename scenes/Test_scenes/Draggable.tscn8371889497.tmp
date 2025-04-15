@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkwh6sf6t6jbp"]
+[gd_scene load_steps=14 format=3 uid="uid://bkwh6sf6t6jbp"]
 
 [ext_resource type="Script" uid="uid://gtd3ev1mx4a2" path="res://scenes/Test_scenes/Draggable_Scene.gd" id="1_8kp3w"]
 [ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="2_8kp3w"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" uid="uid://byruel4737fuh" path="res://scripts/drag_zone.gd" id="3_74cf5"]
 [ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="4_fc43r"]
 [ext_resource type="Script" uid="uid://bkndygtc0rmtw" path="res://scenes/Test_scenes/draggable2.gd" id="5_h0ygp"]
-[ext_resource type="Script" uid="uid://b3dnn6sge12de" path="res://scenes/Test_scenes/drag_dummy.gd" id="5_k85d1"]
-[ext_resource type="PackedScene" uid="uid://jvngay5tn1u" path="res://scenes/Test_scenes/grid_suitcase_scene.tscn" id="7_k85d1"]
 [ext_resource type="Texture2D" uid="uid://d2lvmyak3a84f" path="res://assets/Inventory/Inventory_Items/bucket.png" id="7_pa823"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
@@ -41,7 +39,7 @@ size = Vector2(475, 699.5)
 size = Vector2(22, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa823"]
-size = Vector2(14, 11)
+size = Vector2(31, 29)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8kp3w"]
 font_size = 50
@@ -51,8 +49,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1924.0
-offset_right = 1924.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -61,10 +57,10 @@ inventory_manager = NodePath("CanvasLayer/Inventory")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 1363.0
-offset_top = 128.0
-offset_right = 1897.0
-offset_bottom = 406.0
+offset_left = 1303.0
+offset_top = 185.0
+offset_right = 1837.0
+offset_bottom = 945.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_oyyac")
 
 [node name="Panel2" type="Panel" parent="."]
@@ -184,21 +180,19 @@ shape = SubResource("RectangleShape2D_74cf5")
 
 [node name="Draggable Zone2" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 1397.0
-offset_top = 154.0
-offset_right = 1861.0
-offset_bottom = 361.0
+offset_left = 1327.0
+offset_top = 213.0
+offset_right = 1804.0
+offset_bottom = 900.0
 script = ExtResource("3_74cf5")
 return_type = 3
 multiple_nodes = true
 metadata/_custom_type_script = "uid://byruel4737fuh"
 
 [node name="Draggable Detection" type="Area2D" parent="Draggable Zone2"]
-position = Vector2(-70, 52)
-scale = Vector2(1, 0.32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone2/Draggable Detection"]
-position = Vector2(297, 187)
+position = Vector2(239.5, 345.25)
 shape = SubResource("RectangleShape2D_h0ygp")
 
 [node name="NewDraggable" type="Control" parent="Draggable Zone2"]
@@ -208,6 +202,13 @@ offset_top = -131.0
 offset_right = 225.0
 offset_bottom = -131.0
 script = ExtResource("5_h0ygp")
+
+[node name="ClickArea" type="Control" parent="Draggable Zone2/NewDraggable"]
+anchors_preset = 0
+offset_left = -58.0
+offset_top = -47.0
+offset_right = 60.0
+offset_bottom = 50.0
 
 [node name="Color_box" type="ColorRect" parent="Draggable Zone2/NewDraggable"]
 layout_mode = 1
@@ -224,25 +225,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ClickArea" type="Control" parent="Draggable Zone2/NewDraggable"]
-anchors_preset = 0
-offset_left = -46.0
-offset_top = -30.0
-offset_right = 47.0
-offset_bottom = 37.0
-
 [node name="Draggable Detection" type="Area2D" parent="Draggable Zone2/NewDraggable"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Zone2/NewDraggable/Draggable Detection"]
-position = Vector2(-2, 1)
+position = Vector2(-1.5, -0.5)
 shape = SubResource("RectangleShape2D_pa823")
-debug_color = Color(0.661584, 0.7, 0, 0.42)
-
-[node name="Inventory3" parent="." instance=ExtResource("7_k85d1")]
-offset_left = 1201.0
-offset_top = 474.0
-offset_right = 1201.0
-offset_bottom = 474.0
 
 [node name="Save" type="Button" parent="."]
 layout_mode = 0
@@ -288,55 +275,12 @@ label_settings = SubResource("LabelSettings_8kp3w")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("4_fc43r")]
-offset_left = 722.0
-offset_top = 1455.0
-offset_right = 722.0
-offset_bottom = 1455.0
-
-[node name="Inventory2" parent="CanvasLayer" instance=ExtResource("7_k85d1")]
-offset_left = 6.0
-offset_top = 630.0
-offset_right = 6.0
-offset_bottom = 630.0
+offset_top = 544.0
+offset_bottom = 544.0
 
 [node name="Color_box2" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1552, 82)
 texture = ExtResource("7_pa823")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
-[node name="Drag_Dummy" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 1818.0
-offset_top = 52.0
-offset_right = 1818.0
-offset_bottom = 52.0
-script = ExtResource("5_k85d1")
-
-[node name="Color_box" type="ColorRect" parent="Drag_Dummy"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -15.0
-offset_top = -30.0
-offset_right = 11.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 0, 0.0733118, 1)
-
-[node name="Draggable Detection" type="Area2D" parent="Drag_Dummy"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Drag_Dummy/Draggable Detection"]
-position = Vector2(-2, 1)
-shape = SubResource("RectangleShape2D_pa823")
-debug_color = Color(0.661584, 0.7, 0, 0.42)
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

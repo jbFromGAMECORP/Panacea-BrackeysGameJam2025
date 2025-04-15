@@ -1,32 +1,19 @@
-class_name Draggable 
+extends Draggable
 
-extends Control
 
 ## This is the base class for all objects that will be draggable through the mouse. 
 ## Use 'extends Draggable' at the top of the script to add this to new objects.
 ## This should be extended onto a basic control node.
 ## Be sure to include super() in the inheriting script if you overwrite the _ready or _process function
 
-signal drag_started(node)
-signal drag_released(node)
 
-@onready var area: Area2D = $"Draggable Detection"
-@onready var parent : Node = get_parent()
-var dummy : Node = null
 
-# This searches for the first button under the node. You must include a button as a child to register clicks.
-@onready var sprite = get_child(0)
-@onready var sprite_offset = sprite.position
-@onready var local_manager : Node 
+
+# This searches for the first button under the node. You must include a button as a child to register clicks. 
+
 
 # Stores a rectangle representing the edges of the game window.
-@onready var viewport_limits :Rect2= get_viewport().get_visible_rect()
-var mouse_offset:Vector2										# How far from the top left corner your mouse is when dragging.
-@onready var original_position : Vector2 						# Used by 'POSITION' to know where to return to.
-const fly_back_speed := 3000.0									# Pixels per second items will animate back to position
-const RETURN_TYPE = DragZone.RETURN_TYPE
-var persistent_properties = {"position":true,"rotation":true}	# Determine which properties are persisted.
-@export var in_drag_zone = null									#: Stores the currently hovering DragZone. Reparents to it upon release.
+
 
 func _ready() -> void:
 	in_drag_zone = get_parent()
@@ -49,9 +36,9 @@ func connect_to_local_manager():
 
 # The object is dragged by updating position to the mouse every frame. Clamp limits the object to the game window.
 func _physics_process(delta: float=0) -> void:
-	global_position = (get_global_mouse_position() + mouse_offset).clamp(viewport_limits.position,viewport_limits.end-size)
-	
-	
+	var new_pos = (get_global_mouse_position() + mouse_offset)#.clamp(viewport_limits.position,viewport_limits.end-size)
+	global_position = new_pos
+	if dummy: dummy.global_position = new_pos 
 
 func parse_input_event(event: InputEvent):
 	if event is InputEventMouseButton:
@@ -102,6 +89,7 @@ func release():
 	drag_released.emit(self)											# This is picked up by the Dragzone Handler
 
 
+
 		
 	
 
@@ -116,11 +104,8 @@ func enter_zone(node,pos=null):
 
 
 func grab_sprite(pos):
-	#sprite.top_level = true
-	#sprite.global_position = pos + sprite_offset
-	sprite.reparent(in_drag_zone,false)
-	print("SPRITE BELONGS TO: ",sprite.get_parent())
-	
+	sprite.top_level = true
+	sprite.global_position = pos + sprite_offset
 
 
 func exit_zone():
@@ -136,10 +121,8 @@ func exit_zone():
 
 
 func let_go_of_sprite():
-	#sprite.top_level = false
-	#sprite.position = sprite_offset
-	sprite.reparent(self,false)
-	print("SPRITE BELONGS TO: ",sprite.get_parent())
+	sprite.top_level = false
+	sprite.position = sprite_offset
 	
 func random_point_in_area():
 	var boundaries :Rect2 = parent.get_global_rect()						# Parent area is stored

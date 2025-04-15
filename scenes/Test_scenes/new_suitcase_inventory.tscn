@@ -201,12 +201,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_de0pg")
 
 [node name="Drag_Inventory" parent="InventoryContainer_pages/OpenSuitcaseSprite" instance=ExtResource("30_cc7h2")]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 186.0
-offset_top = 90.0
-offset_right = -91.0
-offset_bottom = -90.0
+offset_top = 92.0
+offset_right = 186.0
+offset_bottom = 92.0
+grow_horizontal = 1
+grow_vertical = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
