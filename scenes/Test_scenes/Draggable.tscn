@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://btqru83ttjibd" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
 [ext_resource type="Script" uid="uid://byruel4737fuh" path="res://scripts/drag_zone.gd" id="3_74cf5"]
 [ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="4_fc43r"]
-[ext_resource type="Script" uid="uid://bkndygtc0rmtw" path="res://scenes/Test_scenes/draggable2.gd" id="5_h0ygp"]
 [ext_resource type="Script" uid="uid://b3dnn6sge12de" path="res://scenes/Test_scenes/drag_dummy.gd" id="5_k85d1"]
+[ext_resource type="Script" uid="uid://c7mgxonou3t33" path="res://scenes/Test_scenes/draggable.gd" id="5_wiypd"]
 [ext_resource type="PackedScene" uid="uid://jvngay5tn1u" path="res://scenes/Test_scenes/grid_suitcase_scene.tscn" id="7_k85d1"]
 [ext_resource type="Texture2D" uid="uid://d2lvmyak3a84f" path="res://assets/Inventory/Inventory_Items/bucket.png" id="7_pa823"]
 
@@ -46,40 +46,28 @@ size = Vector2(14, 11)
 [sub_resource type="LabelSettings" id="LabelSettings_8kp3w"]
 font_size = 50
 
-[node name="Draggable" type="Control" node_paths=PackedStringArray("inventory_manager")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1924.0
-offset_right = 1924.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Draggable" type="Node2D" node_paths=PackedStringArray("inventory_manager")]
 script = ExtResource("1_8kp3w")
 inventory_manager = NodePath("CanvasLayer/Inventory")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 1363.0
+offset_left = 3294.0
 offset_top = 128.0
-offset_right = 1897.0
+offset_right = 3828.0
 offset_bottom = 406.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_oyyac")
 
 [node name="Panel2" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 282.0
+offset_left = 2213.0
 offset_top = 154.0
-offset_right = 816.0
+offset_right = 2747.0
 offset_bottom = 914.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8nj6p")
 
 [node name="DragZone2" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 2323.0
+offset_left = 4254.0
 offset_top = 196.0
-offset_right = 2813.0
+offset_right = 4744.0
 offset_bottom = 906.0
 columns = 3
 
@@ -124,10 +112,11 @@ mouse_filter = 1
 color = Color(0.419608, 0.345098, 0.266667, 1)
 
 [node name="Draggable Zone" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
-offset_left = 308.0
+offset_left = 2239.0
 offset_top = 190.0
-offset_right = 785.0
+offset_right = 2716.0
 offset_bottom = 877.0
 script = ExtResource("3_74cf5")
 return_type = 3
@@ -163,19 +152,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Button" type="TextureButton" parent="Draggable Zone/Color1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = -48.5
-offset_right = 59.0
-offset_bottom = 48.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ClickArea" type="Control" parent="Draggable Zone/Color1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -46.0
+offset_top = -30.0
+offset_right = 47.0
+offset_bottom = 37.0
 
 [node name="Draggable Detection" type="Area2D" parent="Draggable Zone/Color1"]
 
@@ -183,10 +166,11 @@ grow_vertical = 2
 shape = SubResource("RectangleShape2D_74cf5")
 
 [node name="Draggable Zone2" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
-offset_left = 1397.0
+offset_left = 3328.0
 offset_top = 154.0
-offset_right = 1861.0
+offset_right = 3792.0
 offset_bottom = 361.0
 script = ExtResource("3_74cf5")
 return_type = 3
@@ -207,7 +191,7 @@ offset_left = 225.0
 offset_top = -131.0
 offset_right = 225.0
 offset_bottom = -131.0
-script = ExtResource("5_h0ygp")
+script = ExtResource("5_wiypd")
 
 [node name="Color_box" type="ColorRect" parent="Draggable Zone2/NewDraggable"]
 layout_mode = 1
@@ -239,79 +223,53 @@ shape = SubResource("RectangleShape2D_pa823")
 debug_color = Color(0.661584, 0.7, 0, 0.42)
 
 [node name="Inventory3" parent="." instance=ExtResource("7_k85d1")]
-offset_left = 1201.0
+offset_left = 3132.0
 offset_top = 474.0
-offset_right = 1201.0
+offset_right = 3132.0
 offset_bottom = 474.0
 
 [node name="Save" type="Button" parent="."]
-layout_mode = 0
-offset_left = 852.0
+offset_left = 2783.0
 offset_top = 48.0
-offset_right = 1074.0
+offset_right = 3005.0
 offset_bottom = 175.0
 text = "Save"
 
 [node name="Load" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1139.0
+offset_left = 3070.0
 offset_top = 49.0
-offset_right = 1361.0
+offset_right = 3292.0
 offset_bottom = 176.0
 text = "Load"
 
 [node name="ChangeLevel" type="Button" parent="."]
-layout_mode = 0
-offset_left = 952.0
+offset_left = 2883.0
 offset_top = 223.0
-offset_right = 1174.0
+offset_right = 3105.0
 offset_bottom = 350.0
 text = "Change Level"
 
 [node name="ChangeLevel2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 883.0
+offset_left = 2814.0
 offset_top = 898.0
-offset_right = 1105.0
+offset_right = 3036.0
 offset_bottom = 1025.0
 text = "Change Level"
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1014.0
+offset_left = 2945.0
 offset_top = 476.0
-offset_right = 1116.0
+offset_right = 3047.0
 offset_bottom = 589.0
 text = "❌"
 label_settings = SubResource("LabelSettings_8kp3w")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("4_fc43r")]
-offset_left = 722.0
-offset_top = 1455.0
-offset_right = 722.0
-offset_bottom = 1455.0
-
-[node name="Inventory2" parent="CanvasLayer" instance=ExtResource("7_k85d1")]
-offset_left = 6.0
-offset_top = 630.0
-offset_right = 6.0
-offset_bottom = 630.0
-
-[node name="Color_box2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1552, 82)
-texture = ExtResource("7_pa823")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [node name="Drag_Dummy" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
-offset_left = 1818.0
+offset_left = 3749.0
 offset_top = 52.0
-offset_right = 1818.0
+offset_right = 3749.0
 offset_bottom = 52.0
 script = ExtResource("5_k85d1")
 
@@ -337,6 +295,29 @@ color = Color(1, 0, 0.0733118, 1)
 position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_pa823")
 debug_color = Color(0.661584, 0.7, 0, 0.42)
+
+[node name="Color_box2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1552, 82)
+texture = ExtResource("7_pa823")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1931, 0)
+anchor_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory2" parent="CanvasLayer" instance=ExtResource("7_k85d1")]
+offset_left = 6.0
+offset_top = 630.0
+offset_right = 6.0
+offset_bottom = 630.0
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("4_fc43r")]
+offset_left = 2908.0
+offset_top = 81.0
+offset_right = 2908.0
+offset_bottom = 81.0
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

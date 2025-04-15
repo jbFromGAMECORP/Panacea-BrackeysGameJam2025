@@ -20,10 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://cmvjdv74kv3v7" path="res://assets/Room Assets/black bars.png" id="16_2e10s"]
 [ext_resource type="Texture2D" uid="uid://vfcklmtk6e1i" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/bootles.png" id="18_y65ff"]
 [ext_resource type="Texture2D" uid="uid://thbjb7lohio8" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/materials.png" id="19_l7kk3"]
-[ext_resource type="PackedScene" uid="uid://b4suvmpf53t64" path="res://scenes/Test_scenes/new_suitcase_inventory.tscn" id="21_iqkle"]
 [ext_resource type="PackedScene" uid="uid://cucgabq38ngxs" path="res://scenes/Test_scenes/DragArea.tscn" id="22_y65ff"]
 [ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="23_l7kk3"]
 [ext_resource type="Script" uid="uid://b3dnn6sge12de" path="res://scenes/Test_scenes/drag_dummy.gd" id="24_dl3n3"]
+[ext_resource type="PackedScene" uid="uid://jvngay5tn1u" path="res://scenes/Test_scenes/grid_suitcase_scene.tscn" id="24_ny6lg"]
 
 [sub_resource type="GDScript" id="GDScript_dl3n3"]
 resource_name = "Level"
@@ -434,28 +434,6 @@ position = Vector2(3010, 342)
 shape = SubResource("RectangleShape2D_5hn8b")
 debug_color = Color(1, 0.588235, 0, 0.137255)
 
-[node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("6_b7jx0")]
-texture_filter = 2
-position = Vector2(1041, 957)
-slide_on_ceiling = false
-floor_constant_speed = true
-platform_on_leave = 2
-script = ExtResource("13_vv5kp")
-MAX_SPEED = 500.0
-MAX_WALKING_ANIMATION = 500.0
-ACCEL = 700.0
-DECEL = 1200.0
-TURN_DECEL = 2000.0
-FIRST_STEP_BOOST = 100.0
-
-[node name="Camera2D" type="Camera2D" parent="Protag_Dr_Evelyn_Morgan"]
-limit_left = -200
-limit_top = 0
-limit_right = 7433
-limit_bottom = 1080
-position_smoothing_speed = 20.0
-editor_draw_limits = true
-
 [node name="Bottles" type="Sprite2D" parent="."]
 position = Vector2(2912, 583)
 scale = Vector2(2.03125, 2.15625)
@@ -477,6 +455,7 @@ offset_left = 823.0
 offset_top = 596.0
 offset_right = 823.0
 offset_bottom = 596.0
+return_type = 1
 multiple_nodes = false
 
 [node name="Draggable Detection" parent="DragArea" index="0"]
@@ -487,6 +466,7 @@ offset_left = 563.0
 offset_top = 718.0
 offset_right = 563.0
 offset_bottom = 718.0
+return_type = 1
 
 [node name="Draggable Detection" parent="GAMEWORLD DRAGZONE" index="0"]
 collision_mask = 2
@@ -561,6 +541,28 @@ position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_ny6lg")
 debug_color = Color(0.661584, 0.7, 0, 0.42)
 
+[node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("6_b7jx0")]
+texture_filter = 2
+position = Vector2(1041, 957)
+slide_on_ceiling = false
+floor_constant_speed = true
+platform_on_leave = 2
+script = ExtResource("13_vv5kp")
+MAX_SPEED = 500.0
+MAX_WALKING_ANIMATION = 500.0
+ACCEL = 700.0
+DECEL = 1200.0
+TURN_DECEL = 2000.0
+FIRST_STEP_BOOST = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="Protag_Dr_Evelyn_Morgan"]
+limit_left = -200
+limit_top = 0
+limit_right = 7433
+limit_bottom = 1080
+position_smoothing_speed = 20.0
+editor_draw_limits = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" type="Control" parent="CanvasLayer"]
@@ -618,7 +620,9 @@ offset_top = 576.0
 offset_right = 675.0
 offset_bottom = 886.0
 
-[node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("21_iqkle")]
+[node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("24_ny6lg")]
+offset_top = 547.0
+offset_bottom = 547.0
 
 [connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
 

@@ -23,7 +23,7 @@ var dummy : Node = null
 @onready var viewport_limits :Rect2= get_viewport().get_visible_rect()
 var mouse_offset:Vector2										# How far from the top left corner your mouse is when dragging.
 @onready var original_position : Vector2 						# Used by 'POSITION' to know where to return to.
-const fly_back_speed := 3000.0									# Pixels per second items will animate back to position
+const FLY_BACK_SPEED := 3000.0									# Pixels per second items will animate back to position
 const RETURN_TYPE = DragZone.RETURN_TYPE
 var persistent_properties = {"position":true,"rotation":true}	# Determine which properties are persisted.
 @export var in_drag_zone = null									#: Stores the currently hovering DragZone. Reparents to it upon release.
@@ -41,7 +41,9 @@ func _ready() -> void:
 
 # TODO: Implement Draggable and Dragzone Handlers
 func connect_to_local_manager():
-	var manager = get_tree().current_scene.get("inventory_manager")
+	var manager = get_tree().current_scene
+	if manager is not InventoryManager:
+		manager = manager.get("inventory_manager")
 	if manager is InventoryManager:
 		print("INV MANGER FOUND")
 		manager.connect_draggable_signals(drag_started,drag_released)
@@ -49,7 +51,7 @@ func connect_to_local_manager():
 
 # The object is dragged by updating position to the mouse every frame. Clamp limits the object to the game window.
 func _physics_process(delta: float=0) -> void:
-	global_position = (get_global_mouse_position() + mouse_offset).clamp(viewport_limits.position,viewport_limits.end-size)
+	global_position = (get_global_mouse_position() + mouse_offset)#.clamp(viewport_limits.position,viewport_limits.end-size)
 	
 	
 
@@ -73,33 +75,32 @@ func drag():
 	scale += Vector2(.3,.3)												# Small scale to help show it's 'picked up'
 	original_position = position										# Stores where you picked it up from
 	mouse_offset = global_position - get_global_mouse_position()		# Stores where on the objects area you grabbed
-	reparent($"../../CanvasLayer")
+	reparent(local_manager)
 	_physics_process()													# Start Dragging
 	set_physics_process(true)											# Enables dragging
 	drag_started.emit(self)												# This is picked up by the Dragzone Handler
 
 
 func release():
-	scale -= Vector2(.3,.3)												# Reset scale back down
 	set_physics_process(false)											# Disables dragging
+	drag_released.emit(self)											# This is picked up by the Dragzone Handler
+	scale -= Vector2(.3,.3)												# Reset scale back down
 	if in_drag_zone and in_drag_zone != parent:					
 		change_drag_zone()
 	else:
 		reparent(parent)
-	_physics_process()
+	global_position = (get_global_mouse_position() + mouse_offset)
 	match parent.return_type:													# Match looks for the branch that matches it's value.
 		RETURN_TYPE.NO_RETURN:
 			pass
 		RETURN_TYPE.POSITION:
-			await place_back(parent.global_position + original_position)
-			position = original_position
+			await place_back(get_parent().global_position)
 		RETURN_TYPE.PARENT_AREA_RANDOM:
 			await place_back(random_point_in_area())
 		RETURN_TYPE.PARENT_AREA_CLOSEST:
 			await place_back(closest_point_in_area())
 		RETURN_TYPE.TELEPORT:
 			position = original_position
-	drag_released.emit(self)											# This is picked up by the Dragzone Handler
 
 
 		
@@ -155,10 +156,10 @@ func closest_point_in_area():
 
 # Tween back to destination. Since we are top level we use global positions.
 func place_back(global_dest:Vector2):
-	var time = global_dest.distance_to(global_position)/fly_back_speed
+	var time = global_position.distance_to(global_dest)/FLY_BACK_SPEED
 	await create_tween().tween_property(self,"global_position",global_dest,time).set_trans(Tween.TRANS_BACK).finished
 
-
+	
 func get_persistent_properties():
 	var the_dict = {}
 	for prop in persistent_properties:

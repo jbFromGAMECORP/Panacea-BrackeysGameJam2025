@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 @export var inventory_manager:InventoryManager
 @onready var scene_name = name
 @onready var load: Button = $Load

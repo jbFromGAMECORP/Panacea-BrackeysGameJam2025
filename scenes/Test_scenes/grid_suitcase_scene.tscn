@@ -8,19 +8,13 @@
 
 [sub_resource type="GDScript" id="GDScript_an7ss"]
 resource_name = "GridIventory"
-script/source = "
-extends Control
+script/source = "extends InventoryManager
+class_name InventoryManagerSub
 
-signal object_taken
-signal object_placed
-@export var player : PlayerResource
-enum SPREAD_TYPE {RANDOM,DISTRIBUTE}
-var held_object : Draggable
-var held_object_parent : Node
-@export var drag_inventory :Control
-
+@onready var grid_container = $InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid
 
 func _ready() -> void:
+	
 	var item_array = create_items(player.inventory)
 	create_slots()
 	assign_items(item_array)
@@ -30,13 +24,7 @@ func connect_draggable_signals(_drag_started:Signal,_drag_released:Signal):
 	_drag_started.connect(drag_started)
 	_drag_released.connect(drag_released)
 	
-func drag_started(obj:Node):
-	held_object = obj
-	held_object_parent = obj.get_parent()
-	
-func drag_released(obj:Node):
-	held_object = null
-	held_object_parent = null
+
 	
 
 func create_items(inventory:Array[ItemResource]):
@@ -51,14 +39,14 @@ func create_items(inventory:Array[ItemResource]):
 
 func assign_items(item_array:Array):
 	item_array.reverse()
-	for slot in drag_inventory.get_children():
+	for slot in grid_container.get_children():
 		slot.add_child(item_array.pop_back())
 	
 func create_slots():
 	const amount = 11
-	var slot = drag_inventory.get_child(0)
+	var slot = grid_container.get_child(0)
 	for x in amount:
-		drag_inventory.add_child(slot.duplicate())
+		grid_container.add_child(slot.duplicate())
 "
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qaoq3"]
@@ -168,12 +156,11 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("drag_inventory")]
+[node name="Inventory" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = SubResource("GDScript_an7ss")
 player = ExtResource("2_d0r5c")
-drag_inventory = NodePath("InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid")
 
 [node name="SuitcaseButton" type="Button" parent="."]
 layout_mode = 0
@@ -277,6 +264,7 @@ columns = 4
 [node name="Drag_Inventory" parent="InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid" instance=ExtResource("5_wyigw")]
 layout_mode = 2
 size_flags_vertical = 2
+return_type = 1
 
 [node name="Panel" type="Panel" parent="InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid/Drag_Inventory"]
 layout_mode = 1

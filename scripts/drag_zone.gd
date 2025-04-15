@@ -24,7 +24,6 @@ func _connect_signals():
 func _on_area_entered(area:Area2D):
 	var node = area.get_parent()
 	var pos = get_canvas_transform()*global_position
-	print(global_position," as Transofrmed POS: ",pos)
 	if node.has_method("dummy"): node=node.follow_node
 	if node is Draggable and node.criteria() and _subclass_criteria(node):
 		print(area.get_parent().name,"\tEntered\t",self)

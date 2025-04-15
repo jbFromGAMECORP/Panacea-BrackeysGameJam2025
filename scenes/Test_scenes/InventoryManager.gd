@@ -63,18 +63,18 @@ func arrange_items_to_points(area):
 
 func _generate_points(area,count) -> Array[Vector2]:
 	var offset = 48
-	var x_count :float = ceili(sqrt(count))
-	var y_count :float = count/x_count
-	var x_spacing = (area.size.x-offset*2) / (x_count-1)
-	var y_spacing = max((area.size.y-offset*2) / (y_count-1),2)
+	var x_count :float = max(ceili(sqrt(count)),2)
+	var y_count :float = max(count/x_count,2)
+	var x_spacing =(area.size.x-offset*2) / (x_count-1.0)
+	var y_spacing = (area.size.y-offset*2) / (y_count-1.0)
 	var grid: Array[Vector2]= []
 	for x in x_count:
 		for y in y_count:
 			grid.append(Vector2(x*x_spacing,y*y_spacing)+Vector2(offset,offset))
 		print(grid.slice(-3))
-	print(grid)
+	print("aaa",grid)
 	return grid
 
 func _distribute_point(point : Vector2):
-	const distr = 200
+	const distr = 100
 	return (point + Vector2(randfn(0,distr),randfn(0,distr))).clamp(Vector2.ZERO,drag_inventory.size)
