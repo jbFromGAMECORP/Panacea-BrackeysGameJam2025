@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1c76muye60fk"]
 
-[ext_resource type="Script" uid="uid://bmaolchl5fdwg" path="res://scripts/cold_open.gd" id="1_uoi5k"]
+[ext_resource type="Script" uid="uid://6oqjf37da0yi" path="res://scripts/cold_open.gd" id="1_uoi5k"]
 
 [node name="ColdOpen" type="Node2D"]
 script = ExtResource("1_uoi5k")

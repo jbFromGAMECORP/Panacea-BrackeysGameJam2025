@@ -71,7 +71,7 @@ func speaker_changed(new_speaker):
 	
 	#TODO: extend the scripts for scientist and patient and have them call this function instead.
 func get_namebox_side(new_character):
-	return
+	return # Comment to enable
 	var portraits_info = portrait_system.get_character_info(new_character)
 	if not portraits_info["joined"]: print("NO PORTRAIT");return
 	print("NEW SPEAKER: ",current_char, " || Side: ",portrait_system.get_character_info(new_character)["position_id"])

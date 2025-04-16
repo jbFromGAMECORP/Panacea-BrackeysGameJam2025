@@ -49,7 +49,7 @@ directories/dtl_directory={
 layout/style_list=["res://Dialogic_Items/Styles/textBubbleStyle.tres", "res://Dialogic_Items/Styles/testCustomStyle.tres", "res://Dialogic_Items/Styles/customScientistStyle1.tres", "res://Dialogic_Items/Styles/customPatientStyle1.tres", "res://Dialogic_Items/Styles/GameNarrationCustom1Style/customGameInfoStyle1.tres", "res://scenes/Test_scenes/ColdOpenStyle/ComicDialogueStyle.tres"]
 layout/default_style="res://Dialogic_Items/Styles/customScientistStyle1.tres"
 extensions_folder="res://addons/dialogic_additions"
-text/letter_speed=0.04
+text/letter_speed=0.03
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/advance_delay=0.1
@@ -68,7 +68,8 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={
 ",:": 0.15,
-".?!": 0.3
+".?!": 0.3,
+"…": 0.75
 }
 audio/channel_defaults={
 "": {
