@@ -125,7 +125,6 @@ volume_db = -12.077
 max_polyphony = 2
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1535.0

@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=3 uid="uid://s464ctsqv1t3"]
+
+[ext_resource type="Script" uid="uid://dxid23c0m48eb" path="res://global_music.gd" id="1_p54fa"]
+[ext_resource type="AudioStream" uid="uid://gv2nwdklqirx" path="res://scenes/Test_scenes/assets/pyroxene.mp3" id="2_hck2r"]
+[ext_resource type="Script" uid="uid://3sml2x7oslj4" path="res://global_music_player.gd" id="2_uf06q"]
+[ext_resource type="AudioStream" uid="uid://ctsx50i8udww2" path="res://scenes/Test_scenes/assets/Chiptune Vol5 Don't Call Me Main.wav" id="4_bjpqk"]
+
+[sub_resource type="GDScript" id="GDScript_p54fa"]
+resource_name = "Music test labels"
+script/source = "extends Control
+
+func _process(_delta: float) -> void:
+	for string in [\"Music1\",\"Music2\"]:
+		var label = get_node(string)
+		var player:AudioStreamPlayer = get_node(\"../\"+string)
+		label.text = \"%s\\n%.1f\\n%.1f\" % [
+			player.stream.resource_path.get_file().get_basename().substr(0,10),
+			player.volume_db,
+			player.volume_linear]
+		label.modulate = Color.GREEN if player.playing else Color.RED
+	$\"Music Queue\".text = str($\"..\".music_queue[0].name) + \" | \" + $\"..\".music_queue[1].name
+		#$Music2.modulate = Color.GREEN if $\"../Music2\".playing else Color.RED
+	
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_uf06q"]
+font_size = 50
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_p54fa")
+
+[node name="Music1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hck2r")
+script = ExtResource("2_uf06q")
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bjpqk")
+script = ExtResource("2_uf06q")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Debug Labels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1535.0
+offset_top = 13.0
+offset_right = 1575.0
+offset_bottom = 53.0
+script = SubResource("GDScript_p54fa")
+
+[node name="Music1" type="Label" parent="Debug Labels"]
+layout_mode = 0
+offset_left = -1528.0
+offset_top = 54.0
+offset_right = -1168.0
+offset_bottom = 201.0
+text = "0"
+label_settings = SubResource("LabelSettings_uf06q")
+horizontal_alignment = 1
+
+[node name="Music2" type="Label" parent="Debug Labels"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 67.0
+offset_right = 367.0
+offset_bottom = 214.0
+text = "0"
+label_settings = SubResource("LabelSettings_uf06q")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Debug Labels"]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 147.0
+text = "Music Player 2:"
+label_settings = SubResource("LabelSettings_uf06q")
+
+[node name="Label" type="Label" parent="Debug Labels"]
+layout_mode = 0
+offset_left = -1535.0
+offset_top = -13.0
+offset_right = -1175.0
+offset_bottom = 134.0
+text = "Music Player 1:"
+label_settings = SubResource("LabelSettings_uf06q")
+
+[node name="Music Queue" type="Label" parent="Debug Labels"]
+layout_mode = 0
+offset_left = -797.0
+offset_top = -7.0
+offset_right = -437.0
+offset_bottom = 140.0
+text = "Music Player 1:"
+label_settings = SubResource("LabelSettings_uf06q")
+
+[node name="Song1" type="Button" parent="."]
+offset_left = 887.0
+offset_top = 178.0
+offset_right = 983.0
+offset_bottom = 231.0
+text = "Go song #1"
+
+[node name="Song2" type="Button" parent="."]
+offset_left = 1035.0
+offset_top = 184.0
+offset_right = 1131.0
+offset_bottom = 237.0
+text = "Go song #2"
+
+[connection signal="pressed" from="Song1" to="." method="_on_song_1_pressed"]
+[connection signal="pressed" from="Song2" to="." method="_on_song_2_pressed"]

@@ -83,4 +83,4 @@ func get_namebox_side(new_character):
 	var name_label: PanelContainer = textbox.get_node("%NameLabelPanel")
 	name_label.anchor_left = namebox_side
 	name_label.anchor_right = namebox_side
-	name_label.grow_horizontal = 1-namebox_side
+	name_label.grow_horizontal = 1-int(namebox_side)
