@@ -17,26 +17,24 @@ var dummy : Node = null
 # This searches for the first button under the node. You must include a button as a child to register clicks.
 @onready var sprite = get_child(0)
 @onready var sprite_offset = sprite.position
-@onready var local_manager : Node 
+@onready var local_manager : Node  = connect_to_local_manager()
 
 # Stores a rectangle representing the edges of the game window.
 @onready var viewport_limits :Rect2= get_viewport().get_visible_rect()
-var mouse_offset:Vector2										# How far from the top left corner your mouse is when dragging.
 @onready var original_position : Vector2 						# Used by 'POSITION' to know where to return to.
+var mouse_offset:Vector2										# How far from the top left corner your mouse is when dragging.
 const FLY_BACK_SPEED := 3000.0									# Pixels per second items will animate back to position
 const RETURN_TYPE = DragZone.RETURN_TYPE
 var persistent_properties = {"position":true,"rotation":true}	# Determine which properties are persisted.
-@export var in_drag_zone = null									#: Stores the currently hovering DragZone. Reparents to it upon release.
+
+var in_drag_zone = null											# Stores the currently hovered DragZone. Reparents to it upon release.
 
 func _ready() -> void:
-	in_drag_zone = get_parent()
+	#in_drag_zone = get_parent()
 	add_to_group("Persistent")
-	local_manager = connect_to_local_manager()
-	#return_type = local_manager.return_type
-	#return_type = local_manager.return_type
 	$ClickArea.gui_input.connect(parse_input_event)
-	# We enable processing when dragging, disable when not.
-	set_process_input(false)
+	
+	set_process_input(false) # We enable processing when dragging, disable when not.
 	set_physics_process(false)
 
 # TODO: Implement Draggable and Dragzone Handlers
@@ -45,7 +43,6 @@ func connect_to_local_manager():
 	if manager is not InventoryManager:
 		manager = manager.get("inventory_manager")
 	if manager is InventoryManager:
-		print("INV MANGER FOUND")
 		manager.connect_draggable_signals(drag_started,drag_released)
 	return manager
 
@@ -90,6 +87,7 @@ func release():
 	else:
 		reparent(parent)
 	global_position = (get_global_mouse_position() + mouse_offset)
+	if parent is not DragZone: return
 	match parent.return_type:													# Match looks for the branch that matches it's value.
 		RETURN_TYPE.NO_RETURN:
 			pass
@@ -112,6 +110,7 @@ func enter_zone(node,pos=null):
 			if in_drag_zone.is_greater_than(node):
 				return
 		in_drag_zone = node
+		set_shader()
 		if pos != null and node != parent:
 			grab_sprite(pos)
 
@@ -129,13 +128,18 @@ func exit_zone():
 		await get_tree().physics_frame
 		let_go_of_sprite()
 		in_drag_zone = null
+		set_shader()
 		var next_area = $"Draggable Detection".get_overlapping_areas().get(0)
 		if next_area:
 			var drag_zone = next_area.get_parent() 
 			if drag_zone is DragZone and drag_zone._subclass_criteria(self): 
 				drag_zone._on_area_entered($"Draggable Detection")
 
-
+func set_shader():
+	if in_drag_zone:
+		sprite.use_parent_material = false
+	else:
+		sprite.use_parent_material = true
 func let_go_of_sprite():
 	#sprite.top_level = false
 	#sprite.position = sprite_offset

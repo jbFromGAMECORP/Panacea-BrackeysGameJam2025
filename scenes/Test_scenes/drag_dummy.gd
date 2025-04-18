@@ -23,11 +23,15 @@ func _ready() -> void:
 	set_physics_process(false)
 
 func connect_to_local_manager():
-	manager = get_tree().current_scene.get("inventory_manager")
-	if manager is InventoryManager:
-		print("INV MANGER FOUND")
+	var manager = get_tree().current_scene
+	if manager is not InventoryManager:
+		manager = manager.get("inventory_manager")
+	if manager is not InventoryManager:
+		push_error("Inventory Manager could not be found in or at scene root.")
+	else:
 		manager.object_taken.connect(drag)
 		manager.object_placed.connect(release)
+
 
 
 # The object is dragged by updating position to the mouse every frame. Clamp limits the object to the game window.

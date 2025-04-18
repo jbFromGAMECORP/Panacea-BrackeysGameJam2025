@@ -3,6 +3,7 @@ class_name BuildUnit
 extends Sprite2D
 enum CHOICE{RANDOM_CHOICE,RANDOM_BETWEEN}
 
+static var debug_lines:bool = false #Set to true to see lines in game
 @export var random_visibility : bool
 @export var random_frame : bool
 
@@ -47,6 +48,7 @@ static func choose_new_seed():
 	
 func _ready() -> void:
 	pass
+	$"Random_Placement".visible = debug_lines
 	build_props()
 
 
