@@ -23,6 +23,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Persistence="*res://scripts/global_scene_persistence.gd"
 Transition="*res://scripts/global_scene_transition.gd"
 DH="*res://scripts/DialogicHelper.gd"
+Music="*res://scenes/global_music.tscn"
 
 [dialogic]
 

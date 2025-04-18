@@ -8,104 +8,195 @@
 [sub_resource type="GDScript" id="GDScript_p54fa"]
 resource_name = "Music test labels"
 script/source = "extends Control
+@onready var music_manager: Node = $\"../..\"
 
 func _process(_delta: float) -> void:
 	for string in [\"Music1\",\"Music2\"]:
 		var label = get_node(string)
-		var player:AudioStreamPlayer = get_node(\"../\"+string)
+		var player:AudioStreamPlayer = get_node(\"../../\"+string)
 		label.text = \"%s\\n%.1f\\n%.1f\" % [
 			player.stream.resource_path.get_file().get_basename().substr(0,10),
 			player.volume_db,
 			player.volume_linear]
 		label.modulate = Color.GREEN if player.playing else Color.RED
-	$\"Music Queue\".text = str($\"..\".music_queue[0].name) + \" | \" + $\"..\".music_queue[1].name
+	$\"Music Queue\".text = str(music_manager.music_queue[0].name) + \" | \" + music_manager.music_queue[1].name
 		#$Music2.modulate = Color.GREEN if $\"../Music2\".playing else Color.RED
 	
+func _on_song_1_pressed() -> void:
+	var fade_time = $HSlider.value
+	music_manager.transition_music(load(\"res://assets/star_song_short_ofv.mp3\"),fade_time)
+
+
+func _on_song_2_pressed() -> void:
+	var fade_time = $HSlider.value
+	music_manager.transition_music(load(\"res://scenes/Test_scenes/assets/Chiptune Vol5 Don't Call Me Main.wav\"),fade_time)
+
+func _on_volume_down_pressed() -> void:
+	var player:GlobalMusicPlayer = music_manager.current_player # Replace with function body.
+	player.volume_linear = max(player.volume_linear - 0.1,0.001)
+
+func _on_volume_up_pressed() -> void:
+	var player:GlobalMusicPlayer = music_manager.current_player # Replace with function body.
+	player.volume_linear = min(player.volume_linear + 0.1,1.0)
+
+
+func _on_hide_unhide_pressed() -> void:
+	for node in get_children():
+		node.visible = !(node.visible)
+		$HideUnhide.show()
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	$HSlider/Value.text = str($HSlider.value)
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_uf06q"]
-font_size = 50
+font_size = 30
 
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_p54fa")
 
 [node name="Music1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hck2r")
+bus = &"Music"
 script = ExtResource("2_uf06q")
 
 [node name="Music2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_bjpqk")
+bus = &"Music"
 script = ExtResource("2_uf06q")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Debug Labels" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Debug Labels" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1535.0
-offset_top = 13.0
-offset_right = 1575.0
-offset_bottom = 53.0
+offset_left = 1603.0
+offset_top = 91.0
+offset_right = 1643.0
+offset_bottom = 131.0
 script = SubResource("GDScript_p54fa")
 
-[node name="Music1" type="Label" parent="Debug Labels"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Debug Labels"]
 layout_mode = 0
-offset_left = -1528.0
-offset_top = 54.0
-offset_right = -1168.0
-offset_bottom = 201.0
+offset_left = -163.0
+offset_top = -72.0
+offset_right = 308.0
+offset_bottom = 278.0
+
+[node name="Music1" type="Label" parent="CanvasLayer/Debug Labels"]
+layout_mode = 0
+offset_left = -264.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 82.0
 text = "0"
 label_settings = SubResource("LabelSettings_uf06q")
 horizontal_alignment = 1
 
-[node name="Music2" type="Label" parent="Debug Labels"]
+[node name="Music2" type="Label" parent="CanvasLayer/Debug Labels"]
 layout_mode = 0
 offset_left = 7.0
-offset_top = 67.0
+offset_top = 42.0
 offset_right = 367.0
-offset_bottom = 214.0
+offset_bottom = 84.0
 text = "0"
 label_settings = SubResource("LabelSettings_uf06q")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Debug Labels"]
+[node name="Label2" type="Label" parent="CanvasLayer/Debug Labels"]
 layout_mode = 0
 offset_right = 360.0
-offset_bottom = 147.0
-text = "Music Player 2:"
+offset_bottom = 42.0
+text = "Music2:"
 label_settings = SubResource("LabelSettings_uf06q")
+horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Debug Labels"]
+[node name="Label" type="Label" parent="CanvasLayer/Debug Labels"]
 layout_mode = 0
-offset_left = -1535.0
-offset_top = -13.0
-offset_right = -1175.0
-offset_bottom = 134.0
+offset_left = -264.0
+offset_right = 96.0
+offset_bottom = 42.0
+text = "Music 1:"
+label_settings = SubResource("LabelSettings_uf06q")
+horizontal_alignment = 1
+
+[node name="Music Queue" type="Label" parent="CanvasLayer/Debug Labels"]
+layout_mode = 0
+offset_left = -122.0
+offset_top = -39.0
+offset_right = 238.0
+offset_bottom = 3.0
 text = "Music Player 1:"
 label_settings = SubResource("LabelSettings_uf06q")
+horizontal_alignment = 1
 
-[node name="Music Queue" type="Label" parent="Debug Labels"]
+[node name="Song1" type="Button" parent="CanvasLayer/Debug Labels"]
+offset_left = 26.0
+offset_top = 113.0
+offset_right = 96.0
+offset_bottom = 166.0
+text = "Song #1"
+
+[node name="Song2" type="Button" parent="CanvasLayer/Debug Labels"]
+offset_left = 26.0
+offset_top = 168.0
+offset_right = 96.0
+offset_bottom = 221.0
+text = "Song #2"
+
+[node name="Volume Down" type="Button" parent="CanvasLayer/Debug Labels"]
+offset_left = 25.0
+offset_top = 58.0
+offset_right = 98.0
+offset_bottom = 111.0
+text = "Volume-"
+
+[node name="Volume Up" type="Button" parent="CanvasLayer/Debug Labels"]
+offset_left = 22.0
+offset_top = 3.0
+offset_right = 99.0
+offset_bottom = 56.0
+text = "Volume+"
+
+[node name="HideUnhide" type="Button" parent="CanvasLayer/Debug Labels"]
+offset_left = 238.0
+offset_top = -60.0
+offset_right = 301.0
+offset_bottom = -29.0
+text = "Hide"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Debug Labels"]
 layout_mode = 0
-offset_left = -797.0
-offset_top = -7.0
-offset_right = -437.0
-offset_bottom = 140.0
-text = "Music Player 1:"
-label_settings = SubResource("LabelSettings_uf06q")
+offset_left = 7.0
+offset_top = 245.0
+offset_right = 115.0
+offset_bottom = 261.0
+max_value = 20.0
+value = 6.0
+rounded = true
 
-[node name="Song1" type="Button" parent="."]
-offset_left = 887.0
-offset_top = 178.0
-offset_right = 983.0
-offset_bottom = 231.0
-text = "Go song #1"
+[node name="Label" type="Label" parent="CanvasLayer/Debug Labels/HSlider"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 40.0
+offset_bottom = -1.0
+text = "Fade Duration"
 
-[node name="Song2" type="Button" parent="."]
-offset_left = 1035.0
-offset_top = 184.0
-offset_right = 1131.0
-offset_bottom = 237.0
-text = "Go song #2"
+[node name="Value" type="Label" parent="CanvasLayer/Debug Labels/HSlider"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = -5.0
+offset_right = 220.0
+offset_bottom = 18.0
+text = "6.0"
 
-[connection signal="pressed" from="Song1" to="." method="_on_song_1_pressed"]
-[connection signal="pressed" from="Song2" to="." method="_on_song_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Debug Labels/Song1" to="CanvasLayer/Debug Labels" method="_on_song_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Debug Labels/Song2" to="CanvasLayer/Debug Labels" method="_on_song_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Debug Labels/Volume Down" to="CanvasLayer/Debug Labels" method="_on_volume_down_pressed"]
+[connection signal="pressed" from="CanvasLayer/Debug Labels/Volume Up" to="CanvasLayer/Debug Labels" method="_on_volume_up_pressed"]
+[connection signal="pressed" from="CanvasLayer/Debug Labels/HideUnhide" to="CanvasLayer/Debug Labels" method="_on_hide_unhide_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Debug Labels/HSlider" to="CanvasLayer/Debug Labels" method="_on_h_slider_value_changed"]

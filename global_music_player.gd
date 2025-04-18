@@ -11,8 +11,7 @@ func change_song(new_stream:AudioStream):
 		push_error("Attempted to change to same song play.")
 	stream = new_stream
 	
-	
-	
+
 func new_pitch():
 	var pitch = randfn(1,0.2)
 	var pitch_slide_time = randfn(10,3)
@@ -27,50 +26,26 @@ func new_timer():
 	prints("new_timer:",timer)
 	get_tree().create_timer(timer).timeout.connect(new_pitch)
 
-func new_volume():
-	var timer = randi_range(8,12)
-	prints("new_timer:",timer)
-	get_tree().create_timer(timer).timeout.connect(new_pitch)
 	
-#func set_fade_in(fade_time=6,pos = 0.0):
-	#if playing:
-		#push_error(self, "set_fade_in failed: Music already playing.");return
-	#prints("Fading in:",name,"-",stream.resource_path)
-	#volume_linear = 0.001
-	#play(pos)
-	#fade_tween = create_tween()
-	#fade_tween.tween_property(self,"volume_db",default_db,fade_time)\
-						 #.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	#
-#func set_fade_out(fade_time=6):
-	#if not playing:
-		#push_error(self, "set_fade_out failed: Music is not playing.");return
-	#prints("Fading in:",name,"-",stream.resource_path)
-	#fade_tween = create_tween()
-	#fade_tween.tween_property(self,"volume_linear",0.001,fade_time)\
-						 #.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	#await fade_tween.finished
-	#stop()
-	
-func set_fade_in(fade_time=6,pos = 0.0):
+func set_fade_in(fade_time,pos = 0.0):
 	if playing:
 		push_error(self, "set_fade_in failed: Music already playing.");return
 	
 	prints("Fading IN:",name,"-",stream.resource_path)
-	volume_db = -80.0
+	volume_db = -70.0
 	play(pos)
 	fade_tween.kill()
 	fade_tween = create_tween()
 	fade_tween.tween_property(self,"volume_db",default_db,fade_time)\
 						 .set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
-func set_fade_out(fade_time=6):
+func set_fade_out(fade_time):
 	if not playing:
 		push_error(self, "set_fade_out failed: Music is not playing.");return
 	prints("Fading OUT:",name,"-",stream.resource_path)
 	fade_tween.kill()
 	fade_tween = create_tween()
-	fade_tween.tween_property(self,"volume_db",-80.0,fade_time)\
-						 .set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	fade_tween.tween_property(self,"volume_db",-70.0,fade_time)\
+			  .set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	await fade_tween.finished
 	stop()

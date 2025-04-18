@@ -1,24 +1,30 @@
 extends Node
 
 @onready var music_queue:Array[GlobalMusicPlayer] = [$Music1,$Music2]
+@onready var current_player :GlobalMusicPlayer= music_queue[0]:
+	get():
+		return music_queue.get(0)
+@onready var next_player :GlobalMusicPlayer= music_queue[1]:
+	get():
+		return music_queue.get(1)
 
-
-#@export var pitch_slide_time :int = 12
 func _ready() -> void:
-	pass
-	
-func transition_music(new_song):
-	var current_player = music_queue[0]
-	var next_player = music_queue[1]
+	if get_tree().current_scene == self:
+		print("Disabling Duplicate")
+		self.queue_free()
+		
+func transition_music(new_song,fade_time=6):
 	if current_player.playing and current_player.stream == new_song:
 		printerr(self," Same song, skipping change.")
 		return
 	next_player.change_song(new_song)
-	current_player.set_fade_out()
-	#await get_tree().create_timer(4).timeout
-	next_player.set_fade_in()
+	current_player.set_fade_out(fade_time)
+	next_player.set_fade_in(fade_time)
 	music_queue.reverse()
 
+func change_volume(volume:float):
+	pass
+	
 #func cycle_songs():
 	#await get_tree().create_timer(3).timeout
 	#await change_music(song2)
@@ -39,13 +45,3 @@ func transition_music(new_song):
 	#await finished
 	#current_player.stop()
 	#print("FINISHED")
-
-
-
-
-func _on_song_1_pressed() -> void:
-	transition_music(load("res://scenes/Test_scenes/assets/pyroxene.mp3"))
-
-
-func _on_song_2_pressed() -> void:
-	transition_music(load("res://scenes/Test_scenes/assets/Chiptune Vol5 Don't Call Me Main.wav"))
