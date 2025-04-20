@@ -102,6 +102,9 @@ polygon = PackedVector2Array(103, -4, 647, -48, 768, 99, 597, 451, 137, 442)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0sspf")
+volume_db = -11.406
+pitch_scale = 1.31
+autoplay = true
 
 [node name="Music2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_a1ssv")

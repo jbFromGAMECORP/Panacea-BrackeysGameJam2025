@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="2_8kp3w"]
 [ext_resource type="Script" uid="uid://btqru83ttjibd" path="res://scenes/Test_scenes/test_squares.gd" id="2_le1fh"]
 [ext_resource type="Script" uid="uid://byruel4737fuh" path="res://scripts/drag_zone.gd" id="3_74cf5"]
-[ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="4_fc43r"]
 [ext_resource type="Script" uid="uid://b3dnn6sge12de" path="res://scenes/Test_scenes/drag_dummy.gd" id="5_k85d1"]
 [ext_resource type="Script" uid="uid://c7mgxonou3t33" path="res://scenes/Test_scenes/draggable.gd" id="5_wiypd"]
 [ext_resource type="PackedScene" uid="uid://jvngay5tn1u" path="res://scenes/Test_scenes/grid_suitcase_scene.tscn" id="7_k85d1"]
 [ext_resource type="Texture2D" uid="uid://d2lvmyak3a84f" path="res://assets/Inventory/Inventory_Items/bucket.png" id="7_pa823"]
+[ext_resource type="PackedScene" uid="uid://b4suvmpf53t64" path="res://scenes/Test_scenes/new_suitcase_inventory.tscn" id="9_wiypd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyac"]
 bg_color = Color(0.417969, 0.345212, 0.267761, 1)
@@ -222,11 +222,11 @@ position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_pa823")
 debug_color = Color(0.661584, 0.7, 0, 0.42)
 
-[node name="Inventory3" parent="." instance=ExtResource("7_k85d1")]
-offset_left = 3132.0
-offset_top = 474.0
-offset_right = 3132.0
-offset_bottom = 474.0
+[node name="Grid_Inventory" parent="." instance=ExtResource("7_k85d1")]
+offset_left = 1929.0
+offset_top = 5.0
+offset_right = 1929.0
+offset_bottom = 5.0
 
 [node name="Save" type="Button" parent="."]
 offset_left = 2783.0
@@ -307,17 +307,11 @@ anchor_mode = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Inventory2" parent="CanvasLayer" instance=ExtResource("7_k85d1")]
-offset_left = 6.0
-offset_top = 630.0
-offset_right = 6.0
-offset_bottom = 630.0
-
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("4_fc43r")]
-offset_left = 2908.0
-offset_top = 81.0
-offset_right = 2908.0
-offset_bottom = 81.0
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("9_wiypd")]
+offset_left = 240.0
+offset_top = -14.0
+offset_right = 240.0
+offset_bottom = -14.0
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

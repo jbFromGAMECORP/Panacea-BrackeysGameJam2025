@@ -3,7 +3,6 @@
 [ext_resource type="Resource" uid="uid://bmpulmhsvba3f" path="res://scenes/Test_scenes/Resources/InventoryResources/PlayerInventory.tres" id="2_d0r5c"]
 [ext_resource type="Texture2D" uid="uid://cmfdcxhgaodh7" path="res://scenes/UI/Inventory/Assets/suitcase_icon_closed.png" id="3_5gh1t"]
 [ext_resource type="Script" uid="uid://ddh0x273qk0mi" path="res://scripts/suitcase_button.gd" id="4_jdav1"]
-[ext_resource type="PackedScene" uid="uid://b4suvmpf53t64" path="res://scenes/Test_scenes/new_suitcase_inventory.tscn" id="5_d0r5c"]
 [ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="5_wyigw"]
 
 [sub_resource type="GDScript" id="GDScript_an7ss"]
@@ -39,8 +38,9 @@ func create_items(inventory:Array[ItemResource]):
 
 func assign_items(item_array:Array):
 	item_array.reverse()
-	for slot in grid_container.get_children():
-		slot.add_child(item_array.pop_back())
+	var grid = grid_container.get_children()
+	for idx in len(item_array):
+		grid[idx].add_child(item_array.pop_back())
 	
 func create_slots():
 	const amount = 11
@@ -53,6 +53,9 @@ func create_slots():
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6jwe"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oo6ie"]
+size = Vector2(225.001, 137.5)
+
 [sub_resource type="GDScript" id="GDScript_mkctq"]
 resource_name = "Invetory Container"
 script/source = "extends TextureRect
@@ -64,9 +67,10 @@ script/source = "extends TextureRect
 const MINIMIZED_SCALE := Vector2(0,.3)				# Target scale for disappearing into case
 const ANIMATION_SPEED = .18 						# Base speed for Tweens.
 
-var tween := Tween.new() 							# Tween holder, new tweens can either wait or replace a already running tween
+var tween := create_tween() 							# Tween holder, new tweens can either wait or replace a already running tween
 
 func _ready() -> void:
+	tween.kill()
 	scale = MINIMIZED_SCALE
 	hide()
 
@@ -179,6 +183,13 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("4_jdav1")
 
+[node name="Area2D" type="Area2D" parent="SuitcaseButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SuitcaseButton/Area2D"]
+position = Vector2(136.111, 113.195)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_oo6ie")
+
 [node name="InventoryContainer_pages" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -262,6 +273,7 @@ offset_bottom = 454.0
 columns = 4
 
 [node name="Drag_Inventory" parent="InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid" instance=ExtResource("5_wyigw")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 2
 return_type = 1
@@ -281,10 +293,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_oo6ie")
 
-[node name="Inventory" parent="." instance=ExtResource("5_d0r5c")]
-offset_left = 757.0
-offset_top = -3.0
-offset_right = 757.0
-offset_bottom = -3.0
-
 [connection signal="pressed" from="SuitcaseButton" to="InventoryContainer_pages" method="_on_suitcase_button_pressed"]
+[connection signal="area_entered" from="SuitcaseButton/Area2D" to="SuitcaseButton" method="_on_area_2d_area_entered"]

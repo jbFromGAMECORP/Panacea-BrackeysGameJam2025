@@ -30,7 +30,7 @@ static var debug_lines:bool = false #Set to true to see lines in game
 @export var scale_type : CHOICE = CHOICE.RANDOM_BETWEEN
 @export var scale_points : Array[float] = [.5,1.5]
 
-static var seed : int
+static var current_seed : int
 static var seed_float_x : float
 static var seed_float_y : float
 
@@ -40,11 +40,11 @@ static func _static_init() -> void:
 
 	
 static func choose_new_seed():
-	var temp = seed
-	seed = randi()
+	var temp = current_seed
+	current_seed = randi()
 	seed_float_x = randf()
 	seed_float_y = randf()
-	print("--------------------------------------------------------Choosing New Seeds: from %s to %s" % [str(temp),str(seed)])
+	print("--------------------------------------------------------Choosing New Seeds: from %s to %s" % [str(temp),str(current_seed)])
 	
 func _ready() -> void:
 	pass
@@ -54,10 +54,10 @@ func _ready() -> void:
 
 func build_props():
 	if random_visibility:
-		visible = seed % 2
+		visible = current_seed % 2
 		
 	if random_frame:
-		frame = (frame + seed) % hframes
+		frame = (frame + current_seed) % hframes
 
 	if modulate_enabled:
 		if modulate_points:
@@ -94,13 +94,13 @@ func build_props():
 			push_error("Scale")
 
 
-func get_value_per_seed(points,seed:float):
+func get_value_per_seed(points,current_seed:float):
 	#prints("--",points[0],points[-1])
-	return lerp(points[0],points[-1],seed)
+	return lerp(points[0],points[-1],current_seed)
 	
-func get_hue_per_seed(points:Array[Color],seed:float):
+func get_hue_per_seed(points:Array[Color],current_seed:float):
 	#print(points[0].h,points[-1].h)
-	return lerp(points[0].h,points[-1].h,seed)
+	return lerp(points[0].h,points[-1].h,current_seed)
 
 func push_error(prop:String):
 	printerr("%s - Cannot Randomize %s, no points were provided" %[name,prop])

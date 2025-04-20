@@ -23,7 +23,7 @@ func _ready() -> void:
 	set_physics_process(false)
 
 func connect_to_local_manager():
-	var manager = get_tree().current_scene
+	var manager = Transition.current_scene
 	if manager is not InventoryManager:
 		manager = manager.get("inventory_manager")
 	if manager is not InventoryManager:
@@ -39,12 +39,14 @@ func _physics_process(delta: float=0) -> void:
 	global_position = (get_global_mouse_position() + mouse_offset)
 
 func drag(obj:Draggable):
+	obj.dummy = self
 	follow_node = obj
 	scale += Vector2(.3,.3)												# Small scale to help show it's 'picked up'
 	mouse_offset = obj.mouse_offset
 	set_physics_process(true)											# Enables dragging
 
 func release(obj:Draggable):
+	obj.dummy = null
 	follow_node = null
 	scale -= Vector2(.3,.3)												# Reset scale back down
 	set_physics_process(false)											# Disables dragging

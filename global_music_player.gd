@@ -2,13 +2,16 @@ extends AudioStreamPlayer
 class_name GlobalMusicPlayer
 
 @onready var default_db:float = volume_db
-var fade_tween:Tween = Tween.new()
+var fade_tween:Tween = create_tween()
 
+func _ready():
+	fade_tween.kill()
+	
 func change_song(new_stream:AudioStream):
 	if playing:
-		push_error("Song changed while playing.")
+		push_warning("Song changed while playing.")
 	if new_stream == stream:
-		push_error("Attempted to change to same song play.")
+		push_warning("Same Song - Change skipped.")
 	stream = new_stream
 	
 

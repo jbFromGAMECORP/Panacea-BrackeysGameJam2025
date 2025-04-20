@@ -13,3 +13,16 @@ func _on_pressed() -> void:
 		print("CloseThisGuy")
 		set_button_icon(closed_texture)
 		suitcaseState = "closed"
+
+
+
+
+
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("MOUSE")
+	if area.get_parent() is Draggable and\
+		suitcaseState == "closed":
+			pressed.emit() # Replace with function body.

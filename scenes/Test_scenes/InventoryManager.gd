@@ -5,7 +5,7 @@ signal object_taken
 signal object_placed
 @export var player : PlayerResource
 enum SPREAD_TYPE {RANDOM,DISTRIBUTE}
-@export var spread_type :SPREAD_TYPE = 0
+@export var spread_type :SPREAD_TYPE = SPREAD_TYPE.RANDOM
 var held_object : Node
 var held_object_parent : Node
 @onready var drag_inventory: DragZone = %Drag_Inventory

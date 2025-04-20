@@ -20,7 +20,7 @@ func assign_color(new_color :Color):
 	color_box.color = color
 
 func is_correct_spot():
-	if in_drag_zone and in_drag_zone.get_child(1):
+	if in_drag_zone and in_drag_zone.get_child(1) is ColorRect:
 		return in_drag_zone.get_child(1).color == sprite.color
 	return false
 

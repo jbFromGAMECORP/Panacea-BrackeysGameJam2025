@@ -24,7 +24,15 @@
 [ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/Dr_Evelyn_Morgan/dr_evelyn_morgan.tscn" id="22_h7tne"]
 [ext_resource type="Script" uid="uid://5wop7vhpqiy0" path="res://scenes/Test_scenes/dr_evelyn_morgan_vert_test.gd" id="23_pigoh"]
 [ext_resource type="Texture2D" uid="uid://cmvjdv74kv3v7" path="res://assets/Room Assets/black bars.png" id="24_ip2w4"]
-[ext_resource type="PackedScene" uid="uid://diltp38ph8r2c" path="res://scenes/Test_scenes/Inventory_tests.tscn" id="25_kfn4v"]
+[ext_resource type="PackedScene" uid="uid://b4suvmpf53t64" path="res://scenes/Test_scenes/new_suitcase_inventory.tscn" id="25_vt4q2"]
+
+[sub_resource type="GDScript" id="GDScript_vt4q2"]
+resource_name = "level"
+script/source = "class_name Level
+extends Node2D
+
+@export var inventory_manager:InventoryManager
+"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
 blend_mode = 2
@@ -142,7 +150,7 @@ height = 900.0
 resource_name = "LydiaWalkTest"
 script/source = "extends Node2D
 
-var tween : Tween
+var tween : Tween = create_tween()
 @onready var player: CharacterBody2D = $\"../Protag_Dr_Evelyn_Morgan\"
 @onready var lydia_dest: float = $\"Lydia Dest\".position.x
 @onready var camera_2d: Camera2D = $\"../Protag_Dr_Evelyn_Morgan/Camera2D\"
@@ -153,7 +161,7 @@ var speed = 50.0
 var waiting: bool = false
 
 func _ready() -> void:
-	tween = create_tween()
+	tween.kill()
 	camera_2d.offset.x = 150 #TODO redo camera and add a pull state - so lydia drags it.
 	await get_tree().create_timer(1).timeout
 	Dialogic.start(\"1_3_Lydia_EntranceHallway\")
@@ -211,10 +219,10 @@ func on_pressed():
 	
 "
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_l7kk3"]
-
-[node name="SceneBuilderTest" type="Node2D"]
+[node name="SceneBuilderTest" type="Node2D" node_paths=PackedStringArray("inventory_manager")]
 y_sort_enabled = true
+script = SubResource("GDScript_vt4q2")
+inventory_manager = NodePath("CanvasLayer/GUI/Inventory")
 metadata/_edit_vertical_guides_ = [7238.0]
 metadata/_edit_horizontal_guides_ = [824.0, 96.0, 365.0]
 
@@ -912,31 +920,7 @@ grow_vertical = 2
 text = "Change Scene"
 script = SubResource("GDScript_g00ck")
 
-[node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("25_kfn4v")]
-
-[node name="Page Inventory" parent="CanvasLayer/GUI/Inventory" index="1"]
-offset_left = -28.0
-offset_top = 348.0
-offset_right = 12.0
-offset_bottom = 388.0
-
-[node name="Dot1" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="0"]
-button_group = SubResource("ButtonGroup_l7kk3")
-
-[node name="Dot2" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="1"]
-button_group = SubResource("ButtonGroup_l7kk3")
-
-[node name="Dot3" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="2"]
-button_group = SubResource("ButtonGroup_l7kk3")
-
-[node name="Dot4" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="3"]
-button_group = SubResource("ButtonGroup_l7kk3")
-
-[node name="Dot5" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="4"]
-button_group = SubResource("ButtonGroup_l7kk3")
-
-[node name="Dot6" parent="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Dots" index="5"]
-button_group = SubResource("ButtonGroup_l7kk3")
+[node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("25_vt4q2")]
 
 [node name="Panel" type="Panel" parent="CanvasLayer/GUI"]
 visible = false
@@ -955,6 +939,3 @@ offset_right = 675.0
 offset_bottom = 886.0
 
 [connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
-
-[editable path="CanvasLayer/GUI/Inventory"]
-[editable path="CanvasLayer/GUI/Inventory/Page Inventory/InventoryContainer_pages/Panel5/Drag_Inventory"]

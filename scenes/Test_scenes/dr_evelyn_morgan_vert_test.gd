@@ -28,7 +28,7 @@ func _physics_process(delta):
 		change_velocity(Vector2.ZERO,DECEL*delta)
 		if not velocity: player_state = "idle"						# Return to idle if player is completely still
 		
-	var collision = move_and_slide()								# Read if we hit a wall
+	var _collision = move_and_slide()								# Read if we hit a wall
 	var moved = get_position_delta().length()
 	if moved <0.12:
 		velocity *= 0

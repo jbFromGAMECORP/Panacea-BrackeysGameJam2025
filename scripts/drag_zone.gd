@@ -15,11 +15,17 @@ var detect : bool = true
 
 
 func _ready() -> void:
+	for child in get_children():
+		if child is Area2D:
+			detection_area = child
+	assert(detection_area,str(get_path()) + " requires an area2D")
+		
+		
 	_connect_signals()
 	
 func _connect_signals():
-	detection_area.area_entered.connect(_on_area_entered)
-	detection_area.area_exited.connect(_on_area_exited)
+	assert(detection_area.area_entered.connect(_on_area_entered) == OK,"BAD CONENCT")
+	assert(detection_area.area_exited.connect(_on_area_exited)== OK,"BAD CONENCT")
 	
 func _on_area_entered(area:Area2D):
 	var node = area.get_parent()
@@ -47,7 +53,7 @@ func _on_area_exited(area:Area2D):
 func _subclass_exit_effects(): # Overwrite in subclasses
 	pass
 	
-func _subclass_criteria(node:Draggable): # Overwrite in subclasses
+func _subclass_criteria(_node:Draggable): # Overwrite in subclasses
 	return true
 
 func has_draggable_child():

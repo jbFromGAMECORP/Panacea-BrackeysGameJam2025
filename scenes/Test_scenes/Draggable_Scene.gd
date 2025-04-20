@@ -16,11 +16,15 @@ var exit_scene_and_return = func():
 		
 
 func _ready() -> void:
-	prints("Persistent Objects:",get_tree().get_nodes_in_group("Persistent"))
+	assert(inventory_manager, "Scene root does not have an Inventory Manager selected in editor for exported variable.")
 	_on_load_pressed()
 	_plot_to_points(_generate_points())
 	_connect_puzzle_signals()
 	_set_puzzle_colors()
+	await get_tree().create_timer(.5).timeout
+	prints("Persistent Objects:")
+	for each in get_tree().get_nodes_in_group("Persistent"):
+		print("\t",each)
 
 
 func _on_change_level_pressed() -> void:
@@ -30,14 +34,16 @@ func _on_change_level_pressed() -> void:
 
 
 func _on_save_pressed() -> void:
-	var persistent_nodes = get_tree().get_nodes_in_group("Persistent")
-	print(persistent_nodes)
-	Persistence.save_scene(scene_name,persistent_nodes)
+	return
+	#var persistent_nodes = get_tree().get_nodes_in_group("Persistent")
+	#print(persistent_nodes)
+	#Persistence.save_scene(scene_name,persistent_nodes)
 
 
 func _on_load_pressed() -> void:
-	var persistent_nodes = get_tree().get_nodes_in_group("Persistent")
-	Persistence.load_scene(scene_name,persistent_nodes)
+	return
+	#var persistent_nodes = get_tree().get_nodes_in_group("Persistent")
+	#Persistence.load_scene(scene_name,persistent_nodes)
 
 
 func _on_goto_test_area() -> void:

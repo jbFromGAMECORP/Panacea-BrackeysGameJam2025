@@ -17,7 +17,7 @@ resource_name = "IN_DragZone Text"
 script/source = "extends Label
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	text = str($\"..\".in_drag_zone)
 "
 

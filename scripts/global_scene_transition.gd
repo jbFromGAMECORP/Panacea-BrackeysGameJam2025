@@ -83,18 +83,18 @@ func change_scene(scene_path: StringName, transition: bool = true) -> void:
 	# Store old scene reference for signal
 	var old_scene = current_scene
 	
-	if current_scene != get_tree().current_scene:
-		printerr("Transitioner and SceneTree had different current scenes. This is likely due to using get_tree().change_scene...(). Aligning Transitioner to SceneTree.")
-		current_scene = get_tree().current_scene
+	#if current_scene != get_tree().current_scene and get_tree().current_scene:
+		#printerr("Transitioner and SceneTree had different current scenes. This is likely due to using get_tree().change_scene...(). Aligning Transitioner to SceneTree.")
+		#current_scene = get_tree().current_scene
 		
 	# Remove current scene
 	if current_scene != null:
 		current_scene.free()
 
 	# Add new scene
-	get_tree().root.add_child(new_scene)
+	get_tree().current_scene = new_scene
 	current_scene = new_scene
-	get_tree().current_scene = current_scene
+	get_tree().root.add_child(new_scene)
 	
 	# Emit signal
 	scene_changed.emit(old_scene, new_scene)

@@ -22,7 +22,7 @@ func transition_music(new_song,fade_time=6):
 	next_player.set_fade_in(fade_time)
 	music_queue.reverse()
 
-func change_volume(volume:float):
+func change_volume(_volume:float):
 	pass
 	
 #func cycle_songs():

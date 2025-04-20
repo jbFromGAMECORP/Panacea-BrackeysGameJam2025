@@ -8,17 +8,49 @@ script/source = "extends Control
 
 # Set any of the given flags from the editor.
 @export_flags(\"Fire\", \"Water\", \"Earth\", \"Wind\") var spell_elements = 0
-		
-func _ready() -> void:
+@onready var globla_unit: Sprite2D = $Node2D2/Sprite2D
 
+var command_queue : Array[MoveCommand]
+var move_history : Array[MoveCommand]
+var undo_history : Array[MoveCommand]
+var tween : Tween
+
+class MoveCommand:
+	const tween_speed = 1.5
+	const move_units = 100.00
+	var unit:Node2D
+	var p_vector:Vector2
+	var n_vector:Vector2
+	
+	func _init(_unit:Node2D,_p_vector:Vector2,_v_change:Vector2) -> void:
+		self.unit = _unit
+		self.p_vector = _p_vector
+		self.n_vector = p_vector + _v_change * move_units
+		
+	
+	func _to_string() -> String:
+		return \"Command: Move %s from %s to %s\" % [unit,p_vector,n_vector]
+	
+	func execute(tween:Tween):
+		return tween.tween_property(unit,\"position\",n_vector,tween_speed).finished
+		
+		
+	func undo():
+		unit.position = p_vector
+		print(\"Undo: Move %s from %s to %s\" % [unit,n_vector,p_vector])
+
+	func redo():
+		unit.position = n_vector
+		print(\"Redo: Move %s from %s to %s\" % [unit,p_vector,n_vector])
+
+func _ready() -> void:
 	var elem = [\"Fire\", \"Water\", \"Earth\", \"Wind\"]
 	for x in len(elem):
 		if (spell_elements&&1<<x):
 			print(elem[x],\" \", 1<<x)
 	print_bit(spell_elements)
+	update_history()
 
-	
-	
 func print_bit(num):
 	var string :String = \"\"
 	for x in 8:
@@ -26,7 +58,110 @@ func print_bit(num):
 	print(string.reverse())
 
 
+func new_move(v_change:Vector2):
+	var move : MoveCommand = create_move(v_change)
+	var process = command_queue.is_empty()
+	command_queue.append(move)
+	update_history()
+	if process: 
+		process_queue()
+		print(\"--First command, firing process\")
+	else:
+		print(\"appending new move\")
+
+func process_queue():
+	while command_queue:
+		print(\"processing command\")
+		var move:MoveCommand = command_queue[0]
+		tween = create_tween()
+		await move.call(\"execute\",tween)
+		command_queue.pop_front()
+		move_history.append(move)
+		undo_history.clear()
+		update_history()
+	print(\"--QUEUE EMPTY\")
+	
+	
+func create_move(v_change:Vector2):
+	var p_vector:Vector2
+	if command_queue.is_empty():
+		p_vector = globla_unit.position
+	else:
+		p_vector = command_queue[-1].n_vector
+	return MoveCommand.new(globla_unit,p_vector,v_change)
+	
+func _on_move_up_pressed() -> void:
+	new_move(Vector2.UP)
+	
+func _on_move_down_pressed() -> void:
+	new_move(Vector2.DOWN)
+	
+func _on_move_left_pressed() -> void:
+	new_move(Vector2.LEFT)
+	
+func _on_move_right_pressed() -> void:
+	new_move(Vector2.RIGHT)
+	
+func _on_undo_pressed() -> void:
+	if command_queue:
+		tween.kill()
+		command_queue[0].undo()
+		undo_history.append(command_queue[0])
+		command_queue.clear()
+		update_history()
+	else:
+		perform_do(\"undo\",move_history,undo_history)
+
+func _on_redo_pressed() -> void:
+	perform_do(\"redo\",undo_history,move_history)
+	
+func _on_undo_all_pressed() -> void:
+	perform_do_all(\"undo\",move_history,undo_history)
+
+func _on_redo_all_pressed() -> void:
+	perform_do_all(\"redo\",undo_history,move_history,)
+
+func perform_do(do:String,out_pile:Array,in_pile:Array):
+	if out_pile:
+		var move:MoveCommand = out_pile.pop_back()
+		move.call(do)
+		in_pile.append(move)
+		update_history()
 		
+func perform_do_all(do:String,out_pile:Array,in_pile:Array):
+	if out_pile:
+		var move = out_pile[0]
+		move.call(do)
+		out_pile.reverse()
+		in_pile.append_array(out_pile)
+		out_pile.clear()
+		update_history()
+
+func update_history():
+	var string_queue = \"command_queue\".capitalize() + \":\\n\"
+	for event in command_queue:
+		string_queue += str(event) + \"\\n\"
+	string_queue += \"\\n\"
+	$Label3.text = string_queue
+	
+	var string_move = \"move_history\".capitalize() + \":\\n\"
+	for event in move_history:
+		string_move += str(event) + \"\\n\"
+	string_move += \"\\n\"
+	$Label.text = string_move
+
+	var string_undo = \"\"
+	string_undo += \"undo_history\".capitalize() + \":\\n\"
+	for event in undo_history:
+		string_undo += str(event) + \"\\n\"
+	string_undo += \"\\n\"
+	$Label2.text = string_undo
+	
+	$Redo.disabled = false if undo_history else true
+	$\"Redo all\".disabled = false if undo_history else true
+	$Undo.disabled = false if (move_history or command_queue) else true
+	$\"Undo all\".disabled = false if (move_history or command_queue) else true
+
 "
 
 [node name="TESTZONE" type="Control"]
@@ -44,13 +179,122 @@ y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 y_sort_enabled = true
-position = Vector2(165, 137)
+position = Vector2(96, 243)
 texture = ExtResource("1_v3rnx")
 
 [node name="Node2D2" type="Node2D" parent="."]
 y_sort_enabled = true
+position = Vector2(660, 495)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
 y_sort_enabled = true
-position = Vector2(144, 106)
 texture = ExtResource("1_v3rnx")
+
+[node name="Panel" type="Panel" parent="Node2D2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.0
+offset_top = -177.5
+offset_right = 286.0
+offset_bottom = 177.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Move UP" type="Button" parent="."]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 72.0
+offset_right = 647.0
+offset_bottom = 129.0
+text = "Move up"
+
+[node name="Undo" type="Button" parent="."]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 48.0
+offset_right = 876.0
+offset_bottom = 105.0
+text = "Undo"
+
+[node name="Undo all" type="Button" parent="."]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 48.0
+offset_right = 993.0
+offset_bottom = 105.0
+text = "Undo all
+"
+
+[node name="Redo all" type="Button" parent="."]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 129.0
+offset_right = 993.0
+offset_bottom = 186.0
+text = "Redo all
+"
+
+[node name="Redo" type="Button" parent="."]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 129.0
+offset_right = 876.0
+offset_bottom = 186.0
+text = "Redo"
+
+[node name="Move Down" type="Button" parent="."]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 156.0
+offset_right = 647.0
+offset_bottom = 213.0
+text = "Move Down"
+
+[node name="Move Left" type="Button" parent="."]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 111.0
+offset_right = 540.0
+offset_bottom = 168.0
+text = "Move Left"
+
+[node name="Move Right" type="Button" parent="."]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 111.0
+offset_right = 735.0
+offset_bottom = 168.0
+text = "Move Right"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 752.0
+offset_right = 1567.0
+offset_bottom = 1032.0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 752.0
+offset_right = 1794.0
+offset_bottom = 1032.0
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1022.0
+offset_top = 318.0
+offset_right = 1823.0
+offset_bottom = 598.0
+
+[connection signal="pressed" from="Move UP" to="." method="_on_move_up_pressed"]
+[connection signal="pressed" from="Undo" to="." method="_on_undo_pressed"]
+[connection signal="pressed" from="Undo all" to="." method="_on_undo_all_pressed"]
+[connection signal="pressed" from="Redo all" to="." method="_on_redo_all_pressed"]
+[connection signal="pressed" from="Redo" to="." method="_on_redo_pressed"]
+[connection signal="pressed" from="Move Down" to="." method="_on_move_down_pressed"]
+[connection signal="pressed" from="Move Left" to="." method="_on_move_left_pressed"]
+[connection signal="pressed" from="Move Right" to="." method="_on_move_right_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4suvmpf53t64"]
+[gd_scene load_steps=15 format=3 uid="uid://b4suvmpf53t64"]
 
 [ext_resource type="Script" uid="uid://c7mlrle53jqnn" path="res://scenes/Test_scenes/InventoryManager.gd" id="1_qn4t8"]
 [ext_resource type="Resource" uid="uid://bmpulmhsvba3f" path="res://scenes/Test_scenes/Resources/InventoryResources/PlayerInventory.tres" id="2_m8hsn"]
@@ -10,13 +10,13 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6jwe"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkctq"]
+size = Vector2(225.001, 137.5)
+
 [sub_resource type="GDScript" id="GDScript_mkctq"]
 resource_name = "Invetory Container"
 script/source = "extends TextureRect
 
-@onready var dots_container: Control = $Dots
-@onready var scrollContainer : ScrollContainer = $ScrollContainer
-@onready var h_box_container: HBoxContainer = $ScrollContainer/HBoxContainer
 @onready var suitcase: Button = $\"../SuitcaseButton\"
 
 const ITEMS_PER_PAGE = 7 							# How many items fit on a single page
@@ -30,9 +30,10 @@ var current_page = 0: 								# Current page being viewed
 	set(value):
 		current_page = clamp(value,0,max_page-1) 	# setter clamps to pages available.
 var max_page := 1 									# How many pages it takes to fit current inventory amount
-var tween := Tween.new() 							# Tween holder, new tweens can either wait or replace a already running tween
+var tween :Tween = create_tween() 							# Tween holder, new tweens can either wait or replace a already running tween
 
 func _ready() -> void:
+	tween.kill()
 	scale = MINIMIZED_SCALE
 	set_process_mode(Node.PROCESS_MODE_DISABLED)
 	hide()
@@ -150,6 +151,13 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("5_hby21")
 
+[node name="Area2D" type="Area2D" parent="SuitcaseButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SuitcaseButton/Area2D"]
+position = Vector2(136.111, 113.195)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_mkctq")
+
 [node name="InventoryContainer_pages" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -261,6 +269,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[connection signal="mouse_entered" from="SuitcaseButton" to="SuitcaseButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="SuitcaseButton" to="InventoryContainer_pages" method="_on_suitcase_button_pressed"]
+[connection signal="area_entered" from="SuitcaseButton/Area2D" to="SuitcaseButton" method="_on_area_2d_area_entered"]
 
 [editable path="InventoryContainer_pages/OpenSuitcaseSprite/Drag_Inventory"]

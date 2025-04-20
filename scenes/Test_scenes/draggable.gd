@@ -39,7 +39,7 @@ func _ready() -> void:
 
 # TODO: Implement Draggable and Dragzone Handlers
 func connect_to_local_manager():
-	var manager = get_tree().current_scene
+	var manager = Transition.current_scene
 	if manager is not InventoryManager:
 		manager = manager.get("inventory_manager")
 	if manager is InventoryManager:
@@ -47,7 +47,7 @@ func connect_to_local_manager():
 	return manager
 
 # The object is dragged by updating position to the mouse every frame. Clamp limits the object to the game window.
-func _physics_process(delta: float=0) -> void:
+func _physics_process(_delta: float=0) -> void:
 	global_position = (get_global_mouse_position() + mouse_offset)#.clamp(viewport_limits.position,viewport_limits.end-size)
 	
 	
@@ -110,14 +110,12 @@ func enter_zone(node,pos=null):
 			if in_drag_zone.is_greater_than(node):
 				return
 		in_drag_zone = node
-		set_shader()
+		
 		if pos != null and node != parent:
-			grab_sprite(pos)
+			grab_sprite()
 
 
-func grab_sprite(pos):
-	#sprite.top_level = true
-	#sprite.global_position = pos + sprite_offset
+func grab_sprite():
 	sprite.reparent(in_drag_zone,false)
 	print("SPRITE BELONGS TO: ",sprite.get_parent())
 	
@@ -128,18 +126,17 @@ func exit_zone():
 		await get_tree().physics_frame
 		let_go_of_sprite()
 		in_drag_zone = null
-		set_shader()
-		var next_area = $"Draggable Detection".get_overlapping_areas().get(0)
+		
+		var next_area = $"Draggable Detection".get_overlapping_areas()
+		if dummy: next_area.append_array(dummy.area.get_overlapping_areas())
+		next_area = next_area.get(0)
+		
 		if next_area:
 			var drag_zone = next_area.get_parent() 
 			if drag_zone is DragZone and drag_zone._subclass_criteria(self): 
 				drag_zone._on_area_entered($"Draggable Detection")
 
-func set_shader():
-	if in_drag_zone:
-		sprite.use_parent_material = false
-	else:
-		sprite.use_parent_material = true
+
 func let_go_of_sprite():
 	#sprite.top_level = false
 	#sprite.position = sprite_offset
@@ -178,7 +175,7 @@ func set_persistent_properties(prop_dict:Dictionary):
 		set(prop,prop_dict[prop])
 		
 ## Overide this function to have requirement to enter a snap area
-func _drop_area_criteria(node):
+func _drop_area_criteria(_node):
 	return true
 
 

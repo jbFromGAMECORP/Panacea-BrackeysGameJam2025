@@ -9,9 +9,6 @@ class_name ItemResource
 
 enum ITEM_TYPE{INVENTORY, TASK}
 
-static func _static_init() -> void:
-	print("This is static class")
-
 func _to_string() -> String:
 	return item_name
 	
