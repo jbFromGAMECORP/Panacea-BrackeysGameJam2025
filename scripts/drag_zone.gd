@@ -19,8 +19,6 @@ func _ready() -> void:
 		if child is Area2D:
 			detection_area = child
 	assert(detection_area,str(get_path()) + " requires an area2D")
-		
-		
 	_connect_signals()
 	
 func _connect_signals():

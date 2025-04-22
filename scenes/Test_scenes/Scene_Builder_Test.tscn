@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c1ulqoho2y1xh"]
+[gd_scene load_steps=38 format=3 uid="uid://c1ulqoho2y1xh"]
 
 [ext_resource type="Script" uid="uid://smkmurvpef5p" path="res://scripts/Level.gd" id="1_472fd"]
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="1_jpdxa"]
@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="23_l7kk3"]
 [ext_resource type="Script" uid="uid://b3dnn6sge12de" path="res://scenes/Test_scenes/drag_dummy.gd" id="24_dl3n3"]
 [ext_resource type="PackedScene" uid="uid://jvngay5tn1u" path="res://scenes/Test_scenes/grid_suitcase_scene.tscn" id="24_ny6lg"]
-[ext_resource type="PackedScene" uid="uid://cwf3rvj2ur16l" path="res://scenes/Test_scenes/Resoure_scens/item_base.tscn" id="25_472fd"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
 blend_mode = 2
@@ -509,7 +508,6 @@ mouse_filter = 1
 color = Color(0.419608, 0.345098, 0.266667, 1)
 
 [node name="Drag_Dummy" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -319.0
@@ -536,6 +534,7 @@ color = Color(1, 0, 0.0733118, 1)
 
 [node name="Draggable Detection" type="Area2D" parent="Drag_Dummy"]
 collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drag_Dummy/Draggable Detection"]
 position = Vector2(-2, 1)
@@ -624,14 +623,6 @@ offset_bottom = 886.0
 [node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("24_ny6lg")]
 offset_left = -1.0
 offset_right = -1.0
-
-[node name="Item_Base" parent="CanvasLayer/GUI" instance=ExtResource("25_472fd")]
-offset_left = 1575.0
-offset_top = 615.0
-offset_right = 1575.0
-offset_bottom = 615.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
 

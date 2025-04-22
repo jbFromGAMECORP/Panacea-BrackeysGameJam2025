@@ -45,6 +45,7 @@ func drag(obj:Draggable):
 	follow_node = obj
 	scale += Vector2(.3,.3)												# Small scale to help show it's 'picked up'
 	mouse_offset = obj.mouse_offset
+	await get_tree().physics_frame
 	set_physics_process(true)											# Enables dragging
 
 func release(obj:Draggable):

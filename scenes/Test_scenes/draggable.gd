@@ -27,10 +27,10 @@ const FLY_BACK_SPEED := 3000.0									# Pixels per second items will animate ba
 const RETURN_TYPE = DragZone.RETURN_TYPE
 var persistent_properties = {"position":true,"rotation":true}	# Determine which properties are persisted.
 
-var in_drag_zone = null											# Stores the currently hovered DragZone. Reparents to it upon release.
+var in_drag_zone = get_parent()											# Stores the currently hovered DragZone. Reparents to it upon release.
 
 func _ready() -> void:
-	#in_drag_zone = get_parent()
+	in_drag_zone = get_parent()
 	add_to_group("Persistent")
 	$ClickArea.gui_input.connect(parse_input_event)
 	
@@ -69,19 +69,22 @@ func _input(event: InputEvent) -> void:
 
 
 func drag():
-	scale += Vector2(.3,.3)												# Small scale to help show it's 'picked up'
+	scale = Vector2(1.3,1.3)												# Small scale to help show it's 'picked up'
 	original_position = position										# Stores where you picked it up from
 	mouse_offset = global_position - get_global_mouse_position()		# Stores where on the objects area you grabbed
+	print("reparent---start")
 	reparent(local_manager)
-	_physics_process()													# Start Dragging
-	set_physics_process(true)											# Enables dragging
+	print("reparent---end")
+	#_physics_process()													# Start Dragging
 	drag_started.emit(self)												# This is picked up by the Dragzone Handler
+	await get_tree().physics_frame
+	set_physics_process(true)											# Enables dragging
 
 
 func release():
 	set_physics_process(false)											# Disables dragging
 	drag_released.emit(self)											# This is picked up by the Dragzone Handler
-	scale -= Vector2(.3,.3)												# Reset scale back down
+	scale = Vector2(1,1)												# Reset scale back down
 	if in_drag_zone and in_drag_zone != parent:					
 		change_drag_zone()
 	else:
@@ -99,6 +102,8 @@ func release():
 			await place_back(closest_point_in_area())
 		RETURN_TYPE.TELEPORT:
 			position = original_position
+	
+
 
 
 		
@@ -108,6 +113,7 @@ func enter_zone(node,pos=null):
 	if is_physics_processing():
 		if in_drag_zone:
 			if in_drag_zone.is_greater_than(node):
+				print("--Cancel. Current Zone Higher.")
 				return
 		in_drag_zone = node
 		
@@ -158,7 +164,7 @@ func closest_point_in_area():
 # Tween back to destination. Since we are top level we use global positions.
 func place_back(global_dest:Vector2):
 	var time = global_position.distance_to(global_dest)/FLY_BACK_SPEED
-	await create_tween().tween_property(self,"global_position",global_dest,time).set_trans(Tween.TRANS_BACK).finished
+	await get_tree().create_tween().tween_property(self,"global_position",global_dest,time).set_trans(Tween.TRANS_BACK).finished
 
 	
 func get_persistent_properties():

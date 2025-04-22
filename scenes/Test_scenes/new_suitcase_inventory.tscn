@@ -23,7 +23,7 @@ const ITEMS_PER_PAGE = 7 							# How many items fit on a single page
 const SIZE_OF_ITEM = 119 							# Amount of pixels to scroll to each item.
 const sizeofpage = SIZE_OF_ITEM*ITEMS_PER_PAGE 
 @onready var _default_scale := scale
-const MINIMIZED_SCALE := Vector2(0,.3)				# Target scale for disappearing into case
+const MINIMIZED_SCALE := Vector2(.01,.01)				# Target scale for disappearing into case
 const ANIMATION_SPEED = .18 						# Base speed for Tweens.
 
 var current_page = 0: 								# Current page being viewed
@@ -152,10 +152,11 @@ expand_icon = true
 script = ExtResource("5_hby21")
 
 [node name="Area2D" type="Area2D" parent="SuitcaseButton"]
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SuitcaseButton/Area2D"]
 position = Vector2(136.111, 113.195)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mkctq")
 
 [node name="InventoryContainer_pages" type="TextureRect" parent="."]
@@ -165,7 +166,7 @@ offset_left = -1275.0
 offset_top = -339.0
 offset_right = -1275.0
 offset_bottom = -339.0
-pivot_offset = Vector2(624, 492)
+pivot_offset = Vector2(1372, 399)
 size_flags_horizontal = 6
 script = SubResource("GDScript_mkctq")
 

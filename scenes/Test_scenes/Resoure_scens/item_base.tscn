@@ -50,6 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Draggable Detection" type="Area2D" parent="."]
+collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Detection"]

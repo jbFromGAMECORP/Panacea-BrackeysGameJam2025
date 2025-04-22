@@ -855,7 +855,7 @@ script = SubResource("GDScript_g00ck")
 
 [node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("21_w8t1w")]
 
-[node name="Page Inventory" parent="CanvasLayer/GUI/Inventory" index="3"]
+[node name="Page Inventory" parent="CanvasLayer/GUI/Inventory" index="1"]
 offset_left = -28.0
 offset_top = 348.0
 offset_right = 12.0

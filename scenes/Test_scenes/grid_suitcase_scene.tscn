@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://jvngay5tn1u"]
+[gd_scene load_steps=17 format=3 uid="uid://jvngay5tn1u"]
 
 [ext_resource type="Resource" uid="uid://bmpulmhsvba3f" path="res://scenes/Test_scenes/Resources/InventoryResources/PlayerInventory.tres" id="2_d0r5c"]
 [ext_resource type="Texture2D" uid="uid://cmfdcxhgaodh7" path="res://scenes/UI/Inventory/Assets/suitcase_icon_closed.png" id="3_5gh1t"]
 [ext_resource type="Script" uid="uid://ddh0x273qk0mi" path="res://scripts/suitcase_button.gd" id="4_jdav1"]
-[ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="5_wyigw"]
+[ext_resource type="Script" uid="uid://byruel4737fuh" path="res://scripts/drag_zone.gd" id="4_oo6ie"]
 
 [sub_resource type="GDScript" id="GDScript_an7ss"]
 resource_name = "GridIventory"
@@ -13,17 +13,10 @@ class_name InventoryManagerSub
 @onready var grid_container = $InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid
 
 func _ready() -> void:
-	
+	$SuitcaseButton.connect_to_inventory_exit($\"InventoryContainer_pages/OpenSuitcaseSprite/Inventory Dectect\")
 	var item_array = create_items(player.inventory)
 	create_slots()
 	assign_items(item_array)
-	
-	# Called from created draggables, they pass their signals in.
-func connect_draggable_signals(_drag_started:Signal,_drag_released:Signal):
-	_drag_started.connect(drag_started)
-	_drag_released.connect(drag_released)
-	
-
 	
 
 func create_items(inventory:Array[ItemResource]):
@@ -148,6 +141,9 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc43r"]
+size = Vector2(101.75, 96)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo6ie"]
 bg_color = Color(0.298039, 0, 0, 0.278431)
 border_width_left = 4
@@ -159,6 +155,9 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyigw"]
+size = Vector2(655, 387)
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -184,10 +183,10 @@ expand_icon = true
 script = ExtResource("4_jdav1")
 
 [node name="Area2D" type="Area2D" parent="SuitcaseButton"]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SuitcaseButton/Area2D"]
 position = Vector2(136.111, 113.195)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_oo6ie")
 
 [node name="InventoryContainer_pages" type="TextureRect" parent="."]
@@ -197,7 +196,7 @@ offset_left = -1275.0
 offset_top = -339.0
 offset_right = -1275.0
 offset_bottom = -339.0
-pivot_offset = Vector2(624, 492)
+pivot_offset = Vector2(1371, 407)
 size_flags_horizontal = 6
 script = SubResource("GDScript_mkctq")
 
@@ -272,11 +271,18 @@ offset_right = 640.0
 offset_bottom = 454.0
 columns = 4
 
-[node name="Drag_Inventory" parent="InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid" instance=ExtResource("5_wyigw")]
+[node name="Drag_Inventory" type="Control" parent="InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 2
+script = ExtResource("4_oo6ie")
 return_type = 1
+
+[node name="Draggable Detection" type="Area2D" parent="InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid/Drag_Inventory"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid/Drag_Inventory/Draggable Detection"]
+shape = SubResource("RectangleShape2D_fc43r")
 
 [node name="Panel" type="Panel" parent="InventoryContainer_pages/OpenSuitcaseSprite/InventoryGrid/Drag_Inventory"]
 layout_mode = 1
@@ -292,6 +298,14 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_oo6ie")
+
+[node name="Inventory Dectect" type="Area2D" parent="InventoryContainer_pages/OpenSuitcaseSprite"]
+position = Vector2(67, 61)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryContainer_pages/OpenSuitcaseSprite/Inventory Dectect"]
+position = Vector2(267.5, 145.5)
+shape = SubResource("RectangleShape2D_wyigw")
 
 [connection signal="pressed" from="SuitcaseButton" to="InventoryContainer_pages" method="_on_suitcase_button_pressed"]
 [connection signal="area_entered" from="SuitcaseButton/Area2D" to="SuitcaseButton" method="_on_area_2d_area_entered"]

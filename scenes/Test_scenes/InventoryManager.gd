@@ -12,6 +12,7 @@ var held_object_parent : Node
 
 
 func _ready() -> void:
+	$SuitcaseButton.connect_to_inventory_exit(drag_inventory.detection_area)
 	create_items(player.inventory)
 	spread_items()
 	pass
