@@ -8,10 +8,10 @@ func _ready():
 	fade_tween.kill()
 	
 func change_song(new_stream:AudioStream):
+	if not new_stream:
+		push_error("No song provided")
 	if playing:
 		push_warning("Song changed while playing.")
-	if new_stream == stream:
-		push_warning("Same Song - Change skipped.")
 	stream = new_stream
 	
 
@@ -31,10 +31,6 @@ func new_timer():
 
 	
 func set_fade_in(fade_time,pos = 0.0):
-	if playing:
-		push_error(self, "set_fade_in failed: Music already playing.");return
-	
-	prints("Fading IN:",name,"-",stream.resource_path)
 	volume_db = -70.0
 	play(pos)
 	fade_tween.kill()

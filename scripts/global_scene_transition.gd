@@ -13,12 +13,12 @@ var _scene_cache: Dictionary = {}
 # Configuration
 @export_category("Transition Settings")
 @export var enable_transitions: bool = true
-@export var transition_duration: float = .65
+@export var transition_duration: float = .75
 @export var fade_color: Color = Color.BLACK
 
 @export_category("Loading Screen")
 @export var enable_loading_screen: bool = true
-@export var min_load_time: float = 0.01  # Minimum time to show loading screen
+@export var min_load_time: float = .01  # Minimum time to show loading screen
 
 # Internal nodes
 var _transition_layer: CanvasLayer
@@ -31,8 +31,10 @@ func _ready() -> void:
 	
 	#get scene
 	var root = get_tree().get_root()
-	current_scene = root.get_child(root.get_child_count() - 1)
-
+	current_scene = root.get_child(root.get_child_count() -1)
+	if current_scene is Level:
+		load_level_music(current_scene.music)
+	
 func _setup_transition_layer() -> void:
 	_transition_layer = CanvasLayer.new()
 	_transition_layer.visible = false
@@ -68,8 +70,9 @@ func change_scene(scene_path: StringName, transition: bool = true) -> void:
 		push_warning("Scene transition already in progress")
 		return
 	
-	is_transitioning = true
+	load_level_music(get_audio_track(scene_path))
 	
+	is_transitioning = true
 	if transition and enable_transitions:
 		transition_started.emit()
 		await _fade_out()
@@ -79,7 +82,7 @@ func change_scene(scene_path: StringName, transition: bool = true) -> void:
 		is_transitioning = false
 		push_error("Failed to load scene: " + scene_path)
 		return
-	
+
 	# Store old scene reference for signal
 	var old_scene = current_scene
 	
@@ -92,9 +95,9 @@ func change_scene(scene_path: StringName, transition: bool = true) -> void:
 		current_scene.free()
 
 	# Add new scene
-	get_tree().current_scene = new_scene
 	current_scene = new_scene
 	get_tree().root.add_child(new_scene)
+	get_tree().current_scene = new_scene
 	
 	# Emit signal
 	scene_changed.emit(old_scene, new_scene)
@@ -184,3 +187,28 @@ func clear_cache() -> void:
 
 func get_current_scene() -> Node:
 	return current_scene
+	
+func load_level_music(next_song:AudioStream):
+	if not next_song:
+		push_error("No exported song set for Level node.")
+		return -1
+		
+	# Skip if the song is already playing.
+	if next_song == Music.get_current_song():
+		return OK
+
+	if Music.is_music_playing():
+		Music.transition_music(next_song)
+	else:
+		Music.start_music(next_song)
+	
+func get_audio_track(scene_path) -> AudioStream:
+	preload_scene(scene_path)
+	var state:SceneState = _scene_cache[scene_path].get_state()
+	var property_list = state.get_node_property_count(0)
+	
+	for i in range(property_list):
+		var prop = state.get_node_property_name(0, i)
+		if prop == "music":
+			return state.get_node_property_value(0, i)
+	return null

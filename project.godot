@@ -20,10 +20,10 @@ config/icon="res://assets/Logos/panacea_blackBg_curvedAboveImage.png"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Persistence="*res://scripts/global_scene_persistence.gd"
-Transition="*res://scripts/global_scene_transition.gd"
 DH="*res://scripts/DialogicHelper.gd"
+Persistence="*res://scripts/global_scene_persistence.gd"
 Music="*res://scenes/global_music.tscn"
+Transition="*res://scripts/global_scene_transition.gd"
 
 [dialogic]
 

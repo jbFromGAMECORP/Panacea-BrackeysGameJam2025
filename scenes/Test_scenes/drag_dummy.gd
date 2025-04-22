@@ -19,19 +19,21 @@ var mouse_offset : Vector2 = Vector2(0,0)
 
 
 func _ready() -> void:
-	connect_to_local_manager()
+	manager = connect_to_local_manager()
+	if manager:
+		connect_to_manager_singals()
 	set_physics_process(false)
 
 func connect_to_local_manager():
-	var manager = Transition.current_scene
-	if manager is not InventoryManager:
-		manager = manager.get("inventory_manager")
-	if manager is not InventoryManager:
-		push_error("Inventory Manager could not be found in or at scene root.")
-	else:
-		manager.object_taken.connect(drag)
-		manager.object_placed.connect(release)
-
+	var _manager = Transition.current_scene
+	if _manager is not InventoryManager:
+		_manager = _manager.get("inventory_manager")
+	assert(_manager is InventoryManager,"Inventory Manager could not be found in or at scene root.")
+	return _manager
+	
+func connect_to_manager_singals():
+	manager.object_taken.connect(drag)
+	manager.object_placed.connect(release)
 
 
 # The object is dragged by updating position to the mouse every frame. Clamp limits the object to the game window.
