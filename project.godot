@@ -30,6 +30,7 @@ Transition="*res://scripts/global_scene_transition.gd"
 directories/dch_directory={
 "Evelyn": "res://Dialogic_Items/Characters/Evelyn.dch",
 "Lydia": "res://Dialogic_Items/Characters/Lydia.dch",
+"Panacea Rep": "res://Dialogic_Items/Characters/Panacea Rep.dch",
 "drLundy": "res://Dialogic_Items/Characters/drLundy.dch",
 "drQ_coldOpen": "res://Dialogic_Items/Characters/drQ_coldOpen.dch",
 "dr_perez": "res://Dialogic_Items/Characters/dr_perez.dch",
@@ -43,6 +44,7 @@ directories/dtl_directory={
 "cold_open_comic_test": "res://scenes/Test_scenes/cold_open_comic_test.dtl",
 "cowboyTestTimeline": "res://Dialogic_Items/Timelines/cowboyTestTimeline.dtl",
 "drLundyTestDialogue": "res://Dialogic_Items/Timelines/drLundyTestDialogue.dtl",
+"eveyln_introduction": "res://Dialogic_Items/Timelines/eveyln_introduction.dtl",
 "interactWithLundyTip": "res://Dialogic_Items/Timelines/interactWithLundyTip.dtl",
 "testDialogue": "res://Dialogic_Items/Timelines/testDialogue.dtl",
 "testGameTip": "res://Dialogic_Items/Timelines/testGameTip.dtl"

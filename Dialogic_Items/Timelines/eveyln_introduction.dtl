@@ -1,0 +1,47 @@
+[background arg="res://scenes/Test_scenes/assets/snip.jpg" fade="0.0"]
+My hands tighten around the steel railing, my eyes gaze into the distance at an intimidating compound perched upon a rocky cliff face.
+
+Evelyn: Wow, so that's it. [i]The Panacea Research Institute[/i].
+Evelyn: It's so... unusual. It looks like it could be Alcatraz or something.
+Evelyn: Could even pass as a villain’s lair from some cheesy spy movie. "The Fortress of Victor E. Vile" or something like that, hehehe.
+[color=gray]The humour allows an uneasy smile crosses my lips. as I continue to stare.
+[wait time="3.0"]
+[color=gray]My smile cracks and a wave of nauseous washes over me, threatening to upend me. 
+[color=gray]I grip the railing even tighter to try and steady myself as I double over, pushing out slowly unnatural breaths.
+Evelyn: God, I feel like I'm gunna puke.[pause=.35] I can't believe I'm doing this, This is all too surreal.
+Evelyn: Ugh, the waves aren't helping either...
+[color=gray]With a deep breath, I force myself to look up, away from the salt-crusted wood deck and back at the looming structure.
+Evelyn: [b]This[/b] is my home now... This is where I will live from now on and for who knows how long...
+[color=gray]The thought is hardly settling.
+Evelyn: But, what if I end up hating it here? 
+Evelyn: A place like this will be filled with the best and brightest, meaning the most competitive and cutthroat people I'll have ever met.
+Evelyn: I've never been very good at making friends... and they don't allow family visits. What if I spend years here feeling alone and miserable? 
+Evelyn: What if the place is full of nothing but crotchety old scientist from WW2?
+Evelyn: The kind who helped invent the atom bomb, and talk about the how women are more biologically suited for the kitchen than the lab?
+Evelyn: Well, then you'll just show 'em, Ev. Just like you've always done before.
+Evelyn: You'll work twice as hard and twice as smart as any of them. You'll make them feel extinct like the dinosaurs they are.
+Evelyn: Remember, you belong here.
+Evelyn: This is your dream.
+Evelyn: You can do great things here.
+Evelyn: You have to do great things here! [input]...or you'll regret it for the rest of your life.
+Evelyn: And if you won't do it for yourself, do it for Anya.
+Evelyn: Hpmh, Anya... if she were here she’d be nothing but excited. She'd be jumping up and down, screaming “Ev, look! Look! It’s just like Monte Cristo”. Even though it's not a castle.
+Evelyn: She was so obsessed with that book for awhile. Made me read it to her on almost every visit.
+Evelyn: She had been in that one hospital bed for so long, we were able to finish the story three times before I lied and said I lost it. She knew though.
+Evelyn: She’d really would have loved to see this place. I hate that she can't visit. It's never—
+"Panacea Rep": Dr. Morgan?
+Evelyn: Ah!—I mean yes? Sorry, I didn't see you.
+"Panacea Rep": We will be arriving within 30 minutes. The captain has asked that you use the time to prepare your belongings, and be ready to immediately disembark upon arrival.
+Evelyn: Oh, okay... why such urgency?
+"Panacea Rep": The facility has warned us of an impending storm.
+Evelyn: A storm? But, I've felt nothing but cold air the whole trip and there's not a dark cloud in sight.
+"Panacea Rep": Yes, I’ve been told the weather here is deceptively temperamental.
+"Panacea Rep": However, the research facility does maintain its own meteorology equipment.
+"Panacea Rep": They have assured the captain there is an aggressively forming storm approaching.
+Evelyn: How odd.
+"Panacea Rep": Therefore we are requesting you disembark quickly on arrival.
+"Panacea Rep": The Facility Director will already be waiting to receive you on the docks.
+Evelyn: Understood. I will make the necessary preparations for a quick departure. Thank you, Charles.
+"Panacea Rep": Oh – Umm, yes. You are welcome… Doctor Morgan.
+Evelyn: You can call me, Ev.
+"Panacea Rep": Understood, Dr. Morgan.

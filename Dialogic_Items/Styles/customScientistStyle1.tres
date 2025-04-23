@@ -18,15 +18,13 @@ scene = ExtResource("1_t6g54")
 overrides = {
 "canvas_layer": "2.0",
 "global_bg_color": "Color(1, 0, 0, 0.9)",
-"global_font_size": "26.0"
+"global_font_size": "32.0"
 }
 
 [sub_resource type="Resource" id="Resource_scvie"]
 script = ExtResource("2_xf8f8")
 scene = ExtResource("3_iu4ha")
-overrides = {
-"disabled": "true"
-}
+overrides = {}
 
 [sub_resource type="Resource" id="Resource_y1vw4"]
 script = ExtResource("2_xf8f8")
@@ -42,25 +40,28 @@ overrides = {}
 script = ExtResource("2_xf8f8")
 scene = ExtResource("6_cb4ox")
 overrides = {
-"bold_font": "\"res://assets/Fonts/velista/VELISTA.ttf\"",
-"bold_italics_font": "\"res://assets/Fonts/velista/VELISTA.ttf\"",
 "box_color_custom": "Color(1, 1, 1, 1)",
 "box_color_use_global": "false",
 "box_margin_bottom": "10.0",
 "box_panel": "\"res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/customSci-FiScreenPanel.tres\"",
 "box_size": "Vector2(1346, 245)",
-"italics_font": "\"res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Fonts/minercraftory/Minercraftory.ttf\"",
+"italics_font": "\"res://assets/Fonts/GemunuLibre-Regular.ttf\"",
 "name_label_box_modulate": "Color(0.976471, 0.976471, 0.988235, 1)",
 "name_label_box_panel": "\"res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/customSci-FiScreenNamePanel.tres\"",
 "name_label_box_use_global_color": "false",
-"name_label_custom_font_size": "30.0",
+"name_label_custom_font_size": "26.0",
 "name_label_font": "\"res://assets/Fonts/doctor_glitch/Doctor Glitch.otf\"",
 "name_label_use_global_font_size": "false",
-"normal_font": "\"res://assets/Fonts/Syne_Mono/SyneMono-Regular.ttf\"",
-"text_size": "30.0",
+"normal_font": "\"res://assets/Fonts/GemunuLibre-Regular.ttf\"",
+"text_custom_color": "Color(0.91, 0.91, 0.91, 1)",
+"text_size": "40.0",
 "text_use_global_color": "false",
 "text_use_global_font": "false",
-"text_use_global_size": "false"
+"text_use_global_size": "false",
+"typing_sounds_pitch": "0.6",
+"typing_sounds_pitch_variance": "0.1",
+"typing_sounds_volume": "-16.0",
+"typing_sounds_volume_variance": "0.2"
 }
 
 [sub_resource type="Resource" id="Resource_05tvw"]
@@ -106,4 +107,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("2_xf8f8")]([])
-metadata/_latest_layer = "10"
+metadata/_latest_layer = "13"
