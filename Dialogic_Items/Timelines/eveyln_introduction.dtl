@@ -1,10 +1,9 @@
 [background arg="res://scenes/Test_scenes/assets/snip.jpg" fade="0.0"]
-My hands tighten around the steel railing, my eyes gaze into the distance at an intimidating compound perched upon a rocky cliff face.
-
+[color=gray]My hands tighten around the steel railing, my eyes gaze into the distance at an intimidating compound perched upon a rocky cliff face.
 Evelyn: Wow, so that's it. [i]The Panacea Research Institute[/i].
 Evelyn: It's so... unusual. It looks like it could be Alcatraz or something.
 Evelyn: Could even pass as a villain’s lair from some cheesy spy movie. "The Fortress of Victor E. Vile" or something like that, hehehe.
-[color=gray]The humour allows an uneasy smile crosses my lips. as I continue to stare.
+[color=gray]The humour allows an uneasy smile to cross my lips. as I continue to stare.
 [wait time="3.0"]
 [color=gray]My smile cracks and a wave of nauseous washes over me, threatening to upend me. 
 [color=gray]I grip the railing even tighter to try and steady myself as I double over, pushing out slowly unnatural breaths.
