@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bueum55mjktsh" path="res://Dialogic_Items/Styles/ScientistCustom1lTextboxLayer/Frames/scientist_textbox-mediumer.png" id="1_hhq7k"]
 
 [resource]
-content_margin_left = 60.0
+content_margin_left = 65.0
 content_margin_top = 50.0
-content_margin_right = 40.0
+content_margin_right = 45.0
 content_margin_bottom = 70.0
 texture = ExtResource("1_hhq7k")
 texture_margin_left = 80.0
