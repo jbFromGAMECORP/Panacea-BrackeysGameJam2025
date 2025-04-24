@@ -1,0 +1,677 @@
+[gd_scene load_steps=38 format=3 uid="uid://cuqpaetotik1h"]
+
+[ext_resource type="Script" uid="uid://smkmurvpef5p" path="res://scripts/Level.gd" id="1_uwowv"]
+[ext_resource type="AudioStream" uid="uid://ctsx50i8udww2" path="res://scenes/Test_scenes/assets/Chiptune Vol5 Don't Call Me Main.wav" id="2_dvkiq"]
+[ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="3_mlc3q"]
+[ext_resource type="Texture2D" uid="uid://do3mj8epvxu7p" path="res://assets/Room Assets/Wall Texture.jpg" id="4_15t8i"]
+[ext_resource type="Texture2D" uid="uid://cxv1rnwcfxs77" path="res://assets/Room Assets/bathroom/tile texture.png" id="5_v5mrd"]
+[ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="6_ef7a8"]
+[ext_resource type="Texture2D" uid="uid://de4441n7cdoi2" path="res://assets/Room Assets/floor texture.png" id="7_8j4nm"]
+[ext_resource type="Texture2D" uid="uid://crucwtd57vqw2" path="res://assets/Room Assets/binder white.png" id="8_nt11p"]
+[ext_resource type="Texture2D" uid="uid://dq2gir102lyu1" path="res://assets/Room Assets/concrete texture.jpg" id="9_ydjtq"]
+[ext_resource type="Texture2D" uid="uid://dsd326xyy1l80" path="res://assets/Room Assets/basebaord - Copy.jpg" id="10_fyv60"]
+[ext_resource type="Texture2D" uid="uid://fonk47mxxcsl" path="res://assets/Room Assets/Wood seperator.png" id="11_0dj58"]
+[ext_resource type="Texture2D" uid="uid://u21eaqpdek8q" path="res://assets/Room Assets/Background/Posters_0.png" id="12_4xygt"]
+[ext_resource type="Script" uid="uid://b77kr0d3v6rd8" path="res://scenes/Test_scenes/build_unit.gd" id="13_7jic4"]
+[ext_resource type="Texture2D" uid="uid://b6gihroq8vyn1" path="res://assets/Room Assets/patient area-cropped/lamp.png" id="14_rjhbm"]
+[ext_resource type="Texture2D" uid="uid://c7j3q1p1x184r" path="res://assets/Room Assets/cabinet-double.png" id="15_bcyhp"]
+[ext_resource type="Texture2D" uid="uid://o1hgwkmf8a75" path="res://assets/Room Assets/cabinet-single.png" id="16_s38yu"]
+[ext_resource type="Texture2D" uid="uid://blbhjgqls0ug4" path="res://assets/Room Assets/patient area-cropped/air vents.png" id="17_kijfs"]
+[ext_resource type="Texture2D" uid="uid://vfcklmtk6e1i" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/bootles.png" id="18_susmb"]
+[ext_resource type="Texture2D" uid="uid://thbjb7lohio8" path="res://assets/PremadeLabAssets/2DLaboratoryPack_oyvind_OpenGameArt/materials.png" id="19_ij12x"]
+[ext_resource type="PackedScene" uid="uid://cucgabq38ngxs" path="res://scenes/Test_scenes/DragArea.tscn" id="20_326sb"]
+[ext_resource type="PackedScene" uid="uid://cyqe6argeu2wc" path="res://scenes/Test_scenes/DragZone.tscn" id="21_2im2p"]
+[ext_resource type="Script" uid="uid://b3dnn6sge12de" path="res://scenes/Test_scenes/drag_dummy.gd" id="22_nv6sg"]
+[ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/Dr_Evelyn_Morgan/dr_evelyn_morgan.tscn" id="23_rfddp"]
+[ext_resource type="Script" uid="uid://5wop7vhpqiy0" path="res://scenes/Test_scenes/dr_evelyn_morgan_vert_test.gd" id="24_tjf3c"]
+[ext_resource type="Texture2D" uid="uid://cmvjdv74kv3v7" path="res://assets/Room Assets/black bars.png" id="25_rn348"]
+[ext_resource type="PackedScene" uid="uid://jvngay5tn1u" path="res://scenes/Test_scenes/grid_suitcase_scene.tscn" id="26_wseoo"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
+blend_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_5hn8b"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.03, 0.47, 0.53, 0.96)
+colors = PackedColorArray(0, 0, 0, 1, 0.439216, 0.439216, 0.439216, 1, 0, 0, 0, 1, 0.439216, 0.439216, 0.439216, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vv5kp"]
+gradient = SubResource("Gradient_5hn8b")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jpdxa"]
+normal = Vector2(1, 0.53)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ebrb0"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_678tf"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cahdj"]
+normal = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hn8b"]
+size = Vector2(736, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny6lg"]
+size = Vector2(14, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e10s"]
+atlas = ExtResource("25_rn348")
+region = Rect2(0, 54, 2426, 972)
+
+[sub_resource type="GDScript" id="GDScript_g00ck"]
+resource_name = "Temp_button"
+script/source = "extends Button
+
+func on_pressed():
+	#BuildUnit.choose_new_seed()
+	#var new_script = load(\"res://scenes/Test_scenes/build_unit.gd\")
+	#get_tree().change_scene_to_packed(load(\"res://scenes/Test_scenes/Draggable.tscn\"))
+	Transition.change_scene(\"res://scenes/Test_scenes/Draggable.tscn\")
+	
+"
+
+[node name="SceneBuilderTest" type="Node2D" node_paths=PackedStringArray("inventory_manager")]
+script = ExtResource("1_uwowv")
+inventory_manager = NodePath("CanvasLayer/GUI/Inventory")
+music = ExtResource("2_dvkiq")
+metadata/_edit_vertical_guides_ = [7238.0]
+metadata/_edit_horizontal_guides_ = [929.0, 96.0, 365.0]
+
+[node name="Hallway 1" type="Node2D" parent="."]
+
+[node name="Edges" type="Node2D" parent="Hallway 1"]
+
+[node name="WallType7" type="Sprite2D" parent="Hallway 1/Edges"]
+modulate = Color(0.93, 1, 0.987167, 1)
+position = Vector2(7695, 511)
+rotation = 1.5708
+scale = Vector2(0.992171, 0.821296)
+skew = 1.0472
+texture = ExtResource("3_mlc3q")
+centered = false
+
+[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Edges/WallType7"]
+modulate = Color(0.81, 0.81, 0.81, 0.145098)
+material = SubResource("CanvasItemMaterial_2e10s")
+position = Vector2(-577.878, -87.6662)
+scale = Vector2(0.6, 1)
+skew = -0.558505
+texture = ExtResource("4_15t8i")
+centered = false
+
+[node name="TileTexture6" type="Sprite2D" parent="Hallway 1/Edges"]
+visible = false
+modulate = Color(1, 0.796078, 0.803922, 0.658824)
+position = Vector2(7397.22, 225.753)
+rotation = 1.5708
+scale = Vector2(0.792873, 0.654537)
+skew = 1.09995
+texture = ExtResource("5_v5mrd")
+
+[node name="WallType6" type="Sprite2D" parent="Hallway 1/Edges"]
+modulate = Color(0.93, 1, 0.987167, 1)
+clip_children = 2
+position = Vector2(-1271, 1095.65)
+rotation = -1.5708
+scale = Vector2(0.473587, 1.16546)
+texture = ExtResource("3_mlc3q")
+centered = false
+
+[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Edges/WallType6"]
+modulate = Color(0.81, 0.81, 0.81, 0.145098)
+material = SubResource("CanvasItemMaterial_2e10s")
+position = Vector2(3524.1, 1090.56)
+rotation = -3.14159
+scale = Vector2(0.746583, 1)
+skew = -1.36663
+texture = ExtResource("4_15t8i")
+centered = false
+
+[node name="TileTexture5" type="Sprite2D" parent="Hallway 1/Edges"]
+visible = false
+modulate = Color(1, 0.796078, 0.803922, 0.658824)
+position = Vector2(-226.7, 341.232)
+rotation = 1.5708
+scale = Vector2(0.792873, 0.894478)
+skew = -1.09956
+texture = ExtResource("5_v5mrd")
+
+[node name="Floor" type="Node2D" parent="Hallway 1"]
+position = Vector2(0, 884)
+scale = Vector2(1, 1.07999)
+
+[node name="Floor2" type="Sprite2D" parent="Hallway 1/Floor"]
+position = Vector2(3565.35, -6.10352e-05)
+scale = Vector2(1.52304, 1.08291)
+skew = -0.523599
+texture = ExtResource("6_ef7a8")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 887, 2427, 193)
+
+[node name="Floor1" type="Sprite2D" parent="Hallway 1/Floor"]
+position = Vector2(-28, 6.10352e-05)
+scale = Vector2(1.56613, 1.08291)
+skew = 0.523599
+texture = ExtResource("6_ef7a8")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 887, 2427, 193)
+
+[node name="FloorTexture" type="Sprite2D" parent="Hallway 1/Floor"]
+modulate = Color(0.396078, 0.447059, 0.784314, 0.0392157)
+position = Vector2(2378.03, 99.5137)
+scale = Vector2(1.75618, 1.48981)
+skew = 0.0610864
+texture = ExtResource("7_8j4nm")
+
+[node name="FloorTexture2" type="Sprite2D" parent="Hallway 1/Floor"]
+modulate = Color(0.396078, 0.447059, 0.784314, 0.0392157)
+position = Vector2(6088.14, 75.9266)
+scale = Vector2(0.935024, 1.48981)
+skew = 0.0610864
+texture = ExtResource("7_8j4nm")
+
+[node name="Floor Breaker" type="Sprite2D" parent="Hallway 1/Floor"]
+modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
+position = Vector2(1173.66, 91)
+scale = Vector2(0.608369, 1.26921)
+skew = 0.548033
+texture = ExtResource("8_nt11p")
+region_enabled = true
+region_rect = Rect2(1124, 406, 53, 192)
+
+[node name="Floor Breaker2" type="Sprite2D" parent="Hallway 1/Floor"]
+modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
+position = Vector2(6049, 91)
+scale = Vector2(0.608369, 1.26921)
+skew = 0.548033
+texture = ExtResource("8_nt11p")
+region_enabled = true
+region_rect = Rect2(1124, 406, 53, 192)
+
+[node name="FloorBreaker2" type="Sprite2D" parent="Hallway 1/Floor"]
+modulate = Color(0.533333, 0.592157, 0.701961, 0.466667)
+position = Vector2(3719, 91)
+scale = Vector2(0.608369, 1.26921)
+skew = 0.548033
+texture = ExtResource("8_nt11p")
+region_enabled = true
+region_rect = Rect2(1124, 406, 53, 192)
+
+[node name="Wall" type="Node2D" parent="Hallway 1"]
+
+[node name="WallType3" type="Sprite2D" parent="Hallway 1/Wall"]
+clip_children = 1
+scale = Vector2(0.992171, 0.821296)
+texture = ExtResource("3_mlc3q")
+centered = false
+
+[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Wall/WallType3"]
+visible = false
+modulate = Color(0.8, 0.8, 0.8, 0.145098)
+material = SubResource("CanvasItemMaterial_2e10s")
+position = Vector2(13.1026, -57.2266)
+scale = Vector2(0.585394, 1)
+texture = ExtResource("4_15t8i")
+centered = false
+
+[node name="Wall Texture2" type="Sprite2D" parent="Hallway 1/Wall/WallType3"]
+self_modulate = Color(0.89, 0.89, 0.89, 0.215686)
+position = Vector2(13.1026, 3.65277)
+scale = Vector2(1.25724, 0.75)
+texture = ExtResource("9_ydjtq")
+centered = false
+
+[node name="TileTexture2" type="Sprite2D" parent="Hallway 1/Wall/WallType3"]
+visible = false
+modulate = Color(1, 0.796078, 0.803922, 0.658824)
+position = Vector2(1211.74, 543.044)
+scale = Vector2(0.988164, 1)
+texture = ExtResource("5_v5mrd")
+
+[node name="WallType4" type="Sprite2D" parent="Hallway 1/Wall"]
+modulate = Color(0.93, 1, 0.987167, 1)
+clip_children = 2
+position = Vector2(2408, 0)
+scale = Vector2(0.992171, 0.821296)
+texture = ExtResource("3_mlc3q")
+centered = false
+
+[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Wall/WallType4"]
+modulate = Color(0.7, 0.7, 0.7, 0.341176)
+material = SubResource("CanvasItemMaterial_2e10s")
+scale = Vector2(0.594744, 1)
+texture = ExtResource("4_15t8i")
+centered = false
+
+[node name="WallType5" type="Sprite2D" parent="Hallway 1/Wall"]
+modulate = Color(0.93, 1, 0.987167, 1)
+clip_children = 2
+position = Vector2(4824.9, 0)
+scale = Vector2(0.992171, 0.821296)
+texture = ExtResource("3_mlc3q")
+centered = false
+
+[node name="Wall Texture" type="Sprite2D" parent="Hallway 1/Wall/WallType5"]
+modulate = Color(0.7, 0.7, 0.7, 0.341176)
+material = SubResource("CanvasItemMaterial_2e10s")
+scale = Vector2(0.592554, 1)
+texture = ExtResource("4_15t8i")
+centered = false
+
+[node name="Basebaord" type="Sprite2D" parent="Hallway 1/Wall"]
+modulate = Color(0.501556, 0.589913, 0.742188, 1)
+position = Vector2(4820.5, 869)
+scale = Vector2(16.0833, 1.90909)
+texture = ExtResource("10_fyv60")
+
+[node name="WoodSeperator" type="Sprite2D" parent="Hallway 1/Wall"]
+position = Vector2(2408, 445.615)
+rotation = -1.5708
+scale = Vector2(0.373421, 0.985985)
+texture = ExtResource("11_0dj58")
+
+[node name="WoodSeperator3" type="Sprite2D" parent="Hallway 1/Wall/WoodSeperator"]
+position = Vector2(5.35608, -2442.23)
+texture = ExtResource("11_0dj58")
+
+[node name="WoodSeperator4" type="Sprite2D" parent="Hallway 1/Wall/WoodSeperator"]
+position = Vector2(5.35522, 4893.59)
+texture = ExtResource("11_0dj58")
+
+[node name="WoodSeperator2" type="Sprite2D" parent="Hallway 1/Wall/WoodSeperator"]
+position = Vector2(-5.35693, 2451.26)
+texture = ExtResource("11_0dj58")
+
+[node name="Doors" type="Node2D" parent="Hallway 1"]
+position = Vector2(6219, 1040)
+
+[node name="door" type="Sprite2D" parent="Hallway 1/Doors"]
+position = Vector2(1095.69, -328.512)
+rotation = -1.5708
+scale = Vector2(8.76777, 2.56363)
+skew = 1.0821
+texture = SubResource("GradientTexture2D_vv5kp")
+
+[node name="door2" type="Sprite2D" parent="Hallway 1/Doors"]
+position = Vector2(-6307.5, -321)
+rotation = 1.5708
+scale = Vector2(8.74591, 2.64802)
+skew = -1.08036
+texture = SubResource("GradientTexture2D_vv5kp")
+
+[node name="Items" type="Node2D" parent="Hallway 1"]
+
+[node name="Posters" type="Sprite2D" parent="Hallway 1/Items" node_paths=PackedStringArray("position_points")]
+position = Vector2(2789, 347)
+scale = Vector2(0.547722, 0.566071)
+texture = ExtResource("12_4xygt")
+region_enabled = true
+region_rect = Rect2(944, 224, 448, 544)
+script = ExtResource("13_7jic4")
+random_frame = true
+position_enabled = true
+position_points = NodePath("Random_Placement")
+metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
+
+[node name="Random_Placement" type="Line2D" parent="Hallway 1/Items/Posters"]
+top_level = true
+points = PackedVector2Array(2609, 365, 4699, 365)
+width = 3.0
+default_color = Color(0, 1, 0.0334229, 1)
+
+[node name="Posters2" type="Sprite2D" parent="Hallway 1/Items" node_paths=PackedStringArray("position_points")]
+position = Vector2(819, 357)
+scale = Vector2(0.566, 0.566)
+texture = ExtResource("12_4xygt")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(0, 224, 1392, 544)
+script = ExtResource("13_7jic4")
+random_frame = true
+position_enabled = true
+position_points = NodePath("Random_Placement")
+metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
+
+[node name="Random_Placement" type="Line2D" parent="Hallway 1/Items/Posters2"]
+top_level = true
+points = PackedVector2Array(183, 365, 2265, 365)
+width = 3.0
+default_color = Color(0, 1, 0.0334229, 1)
+
+[node name="Lamp" type="Sprite2D" parent="Hallway 1/Items" node_paths=PackedStringArray("position_points")]
+position = Vector2(3268, 612)
+texture = ExtResource("14_rjhbm")
+centered = false
+offset = Vector2(-81.5, -238)
+script = ExtResource("13_7jic4")
+position_enabled = true
+position_points = NodePath("Random_Placement")
+scale_enabled = true
+metadata/_custom_type_script = "uid://b77kr0d3v6rd8"
+
+[node name="Random_Placement" type="Line2D" parent="Hallway 1/Items/Lamp"]
+top_level = true
+points = PackedVector2Array(2669, 612, 3276, 612)
+width = 3.0
+default_color = Color(0, 1, 0.0334229, 1)
+
+[node name="Lamp2" type="Sprite2D" parent="Hallway 1/Items/Lamp"]
+modulate = Color(0.0853333, 0, 0.16, 0.133333)
+show_behind_parent = true
+position = Vector2(-57, -3)
+texture = ExtResource("14_rjhbm")
+centered = false
+offset = Vector2(-81.5, -238)
+
+[node name="Cabinet-double" type="Sprite2D" parent="Hallway 1/Items"]
+position = Vector2(2606, 608)
+scale = Vector2(0.840206, 0.840206)
+texture = ExtResource("15_bcyhp")
+centered = false
+offset = Vector2(0, -5)
+
+[node name="Cabinet-double2" type="Sprite2D" parent="Hallway 1/Items"]
+position = Vector2(2843, 608)
+scale = Vector2(0.840206, 0.840206)
+texture = ExtResource("15_bcyhp")
+centered = false
+offset = Vector2(0, -5)
+flip_h = true
+
+[node name="Cabinet-single" type="Sprite2D" parent="Hallway 1/Items"]
+position = Vector2(3083, 608)
+scale = Vector2(0.841297, 0.841297)
+texture = ExtResource("16_s38yu")
+centered = false
+offset = Vector2(0, -2)
+
+[node name="AirVents" type="Sprite2D" parent="Hallway 1/Items"]
+position = Vector2(3209, 96)
+texture = ExtResource("17_kijfs")
+
+[node name="AirVents3" type="Sprite2D" parent="Hallway 1/Items"]
+position = Vector2(5631, 96)
+texture = ExtResource("17_kijfs")
+
+[node name="AirVents2" type="Sprite2D" parent="Hallway 1/Items"]
+position = Vector2(384, 96)
+texture = ExtResource("17_kijfs")
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+position = Vector2(-41, 527)
+
+[node name="left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-43, 449)
+shape = SubResource("WorldBoundaryShape2D_jpdxa")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(7305, 0)
+shape = SubResource("WorldBoundaryShape2D_ebrb0")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(823, 552)
+shape = SubResource("WorldBoundaryShape2D_678tf")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-66, 363)
+shape = SubResource("WorldBoundaryShape2D_cahdj")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="Dresser" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(3010, 342)
+shape = SubResource("RectangleShape2D_5hn8b")
+debug_color = Color(1, 0.588235, 0, 0.137255)
+
+[node name="Bottles" type="Sprite2D" parent="."]
+position = Vector2(2912, 583)
+scale = Vector2(2.03125, 2.15625)
+texture = ExtResource("18_susmb")
+hframes = 14
+vframes = 13
+frame = 16
+
+[node name="fill" type="Sprite2D" parent="Bottles"]
+self_modulate = Color(0.70896, 0.2352, 0.84, 0.858824)
+show_behind_parent = true
+texture = ExtResource("19_ij12x")
+hframes = 12
+vframes = 15
+frame = 30
+
+[node name="DragArea" parent="." instance=ExtResource("20_326sb")]
+offset_left = 2650.0
+offset_top = 576.0
+offset_right = 3283.0
+offset_bottom = 576.0
+
+[node name="Draggable Detection" parent="DragArea" index="0"]
+position = Vector2(323, 0)
+scale = Vector2(1.63999, 1)
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="DragArea/Draggable Detection" index="0"]
+scale = Vector2(4.44, 1)
+
+[node name="GAMEWORLD DRAGZONE" parent="." instance=ExtResource("21_2im2p")]
+offset_left = 563.0
+offset_top = 718.0
+offset_right = 563.0
+offset_bottom = 718.0
+return_type = 1
+
+[node name="Draggable Detection" parent="GAMEWORLD DRAGZONE" index="0"]
+collision_mask = 2
+
+[node name="Color_box2" type="ColorRect" parent="GAMEWORLD DRAGZONE"]
+custom_minimum_size = Vector2(150, 130)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -65.0
+offset_right = 75.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+mouse_filter = 1
+
+[node name="Color_box3" type="ColorRect" parent="GAMEWORLD DRAGZONE/Color_box2"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -59.0
+offset_right = 69.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+mouse_filter = 1
+color = Color(0.419608, 0.345098, 0.266667, 1)
+
+[node name="Drag_Dummy" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -319.0
+offset_top = -335.0
+offset_right = -319.0
+offset_bottom = -335.0
+script = ExtResource("22_nv6sg")
+
+[node name="DebugColorBox" type="ColorRect" parent="Drag_Dummy"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -30.0
+offset_right = 11.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0.0733118, 1)
+
+[node name="Draggable Detection" type="Area2D" parent="Drag_Dummy"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drag_Dummy/Draggable Detection"]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_ny6lg")
+debug_color = Color(0.661584, 0.7, 0, 0.42)
+
+[node name="Protag_Dr_Evelyn_Morgan" parent="." instance=ExtResource("23_rfddp")]
+texture_filter = 2
+position = Vector2(1041, 957)
+slide_on_ceiling = false
+floor_constant_speed = true
+platform_on_leave = 2
+script = ExtResource("24_tjf3c")
+MAX_SPEED = 500.0
+MAX_WALKING_ANIMATION = 500.0
+ACCEL = 700.0
+DECEL = 1200.0
+TURN_DECEL = 2000.0
+FIRST_STEP_BOOST = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="Protag_Dr_Evelyn_Morgan"]
+limit_left = -200
+limit_top = 0
+limit_right = 7433
+limit_bottom = 1080
+position_smoothing_speed = 20.0
+editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlackBars" type="TextureRect" parent="CanvasLayer/GUI"]
+visible = false
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+offset_right = 1900.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1213, 540)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_2e10s")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/GUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1709.0
+offset_top = 50.0
+offset_right = 1869.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Change Scene"
+script = SubResource("GDScript_g00ck")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/GUI"]
+visible = false
+layout_mode = 0
+offset_left = 221.0
+offset_top = 70.0
+offset_right = 623.0
+offset_bottom = 380.0
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/GUI"]
+visible = false
+layout_mode = 0
+offset_left = 273.0
+offset_top = 576.0
+offset_right = 675.0
+offset_bottom = 886.0
+
+[node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("26_wseoo")]
+offset_left = -1.0
+offset_right = -1.0
+
+[node name="SaveButton" type="Button" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 62.0
+offset_right = 310.0
+offset_bottom = 93.0
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 62.0
+offset_right = 471.0
+offset_bottom = 93.0
+text = "Load
+"
+
+[node name="SaveSlotPicker" type="OptionButton" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 63.0
+offset_right = 262.0
+offset_bottom = 94.0
+selected = 0
+item_count = 3
+popup/item_0/text = "Slot 1"
+popup/item_0/id = 0
+popup/item_1/text = "Slot 2"
+popup/item_1/id = 1
+popup/item_2/text = "Slot 3"
+popup/item_2/id = 2
+
+[node name="LoadSlotPicker" type="OptionButton" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 61.0
+offset_right = 417.0
+offset_bottom = 92.0
+selected = 0
+item_count = 3
+popup/item_0/text = "Slot 1"
+popup/item_0/id = 0
+popup/item_1/text = "Slot 2"
+popup/item_1/id = 1
+popup/item_2/text = "Slot 3"
+popup/item_2/id = 2
+
+[connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]
+
+[editable path="DragArea"]
+[editable path="GAMEWORLD DRAGZONE"]
