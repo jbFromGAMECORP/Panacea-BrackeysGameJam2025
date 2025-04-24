@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://smkmurvpef5p" path="res://scripts/Level.gd" id="1_472fd"]
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="1_jpdxa"]
-[ext_resource type="AudioStream" uid="uid://ctsx50i8udww2" path="res://scenes/Test_scenes/assets/Chiptune Vol5 Don't Call Me Main.wav" id="2_a7t4t"]
+[ext_resource type="AudioStream" uid="uid://gv2nwdklqirx" path="res://scenes/Test_scenes/assets/pyroxene.mp3" id="2_472fd"]
 [ext_resource type="Texture2D" uid="uid://de4441n7cdoi2" path="res://assets/Room Assets/floor texture.png" id="2_ebrb0"]
 [ext_resource type="Texture2D" uid="uid://do3mj8epvxu7p" path="res://assets/Room Assets/Wall Texture.jpg" id="2_h32n7"]
 [ext_resource type="Texture2D" uid="uid://crucwtd57vqw2" path="res://assets/Room Assets/binder white.png" id="3_678tf"]
@@ -76,7 +76,7 @@ func on_pressed():
 [node name="SceneBuilderTest" type="Node2D" node_paths=PackedStringArray("inventory_manager")]
 script = ExtResource("1_472fd")
 inventory_manager = NodePath("CanvasLayer/GUI/Inventory")
-music = ExtResource("2_a7t4t")
+level_music = ExtResource("2_472fd")
 metadata/_edit_vertical_guides_ = [7238.0]
 metadata/_edit_horizontal_guides_ = [929.0, 96.0, 365.0]
 

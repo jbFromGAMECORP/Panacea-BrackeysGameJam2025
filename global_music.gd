@@ -14,29 +14,37 @@ func _ready() -> void:
 	if get_tree().current_scene == self:
 		print("Disabling Duplicate")
 		self.queue_free()
-		
-func transition_music(new_song:AudioStream,fade_time:float=DEFAULT_TRANS_FADE):
-	var music_playing = is_music_playing()
-	if start_music(new_song,fade_time) != OK:
-		return OK
-	if music_playing: 
-		end_music(fade_time)
 
-
-func start_music(new_song:AudioStream,fade_time:float=DEFAULT_FADE):
+# WARNING: Do not call this function directly, use change_music().
+func _start_music(new_song:AudioStream,fade_time:float=DEFAULT_FADE):
 	if not new_song:
 		push_error("No song provided - Change skipped.")
 		return -1
+	
 	if new_song == current_player.stream:
 		push_warning("Same Song - Change skipped.")
 		return -1
+	
 	if next_player.playing:
 		push_error(next_player, "Music already playing.")
 		return -1
+	
 	next_player.change_song(new_song)
 	next_player.set_fade_in(fade_time)
-	music_queue.reverse()
 	return OK
+		
+func change_music(new_song:AudioStream,fade_time=null):
+	var music_playing = is_music_playing()
+	if not fade_time:
+		fade_time = DEFAULT_TRANS_FADE if music_playing else DEFAULT_FADE
+		
+	if _start_music(new_song,fade_time) != OK:
+		return -1
+		
+	if music_playing: 
+		end_music(fade_time)
+		
+	music_queue.reverse()
 	
 func end_music(fade_time=DEFAULT_FADE):
 	current_player.set_fade_out(fade_time)
@@ -52,7 +60,7 @@ func get_current_song():
 		prints(x,"is","" if x.playing else "not","playing song:",x.stream)
 	return current_player.stream
 
-#region:Other features####
+#region:Other features ###TODO####
 #func cycle_songs():
 	#await get_tree().create_timer(3).timeout
 	#await change_music(song2)

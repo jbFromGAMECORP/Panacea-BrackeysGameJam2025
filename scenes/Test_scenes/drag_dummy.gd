@@ -13,27 +13,17 @@ extends Control
 
 @onready var area: Area2D = $"Draggable Detection"
 var follow_node : Node = null
-var manager : InventoryManager
 var mouse_offset : Vector2 = Vector2(0,0)
 # Stores a rectangle representing the edges of the game window.
 
 
 func _ready() -> void:
-	manager = connect_to_local_manager()
-	if manager:
-		connect_to_manager_singals()
+	connect_to_inventory_singals()
 	set_physics_process(false)
 
-func connect_to_local_manager():
-	var _manager = Transition.current_scene
-	if _manager is not InventoryManager:
-		_manager = _manager.get("inventory_manager")
-	assert(_manager is InventoryManager,"Inventory Manager could not be found in or at scene root.")
-	return _manager
-	
-func connect_to_manager_singals():
-	manager.object_taken.connect(drag)
-	manager.object_placed.connect(release)
+func connect_to_inventory_singals():
+	Gui.inventory.object_taken.connect(drag)
+	Gui.inventory.object_placed.connect(release)
 
 
 # The object is dragged by updating position to the mouse every frame. Clamp limits the object to the game window.

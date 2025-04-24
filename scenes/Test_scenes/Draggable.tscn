@@ -50,6 +50,14 @@ font_size = 50
 script = ExtResource("1_8kp3w")
 inventory_manager = NodePath("CanvasLayer/Inventory")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("9_wiypd")]
+offset_left = 240.0
+offset_top = -14.0
+offset_right = 240.0
+offset_bottom = -14.0
+
 [node name="Panel" type="Panel" parent="."]
 offset_left = 3294.0
 offset_top = 128.0
@@ -266,6 +274,7 @@ text = "❌"
 label_settings = SubResource("LabelSettings_8kp3w")
 
 [node name="Drag_Dummy" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 3749.0
@@ -305,14 +314,6 @@ texture = ExtResource("7_pa823")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1931, 0)
 anchor_mode = 0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("9_wiypd")]
-offset_left = 240.0
-offset_top = -14.0
-offset_right = 240.0
-offset_bottom = -14.0
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

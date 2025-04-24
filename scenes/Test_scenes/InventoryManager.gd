@@ -3,15 +3,15 @@ extends Control
 
 signal object_taken
 signal object_placed
-@export var player : PlayerResource
-enum SPREAD_TYPE {RANDOM,DISTRIBUTE}
-@export var spread_type :SPREAD_TYPE = SPREAD_TYPE.RANDOM
-var held_object : Node
-var held_object_parent : Node
+
 @onready var drag_inventory: DragZone = %Drag_Inventory
+@export var spread_type :SPREAD_TYPE = SPREAD_TYPE.RANDOM
+@export var player : PlayerResource
 
+enum SPREAD_TYPE {RANDOM,DISTRIBUTE}
+var held_object : Node
 
-func _ready() -> void:
+func prepare():
 	$SuitcaseButton.connect_to_inventory_exit(drag_inventory.detection_area)
 	create_items(player.inventory)
 	spread_items()
@@ -23,16 +23,11 @@ func connect_draggable_signals(_drag_started:Signal,_drag_released:Signal):
 	_drag_released.connect(drag_released)
 	
 func drag_started(obj:Node):
-	print("this is working")
 	held_object = obj
-	held_object_parent = obj.get_parent()
-	#obj.reparent(drag_holder,false)
 	object_taken.emit(obj)
 	
 func drag_released(obj:Node):
-	#obj.reparent(held_object_parent,false)
 	held_object = null
-	held_object_parent = null
 	object_placed.emit(obj)
 	
 

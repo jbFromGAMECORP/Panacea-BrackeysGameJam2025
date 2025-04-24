@@ -77,13 +77,13 @@ text/autopauses={
 }
 audio/channel_defaults={
 "": {
-"audio_bus": "",
+"audio_bus": "SFX",
 "fade_length": 0.0,
 "loop": false,
 "volume": 0.0
 },
 "music": {
-"audio_bus": "",
+"audio_bus": "Music",
 "fade_length": 0.0,
 "loop": true,
 "volume": 0.0
@@ -95,6 +95,7 @@ text/absolute_autopauses=false
 history/simple_history_enabled=false
 history/simple_history_save=false
 text/input_action="dialogic_default_action"
+audio/type_sound_bus="SFX"
 
 [display]
 

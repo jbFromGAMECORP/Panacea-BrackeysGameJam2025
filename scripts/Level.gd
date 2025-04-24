@@ -2,7 +2,7 @@ extends Node2D
 class_name Level
 
 @export var inventory_manager:InventoryManager
-@export var music:AudioStream
+@export var level_music:AudioStream
 
 @onready var save_button: Button = $CanvasLayer/GUI/SaveButton
 @onready var load_button: Button = $CanvasLayer/GUI/LoadButton
@@ -34,3 +34,8 @@ func _set_load_slot(index: int):
 func _load_game():
 	for node in save_nodes:
 		JsonSaveManager.load(load_slot)
+
+
+func get_music():
+	
+	return level_music

@@ -1,8 +1,8 @@
-[gd_scene load_steps=55 format=3 uid="uid://d2e7timq4spmf"]
+[gd_scene load_steps=51 format=3 uid="uid://d2e7timq4spmf"]
 
 [ext_resource type="Script" uid="uid://smkmurvpef5p" path="res://scripts/Level.gd" id="1_jy2ey"]
 [ext_resource type="Texture2D" uid="uid://cuoplsoroy6aj" path="res://assets/Room Assets/patient area-cropped/wall type 3.png" id="1_vt4q2"]
-[ext_resource type="AudioStream" uid="uid://ctsx50i8udww2" path="res://scenes/Test_scenes/assets/Chiptune Vol5 Don't Call Me Main.wav" id="2_jy2ey"]
+[ext_resource type="AudioStream" uid="uid://dg57ikg6oq5o" path="res://assets/star_song_short_ofv.mp3" id="2_jy2ey"]
 [ext_resource type="Texture2D" uid="uid://do3mj8epvxu7p" path="res://assets/Room Assets/Wall Texture.jpg" id="2_kwi5v"]
 [ext_resource type="Texture2D" uid="uid://cxv1rnwcfxs77" path="res://assets/Room Assets/bathroom/tile texture.png" id="3_jy2ey"]
 [ext_resource type="Texture2D" uid="uid://b1uhq6q54b6wh" path="res://assets/Room Assets/patient area-cropped/floor.png" id="4_lpjb1"]
@@ -25,8 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://beweo6iwixawg" path="res://scenes/Characters/Dr_Lydia/Lydia - NPC Sprite.png" id="21_0783v"]
 [ext_resource type="PackedScene" uid="uid://b8j4o0xptxrfy" path="res://scenes/Characters/Dr_Evelyn_Morgan/dr_evelyn_morgan.tscn" id="22_h7tne"]
 [ext_resource type="Script" uid="uid://5wop7vhpqiy0" path="res://scenes/Test_scenes/dr_evelyn_morgan_vert_test.gd" id="23_pigoh"]
-[ext_resource type="Texture2D" uid="uid://cmvjdv74kv3v7" path="res://assets/Room Assets/black bars.png" id="24_ip2w4"]
-[ext_resource type="PackedScene" uid="uid://b4suvmpf53t64" path="res://scenes/Test_scenes/new_suitcase_inventory.tscn" id="25_vt4q2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2e10s"]
 blend_mode = 2
@@ -197,27 +195,10 @@ func process_player_walk(dist):
 normal = Vector2(-1, 0)
 distance = 120.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2e10s"]
-atlas = ExtResource("24_ip2w4")
-region = Rect2(0, 54, 2426, 972)
-
-[sub_resource type="GDScript" id="GDScript_g00ck"]
-resource_name = "Temp_button"
-script/source = "extends Button
-
-func on_pressed():
-	#BuildUnit.choose_new_seed()
-	#var new_script = load(\"res://scenes/Test_scenes/build_unit.gd\")
-	#get_tree().change_scene_to_packed(load(\"res://scenes/Test_scenes/Draggable.tscn\"))
-	Transition.change_scene(\"res://scenes/Test_scenes/Scene_Builder_Test.tscn\")
-	
-"
-
-[node name="SceneBuilderTest" type="Node2D" node_paths=PackedStringArray("inventory_manager")]
+[node name="SceneBuilderTest" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_jy2ey")
-inventory_manager = NodePath("CanvasLayer/GUI/Inventory")
-music = ExtResource("2_jy2ey")
+level_music = ExtResource("2_jy2ey")
 metadata/_edit_vertical_guides_ = [7238.0]
 metadata/_edit_horizontal_guides_ = [824.0, 96.0, 365.0]
 
@@ -872,65 +853,3 @@ limit_right = 7433
 limit_bottom = 1080
 position_smoothing_speed = 20.0
 editor_draw_limits = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 3
-
-[node name="GUI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_group_ = true
-
-[node name="BlackBars" type="TextureRect" parent="CanvasLayer/GUI"]
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-offset_right = 1900.0
-offset_bottom = 1080.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(1213, 540)
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_2e10s")
-expand_mode = 1
-
-[node name="Button" type="Button" parent="CanvasLayer/GUI"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 1709.0
-offset_top = -4.0
-offset_right = 1869.0
-offset_bottom = 69.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Change Scene"
-script = SubResource("GDScript_g00ck")
-
-[node name="Inventory" parent="CanvasLayer/GUI" instance=ExtResource("25_vt4q2")]
-
-[node name="Panel" type="Panel" parent="CanvasLayer/GUI"]
-visible = false
-layout_mode = 0
-offset_left = 221.0
-offset_top = 70.0
-offset_right = 623.0
-offset_bottom = 380.0
-
-[node name="Panel2" type="Panel" parent="CanvasLayer/GUI"]
-visible = false
-layout_mode = 0
-offset_left = 273.0
-offset_top = 576.0
-offset_right = 675.0
-offset_bottom = 886.0
-
-[connection signal="pressed" from="CanvasLayer/GUI/Button" to="CanvasLayer/GUI/Button" method="on_pressed"]

@@ -1,11 +1,17 @@
 join Lydia leftmost [animation="Slide In Left" length="0.3" wait="true"]
-Lydia: Welcome to the Pancea Research Facility, Dr Morgan.
+Lydia: Welcome to the Pancea Research Facility, Dr. Morgan.
 Lydia (pleased): This will be your home from now on.
-join drLundy rightmost [animation="Slide In Right" length="0.3" wait="true"]
-drLundy: HEY HEY, LUNDY IS HERE. WHAT'S UP!
 Lydia: Security can be quite strict with entrance and exit protocols... though I can't imagine you'll be stepping through that door again for a while.
-drLundy: Not to worry, this place has everything you need.
-Lydia: Dr. Morgan, I this time I request you remove all metal from your pockets and person
+Lydia: Not to worry, this place has everything you need.
+Lydia: Dr. Morgan, I this time I request you remove all metal from your pockets and person.
 - Yes
+	Evelyn: Okay. One second.
+	I dig through my pockets of my coat finding nothing but a pen and my passport. I hand over the pen, not sure if it's metal or not.
 - No
-Evelyn: Oh, Umm.. Okay. [input] There that should be everything.
+	Evelyn: Fuck you! Anarchy!!
+	Lydia: Are we really already doing the first death scene?
+	Evelyn: Fight me, bitch!
+	audio "res://addons/dialogic/Example Assets/sound-effects/typing4.wav" [volume="6.0"]
+	audio "res://addons/dialogic/Example Assets/sound-effects/typing5.wav"
+	Lydia removes her service weapon from it's holster and turns me into human swiss cheese.
+	Evelyn: Ahhh fuck, the consequences of my own choices!!! Blehhhhhhhhhhh *dead*

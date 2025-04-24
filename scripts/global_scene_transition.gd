@@ -33,7 +33,7 @@ func _ready() -> void:
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
 	if current_scene is Level:
-		load_level_music(current_scene.music)
+		load_level_music(current_scene.get_music())
 	
 func _setup_transition_layer() -> void:
 	_transition_layer = CanvasLayer.new()
@@ -197,10 +197,8 @@ func load_level_music(next_song:AudioStream):
 	if next_song == Music.get_current_song():
 		return OK
 
-	if Music.is_music_playing():
-		Music.transition_music(next_song)
-	else:
-		Music.start_music(next_song)
+	
+	Music.change_music(next_song)
 	
 func get_audio_track(scene_path) -> AudioStream:
 	preload_scene(scene_path)

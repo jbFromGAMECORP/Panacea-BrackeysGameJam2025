@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/star_song_short_ofv.mp3-ccb5e3c23f1c81733d6a2
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

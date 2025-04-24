@@ -26,12 +26,12 @@ func _process(_delta: float) -> void:
 	
 func _on_song_1_pressed() -> void:
 	var fade_time = $HSlider.value
-	music_manager.transition_music(load(\"res://assets/star_song_short_ofv.mp3\"),fade_time)
+	music_manager.change_music(load(\"res://assets/star_song_short_ofv.mp3\"),fade_time)
 
 
 func _on_song_2_pressed() -> void:
 	var fade_time = $HSlider.value
-	music_manager.transition_music(load(\"res://scenes/Test_scenes/assets/Chiptune Vol5 Don't Call Me Main.wav\"),fade_time)
+	music_manager.change_music(load(\"res://scenes/Test_scenes/assets/Chiptune Vol5 Don't Call Me Main.wav\"),fade_time)
 
 func _on_volume_down_pressed() -> void:
 	var player:GlobalMusicPlayer = music_manager.current_player # Replace with function body.

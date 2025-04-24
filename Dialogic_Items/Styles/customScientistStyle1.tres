@@ -56,7 +56,7 @@ overrides = {
 "name_label_use_global_font_size": "false",
 "normal_font": "\"res://assets/Fonts/Caudex-Regular.ttf\"",
 "text_custom_color": "Color(0.92, 0.92, 0.92, 1)",
-"text_size": "38.0",
+"text_size": "34.0",
 "text_use_global_color": "false",
 "text_use_global_font": "false",
 "text_use_global_size": "false",
