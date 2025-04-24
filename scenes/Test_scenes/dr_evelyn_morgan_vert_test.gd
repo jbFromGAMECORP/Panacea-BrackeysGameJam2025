@@ -15,11 +15,16 @@ const CAMERA_PUSH_DEFAULT = 75.0 # How far the camera pushes in the direction pl
 #endregion
 
 var player_state := "idle"
+var facing_direction := Vector2.RIGHT
+
+func _ready() -> void:
+	add_to_group("Persist")
 
 func _physics_process(delta):
 	var direction := Vector2(Input.get_axis("left","right"),Input.get_axis("up","down"))  # Will return Vector2 between (-1,0) and (1,0)
 	if direction:													# If pushing a direction (if not (0,0))
 		player_state = "walking"
+		facing_direction = direction.normalized()
 		if is_turning(direction):									# If current velocity opposes directional velocity
 			change_velocity(MAX_SPEED*direction,TURN_DECEL * delta)
 		else:
@@ -63,6 +68,7 @@ func play_anim():
 				$AnimatedSprite2D.flip_h = true
 			elif velocity.x > 1.0:
 				$AnimatedSprite2D.flip_h = false   				# Look left is true if moving left (-1,0) is true
+			update_facing_sprite()
 			$AnimatedSprite2D.play("e-walk")						# Only need 1 animation for now.
 	set_animation_speed()											# Scale animation based on Velocity.
 			
@@ -74,5 +80,16 @@ func set_animation_speed():
 			$AnimatedSprite2D.speed_scale = smoothstep(-150,MAX_WALKING_ANIMATION,abs(velocity.length())) #NOTE: -150 should be 0, but I find the curve feels better with a higher standing point.
 	pass
 			
+func update_facing_sprite():
+	if facing_direction.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	elif facing_direction.x > 0:
+		$AnimatedSprite2D.flip_h = false
+
+func load_from_save(pos: Vector2, facing: Vector2):
+	global_position = pos
+	facing_direction = facing
+	update_facing_sprite()
+
 func player():
 	pass
