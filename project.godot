@@ -25,6 +25,7 @@ Persistence="*res://scripts/global_scene_persistence.gd"
 Music="*res://scenes/global_music.tscn"
 Transition="*res://scripts/global_scene_transition.gd"
 JsonSaveManager="*res://scripts/json_save_manager.gd"
+Gui="*res://GUI.tscn"
 
 [dialogic]
 
